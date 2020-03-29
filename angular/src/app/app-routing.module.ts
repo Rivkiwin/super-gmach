@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './controllers/login/login.component';
+import { FundFormComponent } from './fund-form/fund-form.component';
+import { FundComponentComponent } from './fund-component/fund-component.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  {
+    path:"addNewFund",
+    component:FundFormComponent
+  },
+  {
+    path:"fund",
+    component:FundComponentComponent
+  }
+
 ];
 
 @NgModule({

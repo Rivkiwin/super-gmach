@@ -1,0 +1,6 @@
+<p>fund-component works!</p>
+ <button (click)="this.router.navigate(['addNewFund'])">add new fund</button> 
+<div *ngFor="let f of fund_list">
+    <div>{{f.id}}</div>
+    <div>{{f.name}}</div>
+</div> 
