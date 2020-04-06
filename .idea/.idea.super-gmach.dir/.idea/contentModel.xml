@@ -3,6 +3,96 @@
   <component name="ContentModelStore">
     <e p="C:\Users\רבקי\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\רבקי\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
-    <e p="C:\Users\רבקי\RiderProjects\super-gmach" t="IncludeFlat" />
+    <e p="C:\Users\רבקי\RiderProjects\super-gmach" t="IncludeFlat">
+      <e p="rd\angular\node_modules\@angular\animations" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\cdk" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\cli" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\common" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\compiler" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\compiler-cli" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\core" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\forms" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\material" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\platform-browser" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\platform-browser-dynamic" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular\router" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\architect" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\build-angular" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\build-optimizer" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\build-webpack" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\core" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@angular-devkit\schematics" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@babel\parser" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@babel\types" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@jest\types" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@ng-bootstrap\ng-bootstrap" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@ngtools\webpack" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\@types" t="IncludeRecursive">
+        <e p="babel__generator" t="IncludeRecursive" />
+        <e p="babel__template" t="IncludeRecursive" />
+        <e p="babel__traverse" t="IncludeRecursive" />
+        <e p="events" t="IncludeRecursive" />
+        <e p="istanbul-lib-coverage" t="IncludeRecursive" />
+        <e p="istanbul-lib-report" t="IncludeRecursive" />
+        <e p="jasmine" t="IncludeRecursive" />
+        <e p="jasminewd2" t="IncludeRecursive" />
+        <e p="jest" t="IncludeRecursive" />
+        <e p="minimatch" t="IncludeRecursive" />
+        <e p="node" t="IncludeRecursive" />
+        <e p="source-list-map" t="IncludeRecursive" />
+        <e p="yargs-parser" t="IncludeRecursive" />
+      </e>
+      <e p="rd\angular\node_modules\acorn" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\ajv" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\arg" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\blocking-proxy" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\bootstrap" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\bs-logger" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\canonical-path" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\chalk" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\chokidar" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\codelyzer" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\commander" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\coverage-istanbul-loader" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\dependency-graph" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\diff-sequences" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\fast-deep-equal" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\hash.js" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jasmine-core" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jasmine-spec-reporter" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jest" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jest-diff" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jest-get-type" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jest-worker" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\jquery" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\karma" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\karma-chrome-launcher" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\karma-coverage-istanbul-reporter" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\karma-jasmine" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\karma-jasmine-html-reporter" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\license-webpack-plugin" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\magic-string" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\portfinder" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\postcss" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\pretty-format" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\protractor" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\reflect-metadata" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\rollup" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\rxjs" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\source-map" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\sourcemap-codec" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\symbol-observable" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\terser" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\tree-kill" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\ts-jest" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\ts-node" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\tslib" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\tslint" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\upath" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\uri-js" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\webdriver-js-extender" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\worker-farm" t="IncludeRecursive" />
+      <e p="rd\angular\node_modules\zone.js" t="IncludeRecursive" />
+    </e>
   </component>
 </project>
