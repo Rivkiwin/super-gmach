@@ -1,1 +1,1 @@
-# super-gma
+# super-gmach
