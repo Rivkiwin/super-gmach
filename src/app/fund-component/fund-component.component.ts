@@ -9,8 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./fund-component.component.scss']
 })
 export class FundComponentComponent implements OnInit {
-fund_list:FundClass[]=[];
-  constructor(private fundServis:FundServiceService,private router:Router,private activeRouter:ActivatedRoute) {
+public fund_list:FundClass[]=[];
+  constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
     this.fund_list=this.fundServis.get_all();
    }
 

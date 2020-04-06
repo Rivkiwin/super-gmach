@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./fund-form.component.scss']
 })
 export class FundFormComponent implements OnInit {
-  private Form_new_fund:FormGroup;
-  constructor(private fundServic:FundServiceService,private router:Router) { }
-     
+  public Form_new_fund:FormGroup;
+  constructor(public fundServic:FundServiceService,public router:Router) { }
+
   ngOnInit(): void {
     this.Form_new_fund=new FormGroup({
       name:new FormControl()
     })
-  
+
   }
  addFund():void
     {
