@@ -1,6 +1,11 @@
 <p>fund-form works!</p>
 <form [formGroup]="Form_new_fund">
-    <label>name</label>
-    <input type="text" formControlName="name">
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label" for="name">name</label>
+    <div class="col-sm-10">
+      <input type="text" formControlName="name" class="form-control" type="text">
+    </div>
+  </div>
 </form>
-<button (click)="addFund()">add</button>
+<button (click)="addFund()" button type="submit" class="btn btn-primary">add</button>
+
