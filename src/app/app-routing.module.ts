@@ -6,12 +6,13 @@ import { FundComponentComponent } from './fund-component/fund-component.componen
 
 const routes: Routes = [
   {
-    path:"addNewFund",
-    component:FundFormComponent
-  },
-  {
     path:"fund",
-    component:FundComponentComponent
+    component:FundComponentComponent,
+    children:[{
+      path:"addNewFund",
+      component:FundFormComponent
+    },
+    ]
   }
 
 ];

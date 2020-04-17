@@ -1,10 +1,22 @@
 <!-- <mat-slider min="1" max="100" step="1" value="1"><input type="range"></mat-slider> -->
 <!-- <button (click)="router.navigate(['addNewBorrower'])">funds</button> -->
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a  routerLink="fund" class="nav-link active">קרנות</a>
+<ul class="nav nav-tabs-dark-lg bg-dark content-right justify-content-end">
+  <li class="nav-item bg-info">
+    <a  routerLink="fund" class="nav-link  active text-white" data-toggle="pill"  role="tab">קרנות</a>
+  </li>
+  <li class="nav-item bg-dark">
+    <a  routerLink="#" class="nav-link active text-white" data-toggle="pill"  role="tab">הלוואות</a>
+  </li>
+  <li class="nav-item bg-info">
+    <a  routerLink="#" class="nav-link active text-white">פרעונות</a>
+  </li>
+  <li class="nav-item bg-success">
+    <a  routerLink="#" class="nav-link active text-white">חברים בגמ"ח</a>
+  </li>
+    <li class="nav-item bg-dark">
+    <a  routerLink="#" class="nav-link active text-white">מצב הגמ"ח</a>
   </li>
 </ul>
 <router-outlet></router-outlet>
 
--outlet>
+
