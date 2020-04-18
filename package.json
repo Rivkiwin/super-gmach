@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "ng build --output-path dist"
   },
   "private": true,
   "dependencies": {
@@ -28,13 +28,13 @@
     "@angular/router": "~9.0.5",
     "@types/jest": "^25.1.4",
     "bootstrap": "^4.4.1",
-    "express": "4.17.1",
+    "express": "^4.17.1",
     "jest": "^25.2.3",
     "path": "0.12.7",
     "rxjs": "~6.5.4",
     "ts-jest": "^25.2.1",
     "tslib": "^1.10.0",
-    "typescript": "~3.7.5",
+    
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -54,6 +54,7 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
-    "tslint": "~5.18.0"
+    "tslint": "~5.18.0",
+    "typescript": "~3.7.5"
   }
 }
