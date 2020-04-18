@@ -10,7 +10,7 @@ import { FundFormComponent } from './fund-form/fund-form.component';
 import { FundComponentComponent } from './fund-component/fund-component.component';
 import { FundListComponent } from './fund-list/fund-list.component';
 import { FundDetailsComponent } from './fund-details/fund-details.component';
-// import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
+    HttpModule,
     ReactiveFormsModule
   ],
   providers: [],
