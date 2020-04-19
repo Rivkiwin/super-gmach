@@ -1,23 +1,7 @@
-﻿const express = require('express');
-const { Server } = require('ws');
+﻿app.use(express.static('./dist/super-gmach'));
 
-const PORT = process.env.PORT || 3000;
-const INDEX = '/index.html';
-require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
-
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-const wss = new Server({ server });
-
-wss.on('connection', (ws) => {
-  console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
+app.get(function(req, res) {
+  res.sendFile(index.html, {root: 'dist/super-gmach/'}
+);
 });
-
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+app.listen(process.env.PORT || 8080);
