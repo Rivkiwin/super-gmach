@@ -5,8 +5,8 @@ var serveStatic = require('serve-static')
 var app = express()
 app.use(express.static('./dist/super-gmach'));
 // app.use(serveStatic(path.join(super-gmach, 'dist')))
-app.get('/*', function(req, res) {
-  res.sendFile('index.html', {root: 'dist/super-gmach/'}
+app.get('', function(req, res) {
+  res.sendFile('index.html', {root: 'dist/super-gmach'}
 );
 });
 // var port = process.env.PORT || 8000
