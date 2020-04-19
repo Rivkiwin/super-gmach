@@ -3,6 +3,7 @@ const { Server } = require('ws');
 
 const PORT = process.env.PORT || 3000;
 const INDEX = '/index.html';
+require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
