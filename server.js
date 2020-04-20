@@ -2,7 +2,7 @@
     path = require('path');
 var app = express();
 var port = process.env.PORT || 8000;
-let server = require('http').Server(server);
+let server = require('http').Server(app);
 
 app.use(express.static(path.join(__dirname)));
 
