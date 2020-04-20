@@ -16,8 +16,7 @@ export class FundFormComponent implements OnInit {
     this.Form_new_fund=new FormGroup({
       name:new FormControl()
     })
-
-  }
+}
  addFund():void
     {
       this.fundServic.add(this.Form_new_fund.value);
