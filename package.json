@@ -32,6 +32,7 @@
     "@types/jquery": "^3.3.35",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "http-server": "^0.12.1",
     "jest": "^25.3.0",
     "path": "0.12.7",
     "rxjs": "^6.5.5",

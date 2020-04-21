@@ -1,19 +1,20 @@
-<div class="input-group input-group-sm mb-3 ">
+<div class=" d-flex justify-content-center">
+ <div class="input-group input-group-sm  w-50 ">
   <form [formGroup]="Form_new_fund" >
     <div class="form-group row ">
-      <div class="input-group col-sm-4 ">
+      <div class="input-group w-100 ">
         <input class="input-group-text " required formControlName="name" class="form-control" type="text" placeholder="הכנס שם">
         <div  class="input-group-prepend">
           <span  class=" input-group-text bg-dark text-light align-text-center"  for="name">:שם</span>
          </div>
         </div>
-       <div class="input-group col-sm-11 ">
+       <div class="input-group w-100 ">
        <input type="number" class="input-group-number col-sm-2"  min="0" required>
        <div  class="input-group-prepend ">
-       <span class="col input-group-text bg-dark text-light">:מספר חודשים חובה להשתתפות בקרן </span>
+       <span class="col input-group-text bg-dark text-light float-right d-flex">:מספר חודשי חברות חובה להשתתפות בקרן </span>
        </div>
        </div>
-       <div class="input-group col-sm-11 ">
+       <div class="input-group w-100 ">
         <div >
           <div class="form-check-inline list-inline">
             <input class="form-check-input list-inline" type="radio" name="gridRadios" id="gridRadios1" value="yes" checked>
@@ -28,13 +29,12 @@
             </label>
           </div>
         </div>
-        <legend class="col-form-label col-2 bg-dark text-light">:בלבד vip-ל</legend>
+        <legend class="col-form-label  bg-dark text-light w-50">:בלבד vip-ל</legend>
        </div>
-          <span class="col-sm-100 input-group-text bg-dark text-light">פרטים נוספים והערות:</span>
-          <textarea ></textarea>
+          <span class=" input-group-text bg-dark text-light w-100">:פרטים נוספים והערות</span>
+          <textarea  rows="4" class="w-100"></textarea>
     </div>
    </form>
   </div>
-  <button (click)="addFund()" button type="submit" class="btn btn-dark">הוסף</button>
-  
-  
+</div>
+<button (click)="addFund()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
