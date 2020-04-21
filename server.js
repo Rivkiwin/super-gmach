@@ -1,22 +1,14 @@
-﻿let express = require('express'),
-    path = require('path');
-var app = express();
-// var port = process.env.PORT || 8000;
-let server = require('http').Server(app);
+﻿const express = require('express');
+const path = require('path');
+const app = express();
 
-app.use(express.static(path.join(__dirname)));
+// Serve static files....
+app.use(express.static(__dirname + '/dist/super-gmach'));
 
-app.get('/', function(req, res, next){
-    res.sendStatus(200);
+// Send all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/super-gmach/index.html'));
 });
 
-app.get('/blog.html', function(req, res,next){
-    res.sendFile(path.join(__dirname+"/blog.html"));
-});
-server.listen(port, function() {
-  console.log("App is running on port " + port);
-});
-const port = process.env.PORT || 8800;
-server.listen(port, () => {
-  console.log("App is running on port " + port);
-});
+// default Heroku PORT
+app.listen(process.env.PORT || 3000);
