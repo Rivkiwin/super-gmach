@@ -6,7 +6,7 @@ const Article = require('@models/article');
 
 
 // Serve static files....
-app.use(express.static(__dirname + './dist/index.html'));
+app.use(express.static(__dirname + '/super-gmach/dist'));
 
 // Send all requests to index.html
 app.get('*', function (req, res) {
