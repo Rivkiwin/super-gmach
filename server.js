@@ -1,13 +1,18 @@
 ﻿const express = require('express');
-const path = require('path');
+//const path = require('path');
 const app = express();
+require('module-alias/register')
+const Article = require('@models/article');
+
 
 // Serve static files....
-app.use(express.static(__dirname + '/dist/super-gmach'));
+app.use(express.static(__dirname + './dist/index.html'));
 
 // Send all requests to index.html
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/super-gmach/index.html'));
+app.get('*', function (req, res) {
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
+
 });
 
 // default Heroku PORT
