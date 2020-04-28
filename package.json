@@ -40,7 +40,8 @@
     "ts-jest": "^25.4.0",
     "tslib": "^1.10.0",
     "typescript": "~3.7.5",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@angular/cli": "~9.0.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.7",
