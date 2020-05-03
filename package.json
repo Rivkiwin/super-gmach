@@ -18,7 +18,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.5",
-    "@angular/cli": "~9.0.5",
+    "@angular/cli": "~9.1.1",
     "@angular/common": "~9.0.5",
     "@angular/compiler": "~9.0.5",
     "@angular/compiler-cli": "~9.0.5",
@@ -34,19 +34,22 @@
     "express": "^4.17.1",
     "http-server": "^0.12.1",
     "jest": "^25.3.0",
+    "jquery": "^3.5.0",
+    "ng2-search-filter": "^0.5.1",
     "path": "0.12.7",
+    "popper.js": "^1.16.1",
     "rxjs": "^6.5.5",
     "serve": "^11.3.0",
+    "tooltip.js": "^1.3.3",
     "ts-jest": "^25.4.0",
     "tslib": "^1.10.0",
     "typescript": "~3.7.5",
-    "zone.js": "~0.10.2",
-    "@angular/cli": "~9.0.5"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.7",
     "@angular/language-service": "~9.0.5",
-    "@angular/cli": "~9.0.5",
+    "@angular/cli": "~9.1.4",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.12.36",
@@ -62,7 +65,6 @@
     "protractor": "^5.4.4",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    
     "typescript": "~3.7.5"
   }
 }

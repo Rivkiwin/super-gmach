@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import 'popper.js';
+import 'bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
