@@ -16,6 +16,14 @@ import { FundComponentComponent } from './componentes/fund-component/fund-compon
 import { FundFormComponent } from './componentes/fund-form/fund-form.component';
 import { FundListComponent } from './componentes/fund-list/fund-list.component';
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EditFundComponent } from './componentes/edit-fund/edit-fund.component';
+import { FriendsComponent } from './componentes/friend/friends/friends.component';
+import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
+import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
+import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
+// import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -25,20 +33,29 @@ import { FundDetailsComponent } from './componentes/fund-details/fund-details.co
     FundListComponent,
     FundDetailsComponent,
     FilterStatusPipe,
+    EditFundComponent,
+    FriendsComponent,
+    FriendsDetailsComponent,
+    FriendsFormComponent,
+    FriendsListComponent,
     
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    // MatSelectModule,
+    // MatFormFieldModule,
+    // NgxMatSelectSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

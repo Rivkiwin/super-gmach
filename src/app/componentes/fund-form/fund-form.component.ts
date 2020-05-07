@@ -28,5 +28,6 @@ export class FundFormComponent implements OnInit {
  addFund():void
     {
       this.fundServic.add(this.Form_new_fund.value);
+      
     }
 }

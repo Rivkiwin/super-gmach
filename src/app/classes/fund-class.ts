@@ -1,7 +1,11 @@
-export enum StatusE{
-    active,Waiting_for_approval,inactive 
-  }
+export enum StatusE {
+  active,
+  Waiting_for_approval,
+  inactive,
+  arge
+}
 export class FundClass {
+    [x: string]: any;
     static cnt:number;
     name:string;
     id:number;

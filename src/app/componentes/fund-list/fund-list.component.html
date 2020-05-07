@@ -1,12 +1,11 @@
-<div class="w-75 float-right mr-3">
+ <div class="w-75 float-right mr-3">
 <nav class="navbar navbar-dark bg-dark ">
     <form class="form-inline px-2">
-      <input class="form-control mr-sm-1 mx-1" type="search" placeholder="חיפוש" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 px-2">חפש</button> 
+      <input class="form-control mr-sm-1 mx-1" type="search" placeholder="חיפוש" aria-label="Search"  [(ngModel)]='name' [ngModelOptions]="{standalone: true}">
       <div class="form-group  position-relative pr-2" >
-        <select id="inputStatus" class="form-control">
+        <select id="inputStatus" class="form-control " required  >
           <option selected>All</option>
-          <option *ngFor="let status of key(statusE)">{{status}}</option>
+          <option *ngFor="let status of key(statusE)" >{{status}}</option>
         </select>
       </div>
     </form>
@@ -23,9 +22,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let fund of fund_list;  let i = index" >
+      <tr *ngFor="let fund of fund_list |filter:name let i = index" >
         <th scope="row">{{i+1}}</th>
-        <td><a class="link-dark" routerLink="/fund/FundDetails/{{fund.name}}">{{fund.name}}</a></td> 
+        <td><a class="link-dark" routerLink="/FundDetails/{{fund.name}}">{{fund.name}}</a></td> 
         <td >{{fund.status}}</td>
         <td>{{fund.Nun_friends}}</td>
         <td></td>
@@ -35,4 +34,4 @@
       </tr>
     </tbody>
 </table>
-</div>
+</div> 

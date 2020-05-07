@@ -31,6 +31,7 @@
     "@types/jest": "^25.2.1",
     "@types/jquery": "^3.3.35",
     "bootstrap": "^4.4.1",
+    "bootstrap-select": "^1.13.16",
     "express": "^4.17.1",
     "http-server": "^0.12.1",
     "jest": "^25.3.0",

@@ -4,10 +4,17 @@ import { FundComponentComponent } from './componentes/fund-component/fund-compon
 import { FundFormComponent } from './componentes/fund-form/fund-form.component';
 import { FundListComponent } from './componentes/fund-list/fund-list.component';
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
+import { FriendsComponent } from './componentes/friend/friends/friends.component';
+import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
+import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
 
 
 
 const routes: Routes = [
+  {
+    path:"FundDetails/:name",
+    component:FundDetailsComponent
+   },
   {
     path:"fund",
     component:FundComponentComponent,
@@ -19,15 +26,20 @@ const routes: Routes = [
       path:"FundList",
       component:FundListComponent
     },
-   {
-    path:"FundDetails/:name",
-    component:FundDetailsComponent
-   },
-   {
-    path:"FundDetails",
-    component:FundDetailsComponent
-   }
     ]
+  },
+  {
+    path:"friends",
+    component:FriendsComponent,
+    children:[{
+      path:"addNewFriend",
+      component:FriendsFormComponent
+    }
+     ,{
+       path:"addNewFriend",
+       component:FriendsListComponent
+     }
+     ]
   }
 
 ];

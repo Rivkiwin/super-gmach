@@ -2,7 +2,7 @@
   <form [formGroup]="Form_new_fund" class="w-75 float-right " >
     <div class="form-group row d-flex flex-row-reverse">
       <div class="input-group w-100 ">
-        <input class="input-group-text " required formControlName="name" class="form-control" type="text" placeholder="הכנס שם">
+        <input class="input-group-text " required formControlName="name"  class="form-control" type="text" placeholder="הכנס שם">
         <div  class="input-group-prepend">
           <span  class=" input-group-text bg-dark text-light align-text-center"  for="name">:שם</span>
          </div>
@@ -44,3 +44,10 @@
    </form>
 </div>
 <button (click)="addFund()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
+
+<div class="alert alert-warning alert-dismissible fade " role="alert" id="SuccessMessage">
+  <strong>Adding fund succeeded</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
