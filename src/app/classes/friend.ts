@@ -8,6 +8,7 @@ import { EmailValidator } from '@angular/forms';
 
 
 export class Friend {
+    funds:{};
     ID:number;
     First_name:string;
     Last_name:string;

@@ -36,7 +36,7 @@ const routes: Routes = [
       component:FriendsFormComponent
     }
      ,{
-       path:"addNewFriend",
+       path:"Friendlist",
        component:FriendsListComponent
      }
      ]

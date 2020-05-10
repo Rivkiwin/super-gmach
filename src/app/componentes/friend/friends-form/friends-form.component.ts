@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { StatusFriendE } from 'src/app/classes/friend';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/services/friends.service';
+import { FriendsComponent } from '../friends/friends.component';
 
 @Component({
   selector: 'app-friends-form',
@@ -14,7 +15,7 @@ export class FriendsFormComponent implements OnInit {
  statusFrind=StatusFriendE;
  card_Detalis:boolean=false;
  bank_detalis:boolean=false;
- seccses:boolean=false;
+ SuccessMessage:boolean=false;
  //key= Object.values;
  public keyStatusFriend():Array<string>
  {
@@ -55,7 +56,7 @@ export class FriendsFormComponent implements OnInit {
     
     try{
     this.FriendService.add(this.formFriend.value);
-     this.seccses=true;
+    this.SuccessMessage=true;
     }
     catch(error)
     {

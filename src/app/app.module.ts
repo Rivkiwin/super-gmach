@@ -22,6 +22,7 @@ import { FriendsComponent } from './componentes/friend/friends/friends.component
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
 import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
+import { ManagementComponent } from './management/management.component';
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
@@ -38,6 +39,7 @@ import { FriendsListComponent } from './componentes/friend/friends-list/friends-
     FriendsDetailsComponent,
     FriendsFormComponent,
     FriendsListComponent,
+    ManagementComponent,
     
 
   ],
