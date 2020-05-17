@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { StatusFriendE } from 'src/app/classes/friend';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/services/friends.service';
+
 import { FriendsComponent } from '../friends/friends.component';
 
 @Component({

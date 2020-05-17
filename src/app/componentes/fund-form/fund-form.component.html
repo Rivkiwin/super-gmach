@@ -8,26 +8,16 @@
          </div>
         </div>
        <div class="input-group w-100 float-right">
-       <input type="number" class="input-group-number  w-50"   min="0" required formControlName="month">
+       <input type="number" class="input-group-number  w-50" value="0"  min="0" required formControlName="month">
        <div  class="input-group-prepend w-50">
-       <span class="col input-group-text bg-dark text-light w-50">:מספר חודשי חברות חובה להשתתפות בקרן </span>
+       <span class="col input-group-text bg-dark text-light w-50">:מספר חודשי  חובה להשתתפות בקרן </span>
        </div>
        </div>
-       <div class="input-group w-100 d float-right">
-        <div >
-          <div class="form-check-inline list-inline w-25">
-            <input class="form-check-input list-inline" type="radio" name="gridRadios" id="gridRadios1" value="true" checked>
-            <label class="form-check-label " for="gridRadios1">
-             כן
-            </label>
-          </div>
-          <div class="form-check-inline list-inline w-25">
-            <input class="form-check-input list-inline" type="radio" name="gridRadios" id="gridRadios2" value="fals">
-            <label class="form-check-label" for="gridRadios2">
-             לא
-            </label>
-          </div>
-        </div>
+        <div class="col">
+          <input class="form-check-input" type="checkbox" value="true" id="vipCheck" formControlName="month">
+          <label class="form-check-label" for="vipCheck">
+              VIP
+          </label>
         <legend class="col-form-label  bg-dark text-light w-50 float-right">:בלבד vip-ל</legend>
        </div>
           <span class=" input-group-text bg-dark text-light w-100">:פרטים נוספים והערות</span>
@@ -37,7 +27,7 @@
       <label for="selectStatus">Status fund</label>
       <select class="form-control" id="selectStatus" formControlName="status">
         <option>choose option</option>
-        <option *ngFor="let status of key(statusE)" >{{status}}</option>
+        <option *ngFor="let status of keyStatusFund()" >{{status}}</option>
       </select>
     </div>
 
@@ -51,3 +41,6 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+
+

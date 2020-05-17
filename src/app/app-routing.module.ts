@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FundComponentComponent } from './componentes/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/fund-form/fund-form.component';
-import { FundListComponent } from './componentes/fund-list/fund-list.component';
-import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
 import { FriendsComponent } from './componentes/friend/friends/friends.component';
 import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
+import { FundListComponent } from './funds/fund-list/fund-list.component';
+import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
 
 
 

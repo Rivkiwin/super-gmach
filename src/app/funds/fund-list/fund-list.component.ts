@@ -15,7 +15,13 @@ export class FundListComponent implements OnInit {
   public fund_list:FundClass[]=[];
   statusE=StatusE;
   name:string;
+  status:string;
   key=Object.values;
+  public keyStatusFund():Array<string>
+  {
+   var keys = Object.keys(this.statusE);
+   return keys.slice(keys.length / 2);
+  }
   constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
     this.fund_list=this.fundServis.get_all();
    }

@@ -14,7 +14,7 @@ import { httpFactory } from '@angular/http/src/http_module';
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
 import { FundComponentComponent } from './componentes/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/fund-form/fund-form.component';
-import { FundListComponent } from './componentes/fund-list/fund-list.component';
+
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditFundComponent } from './componentes/edit-fund/edit-fund.component';
@@ -23,6 +23,10 @@ import { FriendsDetailsComponent } from './componentes/friend/friends-details/fr
 import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
 import { ManagementComponent } from './management/management.component';
+import { FilterMonthsPipe } from './pipes/filter-months.pipe';
+import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
+import { FundListComponent } from './funds/fund-list/fund-list.component';
+
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
@@ -40,6 +44,8 @@ import { ManagementComponent } from './management/management.component';
     FriendsFormComponent,
     FriendsListComponent,
     ManagementComponent,
+    FilterMonthsPipe,
+    FriendOfFundComponent,
     
 
   ],

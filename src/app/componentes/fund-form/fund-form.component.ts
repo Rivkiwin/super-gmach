@@ -13,7 +13,11 @@ import { FundServiceService } from 'src/app/services/fund-service.service';
 export class FundFormComponent implements OnInit {
   public Form_new_fund:FormGroup;
   statusE=StatusE;
-  key=Object.values;
+  public keyStatusFund():Array<string>
+  {
+   var keys = Object.keys(this.statusE);
+   return keys.slice(keys.length / 2);
+  }
   constructor(public fundServic:FundServiceService,public router:Router) { }
 
   ngOnInit(): void {
@@ -28,6 +32,5 @@ export class FundFormComponent implements OnInit {
  addFund():void
     {
       this.fundServic.add(this.Form_new_fund.value);
-      
     }
 }
