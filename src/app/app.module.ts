@@ -26,6 +26,7 @@ import { ManagementComponent } from './management/management.component';
 import { FilterMonthsPipe } from './pipes/filter-months.pipe';
 import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
 import { FundListComponent } from './funds/fund-list/fund-list.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -65,7 +66,10 @@ import { FundListComponent } from './funds/fund-list/fund-list.component';
     // MatFormFieldModule,
     // NgxMatSelectSearchModule
   ],
+  // schemas: [
+  //   CUSTOM_ELEMENTS_SCHEMA
+  // ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {FriendOfFundComponent }

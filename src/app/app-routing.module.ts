@@ -7,6 +7,7 @@ import { FriendsFormComponent } from './componentes/friend/friends-form/friends-
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
 import { FundListComponent } from './funds/fund-list/fund-list.component';
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
+import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
 
 
 
@@ -45,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

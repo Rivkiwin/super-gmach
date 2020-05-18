@@ -12,14 +12,14 @@ import { Friend } from 'src/app/classes/friend';
 })
 export class FriendOfFundComponent implements OnInit {
   
-  fund:FundClass=FundDetailsComponent.funds;
+ 
   constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-  getFundFriend():Friend[]
-  {
-    return this.friendService.GetAll().filter(x=> x.funds.filter(y=>y=this.fund.id));
+  // getFundFriend():Friend[]
+  // {
+  //  // return this.friendService.GetAll().filter(x=> x.funds.filter(y=>y=this.fund.id));
     
-  }
+  // }
 }
