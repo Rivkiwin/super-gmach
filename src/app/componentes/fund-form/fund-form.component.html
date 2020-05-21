@@ -1,46 +1,42 @@
 <div class="float-right w-75 mx-5">
-  <form [formGroup]="Form_new_fund" class="w-75 float-right " >
-    <div class="form-group row d-flex flex-row-reverse">
-      <div class="input-group w-100 ">
-        <input class="input-group-text " required formControlName="name"  class="form-control" type="text" placeholder="הכנס שם">
-        <div  class="input-group-prepend">
-          <span  class=" input-group-text bg-dark text-light align-text-center"  for="name">:שם</span>
-         </div>
-        </div>
-       <div class="input-group w-100 float-right">
-       <input type="number" class="input-group-number  w-50" value="0"  min="0" required formControlName="month">
-       <div  class="input-group-prepend w-50">
-       <span class="col input-group-text bg-dark text-light w-50">:מספר חודשי  חובה להשתתפות בקרן </span>
-       </div>
-       </div>
-        <div class="col">
-          <input class="form-check-input" type="checkbox" value="true" id="vipCheck" formControlName="month">
-          <label class="form-check-label" for="vipCheck">
-              VIP
-          </label>
-        <legend class="col-form-label  bg-dark text-light w-50 float-right">:בלבד vip-ל</legend>
-       </div>
-          <span class=" input-group-text bg-dark text-light w-100">:פרטים נוספים והערות</span>
-          <textarea  rows="4" class="w-100" formControlName="Details"></textarea>
+  <form [formGroup]="Form_new_fund" class="mx-auto w-75 mt-auto">
+    <div class="row">
+      <div class="col ">
+        <label for="name">name:</label>
+        <input class="form-control" required formControlName="name" type="text" placeholder="הכנס שם">
+      </div>
+      <div class="col">
+        <label for="selectStatus">Status fund</label>
+        <select class="form-control" id="selectStatus" formControlName="status">
+          <option>choose option</option>
+          <option *ngFor="let status of keyStatusFund()">{{status}}</option>
+        </select>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="selectStatus">Status fund</label>
-      <select class="form-control" id="selectStatus" formControlName="status">
-        <option>choose option</option>
-        <option *ngFor="let status of keyStatusFund()" >{{status}}</option>
-      </select>
+    <div class="row">
+      <div class="col">
+        <label for="month">:מספר חודשי חובה להשתתפות בקרן </label>
+        <input type="number" class="form-control" value="0" min="0" required formControlName="month">
+      </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox" value="true" id="vipCheck" formControlName="required_vip">
+        <label class="form-check-label" for="vipCheck">
+          VIP
+        </label>
+      </div>
     </div>
-
-   </form>
+    <div class="row">
+      <div class="col">
+      <span class=" input-group-text bg-dark text-light w-100">:פרטים נוספים והערות</span>
+      <textarea rows="4" class="w-100" formControlName="Details"></textarea>
+    </div>
+    </div>
+  </form>
 </div>
 <button (click)="addFund()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
-
 <div class="alert alert-warning alert-dismissible fade " role="alert" id="SuccessMessage">
-  <strong>Adding fund succeeded</strong> 
+  <strong>Adding fund succeeded</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-
-

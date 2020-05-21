@@ -26,6 +26,7 @@ export class FundFormComponent implements OnInit {
       Details:new FormControl(),
       month:new FormControl(),
       status:new FormControl(),
+      required_vip:new FormControl()
     })
    
 }

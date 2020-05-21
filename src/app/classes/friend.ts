@@ -8,7 +8,7 @@ import { EmailValidator } from '@angular/forms';
 
 
 export class Friend {
-    funds:number[]=[1];
+    funds:number[]=[];
     ID:number;
     First_name:string;
     Last_name:string;
@@ -45,6 +45,7 @@ export class Friend {
     //  this.Payment_details.CVV=CVV;this.Payment_details.card_number=card_number;this.Payment_details.validity=validity.toString();this.Payment_details.credit=credit;
     //  this.set_Bank_details(Accoun_number, Bank, Branch, collection_date, collection_dateCard);
      this.Join_date=new Date();
+
     }
 
     private set_Bank_details(Accoun_number: number, Bank: string, Branch: string, collection_date: Date, collection_dateCard: Data) {
