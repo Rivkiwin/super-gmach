@@ -14,7 +14,6 @@ import { httpFactory } from '@angular/http/src/http_module';
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
 import { FundComponentComponent } from './componentes/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/fund-form/fund-form.component';
-
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditFundComponent } from './componentes/edit-fund/edit-fund.component';
@@ -27,12 +26,18 @@ import { FilterMonthsPipe } from './pipes/filter-months.pipe';
 import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
 import { FundListComponent } from './funds/fund-list/fund-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
+import { AddNewComponent } from './componentes/petty-cash/Expenditure/add-new/add-new.component';
+import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
+import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
+  
   declarations: [
+
     AppComponent,
     FundComponentComponent,
     FundFormComponent,
@@ -47,18 +52,21 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
     ManagementComponent,
     FilterMonthsPipe,
     FriendOfFundComponent,
+    ExpenditureComponent,
+    ListExpenditureComponent,
     
-
+    AddNewComponent,
+    
+    PettyCashComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
-    ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     Ng2SearchPipeModule,

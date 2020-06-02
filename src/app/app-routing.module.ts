@@ -8,6 +8,10 @@ import { FriendsListComponent } from './componentes/friend/friends-list/friends-
 import { FundListComponent } from './funds/fund-list/fund-list.component';
 import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
 import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
+import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
+import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
+import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
+import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
 
 
 
@@ -28,6 +32,22 @@ const routes: Routes = [
       component:FundListComponent
     },
     ]
+  },
+  {
+    path:"patty_cash",
+    component:PettyCashComponent,
+    children:[{
+      path:"Expenditure",
+      component:ExpenditureComponent,
+      children:[{
+        path:"add_new",
+        component:AddNewComponent
+      },
+      {
+        path:"view_Expenditure",
+        component:ListExpenditureComponent
+      }]
+    }]
   },
   {
     path:"friends",
