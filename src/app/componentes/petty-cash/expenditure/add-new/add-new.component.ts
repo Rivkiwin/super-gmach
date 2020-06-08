@@ -13,6 +13,7 @@ import { Payment_FormE } from 'src/app/classes/expense';
 export class AddNewComponent implements OnInit {
 public formAddExpense:FormGroup;
 public EPayment_FormE=Payment_FormE;
+public Contemporary_expenditure:boolean;
    public keyPayment_Form():Array<string>
  {
   var keys= Object.keys(this.EPayment_FormE);
@@ -23,14 +24,20 @@ public EPayment_FormE=Payment_FormE;
   {
     this.serviceExpense.add(this.formAddExpense.value)
   }
+  public Show()
+  {
+    this.Contemporary_expenditure=!this.Contemporary_expenditure;
+  }
   ngOnInit(): void {
+    this.Contemporary_expenditure=false;
     this.formAddExpense=new FormGroup(
       {
         date:new FormControl(),
         Expense_amount:new FormControl(),
         Purpose:new FormControl(),
         file:new FormControl(),
-        PaymentForm:new FormControl()
+        PaymentForm:new FormControl(),
+        Contemporary:new FormControl()
       })
     
   }

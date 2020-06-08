@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FundClass } from '../../classes/fund-class';
+
 
 import { Router, ActivatedRoute } from '@angular/router';
+import { FundClass } from 'src/app/classes/fund-class';
 import { FundServiceService } from 'src/app/services/fund-service.service';
+
 // import * as $ from "jquery";
 
 @Component({

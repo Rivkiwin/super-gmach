@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { FundComponentComponent } from './componentes/fund-component/fund-component.component';
-import { FundFormComponent } from './componentes/fund-form/fund-form.component';
+import { Routes, RouterModule } from '@angular/router';;
 import { FriendsComponent } from './componentes/friend/friends/friends.component';
 import { FriendsFormComponent } from './componentes/friend/friends-form/friends-form.component';
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
-import { FundListComponent } from './funds/fund-list/fund-list.component';
-import { FundDetailsComponent } from './componentes/fund-details/fund-details.component';
-import { FriendOfFundComponent } from './funds/friend-of-fund/friend-of-fund.component';
 import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
+import { FundDetailsComponent } from './componentes/funds/fund-details/fund-details.component';
+import { FundComponentComponent } from './componentes/funds/fund-component/fund-component.component';
+import { FundFormComponent } from './componentes/funds/fund-form/fund-form.component';
+import { FundListComponent } from './componentes/funds/fund-list/fund-list.component';
 
 
 
@@ -33,17 +32,18 @@ const routes: Routes = [
     },
     ]
   },
+  
   {
     path:"patty_cash",
     component:PettyCashComponent,
     children:[{
       path:"Expenditure",
       component:ExpenditureComponent,
-      children:[{
-        path:"add_new",
-        component:AddNewComponent
-      },
-      {
+      children:[
+        {
+          path:"add_new_Expenditure",
+          component:AddNewComponent
+        }, {
         path:"view_Expenditure",
         component:ListExpenditureComponent
       }]

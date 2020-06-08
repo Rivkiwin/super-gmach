@@ -10,7 +10,7 @@ import { FundClass, StatusE } from 'src/app/classes/fund-class';
 @Component({
   selector: 'app-fund-list',
   templateUrl: './fund-list.component.html',
-  styleUrls: ['./fund-list.component.scss','../../../ ']
+  styleUrls: ['./fund-list.component.scss']
 })
 export class FundListComponent implements OnInit {
   public fund_list:FundClass[]=[];
