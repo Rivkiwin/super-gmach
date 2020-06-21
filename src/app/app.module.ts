@@ -1,17 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import '@angular/compiler';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { from } from 'rxjs';
+
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import 'popper.js';
-import 'bootstrap';
-import { httpFactory } from '@angular/http/src/http_module';
+
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
+import { CommonModule } from '@angular/common';  
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditFundComponent } from './componentes/funds/edit-fund/edit-fund.component';
@@ -32,6 +30,8 @@ import { FundFormComponent } from './componentes/funds/fund-form/fund-form.compo
 import { FundListComponent } from './componentes/funds/fund-list/fund-list.component';
 import { FundDetailsComponent } from './componentes/funds/fund-details/fund-details.component';
 import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend-of-fund.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
@@ -63,9 +63,10 @@ import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend
     PettyCashComponent,
   ],
   imports: [
+    BrowserModule,
+    CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -73,6 +74,7 @@ import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend
     HttpModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+ 
     // MatSelectModule,
     // MatFormFieldModule,
     // NgxMatSelectSearchModule
@@ -80,7 +82,7 @@ import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend
   // schemas: [
   //   CUSTOM_ELEMENTS_SCHEMA
   // ],
-  providers: [],
+  
   bootstrap: [AppComponent]
 })
-export class AppModule {FriendOfFundComponent }
+export class AppModule { }

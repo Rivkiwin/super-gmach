@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SuperGmachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SuperGmachEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="SuperGmachModel.User" />
+    <EntitySet Name="Management_status" EntityType="SuperGmachModel.Management_status" />
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bank" Type="Int32" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VIP" Type="Boolean" />
+    <Property Name="frirnd" Type="Boolean" />
+    <Property Name="status_User" Type="Int32" />
+    <Property Name="Management_status" Type="Int32" />
+    <Property Name="phon1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="phon2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="email_addres" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="street" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="num_street" Type="Int32" Nullable="false" />
+    <Property Name="bankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="brunchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="account_number" Type="Int32" Nullable="false" />
+    <Property Name="ciling" Type="Int32" Nullable="false" />
+    <Property Name="collection_date" Type="Int32" Nullable="false" />
+    <Property Name="remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="joining_date" Type="DateTime" Precision="0" />
+    <Property Name="Manager_permissions" Type="Int32" />
+    <Property Name="Scoring" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Management_status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

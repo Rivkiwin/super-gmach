@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Management_status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="15" />
+          <Property Name="Color" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bank" Type="int" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIP" Type="bit" />
+          <Property Name="frirnd" Type="bit" />
+          <Property Name="status_User" Type="int" />
+          <Property Name="Management_status" Type="int" />
+          <Property Name="phon1" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="phon2" Type="varchar" MaxLength="10" />
+          <Property Name="email_addres" Type="varchar" MaxLength="260" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="num_street" Type="int" Nullable="false" />
+          <Property Name="bankName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="brunchName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="account_number" Type="int" Nullable="false" />
+          <Property Name="ciling" Type="int" Nullable="false" />
+          <Property Name="collection_date" Type="int" Nullable="false" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="4000" />
+          <Property Name="joining_date" Type="date" />
+          <Property Name="Manager_permissions" Type="int" />
+          <Property Name="Scoring" Type="int" />
+        </EntityType>
+        <EntityContainer Name="SuperGmachModelStoreContainer">
+          <EntitySet Name="Management_status" EntityType="Self.Management_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SuperGmachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SuperGmachEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="SuperGmachModel.User" />
+          <EntitySet Name="Management_status" EntityType="SuperGmachModel.Management_status" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bank" Type="Int32" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VIP" Type="Boolean" />
+          <Property Name="frirnd" Type="Boolean" />
+          <Property Name="status_User" Type="Int32" />
+          <Property Name="Management_status" Type="Int32" />
+          <Property Name="phon1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="phon2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="email_addres" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="street" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="num_street" Type="Int32" Nullable="false" />
+          <Property Name="bankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brunchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="account_number" Type="Int32" Nullable="false" />
+          <Property Name="ciling" Type="Int32" Nullable="false" />
+          <Property Name="collection_date" Type="Int32" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="joining_date" Type="DateTime" Precision="0" />
+          <Property Name="Manager_permissions" Type="Int32" />
+          <Property Name="Scoring" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Management_status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SuperGmachModelStoreContainer" CdmEntityContainer="SuperGmachEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SuperGmachModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Scoring" ColumnName="Scoring" />
+                <ScalarProperty Name="Manager_permissions" ColumnName="Manager_permissions" />
+                <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="collection_date" ColumnName="collection_date" />
+                <ScalarProperty Name="ciling" ColumnName="ciling" />
+                <ScalarProperty Name="account_number" ColumnName="account_number" />
+                <ScalarProperty Name="brunchName" ColumnName="brunchName" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="num_street" ColumnName="num_street" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="email_addres" ColumnName="email_addres" />
+                <ScalarProperty Name="phon2" ColumnName="phon2" />
+                <ScalarProperty Name="phon1" ColumnName="phon1" />
+                <ScalarProperty Name="Management_status" ColumnName="Management_status" />
+                <ScalarProperty Name="status_User" ColumnName="status_User" />
+                <ScalarProperty Name="frirnd" ColumnName="frirnd" />
+                <ScalarProperty Name="VIP" ColumnName="VIP" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Management_status">
+            <EntityTypeMapping TypeName="SuperGmachModel.Management_status">
+              <MappingFragment StoreEntitySet="Management_status">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

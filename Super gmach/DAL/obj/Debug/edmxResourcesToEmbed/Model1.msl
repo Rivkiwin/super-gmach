@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SuperGmachModelStoreContainer" CdmEntityContainer="SuperGmachEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SuperGmachModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Scoring" ColumnName="Scoring" />
+          <ScalarProperty Name="Manager_permissions" ColumnName="Manager_permissions" />
+          <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="collection_date" ColumnName="collection_date" />
+          <ScalarProperty Name="ciling" ColumnName="ciling" />
+          <ScalarProperty Name="account_number" ColumnName="account_number" />
+          <ScalarProperty Name="brunchName" ColumnName="brunchName" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="num_street" ColumnName="num_street" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="email_addres" ColumnName="email_addres" />
+          <ScalarProperty Name="phon2" ColumnName="phon2" />
+          <ScalarProperty Name="phon1" ColumnName="phon1" />
+          <ScalarProperty Name="Management_status" ColumnName="Management_status" />
+          <ScalarProperty Name="status_User" ColumnName="status_User" />
+          <ScalarProperty Name="frirnd" ColumnName="frirnd" />
+          <ScalarProperty Name="VIP" ColumnName="VIP" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Management_status">
+      <EntityTypeMapping TypeName="SuperGmachModel.Management_status">
+        <MappingFragment StoreEntitySet="Management_status">
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

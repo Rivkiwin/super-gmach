@@ -1,0 +1,12 @@
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\DAL.exe.config
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\DAL.exe
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\DAL.pdb
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\EntityFramework.dll
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\EntityFramework.xml
+C:\b\final project\c#\Super gmach\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\b\final project\c#\Super gmach\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\b\final project\c#\Super gmach\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\b\final project\c#\Super gmach\DAL\obj\Debug\DAL.exe
+C:\b\final project\c#\Super gmach\DAL\obj\Debug\DAL.pdb
+C:\b\final project\c#\Super gmach\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

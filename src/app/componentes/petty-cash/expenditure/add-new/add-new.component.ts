@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ExpenditureService } from 'src/app/services/expenditure.service';
 import { Payment_FormE } from 'src/app/classes/expense';
+import { ExpenditureService } from 'src/app/services/expenditure.service';
 
 @Component({
   selector: 'app-add-new',
@@ -25,11 +25,11 @@ public Contemporary_expenditure:boolean;
     this.serviceExpense.add(this.formAddExpense.value)
   }
   public Show()
-  {
+  {debugger;
     this.Contemporary_expenditure=!this.Contemporary_expenditure;
   }
   ngOnInit(): void {
-    this.Contemporary_expenditure=false;
+    this.Contemporary_expenditure=true;
     this.formAddExpense=new FormGroup(
       {
         date:new FormControl(),

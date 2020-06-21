@@ -3,7 +3,7 @@
 <p>add-new works!</p>
     <form  formGroup="formAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
-            <div class="col" *ngIf="!Contemporary_expenditure">
+            <div class="col"[hidden]="Contemporary_expenditure==false" >
                 <label for="date">Date</label>
                 <input type="date" class="form-control" formControlName="date" placeholder="date">
             </div>
@@ -21,7 +21,7 @@
                 <label for="Purpose">Purpose</label>
                 <input type="text" class="form-control" formControlName="Purpose" placeholder="Purpose">
             </div>
-            <div class="col" *ngIf="Contemporary_expenditure">    
+            <div class="col"   [hidden]="Contemporary_expenditure!=false">    
                 <label for="exampleFormControlFile1">Payment Form</label>
                <select class="selectpicker form-control" data-live-search="true">
                    <option *ngFor="let p on keyPayment_Form()">{{p}}</option>
@@ -37,3 +37,4 @@
      </form>
     <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">add</button>
 </div>
+<p>{{Contemporary_expenditure!=false}}</p>
