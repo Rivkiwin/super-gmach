@@ -49,7 +49,8 @@ export class FriendsFormComponent implements OnInit {
      Remarks:new FormControl(),
      collection_dateCard:new FormControl(),
      collection_date:new FormControl(),
-     Direct_debit:new FormControl()
+     Direct_debit:new FormControl(),
+     father_name:new FormControl()
     })
   }
   Add():void

@@ -32,7 +32,7 @@ import { FundDetailsComponent } from './componentes/funds/fund-details/fund-deta
 import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend-of-fund.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AgGridModule } from 'ag-grid-angular';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -42,6 +42,7 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [
 
     AppComponent,
+   
     FundComponentComponent,
     FundFormComponent,
     FundListComponent,
@@ -67,6 +68,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    AgGridModule.withComponents([]),
     AppRoutingModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -74,7 +76,6 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpModule,
     HttpClientModule,
     Ng2SearchPipeModule,
- 
     // MatSelectModule,
     // MatFormFieldModule,
     // NgxMatSelectSearchModule

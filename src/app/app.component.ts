@@ -12,6 +12,7 @@ import 'bootstrap';
 })
 export class AppComponent implements OnInit{
   title = 'angular2';
+  
   constructor(private router:Router){}
 ngOnInit(){
  /// this.router.navigate(["login"])

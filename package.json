@@ -30,6 +30,8 @@
     "@angular/router": "~9.0.5",
     "@types/jest": "^25.2.1",
     "@types/jquery": "^3.3.35",
+    "ag-grid-angular": "^23.2.1",
+    "ag-grid-community": "^23.2.1",
     "bootstrap": "^4.4.1",
     "bootstrap-icons": "^1.0.0-alpha3",
     "bootstrap-select": "^1.13.16",

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace DTO.classes.user_classes
         [DataMember]
         public string Last_name { get; set; }
         [DataMember]
-        public Manager _Manager { get; set; }
+        public int _Manager { get; set; }
         [DataMember]
         public bool Vip { get; set; }
         [DataMember]
@@ -45,10 +45,14 @@ namespace DTO.classes.user_classes
         public DateTime Joining_date { get; set; }
         [DataMember]
         public int Scoring { get; set; }
+    [DataMember]
+    public string Father_name { get; set; }
+    public string Status_reason { get; set; }
 
-        public UserDTO() { }
-        public UserDTO(string first_name,string lName,Manager manager, Boolean vip,int id_user, Status_userE status_user, Management_statusDTO management_status,
-            Communication communication_ways, Bank_details bank_Details,Boolean friend)
+
+    public UserDTO() { }
+        public UserDTO(string first_name,string lName,int manager, bool vip,int id_user, Status_userE status_user, Management_statusDTO management_status,string Status_reason,
+            Communication communication_ways, Bank_details bank_Details,bool friend,string father_name)
         {
             Friend = friend;   
             //Id = cnt;
@@ -63,16 +67,14 @@ namespace DTO.classes.user_classes
             Bank_Details= bank_Details;
          //   FindEquals(this);
             Joining_date = DateTime.Now;
+           Father_name = father_name;
+             
         }
-        public UserDTO(string first_name, string lName, Manager manager, Boolean vip, int id_user, Status_userE status_user, Management_statusDTO management_status, Communication communication_ways, Bank_details bank_Details, string remarks,bool friend) :this(first_name, lName, manager, vip, id_user, status_user, management_status, communication_ways, bank_Details, friend)
+        public UserDTO(string first_name, string lName, int manager, Boolean vip, int id_user, Status_userE status_user, Management_statusDTO management_status, Communication communication_ways, Bank_details bank_Details, string remarks,bool friend,string father_name, string Status_reason) :this(first_name, lName, manager, vip, id_user, status_user, management_status,Status_reason, communication_ways, bank_Details, friend,father_name)
         {
             Remarks = remarks;
         }
-        public Boolean Is_he_manager()
-           
-        {
-            return _Manager == null ? false : true;
-        }
+
 
         //public void FindEquals(User u)
         //{
@@ -80,8 +82,8 @@ namespace DTO.classes.user_classes
         //}
         public override string ToString()
         {
-            return " user: "+First_name+" "+Last_name+" Manager: "+Is_he_manager()+ " VIP: "+Vip+" Id user "+Id_user+"   Status:"+Status_user.ToString()+ " Remarks: " + Remarks+
-              Management_status.ToString()+ "  \nCommunication_ways " + Communication_ways.ToString()+ " \nbank detalis " + Bank_Details.ToString(); ;
+            return " user: "+First_name+" "+Last_name+" Manager: "+Management_status+ " VIP: "+Vip+" Id user "+Id_user+"   Status:"+Status_user.ToString()+ " Remarks: " + Remarks+
+          "\nCommunication_ways " + Communication_ways.ToString()+ " \nbank detalis " + Bank_Details.ToString(); ;
         }
         //public override bool Equals(Object u)
         //{

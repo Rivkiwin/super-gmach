@@ -38,5 +38,7 @@ namespace DAL
         public Nullable<System.DateTime> joining_date { get; set; }
         public Nullable<int> Manager_permissions { get; set; }
         public Nullable<int> Scoring { get; set; }
+        public string father_name { get; set; }
+        public string Status_reason { get; set; }
     }
 }

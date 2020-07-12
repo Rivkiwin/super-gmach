@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLclasses\Management_statusBL.cs" />
+    <Compile Include="convertions\Mangagment_status_convert.cs" />
     <Compile Include="convertions\userconvert.cs" />
     <Compile Include="BLclasses\UserBL.cs" />
     <Compile Include="Program.cs" />

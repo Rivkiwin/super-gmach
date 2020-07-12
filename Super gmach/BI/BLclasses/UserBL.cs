@@ -1,4 +1,4 @@
-﻿using DTO.classes.user_classes;
+using DTO.classes.user_classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DAL;
 using BL.convertions;
 
-namespace BL.NewFolder1
+namespace BL.BLclasses
 {
    public class UserBL
     {
@@ -18,6 +18,7 @@ namespace BL.NewFolder1
             {
                 foreach (User u in db.Users)
                 {
+                    
                     userList.Add(Userconvert.DALtoDTO(u));
                 }
 

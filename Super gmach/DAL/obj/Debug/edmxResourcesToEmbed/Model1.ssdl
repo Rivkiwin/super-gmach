@@ -36,6 +36,8 @@
     <Property Name="joining_date" Type="date" />
     <Property Name="Manager_permissions" Type="int" />
     <Property Name="Scoring" Type="int" />
+    <Property Name="father_name" Type="varchar" MaxLength="260" />
+    <Property Name="Status_reason" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityContainer Name="SuperGmachModelStoreContainer">
     <EntitySet Name="Management_status" EntityType="Self.Management_status" Schema="dbo" store:Type="Tables" />

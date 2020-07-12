@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="SuperGmachModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Status_reason" ColumnName="Status_reason" />
+          <ScalarProperty Name="father_name" ColumnName="father_name" />
           <ScalarProperty Name="Scoring" ColumnName="Scoring" />
           <ScalarProperty Name="Manager_permissions" ColumnName="Manager_permissions" />
           <ScalarProperty Name="joining_date" ColumnName="joining_date" />

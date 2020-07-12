@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -34,6 +34,11 @@ namespace DTO.classes.user_classes
         {
             Phon2 = phon2;
          }
-      
+    public override string ToString()
+    {
+      return "phon1: " + Phon1 + " phon2:" + " email: " + Email_addres + " City:" + City + " street:" + Street +
+        "num_street: " + Num_street;
     }
+
+  }
 }

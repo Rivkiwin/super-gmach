@@ -16,9 +16,9 @@ export class FriendOfFundComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  getFundFriend():Friend[]
-  {
-    return this.friendService.GetAll().filter(x=> x.funds.includes(this.fund.id));
+  // getFundFriend():Friend[]
+  // {
+  //   // return this.friendService.GetAll().filter(x=> x.funds.includes(this.fund.id));
     
-  }
+  // }
 }
