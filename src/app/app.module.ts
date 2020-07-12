@@ -33,6 +33,7 @@ import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
+import { TooltipComponent } from './componentes/tooltip/tooltip.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -62,6 +63,8 @@ import { AgGridModule } from 'ag-grid-angular';
     AddNewComponent,
     
     PettyCashComponent,
+    
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,

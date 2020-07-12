@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { StatusFriendE } from 'src/app/classes/friend';
+import { StatusFriendE, Friend } from 'src/app/classes/friend';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/services/friends.service';
 
@@ -17,6 +17,7 @@ export class FriendsFormComponent implements OnInit {
  card_Detalis:boolean=false;
  bank_detalis:boolean=false;
  SuccessMessage:boolean=false;
+ message;
  //key= Object.values;
  public keyStatusFriend():Array<string>
  {
@@ -53,17 +54,20 @@ export class FriendsFormComponent implements OnInit {
      father_name:new FormControl()
     })
   }
-  Add():void
+  Add()
   {
     
     try{
-    this.FriendService.add(this.formFriend.value);
-    this.SuccessMessage=true;
+    var  new_friend=<Friend>this.formFriend.value;
+   this.message=JSON.stringify(this.FriendService.add(new_friend));
+  
     }
     catch(error)
     {
-      
+      this.message=error;
+      this.message.push("erro")
     }
+    this.SuccessMessage=true;
   }
   Show(div:string):void{
     switch (div) {

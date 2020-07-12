@@ -9,10 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class FriendsService {
   // private friends_list: Friend[] = [new Friend(10000, 144, "moty", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324"), new Friend(10000, 144, "chim", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324")];
   // private friends_list:Friend[]=[];
+  postId
   baseUrl: string = "http://localhost:62859/api/Users/";
   constructor(private httpclinet: HttpClient) { }
-  public add(friend: Friend): void {
-    // this.friends_list.push(friend);
+  public add(friend: Friend) {
+     this.httpclinet.post(`${this.baseUrl}/posts`,friend).subscribe(data => {
+      this.postId= data
+  })
+  return this.postId;
   }
   public GetAll() {
     // this.friends_list[0].funds.push(1);

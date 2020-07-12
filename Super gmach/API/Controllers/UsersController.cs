@@ -19,6 +19,7 @@ namespace API.Controllers
        [Route("addUser")]
         public string AddUser(UserDTO u)
         {
+      //Console.WriteLine(u.ToString());
             return UserBL.AddnewUser(u);
         }
       

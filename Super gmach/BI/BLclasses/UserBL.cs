@@ -31,7 +31,8 @@ namespace BL.BLclasses
             {
                 try
                 {
-                    db.Users.Add(Userconvert.DTOtoDAL(u));
+          User user = Userconvert.DTOtoDAL(u);
+                    db.Users.Add(user);
                     db.SaveChanges();
                 }
                 catch(Exception e)

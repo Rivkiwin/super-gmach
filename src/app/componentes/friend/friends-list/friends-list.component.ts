@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FriendsService } from 'src/app/services/friends.service';
 import { ManagmentStatusService } from 'src/app/services/managment-status.service';
 import { Friend } from 'src/app/classes/friend';
+import { TooltipComponent } from 'src/app/componentes/tooltip/tooltip.component';
+import {
+  GridOptions,
+  ICellRendererParams,
+  TooltipFeature
+} from 'ag-grid-community';
+
 import { ManagementStatusDTO } from 'src/app/classes/management-status-dto';
 
 @Component({
@@ -12,10 +19,15 @@ import { ManagementStatusDTO } from 'src/app/classes/management-status-dto';
 export class FriendsListComponent implements OnInit {
   rowData = [];
   Friends: Friend[];
-  defaultColDef={  resizable: true,  tooltipComponent: 'customTooltip'};
+  defaultColDef = {
+    resizable: true,
+    sortable: true,
+    //  cellRendererFramework: TooltipComponent,
+    //  cellRendererParams: (params: ICellRendererParams) => this.formatToolTip(params.data)
+  };
 
 
- 
+
 
   columnDefs = [
     { headerName: 'הלוואות', field: 'loan' },
@@ -25,20 +37,20 @@ export class FriendsListComponent implements OnInit {
     { headerName: 'שם', field: 'name' },
     { headerName: 'קוד', field: 'id' },
     { headerName: 'חבר', field: 'friend' },
-    { headerName: 'ניהול', field: 'managment',
-    valueGetter: function(params) {
-      return params.data.managment.Name;
+    {
+      headerName: 'ניהול', field: 'managment', 
+      tooltip: (params) =>  params.data.tooltip, 
+      valueGetter: function (params) {
+        return params.data.managment.Name;
+      },
+      cellStyle: function (params) {
+        return { backgroundColor: params.data.managment.Color };
+      },
+   
+      // cellRendererParams: (params: ICellRendererParams) => this.formatToolTip(params),
     },
-    tooltip:function(params){
-       return params.data.tooltip;
-    },
-    cellStyle: function(params) {
-      // var color=this.managment.getByName(params.value).Color;
-      return { backgroundColor:params.data.managment.Color};
-    } },
- 
   ];
- 
+
 
 
   constructor(private friendsService: FriendsService, public managment: ManagmentStatusService) { }
@@ -47,6 +59,13 @@ export class FriendsListComponent implements OnInit {
     this.managment.GetAll();
   }
 
+  formatToolTip(params: any) {
+    // USE THIS FOR TOOLTIP LINE BREAKS
+    const status_reason = params.status_reason;
+    const lineBreak = true;
+    // const toolTipArray = [first, last]
+    return { status_reason }
+  }
   public addrowData() {
     debugger
     this.Friends.forEach(friend => {
@@ -61,27 +80,18 @@ export class FriendsListComponent implements OnInit {
     this.friendsService.get().subscribe(x => {
       this.Friends = <Friend[]>x, this.Friends.forEach(friend => {
         debugger
-       console.log( friend.Communication_ways.Phon1,),
-        this.rowData.push({
-          managment: friend.Management_status ,
-          // tooltip:friend.Status_reason,
-          friend: friend.Friend ? 'V' : 'X',
-          id: friend.Id,
-          name: friend.Last_name + " " + friend.First_name ,
-          phon: friend.Communication_ways.Phon1
-        })
+        console.log(friend.Communication_ways.Phon1,),
+          this.rowData.push({
+            managment: friend.Management_status,
+            tooltip: "friend.Status_reason",
+            friend: friend.Friend ? 'V' : 'X',
+            id: friend.Id,
+            name: friend.Last_name + " " + friend.First_name,
+            phon: friend.Communication_ways.Phon1
+          })
       })
     });
 
-    // this.Friends.forEach(friend => {
-    //   console.log(Friend.Last_name+" "+Friend.First_name);
-    //   this.rowData.push({name:friend.Last_name+" "+friend.First_name})
-    // });
-    // this.friendsService.get().subscribe(x=>{
-
-    // })
-    // this.columnDefs.push({headerName: 'שם', field: 'name'});
-    // this.rowData.push({name:"e"});
     this.addrowData();
 
   }
