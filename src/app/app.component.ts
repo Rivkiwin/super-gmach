@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 
 import 'popper.js';
 import 'bootstrap';

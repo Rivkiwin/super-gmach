@@ -1,7 +1,7 @@
 <div class=" w-75 m-5">
 
 <p>add-new works!</p>
-    <form  formGroup="formAddExpense" class="mx-auto w-75 mt-auto">
+    <form  [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
                 <label for="date">Date</label>
@@ -24,7 +24,7 @@
             <div class="col"   [hidden]="Contemporary_expenditure!=false">    
                 <label for="exampleFormControlFile1">Payment Form</label>
                <select class="selectpicker form-control" data-live-search="true">
-                   <option *ngFor="let p on keyPayment_Form()">{{p}}</option>
+                   <option *ngFor="let p of keyPayment_Form()">{{p}}</option>
                </select>       
             </div>
         </div> 
@@ -37,4 +37,3 @@
      </form>
     <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">add</button>
 </div>
-<p>{{Contemporary_expenditure!=false}}</p>
