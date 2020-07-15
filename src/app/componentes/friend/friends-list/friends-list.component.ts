@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FriendsService } from 'src/app/services/friends.service';
 import { ManagmentStatusService } from 'src/app/services/managment-status.service';
 import { Friend } from 'src/app/classes/friend';
-import { TooltipComponent } from 'src/app/componentes/tooltip/tooltip.component';
 import {
   GridOptions,
   ICellRendererParams,
