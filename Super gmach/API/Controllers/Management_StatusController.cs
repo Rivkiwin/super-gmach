@@ -33,16 +33,12 @@ namespace API.Controllers
 
     [HttpGet]
       [Route("geManagement_status")]
-      public List<Management_statusDTO> GetManagement_status()
+      public string GetManagement_status()
      {
-       return Management_statusBL.GetManagement_statusList();
+      return "eee";
+       //return Management_statusBL.GetManagement_statusList();
       }
-    [HttpGet]
-    [Route("geManagement_status")]
-    public List<Management_statusDTO> GetManagement_statusByName()
-    {
-      return Management_statusBL.GetManagement_statusList();
-    }
+  
 
   }
 }

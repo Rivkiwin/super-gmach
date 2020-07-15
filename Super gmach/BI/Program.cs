@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
+using Dal1;
 using DTO.classes.user_classes;
 using BL.convertions;
+using DTO.classes;
+using BI.convertions;
+using BI.BLclasses;
 
 namespace BL
 {
@@ -36,8 +39,13 @@ namespace BL
       //    Console.WriteLine(item.ToString());
 
       //}
-
-      Console.WriteLine(Management_statusBL.GetById(3).Color);
+      foreach (var item in ExpenditureBL.GetExpendituresList())
+      {
+        
+        Console.WriteLine( item.id);
+      }
+     
+ 
       Console.Read();
         }
     }

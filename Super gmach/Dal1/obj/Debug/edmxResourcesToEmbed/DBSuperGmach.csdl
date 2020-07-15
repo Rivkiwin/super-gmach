@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SuperGmachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Expenditure">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="future_date" Type="DateTime" Precision="3" />
+    <Property Name="real_date" Type="DateTime" Precision="3" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="purpose" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="way_of_payment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Receives" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_Expenditure_Status1" FromRole="Expenditure" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Fund">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="fund_name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="required_months" Type="Int32" />
+    <Property Name="required_vip" Type="Boolean" />
+    <Property Name="comments" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="date_create" Type="DateTime" Precision="0" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_Fund_Status" FromRole="Fund" ToRole="Status" />
+    <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="Fund" ToRole="User_in_fund" />
+  </EntityType>
+  <EntityType Name="Management_status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Management_status" FromRole="Management_status" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Expenditures" Relationship="Self.FK_Expenditure_Status1" FromRole="Status" ToRole="Expenditure" />
+    <NavigationProperty Name="Funds" Relationship="Self.FK_Fund_Status" FromRole="Status" ToRole="Fund" />
+    <NavigationProperty Name="withdrawings" Relationship="Self.FK_withdrawing_Status" FromRole="Status" ToRole="withdrawing" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bank" Type="Int32" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VIP" Type="Boolean" />
+    <Property Name="frirnd" Type="Boolean" />
+    <Property Name="status_User" Type="Int32" />
+    <Property Name="Management_status" Type="Int32" />
+    <Property Name="phon1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phon2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="email_addres" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="num_street" Type="Int32" Nullable="false" />
+    <Property Name="bankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brunchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="account_number" Type="Int32" Nullable="false" />
+    <Property Name="ciling" Type="Int32" Nullable="false" />
+    <Property Name="collection_date" Type="Int32" Nullable="false" />
+    <Property Name="remarks" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="joining_date" Type="DateTime" Precision="0" />
+    <Property Name="Manager_permissions" Type="Int32" />
+    <Property Name="Scoring" Type="Int32" />
+    <Property Name="father_name" Type="String" MaxLength="260" FixedLength="false" Unicode="false" />
+    <Property Name="Status_reason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Management_status1" Relationship="Self.FK_User_Management_status" FromRole="User" ToRole="Management_status" />
+    <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_User" FromRole="User" ToRole="User_in_fund" />
+  </EntityType>
+  <EntityType Name="withdrawing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="fundID" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="future_date" Type="DateTime" Precision="3" />
+    <Property Name="real_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="status_reason" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_withdrawing_Status" FromRole="withdrawing" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="User_in_fund">
+    <Key>
+      <PropertyRef Name="userID" />
+      <PropertyRef Name="fundID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="fundID" Type="Int32" Nullable="false" />
+    <Property Name="date_join" Type="DateTime" Precision="0" />
+    <Property Name="balance" Type="Int32" />
+    <NavigationProperty Name="Fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="User_in_fund" ToRole="Fund" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_in_fund_User" FromRole="User_in_fund" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Expenditure_Status1">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Expenditure">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fund_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Fund" Type="Self.Fund" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fund">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_in_fund_Fund">
+    <End Role="Fund" Type="Self.Fund" Multiplicity="1" />
+    <End Role="User_in_fund" Type="Self.User_in_fund" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_in_fund">
+        <PropertyRef Name="fundID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Management_status">
+    <End Role="Management_status" Type="Self.Management_status" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Management_status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Management_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_withdrawing_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="withdrawing" Type="Self.withdrawing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="withdrawing">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_in_fund_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_in_fund" Type="Self.User_in_fund" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User_in_fund">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SuperGmachEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Expenditures" EntityType="Self.Expenditure" />
+    <EntitySet Name="Funds" EntityType="Self.Fund" />
+    <EntitySet Name="Management_status" EntityType="Self.Management_status" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="withdrawings" EntityType="Self.withdrawing" />
+    <EntitySet Name="User_in_fund" EntityType="Self.User_in_fund" />
+    <AssociationSet Name="FK_Expenditure_Status1" Association="Self.FK_Expenditure_Status1">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Expenditure" EntitySet="Expenditures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fund_Status" Association="Self.FK_Fund_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Fund" EntitySet="Funds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_in_fund_Fund" Association="Self.FK_User_in_fund_Fund">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="User_in_fund" EntitySet="User_in_fund" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Management_status" Association="Self.FK_User_Management_status">
+      <End Role="Management_status" EntitySet="Management_status" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_withdrawing_Status" Association="Self.FK_withdrawing_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="withdrawing" EntitySet="withdrawings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_in_fund_User" Association="Self.FK_User_in_fund_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User_in_fund" EntitySet="User_in_fund" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SuperGmachModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SuperGmachModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

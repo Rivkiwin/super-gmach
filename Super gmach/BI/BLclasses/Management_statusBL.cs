@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dal1;
 
 namespace BL.BLclasses
 {
@@ -28,7 +29,7 @@ namespace BL.BLclasses
 
     public static Management_statusDTO GetById(int id)
     {
-      using (SuperGmachEntities db = new SuperGmachEntities())
+      SuperGmachEntities db = new SuperGmachEntities();
       {
         foreach (Management_status status in db.Management_status)
         {

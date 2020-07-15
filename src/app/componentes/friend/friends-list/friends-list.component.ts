@@ -18,12 +18,13 @@ import { ManagementStatusDTO } from 'src/app/classes/management-status-dto';
 })
 export class FriendsListComponent implements OnInit {
   rowData = [];
+  gridApi;
+  gridColumnApi;
   Friends: Friend[];
   defaultColDef = {
     resizable: true,
+    
     sortable: true,
-    //  cellRendererFramework: TooltipComponent,
-    //  cellRendererParams: (params: ICellRendererParams) => this.formatToolTip(params.data)
   };
 
 
@@ -31,12 +32,11 @@ export class FriendsListComponent implements OnInit {
 
   columnDefs = [
     { headerName: 'הלוואות', field: 'loan' },
-    { headerName: 'קרן רחל לאה', field: 'fund_Rachel_Leah' },
-    { headerName: 'הפקדות', field: 'depositing' },
-    { headerName: 'טל', field: 'phon' },
-    { headerName: 'שם', field: 'name' },
-    { headerName: 'קוד', field: 'id' },
-    { headerName: 'חבר', field: 'friend' },
+    { headerName: 'קרן רחל לאה', field: 'fund_Rachel_Leah'},
+    { headerName: 'טל', field: 'phon', },
+    { headerName: 'שם', field: 'name', },
+    { headerName: 'קוד', field: 'id' , width: 80},
+    { headerName: 'חבר', field: 'friend',width: 80 },
     {
       headerName: 'ניהול', field: 'managment', 
       tooltip: (params) =>  params.data.tooltip, 
@@ -58,6 +58,8 @@ export class FriendsListComponent implements OnInit {
   public seemangment() {
     this.managment.GetAll();
   }
+ 
+
 
   formatToolTip(params: any) {
     // USE THIS FOR TOOLTIP LINE BREAKS
@@ -75,6 +77,19 @@ export class FriendsListComponent implements OnInit {
       )
     })
   };
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+
+    params.api.sizeColumnsToFit();
+    window.addEventListener('resize', function() {
+      setTimeout(function() {
+        params.api.sizeColumnsToFit();
+      });
+    });
+
+    params.api.sizeColumnsToFit();
+  }
 
   ngOnInit(): void {
     this.friendsService.get().subscribe(x => {
@@ -90,13 +105,10 @@ export class FriendsListComponent implements OnInit {
             phon: friend.Communication_ways.Phon1
           })
       })
-    });
-
+    })
+  
     this.addrowData();
-
   }
-
-
 
 
 }

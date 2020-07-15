@@ -22,7 +22,7 @@ public Contemporary_expenditure:boolean;
   constructor(private serviceExpense:ExpenditureService, public router:Router) { }
   Add()
   {
-    this.serviceExpense.add(this.formAddExpense.value)
+    // this.serviceExpense.add(this.formAddExpense.value)
   }
   public Show()
   {debugger;

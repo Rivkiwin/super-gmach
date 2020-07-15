@@ -53,8 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLclasses\ExpenditureBL.cs" />
     <Compile Include="BLclasses\Management_statusBL.cs" />
+    <Compile Include="convertions\ExpenditureConvert.cs" />
     <Compile Include="convertions\Mangagment_status_convert.cs" />
+    <Compile Include="convertions\StatusConvert.cs" />
     <Compile Include="convertions\userconvert.cs" />
     <Compile Include="BLclasses\UserBL.cs" />
     <Compile Include="Program.cs" />
@@ -65,8 +68,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{0B909BFF-C0DC-49F6-977D-63FB45FBA99C}</Project>
+    <ProjectReference Include="..\Dal1\DAL.csproj">
+      <Project>{4FCBEB66-9EF6-48DC-B954-43885856E861}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">

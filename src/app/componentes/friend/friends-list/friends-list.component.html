@@ -1,14 +1,12 @@
 
-  <ag-grid-angular class="divLIst"
+<ag-grid-angular class="divLIst" style=" justify-content: center"
   id="myGrid"
   class="ag-theme-alpine"
-  style="width: 200%; height: 500px;
-    direction: rtl;"
-     [defaultColDef]="defaultColDef"
-
+  style="width: 80%; height: 500px;
+  direction: rtl;"
+  [defaultColDef]="defaultColDef"
   class="ag-theme-alpine"
   [rowData]="rowData"
   [columnDefs]="columnDefs"
-  >
+  (gridReady)="onGridReady($event)">
 </ag-grid-angular>
- 

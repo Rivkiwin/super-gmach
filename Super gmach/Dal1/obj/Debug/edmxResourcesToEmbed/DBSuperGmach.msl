@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SuperGmachModelStoreContainer" CdmEntityContainer="SuperGmachEntities">
+    <EntitySetMapping Name="Expenditures">
+      <EntityTypeMapping TypeName="SuperGmachModel.Expenditure">
+        <MappingFragment StoreEntitySet="Expenditure">
+          <ScalarProperty Name="future_date" ColumnName="future_date" />
+          <ScalarProperty Name="real_date" ColumnName="real_date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+          <ScalarProperty Name="way_of_payment" ColumnName="way_of_payment" />
+          <ScalarProperty Name="Receives" ColumnName="Receives" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Funds">
+      <EntityTypeMapping TypeName="SuperGmachModel.Fund">
+        <MappingFragment StoreEntitySet="Fund">
+          <ScalarProperty Name="fund_name" ColumnName="fund_name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="required_months" ColumnName="required_months" />
+          <ScalarProperty Name="required_vip" ColumnName="required_vip" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="date_create" ColumnName="date_create" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Management_status">
+      <EntityTypeMapping TypeName="SuperGmachModel.Management_status">
+        <MappingFragment StoreEntitySet="Management_status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="SuperGmachModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SuperGmachModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SuperGmachModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="VIP" ColumnName="VIP" />
+          <ScalarProperty Name="frirnd" ColumnName="frirnd" />
+          <ScalarProperty Name="status_User" ColumnName="status_User" />
+          <ScalarProperty Name="Management_status" ColumnName="Management_status" />
+          <ScalarProperty Name="phon1" ColumnName="phon1" />
+          <ScalarProperty Name="phon2" ColumnName="phon2" />
+          <ScalarProperty Name="email_addres" ColumnName="email_addres" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="num_street" ColumnName="num_street" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="brunchName" ColumnName="brunchName" />
+          <ScalarProperty Name="account_number" ColumnName="account_number" />
+          <ScalarProperty Name="ciling" ColumnName="ciling" />
+          <ScalarProperty Name="collection_date" ColumnName="collection_date" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+          <ScalarProperty Name="Manager_permissions" ColumnName="Manager_permissions" />
+          <ScalarProperty Name="Scoring" ColumnName="Scoring" />
+          <ScalarProperty Name="father_name" ColumnName="father_name" />
+          <ScalarProperty Name="Status_reason" ColumnName="Status_reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="withdrawings">
+      <EntityTypeMapping TypeName="SuperGmachModel.withdrawing">
+        <MappingFragment StoreEntitySet="withdrawing">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="fundID" ColumnName="fundID" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="future_date" ColumnName="future_date" />
+          <ScalarProperty Name="real_date" ColumnName="real_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="status_reason" ColumnName="status_reason" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_in_fund">
+      <EntityTypeMapping TypeName="SuperGmachModel.User_in_fund">
+        <MappingFragment StoreEntitySet="User_in_fund">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="fundID" ColumnName="fundID" />
+          <ScalarProperty Name="date_join" ColumnName="date_join" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SuperGmachModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SuperGmachModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SuperGmachModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SuperGmachModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SuperGmachModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SuperGmachModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SuperGmachModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SuperGmachModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SuperGmachModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
