@@ -7,6 +7,7 @@ C:\b\final project\c#\Super gmach\Super gmach\obj\Debug\Super gmach.pdb
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\bin\Debug\Super gmach.exe.config
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\bin\Debug\Super gmach.exe
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\bin\Debug\Super gmach.pdb
+C:\b\final project\git\super-gmach\Super gmach\Super gmach\obj\Debug\Super gmach.csprojAssemblyReference.cache
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\obj\Debug\Super gmach.csproj.CoreCompileInputs.cache
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\obj\Debug\Super gmach.exe
 C:\b\final project\git\super-gmach\Super gmach\Super gmach\obj\Debug\Super gmach.pdb

@@ -1,0 +1,15 @@
+.ag-row .ag-cell {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+  }
+  .text-center{
+      color: red($color: #000000);
+      text-align: center;
+  }
+  th{
+      text-align: center;
+  }
+  .ag-theme-alpine .ag-header-cell{
+    background-color: #e0e0e0;
+}

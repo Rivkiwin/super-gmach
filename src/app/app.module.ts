@@ -22,7 +22,6 @@ import { FilterMonthsPipe } from './pipes/filter-months.pipe';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
-import { AddNewComponent } from './componentes/petty-cash/Expenditure/add-new/add-new.component';
 import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
 import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 import { FundComponentComponent } from './componentes/funds/fund-component/fund-component.component';
@@ -34,6 +33,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
 import { TooltipComponent } from './componentes/tooltip/tooltip.component';
+import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -67,8 +67,9 @@ import { TooltipComponent } from './componentes/tooltip/tooltip.component';
     TooltipComponent,
   ],
   imports: [
-    BrowserModule,
     CommonModule,
+    BrowserModule,
+    
     ReactiveFormsModule,
     FormsModule,
     AgGridModule.withComponents([]),

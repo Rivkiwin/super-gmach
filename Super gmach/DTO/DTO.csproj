@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\ExpenditureDTO.cs" />
+    <Compile Include="classes\StatusDTO.cs" />
     <Compile Include="classes\user_classes\Bank details.cs" />
     <Compile Include="classes\user_classes\Communication .cs" />
     <Compile Include="classes\user_classes\Management statusDTO.cs" />

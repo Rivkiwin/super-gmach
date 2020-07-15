@@ -10,7 +10,7 @@ export class FriendsService {
   // private friends_list: Friend[] = [new Friend(10000, 144, "moty", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324"), new Friend(10000, 144, "chim", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324")];
   // private friends_list:Friend[]=[];
   postId
-  baseUrl: string = "http://localhost:62859/api/Users/";
+  baseUrl: string = "http://localhost:62859/api/User/";
   constructor(private httpclinet: HttpClient) { }
   public add(friend: Friend) {
      this.httpclinet.post(`${this.baseUrl}/posts`,friend).subscribe(data => {
@@ -26,7 +26,7 @@ export class FriendsService {
  
   public get() {
   
-   return this.httpclinet.get(`${this.baseUrl} get`)
+   return this.httpclinet.get(`${this.baseUrl}/getUsersList`)
     // http://localhost:4200/user/GetUsersList
   }
 

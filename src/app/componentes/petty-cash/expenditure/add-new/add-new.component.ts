@@ -11,9 +11,9 @@ import { ExpenditureService } from 'src/app/services/expenditure.service';
   
 })
 export class AddNewComponent implements OnInit {
-public formAddExpense:FormGroup;
+public FormAddExpense:FormGroup;
 public EPayment_FormE=Payment_FormE;
-public Contemporary_expenditure:boolean;
+public Contemporary_expenditure:boolean=false;
    public keyPayment_Form():Array<string>
  {
   var keys= Object.keys(this.EPayment_FormE);
@@ -22,7 +22,7 @@ public Contemporary_expenditure:boolean;
   constructor(private serviceExpense:ExpenditureService, public router:Router) { }
   Add()
   {
-    this.serviceExpense.add(this.formAddExpense.value)
+    // this.serviceExpense.add(this.FormAddExpense.value)
   }
   public Show()
   {debugger;
@@ -30,7 +30,7 @@ public Contemporary_expenditure:boolean;
   }
   ngOnInit(): void {
     this.Contemporary_expenditure=true;
-    this.formAddExpense=new FormGroup(
+    this.FormAddExpense=new FormGroup(
       {
         date:new FormControl(),
         Expense_amount:new FormControl(),

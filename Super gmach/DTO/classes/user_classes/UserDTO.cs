@@ -6,13 +6,12 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum Status_userE {[DataMember] Marreid, [DataMember] Unmarreid }
+public enum Status_userE { Marreid, [DataMember] Unmarreid }
 namespace DTO.classes.user_classes
 {
-    [DataContract]
     public class UserDTO
     {
-        [DataMember]
+        
         public int Bank { get; set; }
         //   public static int cnt = 0;
         [DataMember]
