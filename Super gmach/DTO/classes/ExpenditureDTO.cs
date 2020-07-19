@@ -16,8 +16,11 @@ namespace DTO.classes
     public string way_of_payment { get; set; }
     public string Receives { get; set; }
     public StatusDTO status { get; set; }
+    public string future_date_String;
 
-    public ExpenditureDTO() { }
+    public ExpenditureDTO() {
+      future_date_String = future_date.ToShortDateString();
+    }
 
   }
 }

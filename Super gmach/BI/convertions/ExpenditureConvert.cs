@@ -14,13 +14,16 @@ namespace BI.convertions
     {
       ExpenditureDTO expenditureNew = new ExpenditureDTO()
       {
+        id = expenditure.id,
         amount = expenditure.amount,
         future_date = (DateTime)expenditure.future_date.GetValueOrDefault(),
-        id = expenditure.id,
         purpose = expenditure.purpose,
         real_date = (DateTime)expenditure.real_date.GetValueOrDefault(),
         Receives = expenditure.Receives,
-        way_of_payment = expenditure.way_of_payment
+        way_of_payment = expenditure.way_of_payment,
+        future_date_String = expenditure.future_date== default(DateTime) ? null:
+        expenditure.future_date == null?null:
+        ((DateTime)expenditure.future_date.GetValueOrDefault()).ToShortDateString()
       };
       using (SuperGmachEntities db = new SuperGmachEntities())
       {
@@ -30,14 +33,16 @@ namespace BI.convertions
     }
     public static Expenditure TDOtoDAL(ExpenditureDTO expenditure)
     {
-      return new Expenditure(){
+      return new Expenditure() {
         amount = expenditure.amount,
-        future_date =expenditure.future_date,
+        future_date = expenditure.future_date,
         purpose = expenditure.purpose,
         real_date = expenditure.real_date,
         Receives = expenditure.Receives,
         way_of_payment = expenditure.way_of_payment,
-        status=expenditure.status.id
+        status = expenditure.status.id
+
+        
       };
     }
   }

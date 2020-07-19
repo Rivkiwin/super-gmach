@@ -12,7 +12,7 @@ public class StatusConvert
   {
     static public StatusDTO DALtoDTO(Status status)
     {
-      return new StatusDTO(status.name, status.description);
+      return new StatusDTO() {Name=status.name,Description=status.description,id=status.id};
     }
     static public Status DTOtoDaL(StatusDTO status)
     {

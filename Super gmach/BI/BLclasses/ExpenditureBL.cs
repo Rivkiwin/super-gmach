@@ -31,7 +31,9 @@ namespace BI.BLclasses
       {
         try
         {
-          db.Expenditures.Add(ExpenditureConvert.TDOtoDAL(Expenditure));
+
+          Expenditure e = ExpenditureConvert.TDOtoDAL(Expenditure);
+          db.Expenditures.Add(e);
           db.SaveChanges();
         }
         catch (Exception e)

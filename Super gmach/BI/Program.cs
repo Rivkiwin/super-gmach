@@ -39,13 +39,13 @@ namespace BL
       //    Console.WriteLine(item.ToString());
 
       //}
-      foreach (var item in ExpenditureBL.GetExpendituresList())
-      {
+      //foreach (var item in ExpenditureBL.GetExpendituresList())
+      //{
         
-        Console.WriteLine( item.id);
-      }
-     
- 
+      //  Console.WriteLine( item.id);
+      //}
+
+      UserBL.Get_users_byFund(2);
       Console.Read();
         }
     }
