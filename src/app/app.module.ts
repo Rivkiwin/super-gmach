@@ -22,7 +22,7 @@ import { FilterMonthsPipe } from './pipes/filter-months.pipe';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
-import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
+import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
 import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 import { FundComponentComponent } from './componentes/funds/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/funds/fund-form/fund-form.component';
