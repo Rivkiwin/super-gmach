@@ -13,7 +13,7 @@ export class FriendsService {
   baseUrl: string = "http://localhost:62859/api/User/";
   constructor(private httpclinet: HttpClient) { }
   public add(friend: Friend) {
-     this.httpclinet.post(`${this.baseUrl}/posts`,friend).subscribe(data => {
+     this.httpclinet.post(`${this.baseUrl}addUser`,friend).subscribe(data => {
       this.postId= data
   })
   return this.postId;
@@ -26,7 +26,7 @@ export class FriendsService {
  
   public get() {
   
-   return this.httpclinet.get(`${this.baseUrl}/getUsersList`)
+   return this.httpclinet.get(`${this.baseUrl}/GetUsersList`)
     // http://localhost:4200/user/GetUsersList
   }
 

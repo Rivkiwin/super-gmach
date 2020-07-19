@@ -1,6 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+
+label{
+    float: right;
+    margin-right: 14px;
+}
+div{
+    
+    // margin-top: 10px;
+}
+.form-check-input{
+    position: relative;
+    margin-left: none;
+}
+.form-check-input{
+    position: relative;
+    margin-left: none;
+}
+.form-check-input{
+    float: right;
+    position: relative!important;
+    margin-left: none !important;
+}
 
 .ag-theme-alpine {
     @include ag-theme-alpine((
@@ -8,7 +32,7 @@
     ));
   
 }
-@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css";
 .divLIst,tr,input{
     direction: rtl;
 }
@@ -21,4 +45,20 @@
 }
 .ag-theme-alpine .ag-ltr .ag-cell{
     text-align: end;
+}
+.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell{
+    background-color: #506265;
+    color: white;
+}
+
+.ag-theme-alpine{
+    width:60%;
+    min-width: 600px;
+     float:right;
+     margin-top:6%;
+     margin-right:6%
+}
+.text-logo{
+    color: rgb(124, 252, 0);
+    text-shadow: black;
 }

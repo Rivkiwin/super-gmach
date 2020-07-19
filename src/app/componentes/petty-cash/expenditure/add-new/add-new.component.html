@@ -4,24 +4,28 @@
     <form  [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
-                <label for="date">Date</label>
+                <label for="date">תאריך עתידי</label>
                 <input type="date" class="form-control" formControlName="date" placeholder="date">
             </div>
             <div class="col">
-                <label for="Expense amount">Expense amount</label>
-                <input type="text" class="form-control" formControlName="Expense_amount" placeholder="Expense amount">
+                <label for="Expense amount">סכום הוצאה</label>
+                <input type="text" class="form-control" formControlName="Expense_amount" placeholder="הכנס סכום">
+                <!-- <app-field-error-display 
+                 [displayError]="isFieldValid('address.city')" 
+                 errorMsg="הכנס סכום הוצאה">
+               </app-field-error-display> -->
             </div>
             <div class="col">
-                <label for="lFile1">add file</label>
-                <input type="file" class="form-control-file" id="File1" formControlName="file">
-              </div>
+                <label for="Receives">עבור</label>
+                <input type="text" class="form-control" formControlName="Receives" placeholder="הכנס מוטב">
+            </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="Purpose">Purpose</label>
-                <input type="text" class="form-control" formControlName="Purpose" placeholder="Purpose">
+                <label for="Purpose">מטרה</label>
+                <input type="text" class="form-control" formControlName="Purpose" placeholder="הכנס מטרה">
             </div>
-            <div class="col"   [hidden]="Contemporary_expenditure!=false">    
+            <div class="col" [hidden]="Contemporary_expenditure!=false">    
                 <label for="exampleFormControlFile1">Payment Form</label>
                <select class="selectpicker form-control" data-live-search="true">
                    <option *ngFor="let p of keyPayment_Form()">{{p}}</option>
@@ -29,11 +33,13 @@
             </div>
         </div> 
         <div class="col">
+            
             <input class="form-check-input" type="checkbox" value="true" formControlName="Contemporary" id="Current " (change)="Show()">
             <label class="form-check-label" for="Current">
-                Contemporary expenditure
+                הוצאה עכשוית
             </label>
         </div>
+        
      </form>
-    <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">add</button>
+    <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
 </div>
