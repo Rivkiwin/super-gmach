@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Expenditure">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="future_date" Type="datetime" />
-          <Property Name="real_date" Type="datetime" />
+          <Property Name="future_date" Type="date" />
+          <Property Name="real_date" Type="date" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="purpose" Type="nvarchar" MaxLength="200" />
@@ -29,6 +29,7 @@
           <Property Name="comments" Type="nvarchar" MaxLength="400" />
           <Property Name="date_create" Type="date" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="balance" Type="int" />
         </EntityType>
         <EntityType Name="Management_status">
           <Key>
@@ -112,11 +113,6 @@ warning 6002: The table/view 'SuperGmach.dbo.User_in_fund' does not have a prima
           <Property Name="status_reason" Type="nvarchar" MaxLength="300" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="manager_status views">
-          <Property Name="Management_status" Type="int" />
-        </EntityType>-->
         <Association Name="FK_Expenditure_Status1">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
           <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
@@ -261,8 +257,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
             <End Role="withdrawing" EntitySet="withdrawing" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SuperGmachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -270,8 +265,8 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="future_date" Type="DateTime" Precision="3" />
-          <Property Name="real_date" Type="DateTime" Precision="3" />
+          <Property Name="future_date" Type="DateTime" Precision="0" />
+          <Property Name="real_date" Type="DateTime" Precision="0" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="purpose" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -293,6 +288,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Status1" Relationship="Self.FK_Fund_Status" FromRole="Fund" ToRole="Status" />
           <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="Fund" ToRole="User_in_fund" />
+          <Property Name="balance" Type="Int32" />
         </EntityType>
         <EntityType Name="Management_status">
           <Key>
@@ -553,6 +549,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <EntitySetMapping Name="Funds">
             <EntityTypeMapping TypeName="SuperGmachModel.Fund">
               <MappingFragment StoreEntitySet="Fund">
+                <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="fund_name" ColumnName="fund_name" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="required_months" ColumnName="required_months" />

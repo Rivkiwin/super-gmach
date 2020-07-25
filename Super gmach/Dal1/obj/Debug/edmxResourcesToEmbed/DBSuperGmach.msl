@@ -18,6 +18,7 @@
     <EntitySetMapping Name="Funds">
       <EntityTypeMapping TypeName="SuperGmachModel.Fund">
         <MappingFragment StoreEntitySet="Fund">
+          <ScalarProperty Name="balance" ColumnName="balance" />
           <ScalarProperty Name="fund_name" ColumnName="fund_name" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="required_months" ColumnName="required_months" />

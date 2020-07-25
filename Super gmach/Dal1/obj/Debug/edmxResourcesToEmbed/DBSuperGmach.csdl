@@ -4,8 +4,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="future_date" Type="DateTime" Precision="3" />
-    <Property Name="real_date" Type="DateTime" Precision="3" />
+    <Property Name="future_date" Type="DateTime" Precision="0" />
+    <Property Name="real_date" Type="DateTime" Precision="0" />
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="amount" Type="Int32" Nullable="false" />
     <Property Name="purpose" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -27,6 +27,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Status1" Relationship="Self.FK_Fund_Status" FromRole="Fund" ToRole="Status" />
     <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="Fund" ToRole="User_in_fund" />
+    <Property Name="balance" Type="Int32" />
   </EntityType>
   <EntityType Name="Management_status">
     <Key>

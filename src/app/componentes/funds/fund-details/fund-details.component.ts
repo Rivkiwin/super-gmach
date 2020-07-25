@@ -5,12 +5,14 @@ import { FundServiceService } from 'src/app/services/fund-service.service';
 import { FriendsService } from 'src/app/services/friends.service';
 import { from } from 'rxjs';
 import { StatusE, FundClass } from 'src/app/classes/fund-class';
+import { FriendOfFundComponent } from '../friend-of-fund/friend-of-fund.component';
 
 
 @Component({
   selector: 'app-fund-details',
   templateUrl: './fund-details.component.html',
-  styleUrls: ['./fund-details.component.scss']
+  styleUrls: ['./fund-details.component.scss'],
+  
 })
 
 export class FundDetailsComponent implements OnInit {
@@ -20,8 +22,10 @@ export class FundDetailsComponent implements OnInit {
   constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>this.fund=this.FUndService.GETOne_ByName(String(res.get('name'))));
-  
+    this.activeRouter.paramMap.subscribe(res=>(this.FUndService.GetByID(res.get('id'))).subscribe(f=>{this.fund=<FundClass>f}));
+    // console.log( this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetByID(res.get('id'))));
+    
+    // this.FUndService.GetByID(2).subscribe(x=>console.log(x));
   }
   // getFundFriend():Friend[]
   // {

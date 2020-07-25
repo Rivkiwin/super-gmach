@@ -217,6 +217,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ExpenditureController.cs" />
+    <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Management_StatusController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -282,6 +284,10 @@
     <ProjectReference Include="..\BI\BL.csproj">
       <Project>{b7670fe6-97e3-44cb-af33-eebc15b65afe}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dal1\DAL.csproj">
+      <Project>{4FCBEB66-9EF6-48DC-B954-43885856E861}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{0d4e7662-20bc-4784-9775-96a1513d6f6d}</Project>

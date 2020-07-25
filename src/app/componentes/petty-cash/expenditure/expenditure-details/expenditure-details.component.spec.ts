@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddNewComponent } from './add-new.component';
+import { ExpenditureDetailsComponent } from './expenditure-details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('AddNewComponent', () => {
-  let component: AddNewComponent;
-  let fixture: ComponentFixture<AddNewComponent>;
+describe('ExpenditureDetailsComponent', () => {
+  let component: ExpenditureDetailsComponent;
+  let fixture: ComponentFixture<ExpenditureDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({ imports: [
       HttpClientTestingModule,
       RouterTestingModule.withRoutes([]),
     ],
-      declarations: [ AddNewComponent ]
+      declarations: [ ExpenditureDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddNewComponent);
+    fixture = TestBed.createComponent(ExpenditureDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,8 +4,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="future_date" Type="datetime" />
-    <Property Name="real_date" Type="datetime" />
+    <Property Name="future_date" Type="date" />
+    <Property Name="real_date" Type="date" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="amount" Type="int" Nullable="false" />
     <Property Name="purpose" Type="nvarchar" MaxLength="200" />
@@ -24,6 +24,7 @@
     <Property Name="comments" Type="nvarchar" MaxLength="400" />
     <Property Name="date_create" Type="date" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="balance" Type="int" />
   </EntityType>
   <EntityType Name="Management_status">
     <Key>
@@ -107,11 +108,6 @@ warning 6002: The table/view 'SuperGmach.dbo.User_in_fund' does not have a prima
     <Property Name="status_reason" Type="nvarchar" MaxLength="300" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="manager_status views">
-          <Property Name="Management_status" Type="int" />
-        </EntityType>-->
   <Association Name="FK_Expenditure_Status1">
     <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
     <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />

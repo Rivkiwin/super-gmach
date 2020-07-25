@@ -54,9 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLclasses\ExpenditureBL.cs" />
+    <Compile Include="BLclasses\FundBL.cs" />
     <Compile Include="BLclasses\Management_statusBL.cs" />
     <Compile Include="BLclasses\StatusBL.cs" />
     <Compile Include="convertions\ExpenditureConvert.cs" />
+    <Compile Include="convertions\FundConvert.cs" />
     <Compile Include="convertions\Mangagment_status_convert.cs" />
     <Compile Include="convertions\StatusConvert.cs" />
     <Compile Include="convertions\userconvert.cs" />

@@ -13,7 +13,11 @@ export class ListExpenditureComponent implements OnInit {
     resizable: true,
     sortable: true,
   };
-  columnDefs = [{ headerName: 'מזהה', field: 'id',maxWidth:"80", minWidth:"80"},
+  columnDefs = [{ headerName: 'מזהה', field: 'id',maxWidth:"80", minWidth:"80",
+  cellRenderer: function(params) {
+    return `<a href='patty_cash/details/${params.data.id}'> ${params.data.id}</a>`
+}
+ },
   { headerName: 'סטטוס', field: 'status' ,maxWidth:"90" ,minWidth:"90"},
   { headerName: 'מטרה', field: 'purpose' },
   { headerName: 'סכום', field: 'amount'},
@@ -26,6 +30,7 @@ export class ListExpenditureComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    
     //diving coluom % to the tabel 
     params.api.sizeColumnsToFit();
     window.addEventListener('resize', function() {
@@ -37,6 +42,7 @@ export class ListExpenditureComponent implements OnInit {
     params.api.sizeColumnsToFit();
   }
 
+  
   addDATA() {
 
     this.Expenditures.forEach(ex =>

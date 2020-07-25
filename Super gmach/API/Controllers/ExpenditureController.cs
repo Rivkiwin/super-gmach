@@ -26,7 +26,13 @@ namespace API.Controllers
       {
         return ExpenditureBL.GetExpendituresList();
       }
-
+    [HttpGet]
+    [Route("getListGetexpenditure/{id}")]
+    public ExpenditureDTO GetexpenditureById([FromUri] int id)
+    {
+      return ExpenditureBL.GetByID(id);
     }
+
+  }
 }
 

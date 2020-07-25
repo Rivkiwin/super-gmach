@@ -13,7 +13,7 @@ import { FundClass, StatusE } from 'src/app/classes/fund-class';
   styleUrls: ['./fund-list.component.scss']
 })
 export class FundListComponent implements OnInit {
-  public fund_list:FundClass[]=[];
+  public fund_list:FundClass[];
   statusE=StatusE;
   name:string;
   status:string;
@@ -24,7 +24,9 @@ export class FundListComponent implements OnInit {
    return keys.slice(keys.length / 2);
   }
   constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
-    this.fund_list=this.fundServis.get_all();
+   this.fundServis.get_all().subscribe(x=>{
+     this.fund_list=<FundClass[]>x;
+   });
    }
  
 

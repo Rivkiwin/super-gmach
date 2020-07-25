@@ -3,11 +3,12 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
 <div class=" w-75 m-5 divForm" >
-    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm">
+    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm needs-validation" novalidate=""> 
         <div class="row">
             <div class="col">
                 <label for="fname">first name</label>
-                <input type="text" class="form-control" formControlName="Fname" placeholder="First name">
+                <input type="text" class="form-control" formControlName="Fname" placeholder="First name"  required="">
+                <div class="invalid-feedback"> הכנס שם </div>
                 <label for="fname">father name</label>
                 <input type="text" class="form-control" formControlName="father_name" placeholder="father name">
             </div>

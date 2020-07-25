@@ -10,7 +10,7 @@ export class FilterStatusPipe implements PipeTransform {
   transform(value: FundClass[], args:string): unknown {
      if (args=='All' || !args)
       return value;
-    return value.filter(item=>item.status==args);
+    return value.filter(item=>item.Status.Description==args);
   }
  
 }

@@ -33,6 +33,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
+import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditure/expenditure-details/expenditure-details.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -62,6 +63,8 @@ import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/ad
     AddNewComponent,
     
     PettyCashComponent,
+    
+    ExpenditureDetailsComponent,
     
   ],
   imports: [

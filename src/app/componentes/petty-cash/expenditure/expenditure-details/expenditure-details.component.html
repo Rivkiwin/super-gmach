@@ -1,0 +1,14 @@
+<b>פרטי הוצאה</b>
+<div>{{expenditure.id}}</div>
+<div class="werpper">
+    <form  [formGroup]="FromeditEX" id="from" class="needs-validation" novalidate="">
+      <div class="row">
+          <div class="col">
+              <input  class="form-control" formControlName="futureDate" required="">
+              <label>תאריך גבייה </label>
+          </div>
+      </div>
+    </form>
+</div>
+<button class="btn" type="submit" (click)="validation()">Continue to checkout</button>
+

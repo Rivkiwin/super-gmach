@@ -1,6 +1,6 @@
-<!-- <p>friend-of-fund works!</p>
-<div>{{fund.name}}</div> -->
-<div>{{fund.id}}</div>
+<!-- <p>friend-of-fund works!</p>-->
+<div>{{fund.Fund_name}}</div> 
+<div>{{fund.Id}}</div>
 <div class="d-flex flex-row-reverse"> 
 <table class="table table-striped bg-secondary text-white" >
  <thead>
@@ -15,16 +15,16 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let friend of getFundFriend()">
-      <th scope="row"></th>
-      <td>{{friend. First_name}}</td>
+    <tr *ngFor="let friend of friends">
+      <th scope="row">{{friend.Id}}</th>
+      <td>{{friend.First_name}}</td>
+      <td>{{friend.status.Description}}</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
-    </tr> -->
+      <td>{{friend.balance}}</td>
+    </tr>
   </tbody> 
  </table>
 </div>

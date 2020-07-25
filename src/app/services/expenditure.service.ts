@@ -4,14 +4,19 @@ import {
 } from '../classes/expense';
 import { HttpClient } from '@angular/common/http';
 import { Expenditure } from '../classes/expenditure';
+import { type } from 'jquery';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenditureService {
   baseUrl: string = "http://localhost:62859/api/Expenditure/"
-  postId
-  constructor(private http: HttpClient) { }
+  postId;
+  expnditures= new Map<Number,Expenditure>();
+  constructor(private http: HttpClient) {
+    
+   }
   public add(ex: Expenditure) {
 
     this.http.post(`${this.baseUrl}AddExpenditure`, ex).subscribe(data => {
@@ -19,11 +24,20 @@ export class ExpenditureService {
     });
 
   }
+
+  GetById(id){
+    return this.http.get(`${this.baseUrl}getListGetexpenditure/${id}`)
+  }   
   public Get() {
-    return this.http.get(`${this.baseUrl}getListGetexpenditure`)
+    // this.http.get(`${this.baseUrl}getListGetexpenditure`).subscribe(ex=>{
+    //   (<Expenditure[]>ex).forEach(e => {
+    //    this.expnditures.set(e.id,e);
+    //     });
+    //   });
+    return this.http.get(`${this.baseUrl}getListGetexpenditure`);
     // http://localhost:4200/user/GetUsersList
   }
-
+ 
   public getAll_Future_expenditures() {
     // return this.list_Future_expenditures;
   }

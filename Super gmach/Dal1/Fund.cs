@@ -27,6 +27,7 @@ namespace Dal1
         public string comments { get; set; }
         public Nullable<System.DateTime> date_create { get; set; }
         public int Id { get; set; }
+        public Nullable<int> balance { get; set; }
     
         public virtual Status Status1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

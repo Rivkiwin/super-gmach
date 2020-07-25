@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
-@import "~bootstrap/dist/css/bootstrap.css";
+
+// @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 
 label{
@@ -10,7 +11,7 @@ label{
 }
 div{
     
-    // margin-top: 10px;
+    margin-top: 10px;
 }
 .form-check-input{
     position: relative;

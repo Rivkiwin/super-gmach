@@ -43,5 +43,24 @@ namespace BI.BLclasses
       }
       return "success add";
     }
+    static public ExpenditureDTO GetByID(int id)
+    {
+      ExpenditureDTO exDTO = new ExpenditureDTO();
+      using (SuperGmachEntities db = new SuperGmachEntities())
+      {
+        try
+        {
+         var e= db.Expenditures.FirstOrDefault(exp => exp.id == id);
+          exDTO = ExpenditureConvert.DALtoDTO(e);
+        }
+        catch (Exception)
+        {
+
+          throw;
+        }
+      }
+      return exDTO;
+
+    }
   }
 }

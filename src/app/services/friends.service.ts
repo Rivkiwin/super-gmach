@@ -18,11 +18,7 @@ export class FriendsService {
   })
   return this.postId;
   }
-  public GetAll() {
-    // this.friends_list[0].funds.push(1);
-    // this.friends_list[1].funds.push(2);
-    // return this.friends_list;
-  }
+
  
   public get() {
   

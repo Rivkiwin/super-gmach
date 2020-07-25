@@ -1,19 +1,19 @@
 <div class="w-75 mx-5 divLIst">
 </div>
-<div>{{fund.name}}</div>
+<!-- <div>{{fund.Fund_name}}</div> -->
 <div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
           aria-expanded="true" aria-controls="collapseOne">
-          friends
+          חברים בקרן
         </button>
       </h5>
     </div>
     <div id="collapseOne" class="collapse  pre-scrollable " aria-labelledby="headingOne" data-parent="#accordionExample" >
-      <div class="card-body mw-25">
-        <app-friend-of-fund [fund]='fund' ></app-friend-of-fund> 
+      <div class="card-body mw-75">
+        <app-friend-of-fund [Fund]="fund" ></app-friend-of-fund> 
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
         <h5 class="mb-0">
           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="false" aria-controls="collapseTwo">
-            withdrawals
+            משיכות
           </button>
         </h5>
       </div>
@@ -42,7 +42,7 @@
         <h5 class="mb-0">
           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="false" aria-controls="collapseThree">
-            deposits
+            הפקדות
           </button>
         </h5>
       </div>
@@ -54,9 +54,9 @@
   </div>
   <table class="table table-striped bg-secondary text-white" >
     <tr>
-      <th>Current balance</th>
-      <th>Future balance</th>
-      <th>Withdrawals for this month</th>
+      <th>יתרה </th>
+      <th>יתרה עתידית</th>
+      <th>משיכות לחודש זה</th>
     </tr>
     <tr>
       <td >10000</td>

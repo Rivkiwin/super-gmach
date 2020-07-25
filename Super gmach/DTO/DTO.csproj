@@ -45,12 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\ExpenditureDTO.cs" />
+    <Compile Include="classes\fund\FundDTO.cs" />
     <Compile Include="classes\StatusDTO.cs" />
     <Compile Include="classes\user_classes\Bank details.cs" />
     <Compile Include="classes\user_classes\Communication .cs" />
     <Compile Include="classes\user_classes\Management statusDTO.cs" />
     <Compile Include="classes\user_classes\Manager.cs" />
     <Compile Include="classes\user_classes\UserDTO.cs" />
+    <Compile Include="classes\fund\User_in_fundDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

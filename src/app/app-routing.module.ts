@@ -13,59 +13,67 @@ import { FundListComponent } from './componentes/funds/fund-list/fund-list.compo
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
+import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditure/expenditure-details/expenditure-details.component';
 
 
 
 const routes: Routes = [
   {
-    path:"FundDetails/:name",
-    component:FundDetailsComponent
-   },
+    path: "FundDetails/:id",
+    component: FundDetailsComponent
+  },
   {
-    path:"fund",
-    component:FundComponentComponent,
-    children:[{
-      path:"addNewFund",
-      component:FundFormComponent
+    path: "fund",
+    component: FundComponentComponent,
+    children: [{
+      path: "addNewFund",
+      component: FundFormComponent
     },
     {
-      path:"FundList",
-      component:FundListComponent
+      path: "FundList",
+      component: FundListComponent
     },
     ]
   },
-  
+
   {
-    path:"patty_cash",
-    component:PettyCashComponent,
-    children:[{
-      path:"Expenditure",
-      component:ExpenditureComponent},
-      {
-          path:"add_new_Expenditure",
-          component:AddNewComponent
-        }, 
-        {
-        path:"view_Expenditure",
-        component:ListExpenditureComponent 
-    }]
+    path: "patty_cash",
+    component: PettyCashComponent,
+    children: [{
+      path: "Expenditure",
+      component: ExpenditureComponent
+    },
+    {
+      path: "add_new_Expenditure",
+      component: AddNewComponent
+    },
+    {
+      path: "view_Expenditure",
+      component: ListExpenditureComponent,
+         children: []
+    },
+    {
+      path: "details/:id",
+      component: ExpenditureDetailsComponent
+   }
+    ]
   },
   {
-    path:"friends",
-    component:FriendsComponent,
-    children:[{
-      path:"addNewFriend",
-      component:FriendsFormComponent
+    path: "friends",
+    component: FriendsComponent,
+    children: [{
+      path: "addNewFriend",
+      component: FriendsFormComponent
     }
-     ,{
-       path:"Friendlist",
-       component:FriendsListComponent
-     },
-     {
-       path:"detalis/:id",
-       component:FriendsDetailsComponent
-     }
-     ]
+      , {
+      path: "Friendlist",
+      component: FriendsListComponent
+    },
+    {
+      path: "detalis/:id",
+      component: FriendsDetailsComponent
+    }
+    ]
   }
 
 ];
