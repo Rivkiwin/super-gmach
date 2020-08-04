@@ -15,9 +15,17 @@ namespace API.Controllers
     {
       [HttpPost]
       [Route("addexpenditure")]
-      public string AddExpenditure(ExpenditureDTO expenditure)
+      public IHttpActionResult AddExpenditure(ExpenditureDTO expenditure)
       {
-        return ExpenditureBL.AddExpenditure(expenditure);
+      try
+      {
+         ExpenditureBL.AddExpenditure(expenditure);
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.ToString());
+      }
+      return Ok();
       }
 
       [HttpGet]
@@ -33,6 +41,36 @@ namespace API.Controllers
       return ExpenditureBL.GetByID(id);
     }
 
+    [HttpPost]
+    [Route("updateExpenditure")]
+    public  IHttpActionResult UpdateExpenditure(ExpenditureDTO ex)
+    {
+      try
+      {
+        ExpenditureBL.updateExpenditure(ex);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok();
+    }
+    [HttpPost]
+    [Route("cancelExpenditure")]
+    public IHttpActionResult CancelExpenditure(int ExpenditureId)
+    {
+      try
+      {
+        ExpenditureBL.cancelExpenditure(ExpenditureId);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok();
+    }
   }
 }
 

@@ -41,11 +41,14 @@ namespace BL
       //}
       //foreach (var item in ExpenditureBL.GetExpendituresList())
       //{
-        
+
       //  Console.WriteLine( item.id);
       //}
 
-      UserBL.Get_users_byFund(2);
+      //UserBL.Get_users_byFund(2);
+
+        FundBL.Subtract_Balance(5,1);
+
       Console.Read();
         }
     }

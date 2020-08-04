@@ -32,5 +32,52 @@ namespace BI.BLclasses
       }
       return null;
     }
+    public static void AddBalance(int Value,int fundId=1)
+    {
+      try
+      {
+        DB db = new SuperGmachEntities();
+        var fund = db.Funds.FirstOrDefault(f => f.Id == fundId);
+        if (fund != null)
+        {
+          fund.balance = fund.balance + Value;
+          db.SaveChanges();
+          Console.WriteLine(fund.balance);
+        }
+        else
+        {
+          throw new Exception("fund id not found");
+        }
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+    }
+    public static void Subtract_Balance(int Value,int fundId=1)
+    {
+      try
+      {
+        DB db = new SuperGmachEntities();
+        var fund = db.Funds.FirstOrDefault(f => f.Id == fundId);
+        if (fund != null)
+        {
+          fund.balance = fund.balance - Value;
+          db.SaveChanges();
+
+        }
+        else
+        {
+          throw new Exception("fund id not found");
+        }
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+
+    }
   }
 }

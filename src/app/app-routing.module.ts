@@ -6,18 +6,15 @@ import { FriendsListComponent } from './componentes/friend/friends-list/friends-
 import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
 
-
-
-import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
-
 import { FundDetailsComponent } from './componentes/funds/fund-details/fund-details.component';
 import { FundComponentComponent } from './componentes/funds/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/funds/fund-form/fund-form.component';
 import { FundListComponent } from './componentes/funds/fund-list/fund-list.component';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
-import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
+// import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
 import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditure/expenditure-details/expenditure-details.component';
+import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
 
 
 

@@ -25,9 +25,9 @@
       <tr *ngFor="let fund of fund_list |filter:name|filterStatus:status let i = index" >
         <th scope="row">{{fund.Id}}</th>
         <td><a class="link-dark" routerLink="/FundDetails/{{fund.Id}}">{{fund.Fund_name}}</a></td> 
-        <!-- <td >{{fund.Status.Description}}</td> -->
-        <!-- <td>{{fund.Nun_friends}}</td> -->
-        <td></td>
+        <td >st</td> 
+         <td>{{fund.Nun_friends}}</td>
+        <td>{{fund.balance}}</td>
         <td>{{fund.Comments}}</td>     
  <td></td>
          

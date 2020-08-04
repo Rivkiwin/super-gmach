@@ -12,6 +12,7 @@ export class FriendsService {
   postId
   baseUrl: string = "http://localhost:62859/api/User/";
   constructor(private httpclinet: HttpClient) { }
+  
   public add(friend: Friend) {
      this.httpclinet.post(`${this.baseUrl}addUser`,friend).subscribe(data => {
       this.postId= data

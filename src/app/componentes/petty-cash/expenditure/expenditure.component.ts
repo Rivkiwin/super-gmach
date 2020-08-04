@@ -15,12 +15,7 @@ export class ExpenditureComponent implements OnInit {
 
   ngOnInit(): void {
     // this.ExService.Get().subscribe(x=>{
-      this.columnDefs.push({ headerName: 'מזהה', field: 'id' },
-      { headerName: 'סטטוס', field: 'status' },
-      { headerName: 'מטרה', field: 'purpose' },
-      { headerName: 'סכום', field: 'amount' },
-      { headerName: 'מקבל', field: 'Receives' },
-      { headerName: 'זמן עתידי', field: 'future_date' }) 
+      this.AddColumns(); 
 
        
           
@@ -28,4 +23,13 @@ export class ExpenditureComponent implements OnInit {
       // )
   }
 
+
+  private AddColumns() {
+    this.columnDefs.push({ headerName: 'מזהה', field: 'id' },
+      { headerName: 'סטטוס', field: 'status' },
+      { headerName: 'מטרה', field: 'purpose' },
+      { headerName: 'סכום', field: 'amount' },
+      { headerName: 'מקבל', field: 'Receives' },
+      { headerName: 'זמן עתידי', field: 'future_date' });
+  }
 }

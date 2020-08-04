@@ -1,14 +1,53 @@
-<b>פרטי הוצאה</b>
-<div>{{expenditure.id}}</div>
-<div class="werpper">
-    <form  [formGroup]="FromeditEX" id="from" class="needs-validation" novalidate="">
-      <div class="row">
-          <div class="col">
-              <input  class="form-control" formControlName="futureDate" required="">
-              <label>תאריך גבייה </label>
-          </div>
-      </div>
-    </form>
-</div>
-<button class="btn" type="submit" (click)="validation()">Continue to checkout</button>
 
+<div class="werpper details" *ngIf="expenditure!=undefined">
+    <div class="header">
+        <b>{{expenditure.id}}:פרטי הוצאה</b>
+    </div>
+    <form [formGroup]="Formedetails" id="from" class="needs-validation"
+        novalidate="">
+        <div class="row">
+            <div class="col">
+                <label>:תאריך גבייה </label>
+                <input class="form-control" formControlName="datePay"
+                    required="">
+            </div>
+            <div class="col">
+                <label>:סכום</label>
+                <input class="form-control" formControlName="amount"
+                    required="">
+            </div>
+            <div class="col">
+                <label>:מוטב</label>
+                <input class="form-control" formControlName="Receives"
+                    required="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>:מטרה</label>
+                <input class="form-control" formControlName="purpose">
+            </div>
+            <div class="col">
+                <label>:סטטוס הוצאה</label>
+                <div class="form-check form-check-inline" *ngFor="let s of
+                    status">
+                    <input class="form-check-input" name="inlineRadioOptions"
+                        (change)="OnStatusChange($event)"
+                        id="status_'{{s.Name}}''" type="radio" [value]="s"
+                        [checked]="s.id==expenditure.id"   (change)="changeStatus($event, s)">
+                    <label class="form-check-label">{{s.Description}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col">
+            <label>:מס כרטיס אשראי לזיכוי</label>
+            <input class="form-control" formControlName="">
+         </div>
+        </div>
+    </form>
+    <button class="btn bg-dark m-5 text-white" type="submit"
+        (click)="Save()">שמור</button>
+    <button class="btn bg-dark m-5"><a class="text-white"
+            href="patty_cash/view_Expenditure">חזור</a></button>
+</div>

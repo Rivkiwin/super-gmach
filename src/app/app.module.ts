@@ -19,10 +19,10 @@ import { FriendsFormComponent } from './componentes/friend/friends-form/friends-
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
 import { ManagementComponent } from './componentes/management/management.component';
 import { FilterMonthsPipe } from './pipes/filter-months.pipe';
-
+import { DatePipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
-import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
+// import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
 import { PettyCashComponent } from './componentes/petty-cash/petty-cash/petty-cash.component';
 import { FundComponentComponent } from './componentes/funds/fund-component/fund-component.component';
 import { FundFormComponent } from './componentes/funds/fund-form/fund-form.component';
@@ -34,6 +34,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditure/expenditure-details/expenditure-details.component';
+import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
+import { AddNewIncomeComponent } from './componentes/petty-cash/income/add-new-income/add-new-income.component';
+import { AddCreditComponent } from './componentes/add-credit/add-credit.component';
+import { MessageBoxAddComponent } from './componentes/message-box-add/message-box-add.component';
+import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
+import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -66,6 +72,18 @@ import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditur
     
     ExpenditureDetailsComponent,
     
+    AddNewIncomeComponent,
+    
+    AddCreditComponent,
+    
+    MessageBoxAddComponent,
+    
+    SelectStatusComponent,
+    
+    PaymentMethodComponent,
+    
+
+    
   ],
   imports: [
     CommonModule,
@@ -88,7 +106,8 @@ import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditur
   // schemas: [
   //   CUSTOM_ELEMENTS_SCHEMA
   // ],
-  
+  providers: [
+    DatePipe,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

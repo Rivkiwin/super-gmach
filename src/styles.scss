@@ -4,15 +4,18 @@
 
 // @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
-
+.modal-title{
+    padding-left: 34%;
+   
+}
+.modal-body{
+    direction: rtl;
+}
 label{
     float: right;
     margin-right: 14px;
 }
-div{
-    
-    margin-top: 10px;
-}
+
 .form-check-input{
     position: relative;
     margin-left: none;
@@ -63,3 +66,36 @@ div{
     color: rgb(124, 252, 0);
     text-shadow: black;
 }
+.details{
+ width: 50%;
+ margin-left: 25%;
+}
+.header{
+    text-align: center;
+    margin: 5%;
+    margin-top: 55px;
+}
+.row{
+    margin-top: 3%;
+}
+.alert-danger{
+  text-align: center;
+  width: 30%;
+  margin-left: 35%;
+  }
+  .Form-wrapper{
+    width:60%!important;
+    margin-left: 20% !important;
+    margin-top: 70px;
+  }
+
+
+   .ag-row-selected {
+    background-color: #17a2b8!important;
+    color: #fff!important;
+}
+
+.ag-theme-balham .ag-ltr .ag-cell-focus {
+    border: 1px solid red;
+}
+ 

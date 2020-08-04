@@ -102,4 +102,5 @@ export class FriendsFormComponent implements OnInit {
       })
     }, false)
   }
+  
 }

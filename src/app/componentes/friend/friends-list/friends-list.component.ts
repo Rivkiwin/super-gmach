@@ -22,15 +22,16 @@ export class FriendsListComponent implements OnInit {
     { headerName: 'הלוואות', field: 'loan' },
     { headerName: 'קרן רחל לאה', field: 'fund_Rachel_Leah' },
     { headerName: 'טל', field: 'phon', },
-    { headerName: 'שם', field: 'name', 
-    cellRenderer: function(params) {
-      return `<a href="friends/detalis/${params.data.id}">`+ params.data.name+'</a>'
-  }
-},
+    {
+      headerName: 'שם', field: 'name',
+      cellRenderer: function (params) {
+        return `<a href="friends/detalis/${params.data.id}">` + params.data.name + '</a>'
+      }
+    },
     { headerName: 'קוד', field: 'id', width: 80 },
     {
       headerName: 'חבר', field: 'friend', width: 80,
-     
+
     },
     {
       headerName: 'ניהול', field: 'managment',
@@ -57,15 +58,7 @@ export class FriendsListComponent implements OnInit {
     // const toolTipArray = [first, last]
     return { status_reason }
   }
-  public addrowData() {
-    debugger
-    this.Friends.forEach(friend => {
-      //  console.log(friend.Last_name+" "+friend.First_name);
-      this.rowData.push(
-        { friend: friend.Friend ? 'v' : 'x' }
-      )
-    })
-  };
+
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
@@ -79,23 +72,31 @@ export class FriendsListComponent implements OnInit {
 
     params.api.sizeColumnsToFit();
   }
-
-  ngOnInit(): void {
-    this.friendsService.get().subscribe(x => {
-      this.Friends = <Friend[]>x, this.Friends.forEach(friend => {
-        console.log(friend.Communication_ways.Phon1,),
-          this.rowData.push({
-            managment: friend.Management_status,
-            tooltip: "friend.Status_reason",
-            friend: friend.Friend ? 'V' : 'X',
-            id: friend.Id,
-            name: `${friend.Last_name } ${friend.First_name}`,
-            phon: friend.Communication_ways.Phon1
-          })
-      })
+  public addrowData() {
+    debugger
+    this.Friends.forEach(friend => {
+      //  console.log(friend.Last_name+" "+friend.First_name);
+      this.rowData.push(
+        { friend: friend.Friend ? 'v' : 'x' }
+      )
     })
+  };
+  ngOnInit(): void {
 
-    this.addrowData();
+    this.friendsService.get().subscribe(x => {
+      this.Friends = <Friend[]>x; 
+
+      this.rowData = this.Friends.map(friend => {
+        return {
+          managment: friend.Management_status,
+          tooltip: "friend.Status_reason",
+          friend: friend.Friend ? 'V' : 'X',
+          id: friend.Id,
+          name: `${friend.Last_name} ${friend.First_name}`,
+          phon: friend.Communication_ways.Phon1
+        }
+      });
+    });
   }
 
 

@@ -1,35 +1,30 @@
-<div class=" w-75 m-5">
-
-<p>add-new works!</p>
-    <form  [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
+<div class="Form-wrapper">
+    <div class="alert alert-danger invalidPattern" role="alert" *ngIf="!LetterValid" >
+        {{messageLetterinValid}}
+    </div>
+    <form  [formGroup]="FormAddExpense" class="needs-validation" novalidate>
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
                 <label for="date">תאריך עתידי</label>
-                <input type="date" class="form-control" formControlName="date" placeholder="date">
+                <input type="date" class="form-control" formControlName="date"  (change)="FutureDay($event)" placeholder="date" required=" !Contemporary_expenditure">
             </div>
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>
-                <input type="text" class="form-control" formControlName="Expense_amount" placeholder="הכנס סכום">
-                <!-- <app-field-error-display 
-                 [displayError]="isFieldValid('address.city')" 
-                 errorMsg="הכנס סכום הוצאה">
-               </app-field-error-display> -->
+                <input type="number" class="form-control" formControlName="Expense_amount" placeholder="הכנס סכום"  min="1" required >
             </div>
             <div class="col">
                 <label for="Receives">עבור</label>
-                <input type="text" class="form-control" formControlName="Receives" placeholder="הכנס מוטב">
+                <input type="text" class="form-control" formControlName="Receives" placeholder="הכנס מוטב"   (keypress)="LetterValid=LetterOnly($event)" required>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="Purpose">מטרה</label>
-                <input type="text" class="form-control" formControlName="Purpose" placeholder="הכנס מטרה">
+                <input type="text" class="form-control" formControlName="Purpose" placeholder="הכנס מטרה" required>
             </div>
             <div class="col" [hidden]="Contemporary_expenditure!=false">    
-                <label for="exampleFormControlFile1">Payment Form</label>
-               <select class="selectpicker form-control" data-live-search="true">
-                   <option *ngFor="let p of keyPayment_Form()">{{p}}</option>
-               </select>       
+                <label for="exampleFormControlFile1">צורת תשלום</label>
+                <app-payment-method (select)="SetPaymentMethod($event)"></app-payment-method> 
             </div>
         </div> 
         <div class="col">
@@ -42,4 +37,9 @@
         
      </form>
     <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
+    <!-- <app-message-box-add [Message]="messageADD | json" ></app-message-box-add> -->
 </div>
+
+
+
+ <!-- <app-add-credit   (carditDitails)="SetDetalisCardit($event)"></app-add-credit> -->

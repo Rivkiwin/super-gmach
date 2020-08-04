@@ -25,13 +25,13 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="id">Enter your ID</label>
+                <label for="id">:ת"ז</label>
                 <input formControlName="tz" placeholder="id" class="form-control" type="text">
             </div>
             <div class="col">
-                <label>status friend</label>
+                <label>סטטוס חבר</label>
                 <select class="selectpicker form-control" data-live-search="true">
-                    <option>choose option</option>
+                    <option>בחר סטטוסס</option>
                     <option *ngFor="let status of keyStatusFriend()" [ngValue]="status">{{status}}</option>
                 </select>
             </div>
@@ -39,7 +39,7 @@
         <div class="dropdown-divider"></div>
         <div class="row">
             <div class="col">
-                <label>phone 1</label>
+                <label>טל 1</label>
                 <input class="form-control" placeholder="phone 1" formControlName="phon1">
             </div>
             <div class="col">
@@ -76,15 +76,15 @@
      <div [hidden]="!bank_detalis">
         <div class="row">
             <div class="col">
-                <label for="bankName">Bank name</label>
+                <label for="bankName">שם הבנק</label>
                 <input class="form-control" id="bankName" type="text" formControlName="Bank">
             </div>
             <div class="col">
-                <label for="Branch">Branch</label>
+                <label for="Branch">סניף</label>
                 <input class="form-control" id="Branch" formControlName="Branch">
             </div>
             <div class="col">
-                <label for="AccounNumber">Accoun number</label>
+                <label for="AccounNumber">מספר חשבון</label>
                 <input class="form-control" id="AccounNumber" formControlName="Accoun_number">
             </div>
         </div>
@@ -100,33 +100,7 @@
         </div>
      </div>
         <div class="dropdown-divider"></div>
-        <div class="col">
-            <input class="form-check-input" type="checkbox" value="true" id="creditControl" formControlName="credit"(change)="Show('card_Detalis')" >
-            <label for="creditControl">credit</label>
-        </div>
-        <div  [hidden]="!card_Detalis" >
-        <div class="row">
-            <div class="col">
-                <label for="cardNumber">Card number</label>
-                <input class="form-control" id="cardNumber" formControlName="card_number">
-            </div>
-            <div class="col">
-                <label for="CVV">CVV</label>
-                <input class="form-control" id="CVVcontrol" formControlName="CVV">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="validityControl">validity</label>
-                <input class="form-control" formControlName="validity" id="validityConrol" type="date">
-            </div>
-            <div class="col">
-                <label for="collection_dateCard">Collection date</label>
-                <input class="form-control" formControlName="collection_dateCard" id="collection_date" type="date">
-            </div>
-            
-        </div>
-    </div>
+        <app-add-credit ></app-add-credit>
         <div class="row">
             <div class="col">
                 <label for="Remarkscontrol">Remarks</label>

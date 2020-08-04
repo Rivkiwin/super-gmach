@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Expenditure } from 'src/app/classes/expenditure';
 import { ActivatedRoute } from '@angular/router';
-import { ExpressionService } from 'ag-grid-community';
 import { ExpenditureService } from 'src/app/services/expenditure.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { variable } from '@angular/compiler/src/output/output_ast';
+import { DatePipe } from '@angular/common'
+import { status } from 'src/app/classes/status';
+import { StatusService } from 'src/app/services/status.service';
+import { validation } from 'src/Validation';
 
 @Component({
   selector: 'app-expenditure-details',
@@ -12,47 +14,95 @@ import { variable } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./expenditure-details.component.scss']
 })
 export class ExpenditureDetailsComponent implements OnInit {
-
-  constructor(private activeRouter:ActivatedRoute,private exService:ExpenditureService) { }
-  FromeditEX:FormGroup;
+  Formedetails: FormGroup;
   expenditure: Expenditure;
+  changeTOperformed = false;
+  selectStatus: status;
+  status: status[];
+  se;
+  constructor(private activeRouter: ActivatedRoute, private exService: ExpenditureService, public datepipe: DatePipe, private statusService: StatusService) { }
 
+  OnStatusChange(e) {
+    switch (e.target.value) {
+      case "performed":
+        {
+          this.changeTOperformed = true
+        }
+    }
+
+    // console.log((<status>e.target.value).Name);
+  }
+  changeStatus(event, status) {
+    this.selectStatus = status;
+  }
   ngOnInit(): void {
+
     //get expenditure by id from the url
     var id;
-    this.activeRouter.paramMap.subscribe(res=>(id=res.get('id')));
-    this.exService.GetById(id).subscribe(ex=>{this.expenditure=<Expenditure>ex,
-      this.FromeditEX=new FormGroup({
-        status: new FormControl(this.expenditure.status.Description),
-        datePay:new FormControl(this.expenditure.real_date),
-        futureDate:new FormControl(this.expenditure.future_date_String),
-        amount:new FormControl(this.expenditure.amount)
-      })
+    this.activeRouter.paramMap.subscribe(res => (id = res.get('id')));
+    this.exService.GetById(id).subscribe(ex => {
+      this.expenditure = <Expenditure>ex;
+        this.EnterDetails();
+        this.selectStatus=this.expenditure.status;
+      //set data to status list
+      this.statusService.GetStatus().subscribe(s => {
+        this.status = <status[]>s;
+      });
+      this.se = this.expenditure.status.Description;
     });
-    console.log(this.expenditure);
-    console.log(id);
-   //set from
+
+  }
+
+  //check validation and save
+  Save() {
+    validation();
+    if(this.Formedetails.valid)
+    {
+      this.Update();
+    }
+    else{
+      console.log("תקן את הארכים המסומנים לפ ני השמירה")
+    }
+  }
+  Update() {
+    debugger
+    this.expenditure.amount = this.Formedetails.get('amount').value;
+    this.expenditure.Receives = this.Formedetails.get('Receives').value;
+    this.expenditure.purpose = this.Formedetails.get('purpose').value;
+    this.expenditure.status = this.selectStatus;
+    debugger
+    return this.exService.Update(this.expenditure);
+  }
+
+
+  private EnterDetails() {
+    console.log(this.expenditure.future_date);
+
+    this.Formedetails = new FormGroup({
+      status: new FormControl(this.expenditure.status.Description),
+      // datePay: new FormControl(this.expenditure.real_date),
+      // futureDate: new FormControl(this.expenditure.future_date_String),
+      amount: new FormControl({ value: this.expenditure.amount, disabled: this.Isperformed() }),
+      Receives: new FormControl({ value: this.expenditure.Receives, disabled: this.Isperformed() }),
+      purpose: new FormControl({ value: this.expenditure.purpose, disabled: this.Isperformed() })
+    });
+    let date;
+    if (!this.Isperformed()) {
+      date = this.datepipe.transform(this.expenditure.future_date, 'dd-MM-yyyy')
+    }
+    else {
+      date = this.datepipe.transform(this.expenditure.real_date, 'dd-MM-yyyy')
+    }
+    debugger
+    console.log(date);
+    this.Formedetails.addControl('datePay', new FormControl({ value: date, disabled: this.Isperformed() }))
+  }
+  public Isperformed() {
+    return this.expenditure.status.Name == "future" ? false : true
+  }
+
   
 
-     ;
-  }
-  
- //check validation
-  validation=()=>{
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var from=document.getElementsByClassName("needs-validation");
-      console.log("hi")
-      // Loop over them and prevent submission
-      Array.prototype.filter.call(from, function (form) {
-        form.addEventListener('submit', function (event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-          form.classList.add('was-validated')
-        }, false)
-      })
-    }
-  
 
 }
+

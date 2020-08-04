@@ -6,8 +6,11 @@ import { status } from '../classes/status';
   providedIn: 'root'
 })
 export class StatusService {
-baseURL="http://localhost:62859/api/Status/"
-  constructor(private http:HttpClient) { }
+baseURL="http://localhost:62859/api/Status/";
+
+  constructor(private http:HttpClient) {
+    
+   }
   public GetStatus(){
    return this.http.get(`${this.baseURL}getStatusList`);
   }
