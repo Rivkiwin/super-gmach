@@ -28,6 +28,7 @@
     <NavigationProperty Name="Status1" Relationship="Self.FK_Fund_Status" FromRole="Fund" ToRole="Status" />
     <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="Fund" ToRole="User_in_fund" />
     <Property Name="balance" Type="Int32" />
+    <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_Fund" FromRole="Fund" ToRole="Deposit" />
   </EntityType>
   <EntityType Name="Management_status">
     <Key>
@@ -48,6 +49,7 @@
     <NavigationProperty Name="Expenditures" Relationship="Self.FK_Expenditure_Status1" FromRole="Status" ToRole="Expenditure" />
     <NavigationProperty Name="Funds" Relationship="Self.FK_Fund_Status" FromRole="Status" ToRole="Fund" />
     <NavigationProperty Name="withdrawings" Relationship="Self.FK_withdrawing_Status" FromRole="Status" ToRole="withdrawing" />
+    <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_Status" FromRole="Status" ToRole="Deposit" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -91,6 +93,7 @@
     <Property Name="Status_reason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Management_status1" Relationship="Self.FK_User_Management_status" FromRole="User" ToRole="Management_status" />
     <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_User" FromRole="User" ToRole="User_in_fund" />
+    <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_User" FromRole="User" ToRole="Deposit" />
   </EntityType>
   <EntityType Name="withdrawing">
     <Key>
@@ -253,6 +256,19 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Deposits" EntityType="SuperGmachModel.Deposit" />
+    <AssociationSet Name="FK_Deposit_Fund" Association="SuperGmachModel.FK_Deposit_Fund">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="Deposit" EntitySet="Deposits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_Status" Association="SuperGmachModel.FK_Deposit_Status">
+      <End EntitySet="Status" Role="Status" />
+      <End EntitySet="Deposits" Role="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_User" Association="SuperGmachModel.FK_Deposit_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Deposit" EntitySet="Deposits" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -265,4 +281,55 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Deposit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="fund_id" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Fund" Relationship="SuperGmachModel.FK_Deposit_Fund" FromRole="Deposit" ToRole="Fund" />
+    <NavigationProperty Name="Status1" Relationship="SuperGmachModel.FK_Deposit_Status" FromRole="Deposit" ToRole="Status" />
+    <NavigationProperty Name="User" Relationship="SuperGmachModel.FK_Deposit_User" FromRole="Deposit" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Deposit_Fund">
+    <End Type="SuperGmachModel.Fund" Role="Fund" Multiplicity="0..1" />
+    <End Type="SuperGmachModel.Deposit" Role="Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="fund_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposit_Status">
+    <End Type="SuperGmachModel.Status" Multiplicity="0..1" Role="Status" />
+    <End Type="SuperGmachModel.Deposit" Multiplicity="*" Role="Deposit" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposit_User">
+    <End Type="SuperGmachModel.User" Role="User" Multiplicity="1" />
+    <End Type="SuperGmachModel.Deposit" Role="Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -1,0 +1,30 @@
+<div class="werpper details" *ngIf="deposit!=undefined">
+    <div class="header">
+        <b>{{deposit.Id}}:פרטי הפקדה</b>
+    </div>
+    <form [formGroup]="Formedetails" id="from" class="needs-validation"
+        novalidate="">
+        <div class="row">
+            <div class="col">
+                <label>:תאריך  </label>
+                <input class="form-control" formControlName="datePay"
+                    required type="date" [ngModel]="deposit.date | date:'yyyy-MM-dd'">
+            </div>
+            <div class="col">
+                <label>:מפקיד</label>
+                <input class="form-control" formControlName="userName"    >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>:סכום</label>
+                <input class="form-control" formControlName="amount"
+                    required="">
+            </div>
+           <div class="col">
+                <label>:סוג</label>
+                <input class="form-control" formControlName="type" >
+            </div>
+        </div>
+    </form>
+</div>

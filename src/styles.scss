@@ -30,12 +30,7 @@ label{
     margin-left: none !important;
 }
 
-.ag-theme-alpine {
-    @include ag-theme-alpine((
-        
-    ));
-  
-}
+
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css";
 .divLIst,tr,input{
     direction: rtl;
@@ -44,23 +39,12 @@ label{
     direction: ltr;
 }
 
-.ag-header-group-cell-label, .ag-header-cell-label{
-    flex: inherit;
-}
-.ag-theme-alpine .ag-ltr .ag-cell{
-    text-align: end;
-}
-.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell{
-    background-color: #506265;
-    color: white;
-}
 
-.ag-theme-alpine{
-    width:60%;
-    min-width: 600px;
-     float:right;
-     margin-top:6%;
-     margin-right:6%
+.ag-theme-alpine {
+    @include ag-theme-alpine((
+    
+    ));
+  
 }
 .text-logo{
     color: rgb(124, 252, 0);
@@ -90,12 +74,6 @@ label{
   }
 
 
-   .ag-row-selected {
-    background-color: #17a2b8!important;
-    color: #fff!important;
-}
 
-.ag-theme-balham .ag-ltr .ag-cell-focus {
-    border: 1px solid red;
-}
+
  

@@ -32,11 +32,16 @@
                 <div class="form-check form-check-inline" *ngFor="let s of
                     status">
                     <input class="form-check-input" name="inlineRadioOptions"
-                        (change)="OnStatusChange($event)"
                         id="status_'{{s.Name}}''" type="radio" [value]="s"
                         [checked]="s.id==expenditure.id"   (change)="changeStatus($event, s)">
                     <label class="form-check-label">{{s.Description}}</label>
                 </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="changeTOperformed">
+            <div class="col">
+                <label class="form-check-label">צורת תשלום</label>
+                <app-payment-method (select)="SetPaymentMethod($event)"></app-payment-method> 
             </div>
         </div>
         <div class="row">

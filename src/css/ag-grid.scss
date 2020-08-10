@@ -1,0 +1,22 @@
+.ag-theme-alpine{
+    width:60%;
+    min-width: 600px;
+     float:right;
+     margin-top:6%;
+     margin-right:6%
+}
+.ag-header-group-cell-label, .ag-header-cell-label{
+    flex: inherit;
+}
+.ag-theme-alpine .ag-ltr .ag-cell{
+    text-align: end;
+}
+.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell{
+    background-color: #506265;
+    color: white;
+}
+
+.ag-row-selected {
+    background-color: #17a2b8!important;
+    color: #fff!important;
+}

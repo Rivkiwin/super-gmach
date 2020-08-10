@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\deposut\DepositDetails.cs" />
+    <Compile Include="classes\deposut\DepositDTO.cs" />
     <Compile Include="classes\ExpenditureDTO.cs" />
     <Compile Include="classes\fund\FundDTO.cs" />
     <Compile Include="classes\StatusDTO.cs" />

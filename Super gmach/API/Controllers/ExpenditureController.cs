@@ -30,10 +30,21 @@ namespace API.Controllers
 
       [HttpGet]
       [Route("getListGetexpenditure")]
-      public List<ExpenditureDTO> Getexpenditure()
+    public IHttpActionResult  Getexpenditure()
       {
-        return ExpenditureBL.GetExpendituresList();
+      List<ExpenditureDTO> expenditures = new List<ExpenditureDTO>();
+      try
+      {
+        expenditures =ExpenditureBL.GetExpendituresList();
       }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok(expenditures);
+
+    }
     [HttpGet]
     [Route("getListGetexpenditure/{id}")]
     public ExpenditureDTO GetexpenditureById([FromUri] int id)

@@ -33,6 +33,7 @@ export class ExpenditureService {
       );
   }
   public Get() {
+    debugger
     // http://localhost:4200/user/GetUsersList
     return this.http.get(`${this.baseUrl}getListGetexpenditure`).pipe(
       catchError(this.handleError)
@@ -59,7 +60,7 @@ export class ExpenditureService {
   }
 
   handleError(error: HttpErrorResponse){
-    console.log("lalalalalalalala");
+    console.log("erro on get data");
       return throwError(error);
   }
 }

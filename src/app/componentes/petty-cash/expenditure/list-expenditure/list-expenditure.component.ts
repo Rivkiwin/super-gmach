@@ -51,14 +51,14 @@ export class ListExpenditureComponent implements OnInit {
 
   addDATA() {
 
-    this.Expenditures.forEach(ex =>
+   
       this.rowData = this.Expenditures.map(ex => {
         return {
           id: ex.id, status: ex.status.Description, purpose: ex.purpose,
           amount: ex.amount, Receives: ex.Receives,
           future_date: this.GetDate(ex)
         }
-      }));
+      })
     // this.grid.refresh();
   }
   GetDate(ex: Expenditure) {

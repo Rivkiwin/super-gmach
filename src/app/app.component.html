@@ -1,4 +1,5 @@
 
+
 <ul class="nav nav-tabs-dark-lg bg-dark content-right justify-content-end">
   <li class="nav-item  dropdown bg-info">
     <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
@@ -27,7 +28,17 @@
      </a>
     </div>
   </li>
-
+  <li class="nav-item bg-dark">
+    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">הפקדות</a>
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <a routerLink="patty_cash/deposit/List" routerLinnkActive="active_link"
+        class="dropdown-item text-white"> רשימת הפקדות</a>
+      <a routerLink="patty_cash/deposit/add" routerLinnkActive="active_link" 
+      class="dropdown-item text-white">הוספת הפקדה
+     </a>
+    </div>
+  </li>
   <li class="nav-item bg-info dropdown">
     <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
       role="button" aria-haspopup="true" aria-expanded="false">קופה קטנה</a>
@@ -50,8 +61,8 @@
   <!-- <div class="d-inline-block text-center text-logo">
   <div >נתינה </div>
   <div > שבונה עולמות</div>
-</div> -->
-  <img src="assets/images/logo.png" alt="logo-super gmach">
+</div> --> 
+   <img src="assets/images/logo.png" alt="logo-super gmach">
 </footer>
-<!-- <app-add-new></app-add-new> -->
+
 <router-outlet></router-outlet>

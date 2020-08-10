@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-message-box-add',
+  selector: 'message-box-add',
   templateUrl: './message-box-add.component.html',
   styleUrls: ['./message-box-add.component.scss']
 })

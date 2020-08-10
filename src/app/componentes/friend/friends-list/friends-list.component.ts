@@ -73,29 +73,22 @@ export class FriendsListComponent implements OnInit {
     params.api.sizeColumnsToFit();
   }
   public addrowData() {
-    debugger
-    this.Friends.forEach(friend => {
-      //  console.log(friend.Last_name+" "+friend.First_name);
-      this.rowData.push(
-        { friend: friend.Friend ? 'v' : 'x' }
-      )
-    })
+    this.rowData = this.Friends.map(friend => {
+      return {
+        managment: friend.Management_status,
+        tooltip: "friend.Status_reason",
+        friend: friend.Friend ? 'V' : 'X',
+        id: friend.Id,
+        name: `${friend.Last_name} ${friend.First_name}`,
+        phon: friend.Communication_ways.Phon1
+      }
+    });
   };
   ngOnInit(): void {
 
     this.friendsService.get().subscribe(x => {
       this.Friends = <Friend[]>x; 
-
-      this.rowData = this.Friends.map(friend => {
-        return {
-          managment: friend.Management_status,
-          tooltip: "friend.Status_reason",
-          friend: friend.Friend ? 'V' : 'X',
-          id: friend.Id,
-          name: `${friend.Last_name} ${friend.First_name}`,
-          phon: friend.Communication_ways.Phon1
-        }
-      });
+     this.addrowData();
     });
   }
 

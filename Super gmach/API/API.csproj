@@ -216,6 +216,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DepositController.cs" />
     <Compile Include="Controllers\ExpenditureController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

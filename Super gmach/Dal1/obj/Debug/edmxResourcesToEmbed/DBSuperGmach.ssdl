@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Deposit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" />
+    <Property Name="fund_id" Type="int" />
+    <Property Name="type" Type="nvarchar" MaxLength="5" />
+    <Property Name="status" Type="int" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
   <EntityType Name="Expenditure">
     <Key>
       <PropertyRef Name="id" />
@@ -108,6 +120,47 @@ warning 6002: The table/view 'SuperGmach.dbo.User_in_fund' does not have a prima
     <Property Name="status_reason" Type="nvarchar" MaxLength="300" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="manager_status views">
+          <Property Name="Management_status" Type="int" />
+        </EntityType>-->
+  <Association Name="FK_Deposit_Fund">
+    <End Role="Fund" Type="Self.Fund" Multiplicity="0..1" />
+    <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="fund_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposit_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposit_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Expenditure_Status1">
     <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
     <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
@@ -212,6 +265,7 @@ warning 6002: The table/view 'SuperGmach.dbo.User_in_fund' does not have a prima
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="SuperGmachModelStoreContainer">
+    <EntitySet Name="Deposit" EntityType="Self.Deposit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Expenditure" EntityType="Self.Expenditure" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fund" EntityType="Self.Fund" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Management_status" EntityType="Self.Management_status" Schema="dbo" store:Type="Tables" />
@@ -227,6 +281,18 @@ warning 6002: The table/view 'SuperGmach.dbo.User_in_fund' does not have a prima
     [User_in_fund].[balance] AS [balance]
     FROM [dbo].[User_in_fund] AS [User_in_fund]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_Deposit_Fund" Association="Self.FK_Deposit_Fund">
+      <End Role="Fund" EntitySet="Fund" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_Status" Association="Self.FK_Deposit_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposit_User" Association="Self.FK_Deposit_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
     <AssociationSet Name="FK_Expenditure_Status1" Association="Self.FK_Expenditure_Status1">
       <End Role="Status" EntitySet="Status" />
       <End Role="Expenditure" EntitySet="Expenditure" />

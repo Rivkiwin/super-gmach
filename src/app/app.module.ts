@@ -40,6 +40,15 @@ import { AddCreditComponent } from './componentes/add-credit/add-credit.componen
 import { MessageBoxAddComponent } from './componentes/message-box-add/message-box-add.component';
 import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
+import { DepositsListComponent } from './componentes/deposits/deposits-list/deposits-list.component';
+import { AddDepositComponent } from './componentes/deposits/add-deposit/add-deposit.component';
+import { DepositDetailsComponent } from './componentes/deposits/deposit-details/deposit-details.component';
+import { AlertsComponent } from './componentes/deposits/Deposits-alerts/alerts.component';
+import { UserComponent } from './componentes/select/user/user.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { FundsComponent } from './componentes/select/funds/funds.component';
+import { FundDepositsWithdrawalsComponent } from './componentes/funds/fund-deposits-withdrawals/fund-deposits-withdrawals.component';
+
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -81,6 +90,22 @@ import { PaymentMethodComponent } from './componentes/select/payment-method/paym
     SelectStatusComponent,
     
     PaymentMethodComponent,
+    
+    DepositsListComponent,
+    
+    AddDepositComponent,
+    
+    DepositDetailsComponent,
+    
+    AlertsComponent,
+    
+    UserComponent,
+    
+    LoginComponent,
+    
+    FundsComponent,
+    
+    FundDepositsWithdrawalsComponent,
     
 
     

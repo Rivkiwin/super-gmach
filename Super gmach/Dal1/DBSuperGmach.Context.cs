@@ -35,6 +35,7 @@ namespace Dal1
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<withdrawing> withdrawings { get; set; }
         public virtual DbSet<User_in_fund> User_in_fund { get; set; }
+        public virtual DbSet<Deposit> Deposits { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

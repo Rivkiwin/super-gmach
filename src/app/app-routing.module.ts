@@ -15,6 +15,9 @@ import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/ad
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
 import { ExpenditureDetailsComponent } from './componentes/petty-cash/expenditure/expenditure-details/expenditure-details.component';
 import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
+import { DepositsListComponent } from './componentes/deposits/deposits-list/deposits-list.component';
+import { DepositDetailsComponent } from './componentes/deposits/deposit-details/deposit-details.component';
+import { AddDepositComponent } from './componentes/deposits/add-deposit/add-deposit.component';
 
 
 
@@ -51,12 +54,30 @@ const routes: Routes = [
     {
       path: "view_Expenditure",
       component: ListExpenditureComponent,
-         children: []
+      children: []
     },
     {
       path: "details/:id",
       component: ExpenditureDetailsComponent
-   }
+    },
+    {
+      path:"deposit",
+      children:[
+        {
+          path:"List",
+          component:DepositsListComponent
+        },
+        {
+          path:"details/:id",
+          component:DepositDetailsComponent
+        },
+        {
+          path:"add",
+          component:AddDepositComponent
+        }
+
+      ]
+    }
     ]
   },
   {
