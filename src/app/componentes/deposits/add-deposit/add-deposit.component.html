@@ -1,0 +1,45 @@
+<div class="Form-wrapper">
+    <!-- <div class="header" *ngIf="massege">
+        <div class="alert alert-success" role="alert" *ngIf="AddResult">
+           <strong>ההפקדה נשמרה בהצלחה!</strong> 
+              <button routerLink="patty_cash/deposit/List">חזרה לרשימת ההפקדות</button>
+          </div>
+          <div class="alert alert-success" role="alert" *ngIf="!AddResult">
+            <strong>שגיאה בשמירת הנתונים</strong> 
+                                                 בדוק שהנתנוים נכונים ונסה שנית 
+               <button routerLink="patty_cash/deposit/List">חזרה לרשימת ההפקדות</button>
+           </div>
+    </div> -->
+   <div class="header"><B>הוספת הפקדה</B></div>
+    <form  [formGroup]="FormAddDeposit" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col">
+                <label>בחר מפקיד</label>
+           <user-select (User)="SetUser($event)" ></user-select>
+        </div>
+           <div class="col">
+            <label for="Expense amount">סכום הפקדה</label>
+            <input type="number" class="form-control" formControlName="amount" placeholder="הכנס סכום"  min="1" required >
+        </div>
+        </div>
+        <div class="row">
+            <div class="col" >    
+                <label >צורת תשלום</label>
+                <app-payment-method (select)="SetPaymentMethod($event)" required></app-payment-method> 
+            </div>
+            <div class="col" >    
+                <label >:עבור קרן</label>
+                <select-funds (selectFund)="SetFundId($event)" required></select-funds> 
+            </div>
+            <div class="col" >
+                <label >סוג הפקדה</label>
+                <select class="form-control"formControlName="type" required>
+                    <option *ngFor="let t of type" [value]="t">{{t}}</option>
+                </select>
+                 </div>
+        </div> 
+        
+     </form>
+     <a (click)="Add()">הוסף
+     <message-box-add [Message]="message | json" ></message-box-add></a>
+    <button (click)="Add()" button type="submit" id="B-add" class="btn btn-dark fixed-bottom position-relative">הוסף</button>

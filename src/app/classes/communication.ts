@@ -5,8 +5,7 @@ export class Communication {
     City;
     Street;
     Num_street;
- constructor()
- {
- }
+    constructor() {
+    }
 }
 

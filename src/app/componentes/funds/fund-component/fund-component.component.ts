@@ -15,8 +15,8 @@ import { FundServiceService } from 'src/app/services/fund-service.service';
 export class FundComponentComponent implements OnInit {
 public fund_list:FundClass[]=[];
   constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
-    this.fund_list=this.fundServis.get_all();
-  //   $("a").click(function(){$(this).addClass("active")})
+  this.fundServis.get_all().subscribe(f=>this.fund_list=<FundClass[]>f);
+  
    }
 
   ngOnInit(): void {

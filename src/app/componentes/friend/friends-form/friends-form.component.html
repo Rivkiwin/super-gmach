@@ -2,21 +2,30 @@
     <strong>Success!</strong> {{message}}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
-<div class=" w-75 m-5 divForm" >
-    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm">
+<div class="Form-wrapper" >
+    <div class="alert alert-danger invalidPattern" role="alert" *ngIf="!LetterinValid" >
+        {{messageLetterinValid}}
+    </div>
+    <div class="alert alert-danger invalidPattern" role="alert" *ngIf="!NumberinValid" >
+        {{messageNumberinValid}}
+    </div>
+    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm needs-validation" novalidate=""> 
         <div class="row">
             <div class="col">
-                <label for="fname">first name</label>
-                <input type="text" class="form-control" formControlName="Fname" placeholder="First name">
-                <label for="fname">father name</label>
-                <input type="text" class="form-control" formControlName="father_name" placeholder="father name">
+                <label for="fname">שם פרטי</label>
+                <input type="text" class="form-control" formControlName="Fname" placeholder="שם פרטי"  required  (keypress)="LetterinValid=LetterOnly($event)">
+                <div class="invalid-feedback"> הכנס שם </div>
             </div>
             <div class="col">
-                <label for="lname">last name</label>
-                <input type="text" class="form-control" formControlName="Lname" placeholder="Last name">
+                <label for="fname">שם האב</label>
+                <input type="text" class="form-control" formControlName="father_name" placeholder="הכנס שם" (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
             <div class="col">
-                <input class="form-check-input" type="checkbox" value="true" id="vipCheck">
+                <label for="lname">שם משפחה</label>
+                <input type="text" class="form-control" formControlName="Lname" placeholder="שם משפחה" (keypress)="LetterinValid=LetterOnly($event)" required>
+            </div>
+            <div class="col">
+                <input class="form-check-input" type="checkbox" value="true" id="vipCheck" >
                 <label class="form-check-label" for="vipCheck">
                     VIP
                 </label>
@@ -24,13 +33,13 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="id">Enter your ID</label>
-                <input formControlName="tz" placeholder="id" class="form-control" type="text">
+                <label for="id">:ת"ז</label>
+                <input formControlName="tz" placeholder="id"  min=9 max=9 class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)" required>
             </div>
             <div class="col">
-                <label>status friend</label>
+                <label>סטטוס חבר</label>
                 <select class="selectpicker form-control" data-live-search="true">
-                    <option>choose option</option>
+                    <option>בחר סטטוסס</option>
                     <option *ngFor="let status of keyStatusFriend()" [ngValue]="status">{{status}}</option>
                 </select>
             </div>
@@ -38,31 +47,31 @@
         <div class="dropdown-divider"></div>
         <div class="row">
             <div class="col">
-                <label>phone 1</label>
-                <input class="form-control" placeholder="phone 1" formControlName="phon1">
+                <label>טל 1</label>
+                <input class="form-control" placeholder="phone 1" formControlName="phon1" (keypress)="NumberinValid=NumberOnly($event)" required>
             </div>
             <div class="col">
-                <label>phone 2</label>
-                <input class="form-control" placeholder="phone 2" formControlName="phon2">
+                <label>טל 2</label>
+                <input class="form-control" placeholder="phone 2" formControlName="phon2" (keypress)="NumberinValid=NumberOnly($event)">
             </div>
             <div class="col">
-                <label for="emailInput">Email address</label>
+                <label for="emailInput">כתובת מייל</label>
                 <input type="email" formControlName="email" class="form-control" id="emailInput"
                     placeholder="name@example.com">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="citylb">city</label>
-                <input type="text" formControlName="city" class="form-control" id="citylb" placeholder="city">
+                <label for="citylb">עיר</label>
+                <input type="text" formControlName="city" class="form-control" id="citylb" placeholder="city" (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
             <div class="col">
-                <label for="street">street</label>
-                <input class="form-control" formControlName="street" placeholder="street">
+                <label for="street">רחוב</label>
+                <input class="form-control" formControlName="street" placeholder="street" (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
             <div class="col">
-                <label for="buildingNumber">building number</label>
-                <input class="form-control" formControlName="buildingNumber" type="number">
+                <label for="buildingNumber">מספר</label>
+                <input class="form-control" formControlName="buildingNumber" type="number" (keypress)="NumberinValid=NumberOnly($event)"required>
             </div>
         </div>
         <div class="dropdown-divider"></div>
@@ -75,22 +84,22 @@
      <div [hidden]="!bank_detalis">
         <div class="row">
             <div class="col">
-                <label for="bankName">Bank name</label>
-                <input class="form-control" id="bankName" type="text" formControlName="Bank">
+                <label for="bankName">שם הבנק</label>
+                <input class="form-control" id="bankName" type="text" formControlName="Bank" (keypress)="LetterinValid=LetterOnly($event)">
             </div>
             <div class="col">
-                <label for="Branch">Branch</label>
-                <input class="form-control" id="Branch" formControlName="Branch">
+                <label for="Branch">סניף</label>
+                <input class="form-control" id="Branch" formControlName="Branch" >
             </div>
             <div class="col">
-                <label for="AccounNumber">Accoun number</label>
-                <input class="form-control" id="AccounNumber" formControlName="Accoun_number">
+                <label for="AccounNumber">מספר חשבון</label>
+                <input class="form-control" id="AccounNumber" formControlName="Accoun_number" (keypress)="NumberinValid=NumberOnly($event)">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="cilingControl">ciling</label>
-                <input class="form-control" id="cilingControl" formControlName="ciling">
+                <label for="cilingControl">תקרה</label>
+                <input class="form-control" id="cilingControl" formControlName="ciling" (keypress)="NumberinValid=NumberOnly($event)" >
             </div>
             <div class="col">
                 <label for="collection_date">Collection date</label>
@@ -99,36 +108,10 @@
         </div>
      </div>
         <div class="dropdown-divider"></div>
-        <div class="col">
-            <input class="form-check-input" type="checkbox" value="true" id="creditControl" formControlName="credit"(change)="Show('card_Detalis')" >
-            <label for="creditControl">credit</label>
-        </div>
-        <div  [hidden]="!card_Detalis" >
+        <app-add-credit ></app-add-credit>
         <div class="row">
             <div class="col">
-                <label for="cardNumber">Card number</label>
-                <input class="form-control" id="cardNumber" formControlName="card_number">
-            </div>
-            <div class="col">
-                <label for="CVV">CVV</label>
-                <input class="form-control" id="CVVcontrol" formControlName="CVV">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="validityControl">validity</label>
-                <input class="form-control" formControlName="validity" id="validityConrol" type="date">
-            </div>
-            <div class="col">
-                <label for="collection_dateCard">Collection date</label>
-                <input class="form-control" formControlName="collection_dateCard" id="collection_date" type="date">
-            </div>
-            
-        </div>
-    </div>
-        <div class="row">
-            <div class="col">
-                <label for="Remarkscontrol">Remarks</label>
+                <label for="Remarkscontrol">הערות</label>
                 <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
             </div>
         </div>

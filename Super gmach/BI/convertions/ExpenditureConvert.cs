@@ -40,9 +40,7 @@ namespace BI.convertions
         real_date = expenditure.real_date,
         Receives = expenditure.Receives,
         way_of_payment = expenditure.way_of_payment,
-        status = expenditure.status.id
-
-        
+        status = expenditure.status!=null? expenditure.status.id : default(int)
       };
     }
   }

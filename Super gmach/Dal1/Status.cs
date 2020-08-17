@@ -20,6 +20,7 @@ namespace Dal1
             this.Expenditures = new HashSet<Expenditure>();
             this.Funds = new HashSet<Fund>();
             this.withdrawings = new HashSet<withdrawing>();
+            this.Deposits = new HashSet<Deposit>();
         }
     
         public int id { get; set; }
@@ -32,5 +33,7 @@ namespace Dal1
         public virtual ICollection<Fund> Funds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<withdrawing> withdrawings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Deposit> Deposits { get; set; }
     }
 }

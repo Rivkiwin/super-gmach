@@ -25,6 +25,11 @@ namespace API.Controllers
     {
       return UserBL.GetUsersList();
     }
-
+    [HttpGet]
+    [Route("getUserById/{id}")]
+    public UserDTO GetUserById([FromUri]int id)
+    {
+      return UserBL.GetUserById(id);
+    }
   }
 }

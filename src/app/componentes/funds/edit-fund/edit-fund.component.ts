@@ -14,6 +14,6 @@ export class EditFundComponent implements OnInit {
   constructor(private router:Router,private FUndService:FundServiceService,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>this.fund=this.FUndService.GETOne_ByName(String(res.get('name'))));
+    this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetByID(res.get('id')).subscribe(f=>this.fund=<FundClass>f));
   }
 }

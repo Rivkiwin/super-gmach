@@ -12,17 +12,14 @@ export class FriendsService {
   postId
   baseUrl: string = "http://localhost:62859/api/User/";
   constructor(private httpclinet: HttpClient) { }
+  
   public add(friend: Friend) {
      this.httpclinet.post(`${this.baseUrl}addUser`,friend).subscribe(data => {
       this.postId= data
   })
   return this.postId;
   }
-  public GetAll() {
-    // this.friends_list[0].funds.push(1);
-    // this.friends_list[1].funds.push(2);
-    // return this.friends_list;
-  }
+
  
   public get() {
   
@@ -30,4 +27,10 @@ export class FriendsService {
     // http://localhost:4200/user/GetUsersList
   }
 
+  public GetById(id) {
+  
+    return this.httpclinet.get(`${this.baseUrl}/getUserById/${id}`)
+     // http://localhost:4200/user/getUserById/${id}
+   }
+ 
 }

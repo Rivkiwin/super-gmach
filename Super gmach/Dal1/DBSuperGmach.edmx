@@ -4,13 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SuperGmachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Deposit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" />
+          <Property Name="fund_id" Type="int" />
+          <Property Name="type" Type="nvarchar" MaxLength="5" />
+          <Property Name="status" Type="int" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="Expenditure">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="future_date" Type="datetime" />
-          <Property Name="real_date" Type="datetime" />
+          <Property Name="future_date" Type="date" />
+          <Property Name="real_date" Type="date" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
           <Property Name="purpose" Type="nvarchar" MaxLength="200" />
@@ -29,6 +41,7 @@
           <Property Name="comments" Type="nvarchar" MaxLength="400" />
           <Property Name="date_create" Type="date" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="balance" Type="int" />
         </EntityType>
         <EntityType Name="Management_status">
           <Key>
@@ -117,6 +130,42 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
         <EntityType Name="manager_status views">
           <Property Name="Management_status" Type="int" />
         </EntityType>-->
+        <Association Name="FK_Deposit_Fund">
+          <End Role="Fund" Type="Self.Fund" Multiplicity="0..1" />
+          <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fund">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="fund_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deposit_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deposit_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Deposit" Type="Self.Deposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Expenditure_Status1">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
           <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
@@ -221,6 +270,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SuperGmachModelStoreContainer">
+          <EntitySet Name="Deposit" EntityType="Self.Deposit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expenditure" EntityType="Self.Expenditure" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fund" EntityType="Self.Fund" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Management_status" EntityType="Self.Management_status" Schema="dbo" store:Type="Tables" />
@@ -236,6 +286,18 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
     [User_in_fund].[balance] AS [balance]
     FROM [dbo].[User_in_fund] AS [User_in_fund]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Deposit_Fund" Association="Self.FK_Deposit_Fund">
+            <End Role="Fund" EntitySet="Fund" />
+            <End Role="Deposit" EntitySet="Deposit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deposit_Status" Association="Self.FK_Deposit_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Deposit" EntitySet="Deposit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deposit_User" Association="Self.FK_Deposit_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Deposit" EntitySet="Deposit" />
+          </AssociationSet>
           <AssociationSet Name="FK_Expenditure_Status1" Association="Self.FK_Expenditure_Status1">
             <End Role="Status" EntitySet="Status" />
             <End Role="Expenditure" EntitySet="Expenditure" />
@@ -261,8 +323,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
             <End Role="withdrawing" EntitySet="withdrawing" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SuperGmachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -270,8 +331,8 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="future_date" Type="DateTime" Precision="3" />
-          <Property Name="real_date" Type="DateTime" Precision="3" />
+          <Property Name="future_date" Type="DateTime" Precision="0" />
+          <Property Name="real_date" Type="DateTime" Precision="0" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="amount" Type="Int32" Nullable="false" />
           <Property Name="purpose" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -293,6 +354,8 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Status1" Relationship="Self.FK_Fund_Status" FromRole="Fund" ToRole="Status" />
           <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_Fund" FromRole="Fund" ToRole="User_in_fund" />
+          <Property Name="balance" Type="Int32" />
+          <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_Fund" FromRole="Fund" ToRole="Deposit" />
         </EntityType>
         <EntityType Name="Management_status">
           <Key>
@@ -313,6 +376,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <NavigationProperty Name="Expenditures" Relationship="Self.FK_Expenditure_Status1" FromRole="Status" ToRole="Expenditure" />
           <NavigationProperty Name="Funds" Relationship="Self.FK_Fund_Status" FromRole="Status" ToRole="Fund" />
           <NavigationProperty Name="withdrawings" Relationship="Self.FK_withdrawing_Status" FromRole="Status" ToRole="withdrawing" />
+          <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_Status" FromRole="Status" ToRole="Deposit" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -356,6 +420,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Property Name="Status_reason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Management_status1" Relationship="Self.FK_User_Management_status" FromRole="User" ToRole="Management_status" />
           <NavigationProperty Name="User_in_fund" Relationship="Self.FK_User_in_fund_User" FromRole="User" ToRole="User_in_fund" />
+          <NavigationProperty Name="Deposits" Relationship="SuperGmachModel.FK_Deposit_User" FromRole="User" ToRole="Deposit" />
         </EntityType>
         <EntityType Name="withdrawing">
           <Key>
@@ -518,6 +583,19 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Deposits" EntityType="SuperGmachModel.Deposit" />
+          <AssociationSet Name="FK_Deposit_Fund" Association="SuperGmachModel.FK_Deposit_Fund">
+            <End Role="Fund" EntitySet="Funds" />
+            <End Role="Deposit" EntitySet="Deposits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deposit_Status" Association="SuperGmachModel.FK_Deposit_Status">
+            <End EntitySet="Status" Role="Status" />
+            <End EntitySet="Deposits" Role="Deposit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deposit_User" Association="SuperGmachModel.FK_Deposit_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Deposit" EntitySet="Deposits" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -530,6 +608,57 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Deposit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="fund_id" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Fund" Relationship="SuperGmachModel.FK_Deposit_Fund" FromRole="Deposit" ToRole="Fund" />
+          <NavigationProperty Name="Status1" Relationship="SuperGmachModel.FK_Deposit_Status" FromRole="Deposit" ToRole="Status" />
+          <NavigationProperty Name="User" Relationship="SuperGmachModel.FK_Deposit_User" FromRole="Deposit" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Deposit_Fund">
+          <End Type="SuperGmachModel.Fund" Role="Fund" Multiplicity="0..1" />
+          <End Type="SuperGmachModel.Deposit" Role="Deposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fund">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="fund_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deposit_Status">
+          <End Type="SuperGmachModel.Status" Multiplicity="0..1" Role="Status" />
+          <End Type="SuperGmachModel.Deposit" Multiplicity="*" Role="Deposit" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deposit_User">
+          <End Type="SuperGmachModel.User" Role="User" Multiplicity="1" />
+          <End Type="SuperGmachModel.Deposit" Role="Deposit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deposit">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -553,6 +682,7 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           <EntitySetMapping Name="Funds">
             <EntityTypeMapping TypeName="SuperGmachModel.Fund">
               <MappingFragment StoreEntitySet="Fund">
+                <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="fund_name" ColumnName="fund_name" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="required_months" ColumnName="required_months" />
@@ -672,6 +802,19 @@ warning 6013: The table/view 'SuperGmach.dbo.manager_status views' does not have
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SuperGmachModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SuperGmachModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Deposits">
+            <EntityTypeMapping TypeName="SuperGmachModel.Deposit">
+              <MappingFragment StoreEntitySet="Deposit">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="fund_id" ColumnName="fund_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

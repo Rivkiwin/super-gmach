@@ -18,6 +18,7 @@ namespace Dal1
         public User()
         {
             this.User_in_fund = new HashSet<User_in_fund>();
+            this.Deposits = new HashSet<Deposit>();
         }
     
         public int id { get; set; }
@@ -50,5 +51,7 @@ namespace Dal1
         public virtual Management_status Management_status1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_in_fund> User_in_fund { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Deposit> Deposits { get; set; }
     }
 }

@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { StatusFriendE, Friend } from 'src/app/classes/friend';
 import { Router } from '@angular/router';
 import { FriendsService } from 'src/app/services/friends.service';
-
+import {validation, letterOnly,numberOnly,futureDay} from 'src/Validation'
 import { FriendsComponent } from '../friends/friends.component';
 
 @Component({
@@ -18,7 +18,15 @@ export class FriendsFormComponent implements OnInit {
  bank_detalis:boolean=false;
  SuccessMessage:boolean=false;
  message;
+ errorMessage;
+ NumberinValid=true;
+ LetterinValid=true;
  //key= Object.values;
+ LetterOnly=letterOnly;
+ NumberOnly=numberOnly;
+ messageLetterinValid="!הכנס תוים ואותיות בלבד";
+ messageNumberinValid="!הכנס ספרות בלבד";
+ 
  public keyStatusFriend():Array<string>
  {
   var keys = Object.keys(this.statusFrind);
@@ -81,4 +89,26 @@ export class FriendsFormComponent implements OnInit {
     }
 
   }
+
+//check validation
+   validation= () =>{
+    'use strict'
+  
+    window.addEventListener('add-user', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = this.formFriend;
+  
+      // Loop over them and prevent submission
+      Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    }, false)
+  }
+  
 }

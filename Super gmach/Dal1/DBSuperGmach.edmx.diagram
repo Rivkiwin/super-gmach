@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3e5686718ec34bffbb60bc3cf9e67bbb" Name="Diagram1">
         <EntityTypeShape EntityType="SuperGmachModel.Expenditure" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuperGmachModel.Fund" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperGmachModel.Fund" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SuperGmachModel.Management_status" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SuperGmachModel.Status" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SuperGmachModel.sysdiagram" Width="1.5" PointX="6.125" PointY="0.625" IsExpanded="true" />
@@ -19,6 +19,10 @@
         <AssociationConnector Association="SuperGmachModel.FK_User_Management_status" ManuallyRouted="false" />
         <AssociationConnector Association="SuperGmachModel.FK_withdrawing_Status" ManuallyRouted="false" />
         <AssociationConnector Association="SuperGmachModel.FK_User_in_fund_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SuperGmachModel.Deposit" Width="1.5" PointX="5.25" PointY="12.5" />
+        <AssociationConnector Association="SuperGmachModel.FK_Deposit_Fund" />
+        <AssociationConnector Association="SuperGmachModel.FK_Deposit_Status" />
+        <AssociationConnector Association="SuperGmachModel.FK_Deposit_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

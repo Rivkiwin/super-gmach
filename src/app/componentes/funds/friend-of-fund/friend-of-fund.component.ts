@@ -9,16 +9,24 @@ import { Friend } from 'src/app/classes/friend';
   templateUrl: './friend-of-fund.component.html',
   styleUrls: ['./friend-of-fund.component.scss']
 })
-export class FriendOfFundComponent implements OnInit {
+export class FriendOfFundComponent  {
   
-  @Input() fund:FundClass;
-  constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
+  friends:Friend[];
+  fund:FundClass;
+ //get the fund of father
+ @Input() set Fund(fund:FundClass){
+   this.fund=fund;
+   this.FUndService.GetFriendByFundId(this.fund.Id).subscribe(x=>{this.friends=<Friend[]>x,console.log});
 
-  ngOnInit(): void {
+ }
+  constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) {
+  
+   }
+
+  
+  getFundFriend()
+  {
+    this.FUndService.GetFriendByFundId(this.fund.Id).subscribe(x=>{this.friends=<Friend[]>x,console.log});
+
   }
-  // getFundFriend():Friend[]
-  // {
-  //   // return this.friendService.GetAll().filter(x=> x.funds.includes(this.fund.id));
-    
-  // }
 }

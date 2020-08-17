@@ -1,12 +1,22 @@
-
-<ag-grid-angular 
+<form class="form-inline px-2">
+    <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+    <!-- <div class="form-group  position-relative pr-2" >
+      <select id="inputStatus" class="form-control " required name="stat" [(ngModel)]='status' >
+        <option selected>All</option>
+        <option *ngFor="let status of keyStatusFund()" [value]="status">{{status}}</option>
+      </select>
+    </div> -->
+  </form>
+<ag-grid-angular class="p"
 id="myGrid "
 class="ag-theme-alpine "
 style="height:550px ;"
 [defaultColDef]="defaultColDef"
-[rowData]="rowData"
+[rowData]="rowData "
 [columnDefs]="columnDefs"
 (gridReady)="onGridReady($event)"
+[rowSelection]="rowSelection"
 >
 </ag-grid-angular>
 

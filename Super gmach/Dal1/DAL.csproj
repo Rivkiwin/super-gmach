@@ -82,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSuperGmach.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Deposit.cs">
+      <DependentUpon>DBSuperGmach.tt</DependentUpon>
+    </Compile>
     <Compile Include="Expenditure.cs">
       <DependentUpon>DBSuperGmach.tt</DependentUpon>
     </Compile>
