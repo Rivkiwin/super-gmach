@@ -1,24 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Deposit } from 'src/app/classes/Deposit';
 import { FundServiceService } from 'src/app/services/fund-service.service';
 import { DepositService } from 'src/app/services/deposit.service';
-import { Deposit } from 'src/app/classes/Deposit';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'fund-deposits-withdrawals',
-  templateUrl: './fund-deposits-withdrawals.component.html',
-  styleUrls: ['./fund-deposits-withdrawals.component.scss']
+  selector: 'friend-deposits-withdrawals',
+  templateUrl: './friend-deposits-withdrawals.component.html',
+  styleUrls: ['./friend-deposits-withdrawals.component.scss']
 })
-export class FundDepositsWithdrawalsComponent implements OnInit {
+export class FriendDepositsWithdrawalsComponent implements OnInit {
   [x: string]: any;
   Search;
   gridApi;
   depositList:Deposit[]=[];
   rowData=[];
   constructor(private FundService:FundServiceService,private depositService:DepositService,public datepipe: DatePipe) { }
-  @Input() fundId;
+  @Input() friendId;
   ngOnInit(): void {
-    this.depositService.GetByFundId(this.fundId)
+    this.depositService.GetByUserId(this.friendId)
     .subscribe(d=>{
       debugger
       this.depositList=<Deposit[]>d;
@@ -40,8 +40,7 @@ export class FundDepositsWithdrawalsComponent implements OnInit {
   }
   columnDefs = [
     { headerName: 'תאריך', field: 'date' },
-    { headerName: 'סוג', field: 'type' },
-    { headerName: 'שם חבר', field: 'user' },
+    { headerName: 'קרן', field: 'fund'},
     { headerName: 'סכום', field: 'amount'}
   ]
 
@@ -50,10 +49,10 @@ export class FundDepositsWithdrawalsComponent implements OnInit {
     debugger
     this.rowData=this.depositList.map(d=>{return{
         date:this.datepipe.transform(d.date, 'dd-MM-yyyy'),
-        type:"הפקדה",
-        user:d.user_name,
+        fund:d.FundName,
         amount:d.amount
     }})
   }
 
 }
+

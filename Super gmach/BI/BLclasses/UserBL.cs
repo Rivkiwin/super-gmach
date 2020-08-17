@@ -29,6 +29,20 @@ namespace BL.BLclasses
       }
       return userList;
     }
+    public static UserDTO GetUserById(int id)
+    {
+      User user = new User();
+      try
+      {
+        using (SuperGmachEntities db = new SuperGmachEntities())
+          user = db.Users.FirstOrDefault(u => u.id == id);
+        return Userconvert.DALtoDTO(user);
+      }
+      catch (Exception e)
+      {
+        throw e;
+      }
+    }
     public static string AddnewUser(UserDTO u)
     {
       using (SuperGmachEntities db = new SuperGmachEntities())
@@ -73,6 +87,11 @@ namespace BL.BLclasses
         }
       }
       return uif;
+    }
+    public static UserDetalis UserDetalis(int id)
+    {
+       UserDetalis detalis= new UserDetalis();
+      return detalis;
     }
   }
 }

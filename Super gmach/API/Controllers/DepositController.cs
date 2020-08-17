@@ -15,7 +15,7 @@ namespace API.Controllers
   public class DepositController : ApiController
   {
     [HttpPost]
-    [Route("Add")]
+    [Route("AddDeposit")]
     public IHttpActionResult AddDeposit(DepositDetails deposit)
     {
       try
@@ -80,10 +80,26 @@ namespace API.Controllers
     [Route("getByUserId/{id}")]
     public IHttpActionResult GetByUserId([FromUri] int id)
     {
-      List<DepositDTO> deposits = new List<DepositDTO>();
+      List<DepositDetails> deposits = new List<DepositDetails>();
       try
       {
         deposits = DepositBL.getByUserId(id);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok(deposits);
+    }
+    [HttpGet]
+    [Route("getByFundId/{id}")]
+    public IHttpActionResult GetByFundId([FromUri] int id)
+    {
+      List<DepositDetails> deposits = new List<DepositDetails>();
+      try
+      {
+        deposits = DepositBL.getByFundId(id);
       }
       catch (Exception e)
       {

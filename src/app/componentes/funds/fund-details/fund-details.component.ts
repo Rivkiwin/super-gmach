@@ -18,11 +18,14 @@ import { FriendOfFundComponent } from '../friend-of-fund/friend-of-fund.componen
 export class FundDetailsComponent implements OnInit {
  statusE=StatusE;
   key=Object.values;
+  id;
   public fund:FundClass;
   constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>(this.FUndService.GetByID(res.get('id'))).subscribe(f=>{this.fund=<FundClass>f}));
+    debugger
+     this.activeRouter.paramMap.subscribe(res=>this.id=res.get('id'));
+   this.FUndService.GetByID(this.id).subscribe(f=>{this.fund=<FundClass>f});
     // console.log( this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetByID(res.get('id'))));
     
     // this.FUndService.GetByID(2).subscribe(x=>console.log(x));

@@ -1,19 +1,2 @@
-<div class="header"><b>{{friend.id}}:פרטי חבר</b></div>
-<button>עריכת פרטי חבר</button>
-
-
-<form class="form-inline px-2">
-  <input class="form-control float-right" type="search" placeholder="חיפוש"
-      aria-label="Search" (input)='onFilterTextBoxChanged()'
-      [(ngModel)]='search' [ngModelOptions]="{standalone: true}">
-</form>
-
-
-<ag-grid-angular class="p"
-  id="myGrid"class="ag-theme-alpine"style="height:550px ;"
-  [defaultColDef]="defaultColDef"
-  [rowData]="rowData"
-  [columnDefs]="columnDefs"
-  (gridReady)="onGridReady($event)"
-  [rowSelection]="rowSelection">
-</ag-grid-angular>
+<div class="header"><b>{{friend.Id}}:פרטי חבר</b></div>
+<friend-deposits-withdrawals [friendId]="id"></friend-deposits-withdrawals>

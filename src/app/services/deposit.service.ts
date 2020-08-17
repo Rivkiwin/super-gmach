@@ -22,6 +22,17 @@ export class DepositService {
     return this.http.get(`${this.baseUrl}getById/${id}`).pipe(
       catchError(this.handleError));
   }
+  GetByUserId(id)
+  {
+    debugger
+    return this.http.get(`${this.baseUrl}getByUserId/${id}`).pipe(
+      catchError(this.handleError));
+  }
+  GetByFundId(id)
+  {
+    debugger
+    return this.http.get(`${this.baseUrl}getByFundId/${id}`)
+  }
   Update(Deposit:Deposit)
   {
     this.http.post(`${this.baseUrl}update`,Deposit).subscribe({
@@ -33,8 +44,8 @@ export class DepositService {
   
   Add(Deposit:Deposit)
   {
-    // var result=true;
-  return  this.http.post(`${this.baseUrl}Add`, Deposit)
+    debugger
+  return  this.http.post(`${this.baseUrl}AddDeposit`, Deposit)
      
   }
 

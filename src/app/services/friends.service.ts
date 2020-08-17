@@ -27,4 +27,10 @@ export class FriendsService {
     // http://localhost:4200/user/GetUsersList
   }
 
+  public GetById(id) {
+  
+    return this.httpclinet.get(`${this.baseUrl}/getUserById/${id}`)
+     // http://localhost:4200/user/getUserById/${id}
+   }
+ 
 }

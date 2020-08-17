@@ -72,8 +72,7 @@ namespace BI.BLclasses
         foreach (var deposit in db.Deposits)
         {
           deposits.Add(DepositConvert.DALtoDepositDetails(deposit));
-          FundBL.AddBalance((int)deposit.amount,(int)deposit.fund_id);
-          db.SaveChanges();
+       
         }
       }
       catch (Exception e)
@@ -99,16 +98,35 @@ namespace BI.BLclasses
       }
       return depositDetails;
     }
-    public static List<DepositDTO> getByUserId(int UserId)
+    public static List<DepositDetails> getByUserId(int UserId)
     {
-      List<DepositDTO> deposits = new List<DepositDTO>();
+      List<DepositDetails> deposits = new List<DepositDetails>();
       try
       {
         DB db = new SuperGmachEntities();
         List<Deposit> deposits_DAL = db.Deposits.Where(d => d.user_id == UserId).ToList();
         foreach (var deposit in deposits_DAL)
         {
-          deposits.Add(DepositConvert.DALtoDTO(deposit));
+          deposits.Add(DepositConvert.DALtoDepositDetails(deposit));
+        }
+      }
+      catch (Exception e)
+      {
+
+        throw e;
+      }
+      return deposits;
+    }
+    public static List<DepositDetails> getByFundId(int FundId)
+    {
+      List<DepositDetails> deposits = new List<DepositDetails>();
+      try
+      {
+        DB db = new SuperGmachEntities();
+        List<Deposit> deposits_DAL = db.Deposits.Where(d => d.fund_id == FundId).ToList();
+        foreach (var deposit in deposits_DAL)
+        {
+          deposits.Add(DepositConvert.DALtoDepositDetails(deposit));
         }
       }
       catch (Exception e)

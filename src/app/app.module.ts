@@ -48,6 +48,8 @@ import { UserComponent } from './componentes/select/user/user.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { FundsComponent } from './componentes/select/funds/funds.component';
 import { FundDepositsWithdrawalsComponent } from './componentes/funds/fund-deposits-withdrawals/fund-deposits-withdrawals.component';
+import { FriendDepositsWithdrawalsComponent } from './componentes/friend/friend-deposits-withdrawals/friend-deposits-withdrawals.component';
+import { AddWithdrawalsComponent } from './componentes/Withdrawals/add-withdrawals/add-withdrawals.component';
 
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
@@ -106,6 +108,10 @@ import { FundDepositsWithdrawalsComponent } from './componentes/funds/fund-depos
     FundsComponent,
     
     FundDepositsWithdrawalsComponent,
+    
+    FriendDepositsWithdrawalsComponent,
+    
+    AddWithdrawalsComponent,
     
 
     
