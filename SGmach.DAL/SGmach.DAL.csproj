@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <EntityDeploy Include="DBSuperGmach.edmx">
+        <Generator>EntityModelCodeGenerator</Generator>
+        <LastGenOutput>DBSuperGmach.Designer.cs</LastGenOutput>
+      </EntityDeploy>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="DBSuperGmach.Context.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>DBSuperGmach.Context.cs</LastGenOutput>
+        <DependentUpon>DBSuperGmach.edmx</DependentUpon>
+      </Content>
+      <Content Include="DBSuperGmach.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <DependentUpon>DBSuperGmach.edmx</DependentUpon>
+        <LastGenOutput>DBSuperGmach.cs</LastGenOutput>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.1.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SGmach.DTO\SGmach.DTO.csproj" />
+    </ItemGroup>
+
+</Project>
