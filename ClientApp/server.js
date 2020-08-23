@@ -1,8 +1,7 @@
 ﻿const express = require('express');
 //const path = require('path');
 const app = express();
-require('module-alias/register')
-const Article = require('@models/article');
+require('module-alias/register');
 
 
 // Serve static files....

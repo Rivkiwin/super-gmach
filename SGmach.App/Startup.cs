@@ -1,7 +1,9 @@
+using System;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using SGmach.App.Data;
 using Microsoft.Extensions.Configuration;
@@ -27,31 +29,62 @@ namespace SGmach.App
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
+            
+            services.AddDistributedMemoryCache();
+ 
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromSeconds(3);//You can set Time
+            });
+                
+            
+
             services.AddDefaultIdentity<IdentityUser>(options =>
                 {
+
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequiredLength = 0;
                     options.Password.RequireDigit = false;
                     options.Password.RequiredUniqueChars = 0;
-
-                    options.SignIn.RequireConfirmedAccount = true;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false; 
+                    options.SignIn.RequireConfirmedAccount = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
-            services.AddRazorPages();
-
-            services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    IConfigurationSection googleAuthNSection =
-                        Configuration.GetSection("Authentication:Google");
-
-                    options.ClientId = googleAuthNSection["ClientId"];
-                    options.ClientSecret = googleAuthNSection["ClientSecret"];
-                });
+ 
+            
+             // services.AddAuthentication(options =>
+             //    {
+             //        options.DefaultScheme = "cookie";
+             //        options.DefaultChallengeScheme = "oidc";
+             //    })
+                // .AddCookie("cookie", options =>
+                // {
+                //     options.Cookie.Name = "mycookie";
+                //
+                //     options.Events.OnSigningOut = async e =>
+                //     {
+                //         await e.HttpContext.RevokeUserRefreshTokenAsync();
+                //     };
+                // })
+                services.AddAuthentication();
+                // .AddGoogle(options =>
+                // {
+                //     IConfigurationSection googleAuthNSection =
+                //         Configuration.GetSection("Authentication:Google");
+                //
+                //     options.ClientId = googleAuthNSection["ClientId"];
+                //     options.ClientSecret = googleAuthNSection["ClientSecret"];
+                // });
 
             services.AddScoped<SuperGmachEntities>();
+         
+            services.AddRazorPages(); 
+            // In production, the Angular files will be served from this directory
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "../ClientApp/dist";
+            });
             // services.AddDbContext<SuperGmachEntities>();
         }
 
@@ -71,34 +104,60 @@ namespace SGmach.App
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(); 
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
+            app.UseSession();
 
-            app.UseRouting();
 
+            app.UseRouting(); 
             app.UseAuthentication();
             app.UseAuthorization();
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapControllerRoute(
+            //         name: "default",
+            //         pattern: "{controller}/{action=Index}/{id?}");
+            //     endpoints.MapRazorPages();
+            // });
+            //
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.Map("/apps/app1", builder => {
-              builder.UseSpa(spa =>
-              {
+            // app.Map("/apps/app1", builder => {
+            //   builder.UseSpa(spa =>
+            //   {
+            //     if (env.IsDevelopment())
+            //     {
+            //       spa.UseProxyToSpaDevelopmentServer($"http://localhost:4201/");
+            //     }
+            //     else
+            //     {
+            //       var staticPath = Path.Combine(
+            //         Directory.GetCurrentDirectory(), $"wwwroot/Apps/dist/app1");
+            //       var fileOptions = new StaticFileOptions
+            //         { FileProvider = new PhysicalFileProvider(staticPath) };
+            //       builder.UseSpaStaticFiles(options: fileOptions);
+            //
+            //       spa.Options.DefaultPageStaticFileOptions = fileOptions;
+            //     }
+            //   });
+            // });
+            
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "../ClientApp";
+
                 if (env.IsDevelopment())
                 {
-                  spa.UseProxyToSpaDevelopmentServer($"http://localhost:4201/");
+                    spa.UseAngularCliServer(npmScript: "start");
                 }
-                else
-                {
-                  var staticPath = Path.Combine(
-                    Directory.GetCurrentDirectory(), $"wwwroot/Apps/dist/app1");
-                  var fileOptions = new StaticFileOptions
-                    { FileProvider = new PhysicalFileProvider(staticPath) };
-                  builder.UseSpaStaticFiles(options: fileOptions);
-
-                  spa.Options.DefaultPageStaticFileOptions = fileOptions;
-                }
-              });
             });
 
         }

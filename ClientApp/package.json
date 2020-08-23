@@ -7,13 +7,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "heroku-postbuild": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    "build:ssr": "ng run super_gmach_app:server:dev"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
     "@types/jquery": "^3.3.35",
     "ag-grid-angular": "^23.2.1",
     "ag-grid-community": "^23.2.1",
+    "article": "1.1.2",
     "bootstrap": "^4.5.0",
     "bootstrap-icons": "^1.0.0-alpha3",
     "bootstrap-select": "^1.13.16",
@@ -39,6 +41,7 @@
     "http-server": "^0.12.1",
     "jest": "^25.3.0",
     "jquery": "^3.4.1",
+    "module-alias": "2.2.2",
     "ng2-search-filter": "^0.5.1",
     "path": "0.12.7",
     "popper.js": "^1.16.1",

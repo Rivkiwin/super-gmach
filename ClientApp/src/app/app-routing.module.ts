@@ -15,7 +15,6 @@ import { FundComponentComponent } from './componentes/funds/fund-component/fund-
 import { FundFormComponent } from './componentes/funds/fund-form/fund-form.component';
 import { FundListComponent } from './componentes/funds/fund-list/fund-list.component';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
-import { ListExpenditureComponent } from './componentes/petty-cash/Expenditure/list-expenditure/list-expenditure.component';
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
 
 
@@ -38,7 +37,7 @@ const routes: Routes = [
     },
     ]
   },
-  
+
   {
     path:"patty_cash",
     component:PettyCashComponent,
@@ -48,10 +47,10 @@ const routes: Routes = [
       {
           path:"add_new_Expenditure",
           component:AddNewComponent
-        }, 
+        },
         {
         path:"view_Expenditure",
-        component:ListExpenditureComponent 
+        component:ListExpenditureComponent
     }]
   },
   {
