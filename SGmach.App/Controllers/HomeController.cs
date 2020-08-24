@@ -8,9 +8,9 @@ namespace API.Controllers
       [Route("app/{*url}")]
       [Authorize]
       public IActionResult App(string url)
-      {
-
-          return View("App", url);
+      { 
+          return Redirect("http://localhost:4201//");
+          // return View("App", url);
       }
 
         public ActionResult Index()

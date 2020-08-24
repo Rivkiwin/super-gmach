@@ -79,7 +79,9 @@ namespace SGmach.App
 
             services.AddScoped<SuperGmachEntities>();
          
-            services.AddRazorPages(); 
+            services.AddRazorPages(options=>
+                    options.Conventions.AuthorizePage("/App")
+            ); 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -127,38 +129,41 @@ namespace SGmach.App
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            // app.Map("/apps/app1", builder => {
-            //   builder.UseSpa(spa =>
-            //   {
-            //     if (env.IsDevelopment())
-            //     {
-            //       spa.UseProxyToSpaDevelopmentServer($"http://localhost:4201/");
-            //     }
-            //     else
-            //     {
-            //       var staticPath = Path.Combine(
-            //         Directory.GetCurrentDirectory(), $"wwwroot/Apps/dist/app1");
-            //       var fileOptions = new StaticFileOptions
-            //         { FileProvider = new PhysicalFileProvider(staticPath) };
-            //       builder.UseSpaStaticFiles(options: fileOptions);
-            //
-            //       spa.Options.DefaultPageStaticFileOptions = fileOptions;
-            //     }
-            //   });
-            // });
-            
-            app.UseSpa(spa =>
-            {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
-                spa.Options.SourcePath = "../ClientApp";
+            app.Map("/apps/app", builder => {
+              builder.UseSpa(spa =>
+              {
+                  spa.Options.SourcePath = "../ClientApp";
 
                 if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
+                { 
+                    spa.UseAngularCliServer(npmScript: "start"); 
+                    spa.UseProxyToSpaDevelopmentServer($"http://localhost:4201//");
                 }
+                else
+                {
+                  var staticPath = Path.Combine(
+                    Directory.GetCurrentDirectory(), $"wwwroot/Apps/dist/app1");
+                  var fileOptions = new StaticFileOptions
+                    { FileProvider = new PhysicalFileProvider(staticPath) };
+                  builder.UseSpaStaticFiles(options: fileOptions);
+            
+                  spa.Options.DefaultPageStaticFileOptions = fileOptions;
+                }
+              });
             });
+            
+            // app.UseSpa(spa =>
+            // {
+            //     // To learn more about options for serving an Angular SPA from ASP.NET Core,
+            //     // see https://go.microsoft.com/fwlink/?linkid=864501
+            //
+            //     spa.Options.SourcePath = "../ClientApp";
+            //
+            //     if (env.IsDevelopment())
+            //     {
+            //         spa.UseAngularCliServer(npmScript: "start");
+            //     }
+            // });
 
         }
     }
