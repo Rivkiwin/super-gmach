@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <UserSecretsId>aspnet-SGmach.API-2ACE1BC6-A12C-4463-8E68-2A0D93C61031</UserSecretsId>
+        <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
+        <OutputType>Library</OutputType>
+        <LangVersion>8</LangVersion>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SGmach.BL\SGmach.BL.csproj" />
+      <ProjectReference Include="..\SGmach.DTO\SGmach.DTO.csproj" />
+      <ProjectReference Include="..\SGmach.Entity\SGmach.Entity.csproj" />
+    </ItemGroup>
+
+</Project>

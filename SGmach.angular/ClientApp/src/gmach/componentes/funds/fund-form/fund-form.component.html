@@ -1,0 +1,42 @@
+<div class="float-right w-75 mx-5 divForm">
+  <form [formGroup]="Form_new_fund" class="mx-auto w-75 mt-5  m-5 ">
+    <div class="row">
+      <div class="col float-right">
+        <label for="name" class="float-right">:שם</label>
+        <input class="form-control" required formControlName="name" type="text" placeholder="הכנס שם">
+      </div>
+      <div class="col  float-right">
+        <label for="selectStatus">סטטוס הקרן</label>
+        <select class="form-control" id="selectStatus" formControlName="status">
+          <option>בחר אפשרות</option>
+          <option *ngFor="let status of keyStatusFund()">{{status}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="month">:מספר חודשי חובה להשתתפות בקרן </label>
+        <input type="number" class="form-control" value="0" min="0" required formControlName="month">
+      </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox" value="true" id="vipCheck" formControlName="required_vip">
+        <label class="form-check-label" for="vipCheck">
+          VIP
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      <span class=" input-group-text bg-dark text-light w-100">:פרטים נוספים והערות</span>
+      <textarea rows="4" class="w-100" formControlName="Details"></textarea>
+    </div>
+    </div>
+  </form>
+</div>
+<button (click)="addFund()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
+<div class="alert alert-warning alert-dismissible fade " role="alert" id="SuccessMessage">
+  <strong>Adding fund succeeded</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

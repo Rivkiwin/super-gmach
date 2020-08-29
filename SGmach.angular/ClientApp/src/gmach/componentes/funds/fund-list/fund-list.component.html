@@ -1,0 +1,37 @@
+ <div class="w-75 float-right mr-3 divLIst">
+<nav class="navbar navbar-dark bg-dark ">
+    <form class="form-inline px-2">
+      <input class="form-control mr-sm-1 mx-1" type="search" placeholder="חיפוש" aria-label="Search"  [(ngModel)]='name' [ngModelOptions]="{standalone: true}">
+      <div class="form-group  position-relative pr-2" >
+        <select id="inputStatus" class="form-control " required name="stat" [(ngModel)]='status' >
+          <option selected>All</option>
+          <option *ngFor="let status of keyStatusFund()" [value]="status">{{status}}</option>
+        </select>
+      </div>
+    </form>
+  </nav>
+<table class="table table-striped table-dark ">
+    <thead>
+      <tr >
+        <th scope="col" >#</th>
+        <th scope="col">name</th>
+        <th scope="col">status</th>
+        <th scope="col">num frinds</th>
+        <th scope="col">balance</th>
+        <th scope="col"> more details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fund of fund_list |filter:name|filterStatus:status let i = index" >
+        <th scope="row">{{i+1}}</th>
+        <td><a class="link-dark" routerLink="/FundDetails/{{fund.name}}">{{fund.name}}</a></td> 
+        <td >{{fund.status}}</td>
+        <td>{{fund.Nun_friends}}</td>
+        <td></td>
+        <td>{{fund.Details}}</td>     
+ <td></td>
+         
+      </tr>
+    </tbody>
+</table>
+</div> 
