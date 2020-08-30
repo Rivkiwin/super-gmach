@@ -19,13 +19,16 @@ import { FriendsDetailsComponent } from './componentes/friend/friends-details/fr
 import {GmachHomeComponent} from "./gmach-home/gmach.home.component";
 import {CommonModule} from "@angular/common";
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
+import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
+import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
 
 
 
 const routes: Routes = [
   {
-    path:"gmach",
-    component:GmachHomeComponent, canActivate: [AuthorizeGuard]
+    path:"",
+    component:GmachMngMenuComponent, canActivate: [AuthorizeGuard],
+    outlet: "gmachbar"
   },
   {
     path:"FundDetails/:name",
@@ -70,6 +73,7 @@ const routes: Routes = [
      ,{
        path:"Friendlist",
        component:FriendsListComponent
+
      },
      {
        path:"detalis/:id",
