@@ -10,13 +10,13 @@ import {AuthorizeService} from "src/api-authorization/authorize.service";
 })
 export class GmachMngMenuComponent implements OnInit {
   public isAuthenticated: Observable<boolean>;
-  public userName: Observable<string>;
+  public gmachName: Observable<string>;
 
   constructor(private authorizeService: AuthorizeService) { }
 
 
   ngOnInit() {
     this.isAuthenticated = this.authorizeService.isAuthenticated();
-    this.userName = this.authorizeService.getUser().pipe(map(u => u && u.name));
+    this.gmachName = this.authorizeService.getUserGmach();
   }
 }

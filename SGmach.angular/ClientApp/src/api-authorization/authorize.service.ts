@@ -64,7 +64,14 @@ export class AuthorizeService {
   public getUserGmach(): Observable<string  | null> {
     return from(this.ensureUserManagerInitialized())
       .pipe(mergeMap(() => from(this.userManager.getUser())),
-        map(user => user && user.profile["gmach"] ));
+        map(user => user && user.profile["gmach"] || "Zecher Rachel" ));
+
+  }
+
+  public getGmachList(): Observable<string[]  | null> {
+    return from(this.ensureUserManagerInitialized())
+      .pipe(mergeMap(() => from(this.userManager.getUser())),
+        map(user => user && user.profile["gmach-list"] || ["Zecher Rachel"] ));
 
   }
 
