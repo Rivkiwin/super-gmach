@@ -14,7 +14,6 @@
     <ItemGroup>
       <ProjectReference Include="..\SGmach.BL\SGmach.BL.csproj" />
       <ProjectReference Include="..\SGmach.DTO\SGmach.DTO.csproj" />
-      <ProjectReference Include="..\SGmach.Entity\SGmach.Entity.csproj" />
     </ItemGroup>
 
 </Project>
