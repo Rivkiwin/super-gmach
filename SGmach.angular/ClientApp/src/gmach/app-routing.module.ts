@@ -26,7 +26,7 @@ import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
 
 const routes: Routes = [
   {
-    path:"",
+    path:"gmach",
     component:GmachMngMenuComponent, canActivate: [AuthorizeGuard],
     outlet: "gmachbar"
   },
