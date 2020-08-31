@@ -4,11 +4,10 @@ import {  GmachAppRoutingModule } from './app-routing.module';
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+ import { HttpClientModule } from '@angular/common/http';
 
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditFundComponent } from './componentes/funds/edit-fund/edit-fund.component';
@@ -28,11 +27,9 @@ import { FundListComponent } from './componentes/funds/fund-list/fund-list.compo
 import { FundDetailsComponent } from './componentes/funds/fund-details/fund-details.component';
 import { FriendOfFundComponent } from './componentes/funds/friend-of-fund/friend-of-fund.component';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
-import {RouterModule} from "@angular/router";
-import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
+ import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
 import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
@@ -70,7 +67,6 @@ import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
     FormsModule,
     GmachAppRoutingModule,
     BrowserAnimationsModule,
-    HttpModule,
     Ng2SearchPipeModule,
     // MatSelectModule,
     // MatFormFieldModule,

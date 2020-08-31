@@ -17,15 +17,18 @@
     "@angular/compiler": "~9.0.5",
     "@angular/core": "~9.0.5",
     "@angular/forms": "~9.0.5",
+    "@angular/http": "latest",
     "@angular/platform-browser": "~9.0.5",
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/platform-server": "~9.0.5",
     "@angular/router": "~9.0.5",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "ag-grid-community": "23.2.1",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^3.3.3",
     "jquery": "3.4.1",
+    "ng2-search-filter": "latest",
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",
@@ -47,7 +50,8 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "ag-grid-angular": "latest"
   },
   "optionalDependencies": {
     "node-sass": "^4.12.0",
