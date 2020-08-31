@@ -1,12 +1,11 @@
-using DTO.classes.user_classes;
 using System.Collections.Generic;
 using BL.BLclasses;
+using DTO.classes.user_classes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
-
-namespace API.Controllers
+namespace SGmach.API.Controllers
 {
   [Route("api/User")]
   [EnableCors()]

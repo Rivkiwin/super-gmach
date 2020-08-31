@@ -1,11 +1,11 @@
+using System.Collections.Generic;
 using BI.BLclasses;
 using DTO.classes;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace SGmach.API.Controllers
 {
     [ApiController()]
     [Route("api/Expenditure")]

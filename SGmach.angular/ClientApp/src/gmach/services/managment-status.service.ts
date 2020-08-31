@@ -9,7 +9,7 @@ export class ManagmentStatusService {
    Status:ManagementStatusDTO[];
   baseUrl:string;
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${{apiUrl}}/api/management_Status/`
+    this.baseUrl=`${{apiUrl}}api/management_Status/`
   }
     public GetAll()
     {

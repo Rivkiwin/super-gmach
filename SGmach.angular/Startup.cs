@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Reflection;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,6 +16,7 @@ using SGmach.angular.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SGmach.API.Controllers;
 using SGmach.Entity;
 
 namespace SGmach.angular
@@ -31,6 +33,8 @@ namespace SGmach.angular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddApplicationPart(Assembly.GetAssembly(typeof(ExpenditureController))).AddControllersAsServices();
+ 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));

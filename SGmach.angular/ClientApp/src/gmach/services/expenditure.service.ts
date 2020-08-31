@@ -12,7 +12,7 @@ export class ExpenditureService {
   baseUrl: string;
   postId: object;
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${apiUrl}/api/Expenditure`;
+    this.baseUrl=`${apiUrl}api/Expenditure`;
 
   }
   public add(ex: Expenditure) {

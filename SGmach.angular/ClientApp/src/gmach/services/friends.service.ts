@@ -12,7 +12,7 @@ export class FriendsService {
   postId;
   baseUrl: string;
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${apiUrl}/api/User`;
+    this.baseUrl=`${apiUrl}api/User`;
 
   }
 
