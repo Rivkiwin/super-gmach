@@ -1,5 +1,4 @@
 using BI.convertions;
-using Dal1;
 using DTO.classes;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SGmach.Entity;
+using Dal1;
 
 namespace BI.BLclasses
 {

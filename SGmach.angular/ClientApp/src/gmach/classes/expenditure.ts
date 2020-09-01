@@ -4,10 +4,8 @@ export class Expenditure {
     status:status;
     Receives;
     way_of_payment;
-    amount;
+    amount:number;
     purpose;
     id;
-    real_date;
-    future_date;
-    future_date_String;
+    date;
 }

@@ -14,8 +14,8 @@ namespace Dal1
 
     public class Expenditure
     {
-        public Nullable<System.DateTime> future_date { get; set; }
-        public Nullable<System.DateTime> real_date { get; set; }
+      
+        public Nullable<System.DateTime> date { get; set; }
         public int id { get; set; }
         public int amount { get; set; }
         public string purpose { get; set; }

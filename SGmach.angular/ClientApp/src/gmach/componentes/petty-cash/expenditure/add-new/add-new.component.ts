@@ -25,11 +25,11 @@ export class AddNewComponent implements OnInit {
   constructor(private serviceExpense: ExpenditureService, public router: Router,private statusServic:StatusService) { }
   Add() {
     let expenditure:Expenditure=new Expenditure();
+    expenditure.date=this.FormAddExpense.get('date').value;
     if(this.FormAddExpense.get('Contemporary').value)
     {
-      expenditure.real_date=new Date();
+      expenditure.date=new Date();
       expenditure.way_of_payment=this.FormAddExpense.get('PaymentForm').value;
-      expenditure.future_date=null;
       this.status.forEach(s => {
         if(s.Name=="performed")
         {
@@ -40,17 +40,19 @@ export class AddNewComponent implements OnInit {
     else{
       if(this.FormAddExpense.get('date').value==null)
       {
+        
         alert("בהוצאות עתידות חייב להיות תאריך עתיד");
          return;
       }
       this.status.forEach(s => {
         debugger
+       
         if(s.Name=="future")
         {
           expenditure.status=s;
         }
       });
-      expenditure.future_date=this.FormAddExpense.get('date').value;
+     
     }
     expenditure.Receives=this.FormAddExpense.get('Receives').value;
     expenditure.amount=this.FormAddExpense.get('Expense_amount').value;

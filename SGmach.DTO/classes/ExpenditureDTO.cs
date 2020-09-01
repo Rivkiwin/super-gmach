@@ -8,8 +8,7 @@ namespace DTO.classes
 {
   public class ExpenditureDTO
   {
-    public DateTime future_date { get; set; }
-    public DateTime real_date { get; set; }
+    public DateTime Date { get; set; }
     public int id { get; set; }
     public int amount { get; set; }
     public string purpose { get; set; }
@@ -18,9 +17,7 @@ namespace DTO.classes
     public StatusDTO status { get; set; }
     public string future_date_String;
 
-    public ExpenditureDTO() {
-      future_date_String = future_date.ToShortDateString();
-    }
+   
 
   }
 }

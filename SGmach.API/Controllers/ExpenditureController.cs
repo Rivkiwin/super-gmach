@@ -15,7 +15,7 @@ namespace SGmach.API.Controllers
     {
       [HttpPost]
       [Route("addexpenditure")]
-      public string AddExpenditure(ExpenditureDTO expenditure)
+      public string AddExpenditure( ExpenditureDTO expenditure)
       {
         return ExpenditureBL.AddExpenditure(expenditure);
       }

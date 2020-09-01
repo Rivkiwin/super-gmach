@@ -18,7 +18,7 @@ export class ListExpenditureComponent implements OnInit {
   { headerName: 'מטרה', field: 'purpose' },
   { headerName: 'סכום', field: 'amount'},
   { headerName: 'מקבל', field: 'Receives' },
-  { headerName: 'זמן עתידי', field: 'future_date'
+  { headerName: 'זמן ', field: 'date'
   }
   ];
   rowData = [];
@@ -44,7 +44,7 @@ export class ListExpenditureComponent implements OnInit {
     this.Expenditures.forEach(ex =>
       this.rowData.push({
         id: ex.id, status: ex.status.Description, purpose: ex.purpose,
-        amount: ex.amount, Receives: ex.Receives, future_date:ex.future_date_String?ex.future_date_String:"__________"
+        amount: ex.amount, Receives: ex.Receives, date:ex.date
       }));
       this.grid.refresh()
   }

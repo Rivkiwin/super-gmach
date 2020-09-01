@@ -10,7 +10,7 @@ export class StatusService {
  baseUrl:string;
 
   constructor(private http:HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${apiUrl}api/Status`;}
+    this.baseUrl=`${apiUrl}api/status`;}
 
   public GetStatus(){
    return this.http.get(`${this.baseUrl}/getStatusList`);

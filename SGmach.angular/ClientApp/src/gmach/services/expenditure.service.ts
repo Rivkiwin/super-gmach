@@ -16,7 +16,7 @@ export class ExpenditureService {
 
   }
   public add(ex: Expenditure) {
-
+         debugger
     this.http.post(`${this.baseUrl}/AddExpenditure`, ex).subscribe(data => {
       this.postId = data
     });
