@@ -1,0 +1,53 @@
+<p>credit-details works!</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">הכנס פרטי אשראי</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate [formGroup]="carditForm" >
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="cardHolder" class="col-form-label">בעל
+                                הכרטיס:</label>
+                            <input type="text" class="form-control"
+                                id="cardHolder" required formControlName="cardHolder" (keypress)="LetterOnly($event)" >
+                        </div>
+                        <div class="row">
+                            <label for="card-validity" class="col-form-label">תוקף:</label>
+                            <input class="form-control" id="card-validity" type="date"  formControlName="cardValidity" required   >
+                        </div>
+                        <div class="row">
+                            <label for="cardNum" class="col-form-label">מספר
+                                כרטיס:</label>
+                            <input class="form-control" formControlName="cardNum"  id="cardNum" required (keypress)="numberOnly($event)">
+                        </div>
+                        <div class="row">
+                            <label for="CVV" class="col-form-label">CVV:</label>
+                            <input class="form-control" type="text" id="CVV" formControlName="CVV" required inputmode="numeric" (keypress)="numberOnly($event)">
+                        </div>
+                        <div class="row">
+                            <label for="id" class="col-form-label">תז בעל הכרטיס:</label>
+                            <input class="form-control" id="id" formControlName="id" (keypress)="numberOnly($event)">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">ביטול</button>
+                <button type="submit" class="btn btn-primary" (click)="submit()">שמור</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModal" data-whatever="@mdo">הכנס כרטיס אשראי</button>
+</div>

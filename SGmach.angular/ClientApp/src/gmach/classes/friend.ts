@@ -1,36 +1,31 @@
 export enum StatusFriendE{
-    Married,
-    Unmarried
+    נשואי,
+    רווק
 }
 
 import { Data } from '@angular/router';
 import { ManagementStatusDTO } from './management-status-dto';
 import { Communication } from './communication';
+import { BankDetails } from './Bank-detalis'
 
 
 export class Friend {
-     Bank:Number;
       Id:Number;
       Id_user:Number;
       First_name:String;
       Last_name:String;
-      //
-      phon1:Number;
-      phon2:Number;
       _Manager:Number;
       Vip:boolean;
       Friend:boolean;
       Status_user:StatusFriendE;
       Management_status:ManagementStatusDTO;
       Communication_ways:Communication ;
-      Bank_Details;
+      Bank_Details:BankDetails;
       Remarks;
       Joining_date;
       Scoring;
       Father_name;
      Status_reason;
-    funds:number[]=[];
-    
     constructor()
     {}
 

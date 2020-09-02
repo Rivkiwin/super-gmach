@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { StatusFriendE, Friend } from 'src/gmach/classes/friend';
 import { Router } from '@angular/router';
-  import {Friend, StatusFriendE} from "src/gmach/classes/friend";
-import {FriendsService} from "src/gmach/services/friends.service";
+import { FriendsService } from 'src/gmach/services/friends.service'
+import { validation, letterOnly, numberOnly, futureDay } from 'src/ts/Validation'
+import { FriendsComponent } from '../friends/friends.component';
+import { Communication } from 'src/gmach/classes/communication';
+import { BankDetails } from 'src/gmach/classes/Bank-detalis';
 
 @Component({
   selector: 'app-friends-form',
@@ -10,67 +14,68 @@ import {FriendsService} from "src/gmach/services/friends.service";
   styleUrls: ['./friends-form.component.scss']
 })
 export class FriendsFormComponent implements OnInit {
- public formFriend:FormGroup;
- statusFrind=StatusFriendE;
- card_Detalis:boolean=false;
- bank_detalis:boolean=false;
- SuccessMessage:boolean=false;
- message;
- //key= Object.values;
- public keyStatusFriend():Array<string>
- {
-  var keys = Object.keys(this.statusFrind);
-  return keys.slice(keys.length / 2);
- }
- constructor(private Roter:Router,private FriendService:FriendsService) { }
+  public formFriend: FormGroup;
+  public FCommunication_ways: FormGroup;
+  statusFrind = StatusFriendE;
+  card_Detalis: boolean = false;
+  bank_detalis: boolean = false;
+  SuccessMessage: boolean = false;
+  message;
+  errorMessage;
+  NumberinValid = true;
+  LetterinValid = true;
+  //key= Object.values;
+  LetterOnly = letterOnly;
+  NumberOnly = numberOnly;
+  messageLetterinValid = "!הכנס תוים ואותיות בלבד";
+  messageNumberinValid = "!הכנס ספרות בלבד";
+
+  public keyStatusFriend(): Array<string> {
+    var keys = Object.keys(this.statusFrind);
+    return keys.slice(keys.length / 2);
+  }
+  constructor(private Roter: Router, private FriendService: FriendsService) { }
 
   ngOnInit(): void {
-    this.formFriend=new FormGroup({
-    ciling:new FormControl(),
-     tz:new FormControl(),
-     Fname:new FormControl(),
-     Lname:new FormControl(),
-     status:new FormControl(),
-     city:new FormControl(),
-     street:new FormControl(),
-     phon1:new FormControl(),
-     buildingNumber:new FormControl(),
-     VIP:new FormControl(),
-     card_number:new FormControl(),
-     CVV:new FormControl(),
-     validity:new FormControl(),
-     credit:new FormControl(),
-     Bank:new FormControl(),
-     Accoun_number:new FormControl(),
-     Branch:new FormControl(),
-     phon2:new FormControl(),
-     email:new FormControl(),
-     Remarks:new FormControl(),
-     collection_dateCard:new FormControl(),
-     collection_date:new FormControl(),
-     Direct_debit:new FormControl(),
-     father_name:new FormControl()
+    this.formFriend = new FormGroup({
+      Id_user: new FormControl(),
+      First_name: new FormControl(),
+      Last_name: new FormControl(),
+      status: new FormControl(),
+      VIP: new FormControl(false),
+      validity: new FormControl(),
+      Remarks: new FormControl(),
+      collection_date: new FormControl(),
+      father_name: new FormControl()
+    });
+    this.FCommunication_ways = new FormGroup({
+      Phon2: new FormControl(),
+      Email_addres: new FormControl(),
+      City: new FormControl(),
+      Street: new FormControl(),
+      Phon1: new FormControl(),
+      Num_street: new FormControl(),
     })
   }
-  Add()
-  {
+  Add() {
 
-    try{
-    var  new_friend=<Friend>this.formFriend.value;
-   this.message=JSON.stringify(this.FriendService.add(new_friend));
+    try {
+      var new_friend = <Friend>this.formFriend.value;
+      new_friend.Bank_Details=new BankDetails();
+      var Communication=<Communication>this.FCommunication_ways.value;
+      this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
 
     }
-    catch(error)
-    {
-      this.message=error;
+    catch (error) {
+      this.message = error;
       this.message.push("erro")
     }
-    this.SuccessMessage=true;
+    this.SuccessMessage = true;
   }
-  Show(div:string):void{
+  Show(div: string): void {
     switch (div) {
-      case "card_Detalis":this.card_Detalis=!this.card_Detalis;break
-      case "bank_detalis":this.bank_detalis=!this.bank_detalis;
+      case "card_Detalis": this.card_Detalis = !this.card_Detalis; break
+      case "bank_detalis": this.bank_detalis = !this.bank_detalis;
 
         break;
 
@@ -79,4 +84,26 @@ export class FriendsFormComponent implements OnInit {
     }
 
   }
+
+  //check validation
+  validation = () => {
+    'use strict'
+
+    window.addEventListener('add-user', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = this.formFriend;
+
+      // Loop over them and prevent submission
+      Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    }, false)
+  }
+
 }

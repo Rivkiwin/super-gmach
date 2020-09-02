@@ -1,0 +1,38 @@
+.ag-theme-alpine{
+    width:60%;
+    margin-right: 10vw !important;
+    margin-top: 10vh;
+    height: 90vh;
+    min-width: 600px;
+}
+.ag-header-group-cell-label, .ag-header-cell-label{
+    flex: inherit;
+}
+.ag-theme-alpine .ag-ltr .ag-cell{
+    text-align: end;
+    margin-right: 10vw;
+}
+.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell{
+    background-color: #506265;
+    color: white;
+}
+
+.ag-row-selected {
+    background-color: #17a2b8!important;
+    color: #fff!important;
+}
+
+
+  .ag-theme-alpine {
+    @include ag-theme-alpine((
+    ));
+  
+  }
+  .ag-root-wrapper.ag-layout-normal {
+    height: 100%;
+    margin-right: 10vw;
+    width: 70vw;
+}
+.ag-theme-alpine [class^='ag-'], .ag-theme-alpine [class^='ag-']:focus, .ag-theme-alpine [class^='ag-']:after, .ag-theme-alpine [class^='ag-']:before {
+    text-align: center;
+}

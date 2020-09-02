@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "./gmach/css/ag-grid.scss";
+@import "./gmach/css/form.scss";
+
 @import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 /* Provide sufficient contrast against white background */
 a {
@@ -17,34 +19,81 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-.ag-theme-alpine{
-  width:60%;
-  min-width: 600px;
-   float:right;
-   margin-top:6%;
-   margin-right:6%
-}
-.ag-header-group-cell-label, .ag-header-cell-label{
-  flex: inherit;
-}
-.ag-theme-alpine .ag-ltr .ag-cell{
-  text-align: end;
-}
-.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell{
-  background-color: #506265;
-  color: white;
-}
-
-.ag-row-selected {
-  background-color: #17a2b8!important;
-  color: #fff!important;
-}
-.ag-theme-alpine {
-  @include ag-theme-alpine((
-      
-  ));
-
-}
 .divLIst,tr,input{
   direction: rtl;
+}/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+// @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+.modal-title{
+    padding-left: 34%;
+   
 }
+.modal-body{
+    direction: rtl;
+}
+label{
+    float: right;
+    margin-right: 14px;
+}
+
+.form-check-input{
+    position: relative;
+    margin-left: none;
+}
+.form-check-input{
+    position: relative;
+    margin-left: none;
+}
+.form-check-input{
+    float: right;
+    position: relative!important;
+    margin-left: none !important;
+}
+
+
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css";
+.divLIst,tr,input{
+    direction: rtl;
+}
+.divForm{
+    direction: ltr;
+}
+
+
+.text-logo{
+    color: rgb(124, 252, 0);
+    text-shadow: black;
+}
+.details{
+ width: 50%;
+ margin-left: 25%;
+}
+.header{
+    text-align: center;
+    margin: 5%;
+    margin-top: 55px;
+}
+.row{
+    margin-top: 3%;
+}
+.alert-danger{
+  text-align: center;
+  width: 30%;
+  margin-left: 35%;
+  }
+  .Form-wrapper{
+    width:60vw!important;
+    margin-right: 20vw !important;
+    margin-top: 70px;
+  }
+  span{
+      width: 200px;
+  }
+
+
+
+
+ 

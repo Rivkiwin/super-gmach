@@ -31,6 +31,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
  import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
 import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
+import { CreditDetailsComponent } from './componentes/credit-details/credit-details.component'
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -57,7 +58,8 @@ import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
     AddNewComponent,
     PettyCashComponent,
     GmachMenuComponent,
-    GmachMngMenuComponent
+    GmachMngMenuComponent,
+    CreditDetailsComponent
   ],
   imports: [
     CommonModule,
