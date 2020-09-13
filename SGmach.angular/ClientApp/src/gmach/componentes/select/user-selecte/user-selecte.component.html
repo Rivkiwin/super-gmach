@@ -1,0 +1,3 @@
+<select [(ngModel)]="userSelect" class="form-control" (change)="Onselect()"  data-live-search="true" required>
+    <option *ngFor="let user of Users" [value]="user |json" >{{user.Last_name}}  {{user.First_name}}</option>
+</select>

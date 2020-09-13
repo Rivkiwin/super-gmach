@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { invalid } from '@angular/compiler/src/render3/view/util';
-import { parse } from 'path';
+
 import { numberOnly as NumberOnly, numberOnly} from 'src/ts/Validation';
 import { letterOnly,validation } from 'src/ts/Validation';
 import { from } from 'rxjs';

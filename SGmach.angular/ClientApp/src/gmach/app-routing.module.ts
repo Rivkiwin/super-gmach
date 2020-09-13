@@ -16,73 +16,102 @@ import { FundFormComponent } from './componentes/funds/fund-form/fund-form.compo
 import { FundListComponent } from './componentes/funds/fund-list/fund-list.component';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
 import { FriendsDetailsComponent } from './componentes/friend/friends-details/friends-details.component';
-import {GmachHomeComponent} from "./gmach-home/gmach.home.component";
-import {CommonModule} from "@angular/common";
+import { GmachHomeComponent } from "./gmach-home/gmach.home.component";
+import { CommonModule } from "@angular/common";
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
-import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
-import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
+import { GmachMenuComponent } from "./gmach-menu/gmach-menu.component";
+import { GmachMngMenuComponent } from "./gmach-mng-menu/gmach-mng-menu.component";
+import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
+import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
 
 
 
 const routes: Routes = [
   {
-    path:"gmach",
-    component:GmachMngMenuComponent, canActivate: [AuthorizeGuard],
+    path: "gmach",
+    component: GmachMngMenuComponent, canActivate: [AuthorizeGuard],
     outlet: "gmachbar"
   },
   {
-    path:"FundDetails/:name",
-    component:FundDetailsComponent
-   },
+    path: "loan",
+    children: [{
+      path: "loanAdd",
+      component: AddLoadComponent
+    }]
+  },
   {
-    path:"fund",
-    component:FundComponentComponent,
-    children:[{
-      path:"addNewFund",
-      component:FundFormComponent
+    path: "FundDetails/:name",
+    component: FundDetailsComponent
+  },
+  {
+    path: "fund",
+    component: FundComponentComponent,
+    children: [{
+      path: "addNewFund",
+      component: FundFormComponent
     },
     {
-      path:"FundList",
-      component:FundListComponent
+      path: "FundList",
+      component: FundListComponent
     },
     ]
   },
 
   {
-    path:"patty_cash",
-    component:PettyCashComponent,
-    children:[{
-      path:"Expenditure",
-      component:ExpenditureComponent},
-      {
-          path:"add_new_Expenditure",
-          component:AddNewComponent
-        },
-        {
-        path:"view_Expenditure",
-        component:ListExpenditureComponent
-    }]
+    path: "patty_cash",
+    component: PettyCashComponent,
+    children: [{
+      path: "Expenditure",
+      component: ExpenditureComponent
+    },
+    {
+      path: "add_new_Expenditure",
+      component: AddNewComponent
+    },
+    {
+      path: "view_Expenditure",
+      component: ListExpenditureComponent
+    },
+    {
+      path: "income",
+      children: [{
+        path: "add",
+        component: AddComponent
+      }]
+
+    },
+    ]
   },
   {
-    path:"friends",
-    component:FriendsComponent,
-    children:[{
-      path:"addNewFriend",
-      component:FriendsFormComponent
+    path: "friends",
+    component: FriendsComponent,
+    children: [{
+      path: "addNewFriend",
+      component: FriendsFormComponent
     }
-     ,{
-       path:"Friendlist",
-       component:FriendsListComponent
+      , {
+      path: "Friendlist",
+      component: FriendsListComponent
 
-     },
-     {
-       path:"detalis/:id",
-       component:FriendsDetailsComponent
-     }
-     ]
+    },
+    {
+      path: "detalis/:id",
+      component: FriendsDetailsComponent
+    }
+    ]
   }
+]
 
-];
+
+// {
+//path: "LoadList",
+// component: LoadListComponent
+
+// }]
+// ];
+
+
+
 
 @NgModule({
   declarations: [GmachHomeComponent],

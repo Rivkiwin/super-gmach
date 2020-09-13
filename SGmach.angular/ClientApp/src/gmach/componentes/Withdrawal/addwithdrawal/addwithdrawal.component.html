@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-dark" data-toggle="modal"
+    data-target=".bd-example-modal-lg"> הוספת משיכהd </button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="divForm Form-wrapper"></div>
+            <form [formGroup]="Fwithdrawal" class="mx-auto w-75 mt-auto">
+                <div class="row">
+                    <div class="col">
+                        <label for="Date">תאריך</label>
+                        <input type="date" class="form-control"
+                            formControlName="Date">
+                    </div>
+                    <div class="col">
+                        <label>סכום</label>
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>דרך קבלת הכסף</label>
+                        <app-payment-method (select)=setWayw($event)></app-payment-method>
+                    </div>
+                    <div class="col">
+                        <select formControlName="Status">
+                            <option value="2">נמשך</option>
+                            <option value="1">עתידי</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

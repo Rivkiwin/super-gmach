@@ -14,6 +14,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { GmachModule} from 'src/gmach/gmach.module';
 import { AgGridModule } from 'ag-grid-angular';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AgGridModule } from 'ag-grid-angular';
     FormsModule,
     ApiAuthorizationModule,
     GmachModule,
+    ChartsModule,
     AgGridModule.withComponents([]),
 
     RouterModule.forRoot([

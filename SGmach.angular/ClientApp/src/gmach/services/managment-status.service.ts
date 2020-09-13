@@ -7,9 +7,9 @@ import { ManagementStatusDTO } from 'src/gmach/classes/management-status-dto';
 })
 export class ManagmentStatusService {
    Status:ManagementStatusDTO[];
-  baseUrl:string;
+   baseUrl="http://localhost:62859/api/management_Status/";
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${{apiUrl}}api/management_Status/`
+    // this.baseUrl=`${{apiUrl}}api/management_Status/`
   }
     public GetAll()
     {

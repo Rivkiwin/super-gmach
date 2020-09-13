@@ -14,7 +14,7 @@ namespace SGmach.API.Controllers
   public class UsersController : ControllerBase
   {
     [HttpPost]
-    [Route("addUser")]
+    [Route("add")]
     public string AddUser(UserDTO u)
     {
       //Console.WriteLine(u.ToString());
@@ -22,7 +22,7 @@ namespace SGmach.API.Controllers
     }
 
     [HttpGet]
-    [Route("getUsersList")]
+    [Route("get")]
     public List<UserDTO> GetUsers()
     {
       return UserBL.GetUsersList();

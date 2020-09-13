@@ -25,10 +25,10 @@ export class AddNewComponent implements OnInit {
   constructor(private serviceExpense: ExpenditureService, public router: Router,private statusServic:StatusService) { }
   Add() {
     let expenditure:Expenditure=new Expenditure();
-    expenditure.date=this.FormAddExpense.get('date').value;
+    // expenditure.date=this.FormAddExpense.get('date').value;
     if(this.FormAddExpense.get('Contemporary').value)
     {
-      expenditure.date=new Date();
+      // expenditure.date=new Date();
       expenditure.way_of_payment=this.FormAddExpense.get('PaymentForm').value;
       this.status.forEach(s => {
         if(s.Name=="performed")

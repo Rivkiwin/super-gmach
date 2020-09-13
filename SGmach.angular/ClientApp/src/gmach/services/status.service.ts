@@ -7,10 +7,11 @@ import { status } from 'src/gmach/classes/status';
 })
 
 export class StatusService {
- baseUrl:string;
-
+//  baseUrl:string;
+baseUrl="http://localhost:62859/api/status";
   constructor(private http:HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${apiUrl}api/status`;}
+    // this.baseUrl=`${apiUrl}api/status`;
+  }
 
   public GetStatus(){
    return this.http.get(`${this.baseUrl}/getStatusList`);

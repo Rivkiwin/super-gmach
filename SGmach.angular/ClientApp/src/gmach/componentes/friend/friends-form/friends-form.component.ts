@@ -16,6 +16,7 @@ import { BankDetails } from 'src/gmach/classes/Bank-detalis';
 export class FriendsFormComponent implements OnInit {
   public formFriend: FormGroup;
   public FCommunication_ways: FormGroup;
+  userId:Number;
   statusFrind = StatusFriendE;
   card_Detalis: boolean = false;
   bank_detalis: boolean = false;
@@ -62,13 +63,15 @@ export class FriendsFormComponent implements OnInit {
     try {
       var new_friend = <Friend>this.formFriend.value;
       new_friend.Bank_Details=new BankDetails();
+      this.userId=<Number>this.formFriend.get(' Id_user').value;
+      new_friend.Id_user=this.userId;
       var Communication=<Communication>this.FCommunication_ways.value;
       this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
 
     }
     catch (error) {
-      this.message = error;
-      this.message.push("erro")
+      // this.message = error;
+      // this.message.push("erro")
     }
     this.SuccessMessage = true;
   }

@@ -14,14 +14,12 @@ namespace Dal1
 
     public   class withdrawing
     {
-        public int userID { get; set; }
-        public int fundID { get; set; }
-        public int amount { get; set; }
-        public Nullable<System.DateTime> future_date { get; set; }
-        public Nullable<System.DateTime> real_date { get; set; }
-        public Nullable<int> status { get; set; }
-        public string status_reason { get; set; }
-        public int id { get; set; }
+        public int UserID { get; set; }
+        public int FundID { get; set; }
+        public int Amount { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> sStatus { get; set; }
+        public int Id { get; set; }
 
         public virtual Status Status1 { get; set; }
     }

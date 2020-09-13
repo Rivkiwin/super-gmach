@@ -7,5 +7,7 @@ export class Expenditure {
     amount:number;
     purpose;
     id;
-    date;
+    real_date;
+    future_date;
+    // date;
 }

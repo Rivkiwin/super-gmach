@@ -3,7 +3,7 @@
 import {  GmachAppRoutingModule } from './app-routing.module';
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import {DatePipe} from '@angular/common';
  import { HttpClientModule } from '@angular/common/http';
 
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
@@ -31,7 +31,17 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/add-new.component';
  import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
 import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
-import { CreditDetailsComponent } from './componentes/credit-details/credit-details.component'
+import { CreditDetailsComponent } from './componentes/credit-details/credit-details.component';
+import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
+import { DiagramComponent } from './componentes/diagram/diagram.component'
+import { UserSelecteComponent } from './componentes/select/user-selecte/user-selecte.component';
+import { ExpenditureAndIncomeChartsComponent } from './componentes/expenditure-and-income-charts/expenditure-and-income-charts.component';
+import { ChartsModule } from 'ng2-charts';
+import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
+import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/addwithdrawal.component';
+// import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
+// import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
+// import { UserComponent } from './componentes/select/user/user.component';
 
 // import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 // import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
@@ -59,7 +69,16 @@ import { CreditDetailsComponent } from './componentes/credit-details/credit-deta
     PettyCashComponent,
     GmachMenuComponent,
     GmachMngMenuComponent,
-    CreditDetailsComponent
+    CreditDetailsComponent,
+    AddLoadComponent,
+    DiagramComponent,
+    UserSelecteComponent,
+    ExpenditureAndIncomeChartsComponent,
+    AddComponent,
+    AddwithdrawalComponent,
+    // PaymentMethodComponent,
+    // SelectStatusComponent,
+    // UserComponent
   ],
   imports: [
     CommonModule,
@@ -67,9 +86,11 @@ import { CreditDetailsComponent } from './componentes/credit-details/credit-deta
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ChartsModule,
     GmachAppRoutingModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
+    
     // MatSelectModule,
     // MatFormFieldModule,
     // NgxMatSelectSearchModule
