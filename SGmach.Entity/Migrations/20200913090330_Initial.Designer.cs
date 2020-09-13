@@ -9,8 +9,8 @@ using SGmach.Entity;
 namespace SGmach.Entity.Migrations
 {
     [DbContext(typeof(SuperGmachEntities))]
-    [Migration("20200819194607_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200913090330_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,13 +33,10 @@ namespace SGmach.Entity.Migrations
                     b.Property<int>("amount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("future_date")
+                    b.Property<DateTime?>("date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("purpose")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("real_date")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("status")
@@ -243,35 +240,29 @@ namespace SGmach.Entity.Migrations
 
             modelBuilder.Entity("Dal1.withdrawing", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("FundID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("Status1id")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("amount")
+                    b.Property<int>("UserID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("fundID")
+                    b.Property<int?>("sStatus")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("future_date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("real_date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("status")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("status_reason")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("userID")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("Status1id");
 
