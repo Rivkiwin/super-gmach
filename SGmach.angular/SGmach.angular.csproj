@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     <None Include="ClientApp\src\app\classes\communication.spec.ts" />
     <None Include="ClientApp\src\app\gmach\app-routing.module.ts" />
     <None Include="ClientApp\src\gmach\classes\communication.spec.ts" />
@@ -36,9 +35,6 @@
     <None Include="ClientApp\src\gmach\gmach-home\app.component.ts" />
     <None Include="ClientApp\src\gmach\gmach-mng-menu\gmach-menu.component.css" />
     <None Include="ClientApp\src\gmach\login-menu\login-menu.component.css" />
-    <None Update="gmach.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
