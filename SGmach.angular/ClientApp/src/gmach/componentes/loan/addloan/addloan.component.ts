@@ -16,10 +16,12 @@ import { LoanService } from 'src/gmach/services/loan.service';
     constructor(private loanS:LoanService) { }
     Load: FormGroup;
     idUser;
-    user;
+    user:Friend;
     futureDay = futureDay;
     SetUser(event) {
-      this.user = <Friend>event;
+      debugger
+      this.user = <Friend> JSON.parse( event);
+      this.idUser=this.user.Id;
     }
   
     ngOnInit(): void {
@@ -36,15 +38,16 @@ import { LoanService } from 'src/gmach/services/loan.service';
     }
     Add() {
       validation();
+      debugger
       var NewLoan = new Loan();
       NewLoan.amount = this.Load.get('amount').value;
       NewLoan.date_start = this.Load.get('date_start').value;
       // NewLoan.guaantee_2 = this.Load.get('guaantee_2').value;
       // NewLoan.guarantee_1 = this.Load.get('guarantee_1').value;
       NewLoan.month = this.Load.get('month').value;
-      NewLoan.id_user = this.Load.get('id_user').value;
-      NewLoan.management_status = this.Load.get('management_status').value;
-      NewLoan.payments = this.Load.get('payments').value;
+      NewLoan.id_user = this.idUser;
+      // NewLoan.management_status = this.Load.get('management_status').value;
+      // NewLoan.payments = this.Load.get('payments').value;
       NewLoan.remark = this.Load.get('remark').value;
       this.loanS.Add(NewLoan);
     }

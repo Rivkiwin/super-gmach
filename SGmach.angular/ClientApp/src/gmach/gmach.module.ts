@@ -3,7 +3,6 @@
 import {  GmachAppRoutingModule } from './app-routing.module';
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {DatePipe} from '@angular/common';
  import { HttpClientModule } from '@angular/common/http';
 
 import { FilterStatusPipe } from './pipes/filter-status.pipe';
@@ -17,6 +16,7 @@ import { FriendsFormComponent } from './componentes/friend/friends-form/friends-
 import { FriendsListComponent } from './componentes/friend/friends-list/friends-list.component';
 import { ManagementComponent } from './componentes/management/management.component';
 import { FilterMonthsPipe } from './pipes/filter-months.pipe';
+
 
 import { ExpenditureComponent } from './componentes/petty-cash/expenditure/expenditure.component';
 import { ListExpenditureComponent } from './componentes/petty-cash/expenditure/list-expenditure/list-expenditure.component';
@@ -39,6 +39,7 @@ import { ExpenditureAndIncomeChartsComponent } from './componentes/expenditure-a
 import { ChartsModule } from 'ng2-charts';
 import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
 import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/addwithdrawal.component';
+import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -76,6 +77,7 @@ import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/a
     ExpenditureAndIncomeChartsComponent,
     AddComponent,
     AddwithdrawalComponent,
+    LoansListComponent,
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent
@@ -90,7 +92,7 @@ import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/a
     GmachAppRoutingModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-    
+  
     // MatSelectModule,
     // MatFormFieldModule,
     // NgxMatSelectSearchModule
@@ -102,6 +104,7 @@ import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/a
   exports: [FundComponentComponent,
     FundFormComponent,
     FundListComponent,
+    
     FundDetailsComponent,
     FilterStatusPipe,
     EditFundComponent,

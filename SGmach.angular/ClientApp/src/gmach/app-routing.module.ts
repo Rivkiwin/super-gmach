@@ -23,6 +23,7 @@ import { GmachMenuComponent } from "./gmach-menu/gmach-menu.component";
 import { GmachMngMenuComponent } from "./gmach-mng-menu/gmach-mng-menu.component";
 import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
 import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
+import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
 
 
 
@@ -37,7 +38,12 @@ const routes: Routes = [
     children: [{
       path: "loanAdd",
       component: AddLoadComponent
-    }]
+    },
+    {
+      path:"list",
+      component:LoansListComponent
+    }
+  ]
   },
   {
     path: "FundDetails/:name",

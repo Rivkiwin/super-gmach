@@ -12,5 +12,9 @@ export class Loan{
     id_user;
     id_load;
     gmachId;
-    UserName
-}
+    UserName;
+    score;
+    EntryDate;
+    BeginningRepayment;
+    NumRepayment;
+    }
