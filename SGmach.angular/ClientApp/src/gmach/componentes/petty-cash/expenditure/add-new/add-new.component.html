@@ -1,6 +1,5 @@
-<div class=" w-75 m-5">
-
-<p>add-new works!</p>
+<div class=Form-wrapper>
+    <h2>הוספת הוצאה</h2>
     <form  [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
@@ -10,10 +9,6 @@
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>
                 <input type="number" min="5" class="form-control" formControlName="Expense_amount" placeholder="הכנס סכום">
-                <!-- <app-field-error-display 
-                 [displayError]="isFieldValid('address.city')" 
-                 errorMsg="הכנס סכום הוצאה">
-               </app-field-error-display> -->
             </div>
             <div class="col">
                 <label for="Receives">עבור</label>
