@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SGmach.Entity.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,8 +85,7 @@ namespace SGmach.Entity.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    future_date = table.Column<DateTime>(nullable: true),
-                    real_date = table.Column<DateTime>(nullable: true),
+                    date = table.Column<DateTime>(nullable: true),
                     amount = table.Column<int>(nullable: false),
                     purpose = table.Column<string>(nullable: true),
                     way_of_payment = table.Column<string>(nullable: true),
@@ -134,20 +133,18 @@ namespace SGmach.Entity.Migrations
                 name: "Withdrawing",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    userID = table.Column<int>(nullable: false),
-                    fundID = table.Column<int>(nullable: false),
-                    amount = table.Column<int>(nullable: false),
-                    future_date = table.Column<DateTime>(nullable: true),
-                    real_date = table.Column<DateTime>(nullable: true),
-                    status = table.Column<int>(nullable: true),
-                    status_reason = table.Column<string>(nullable: true),
+                    UserID = table.Column<int>(nullable: false),
+                    FundID = table.Column<int>(nullable: false),
+                    Amount = table.Column<int>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: true),
+                    sStatus = table.Column<int>(nullable: true),
                     Status1id = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Withdrawing", x => x.id);
+                    table.PrimaryKey("PK_Withdrawing", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Withdrawing_Statuses_Status1id",
                         column: x => x.Status1id,

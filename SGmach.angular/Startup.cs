@@ -47,7 +47,7 @@ namespace SGmach.angular
            services.AddDbContext<SuperGmachEntities>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("GmachConnection"),
-                    builder => builder.MigrationsAssembly("SGmach.angular")));
+                    builder => builder.MigrationsAssembly("SGmach.Entity")));
 
             services.AddScoped<SuperGmachEntities>();
 
