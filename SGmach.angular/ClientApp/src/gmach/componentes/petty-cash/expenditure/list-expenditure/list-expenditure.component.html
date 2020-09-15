@@ -1,13 +1,16 @@
-
+<div >
+<form class="form-inline px-2  float-right search">
+    <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+</form>
 <ag-grid-angular 
 id="myGrid "
 class="ag-theme-alpine "
-style="height:550px ;"
+style="height:550px ;position: relative;"
 [defaultColDef]="defaultColDef"
 [rowData]="rowData"
 [columnDefs]="columnDefs"
 (gridReady)="onGridReady($event)"
 >
 </ag-grid-angular>
-
-
+</div>

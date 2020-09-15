@@ -24,10 +24,10 @@
     <tbody>
       <tr *ngFor="let fund of fund_list |filter:name|filterStatus:status let i = index" >
         <th scope="row">{{i+1}}</th>
-        <td><a class="link-dark" routerLink="/FundDetails/{{fund.name}}">{{fund.name}}</a></td> 
-        <td >{{fund.status}}</td>
+        <td><a class="link-dark" routerLink="/FundDetails/{{fund.Id}}">{{fund.Fund_name}}</a></td> 
+        <td >{{fund.Status}}</td>
         <td>{{fund.Nun_friends}}</td>
-        <td></td>
+        <td>{{fund.balance}}</td>
         <td>{{fund.Details}}</td>     
  <td></td>
          

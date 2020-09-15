@@ -1,4 +1,91 @@
-<div *ngIf="friend">
-<div>{{friend.Id}}</div>
-  <addwithdrawal  [FreindId]="friend.Id"></addwithdrawal>
+<div class="Form-wrapper" *ngIf="friend">
+<h3>פרטי חבר</h3>  
+<form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm needs-validation" novalidate=""> 
+  <div class="row">
+      <div class="col">
+          <label for="fname">שם פרטי</label>
+          <input type="text" class="form-control" formControlName="First_name" value="friend.First_name" id="fname" required  (keypress)="LetterinValid=LetterOnly($event)">
+          <div class="invalid-feedback"> הכנס שם </div>
+      </div>
+      <div class="col">
+        <label for="lname">שם משפחה</label>
+        <input type="text" class="form-control" formControlName="Last_name" value="friend. Last_name" id="lname" (keypress)="LetterinValid=LetterOnly($event)" required>
+    </div>
+      <div class="col">
+          <label for="fname">שם האב</label>
+          <input type="text" class="form-control" formControlName="father_name" value="friend." id="father_name" (keypress)="LetterinValid=LetterOnly($event)" required>
+      </div>
+    
+      <div class="col">
+          <input class="form-check-input" type="checkbox" formControlName="VIP" value="true" id="vipCheck" value="true">
+          <label class="form-check-label" for="vipCheck">
+              VIP
+          </label>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          <label for="id">:ת"ז</label>
+          <input formControlName="Id_user" value="friend.Id_user" id="id" min=9 max=9 class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)" required>
+      </div>
+      <div class="col">
+          <label>סטטוס חבר</label>
+          <select class="selectpicker form-control" data-live-search="true">
+              <option>בחר סטטוסס</option>
+              <option *ngFor="let status of keyStatusFriend()" [ngValue]="status">{{status}}</option>
+          </select>
+      </div>
+  </div>
+  <div class="dropdown-divider"></div>
+<form [formGroup]="FCommunication_ways" class="needs-validation" novalidate="">
+  <div class="row">
+      <div class="col">
+          <label>טל 1</label>
+          <input class="form-control" value="friend.Communication_ways.Phon1" id="p1" formControlName="Phon1" (keypress)="NumberinValid=NumberOnly($event)" required>
+      </div>
+      <div class="col">
+          <label>טל 2</label>
+          <input class="form-control" value="friend.Communication_ways.Phon2" id="p2" formControlName="Phon2" (keypress)="NumberinValid=NumberOnly($event)">
+      </div>
+      <div class="col">
+          <label for="emailInput">כתובת מייל</label>
+          <input type="email" formControlName="Email_addres" class="form-control" id="email"
+          value="friend.Communication_ways.Email_addres">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          <label for="citylb">עיר</label>
+          <input type="text" value="friend.Communication_ways.City" class="form-control" id="citylb" value="friend.Communication_ways.City" (keypress)="LetterinValid=LetterOnly($event)" required>
+      </div>
+      <div class="col">
+          <label for="street">רחוב</label>
+          <input class="form-control" formControlName="Street" id="street" value="friend.Communication_ways.Street" (keypress)="LetterinValid=LetterOnly($event)" required>
+      </div>
+      <div class="col">
+          <label for="buildingNumber">מספר</label>
+          <input class="form-control" formControlName="Num_street" type="number" value="friend.Communication_ways.Num_street" (keypress)="NumberinValid=NumberOnly($event)"required>
+      </div>
+  </div>
+</form>
+  <div class="dropdown-divider"></div>
+  <div class="row">
+  <div class="col">
+  <CreditDetails ></CreditDetails></div>
+  <div class="col"><button type="button" class="btn btn-dark">פרטי חשבון בנק</button></div> 
+</div>
+  <div class="row">
+      <div class="col">
+          <label for="Remarkscontrol">הערות</label>
+          <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
+      </div>
+  </div>
+  <div class="row">
+  <div class="col"><addwithdrawal  [FreindId]="friend.Id"></addwithdrawal></div>
+  <div class="col"><button type="button" class="btn btn-dark">משיכות והפקדות</button></div>
+  <div class="col"><button type="button" class="btn btn-dark"> רשימת הלוואות </button></div>
+</div>
+<div class="row">
+<button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">שמור שינויים</button></div>
+</form>
 </div>

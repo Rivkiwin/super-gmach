@@ -40,6 +40,8 @@ import { ChartsModule } from 'ng2-charts';
 import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
 import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/addwithdrawal.component';
 import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
+import { WithdrawalsAndDepositComponent } from './componentes/withdrawals-and-deposit/withdrawals-and-deposit.component';
+import { MessageAddComponent } from './componentes/message-add/message-add.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -78,6 +80,8 @@ import { LoansListComponent } from './componentes/loan/loans-list/loans-list.com
     AddComponent,
     AddwithdrawalComponent,
     LoansListComponent,
+    WithdrawalsAndDepositComponent,
+    MessageAddComponent,
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent

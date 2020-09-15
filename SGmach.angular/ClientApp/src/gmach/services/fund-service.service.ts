@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FundClass, StatusE } from 'src/gmach/classes/fund-class';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +9,19 @@ import { FundClass, StatusE } from 'src/gmach/classes/fund-class';
 export class FundServiceService {
 //name:string,status:StatusE,Required_month?:number,Required_vip?:boolean,details?:string
 private funds_list:FundClass[]=[new FundClass("rachel lea", StatusE.active, 3, true, "hghgh")];
-baseUrl="http://localhost:62859/api/fund/";
-  constructor() { }
+baseUrl="http://localhost:62859/api/Fund";
+  constructor(private httpc:HttpClient) { }
   public add(fund:FundClass):void
   {
-    this.funds_list.push(fund);
+    // this.funnd.push(fund);
   }
-  public get_all(): FundClass[]
+  public get_all()
   {
-
-     return this.funds_list
+  
+     return this.httpc.get(`${this.baseUrl}/GetAll`);
   }
-  public GETOne_ByName(name:string):FundClass
+  public GetById(id)
   {
-    return this.funds_list.find(fund => fund.name==name);
+    return this.httpc.get(`${this.baseUrl}/GetByID/${id}`);
   }
 }

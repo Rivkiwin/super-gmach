@@ -16,11 +16,11 @@ import {FriendsService} from "src/gmach/services/friends.service";
 export class FundDetailsComponent implements OnInit {
  statusE=StatusE;
   key=Object.values;
-  public fund:FundClass;
+  fund:FundClass;
   constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>this.fund=this.FUndService.GETOne_ByName(String(res.get('name'))));
+    this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetById(res.get('id')).subscribe(f=>{this.fund=<FundClass>f,console.log(f)}));
 
   }
   // getFundFriend():Friend[]

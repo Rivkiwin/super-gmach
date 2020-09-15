@@ -24,7 +24,7 @@ export class FundListComponent implements OnInit {
    return keys.slice(keys.length / 2);
   }
   constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
-    this.fund_list=this.fundServis.get_all();
+    this.fundServis.get_all().subscribe(f=>{this.fund_list=<FundClass[]>f ;console.log(this.fund_list)});
    }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Friend } from 'src/gmach/classes/friend';
 import { FriendsService } from 'src/gmach/services/friends.service';
 import { ManagmentStatusService } from 'src/gmach/services/managment-status.service';
+import { AlertsFriends } from 'src/gmach/classes/alertsFriends';
 
 
 @Component({
@@ -82,16 +83,24 @@ export class FriendsListComponent implements OnInit {
         friend: friend.Friend ? 'V' : 'X',
         id: friend.Id,
         name: `${friend.Last_name} ${friend.First_name}`,
-        phon: friend.Communication_ways.Phon1
+        phon: friend.Communication_ways.Phon1,
+        fund_Rachel_Leah:+300,
+        loan:-1000
       }
     });
   };
+  alerts:AlertsFriends[];
+  
   ngOnInit(): void {
 
     this.friendsService.get().subscribe(x => {
       this.Friends = <Friend[]>x; 
      this.addrowData();
     });
+    this.friendsService.Alerts().subscribe(a=>{
+      this.alerts=<AlertsFriends[]>a;
+      console.log(a);
+    })
   }
 
 

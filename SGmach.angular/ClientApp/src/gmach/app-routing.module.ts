@@ -46,7 +46,7 @@ const routes: Routes = [
   ]
   },
   {
-    path: "FundDetails/:name",
+    path: "FundDetails/:id",
     component: FundDetailsComponent
   },
   {

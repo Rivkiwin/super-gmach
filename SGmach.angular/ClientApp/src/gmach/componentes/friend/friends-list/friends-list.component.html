@@ -1,4 +1,13 @@
 <!--<a routerLink="/FundDetails/${params.data.id}" a class="link-dark"> params.data.name</a>-->
+<aside class="alert-wrapper">
+    <h3 class="h-alert">התראות</h3>
+    <div *ngFor="let alert of alerts" class="alert alert-warning" role="alert">
+        <div>{{alert.Alret}}</div>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        לחבר גליק מאיר יש סירוב
+      </div>
+</aside>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
                  [defaultColDef]="defaultColDef"
                  [rowData]="rowData"

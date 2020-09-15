@@ -36,5 +36,9 @@ export class FriendsService {
     return this.httpclinet.get(`${this.baseUrl}/getUserById/${id}`)
      // http://localhost:4200/user/getUserById/${id}
    }
- 
+   public Alerts() {
+  
+    return this.httpclinet.get(`${this.baseUrl}/getAlerts`)
+     // http://localhost:4200/user/getUserById/${id}
+   }
 }
