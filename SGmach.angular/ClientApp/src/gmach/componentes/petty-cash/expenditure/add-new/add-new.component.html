@@ -36,5 +36,6 @@
         </div>
         
      </form>
-    <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
+     <a (click)="Add($event)">הוסף
+        <app-message-add [Message]="message | json" ></app-message-add></a>
 </div>

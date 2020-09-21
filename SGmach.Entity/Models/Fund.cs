@@ -7,27 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;
 
-    public   class Fund
+    public class Fund
     {
-         public Fund()
-        {
-            this.User_in_fund = new HashSet<User_in_fund>();
-        }
-
+     
+     public string FundId { get; set; }
+     public string GmachId { get; set; }="shavetHchim";
         public string fund_name { get; set; }
-        public Nullable<int> status { get; set; }
         public Nullable<int> required_months { get; set; }
         public Nullable<bool> required_vip { get; set; }
         public string comments { get; set; }
-        public Nullable<System.DateTime> date_create { get; set; }
-        public int Id { get; set; }
+        public Nullable<System.DateTime> Date_create { get; set; }
 
-        public virtual Status Status1 { get; set; }
-         public virtual ICollection<User_in_fund> User_in_fund { get; set; }
+
+
+        public string NameStatus { get; set; }
+        public Status status { get; set; }
+
+        public List<withdrawing> Withdrawings { get;}=new List<withdrawing>();
+        public List<Deposit> Deposits { get;}=new List<Deposit>();
+         public  List<User_in_fund> Users_in_fund { get;}=new List<User_in_fund>();
     }
 }

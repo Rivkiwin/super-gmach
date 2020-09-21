@@ -6,8 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;
@@ -15,14 +14,17 @@ namespace Dal1
 
     public  class User_in_fund
     {
-         public int id { get; set; }
+        public int User_in_fundId { get; set; }
+        public string GmachId { get; set; }="shavet hchim";
+        public DateTime date_join { get; set; }
+        public int balance { get; set; }
+        public int FundId { get; set; }
 
-        public int userID { get; set; }
-        public int fundID { get; set; }
-        public Nullable<System.DateTime> date_join { get; set; }
-        public Nullable<int> balance { get; set; }
+        public List<Deposit> Deposits { get; }=new List<Deposit>();
+        public List<withdrawing> Withdrawings { get; }=new List<withdrawing>();
 
-        public virtual Fund Fund { get; set; }
-        public virtual User User { get; set; }
+        public  Fund Fund { get; set; }
+        public int UserId { get; set; }
+        public  User User { get; set; }
     }
 }

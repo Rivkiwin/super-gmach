@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dal1;
+
 using DTO.classes.user_classes;
 using BL.convertions;
 using DTO.classes;
@@ -18,7 +18,7 @@ namespace BL
         static void Main(string[] args)
         {
 
-      Management_statusDTO s = new Management_statusDTO("תקין", "white");
+      // Management_statusDTO s = new Management_statusDTO("תקין", "white");
       //Console.WriteLine( Management_statusBL.AddStatus(s));
       // UserBL.GetUsersList();
       // Bank_details bd = new Bank_details("poalym", "bb", 1235647, 124444, 5);

@@ -18,12 +18,12 @@ namespace DTO.classes.user_classes
         [DataMember]
         public string Brunch { get; set; }
         [DataMember]
-        public int Account_number { get; set; }
+        public string Account_number { get; set; }
         [DataMember]
         public int Ciling { get; set; }
         [DataMember]
         public int Collection_date {  get;  set; }
-        public Bank_details(string name, string brunch,int account_number,int ciling,int collection_date)
+        public Bank_details(string name, string brunch,string account_number,int ciling,int collection_date)
         {
        //     Id = cnt;
             Name = name;

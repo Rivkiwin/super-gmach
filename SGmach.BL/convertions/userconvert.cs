@@ -1,11 +1,11 @@
 
 using BL.BLclasses;
 using DTO.classes.user_classes;
+using SGmach.Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Dal1;
 using System.Threading.Tasks;
 
 namespace BL.convertions
@@ -16,13 +16,13 @@ namespace BL.convertions
         {
       //Console.WriteLine(user.ToString());
             User newUser = new User() {
-                id_user =(int)user.Id_user,
+                UserId =(int)user.Id_user,
               firstName = user.First_name,
               lastname = user.Last_name,
                 VIP = user.Vip,
               frirnd = user.Friend,
-              status_User = (int)user.Status_user,
-              //Management_status = (int)user.Management_status.Id,
+              NameStatus = user.Status_user,
+              NameManagement_status= user.Management_status.Name,
                 phon1 = user.Communication_ways.Phon1,
               phon2 = user.Communication_ways.Phon2,
               email_addres = user.Communication_ways.Email_addres,
@@ -43,21 +43,21 @@ namespace BL.convertions
         {
       
       UserDTO newUser = new UserDTO() {
-        Id_user = user.id,
-        Id = user.id,
+        Id_user = user.UserId,
+        // Id = user.id,
         First_name = user.firstName,
         Last_name = user.lastname,
-        Vip = user.VIP.GetValueOrDefault(),
-        Friend = user.frirnd.GetValueOrDefault(),
-        Status_user = (Status_userE)user.status_User.GetValueOrDefault(),
+        Vip = user.VIP,
+        Friend = user.frirnd,
+        Status_user = user.MaritalStatus,
         Father_name = user.father_name,
     
-        Scoring =user.Scoring.GetValueOrDefault(),
+        Scoring =user.Scoring,
         Remarks = user.remarks,
         Communication_ways = new Communication(user.phon1, user.phon2, user.email_addres, user.city, user.street, user.num_street),
-        Bank_Details = new Bank_details(user.bankName, user.brunchName, user.account_number, user.ciling, user.collection_date),
-        Joining_date = (DateTime)user.joining_date.GetValueOrDefault(),
-        Management_status = Management_statusBL.GetById(user.Management_status.GetValueOrDefault()),
+        Bank_Details = new Bank_details(user.BankDetails.Bank, user.BankDetails.Branch, user.BankDetails.Account, user.Credit.Ciling, user.collection_date),
+        Joining_date = (DateTime)user.joining_date,
+        Management_status = Management_statusBL.GetById(user.NameManagement_status),
         _Manager = (int)user.Manager_permissions.GetValueOrDefault(),Status_reason=user.Status_reason
 
       };

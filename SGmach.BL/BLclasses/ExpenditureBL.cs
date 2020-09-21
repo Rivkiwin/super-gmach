@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SGmach.Entity;
-using Dal1;
+using SGmach.Entity.Models;
 
 namespace BI.BLclasses
 {

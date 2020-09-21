@@ -1,5 +1,6 @@
-using Dal1;
+
 using DTO.classes;
+using SGmach.Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ public class StatusConvert
   {
     static public StatusDTO DALtoDTO(Status status)
     {
-      return new StatusDTO() {Name=status.name,Description=status.description,id=status.id};
+      return new StatusDTO() {Name=status.NameStatus,Description=status.Description};
     }
     static public Status DTOtoDaL(StatusDTO status)
     {
-      return new Status() {name=status.Name,description=status.Description};
+      return new Status() {NameStatus=status.Name,Description=status.Description};
     }
   }
 }

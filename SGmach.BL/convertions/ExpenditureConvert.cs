@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SGmach.Entity;
-using Dal1;
+using SGmach.Entity.Models;
 
 namespace BI.convertions
 {
@@ -16,16 +16,16 @@ namespace BI.convertions
     {
       ExpenditureDTO expenditureNew = new ExpenditureDTO()
       {
-        id = expenditure.id,
-        amount = (int)expenditure.amount,
-      Date = (DateTime)expenditure.date,
-        purpose = expenditure.purpose,
+        id = expenditure.Id,
+        amount = (int)expenditure.Amount,
+      Date = (DateTime)expenditure.Date,
+        purpose = expenditure.Purpose,
         Receives = expenditure.Receives,
-        way_of_payment = expenditure.way_of_payment
+        way_of_payment = expenditure.Way_of_payment
         };
       using (SuperGmachEntities db = new SuperGmachEntities())
       {
-        expenditureNew.status = StatusConvert.DALtoDTO(db.Statuses.FirstOrDefault(x => x.id == expenditure.status));
+        expenditureNew.status = StatusConvert.DALtoDTO(db.Statuses.FirstOrDefault(x => x.NameStatus == expenditure.NameStatus));
       }
       return expenditureNew;
     }
@@ -33,12 +33,13 @@ namespace BI.convertions
     {
       
         Expenditure e=new Expenditure() {
-        amount = (int)expenditure.amount,
-        date = (DateTime)expenditure.Date,
-        purpose = expenditure.purpose,
+        Amount = (int)expenditure.amount,
+        Date = (DateTime)expenditure.Date,
+      
+        Purpose = expenditure.purpose,
         Receives = expenditure.Receives,
-        way_of_payment = expenditure.way_of_payment==null?"":expenditure.way_of_payment,
-        status = 1
+        Way_of_payment = expenditure.way_of_payment==null?"":expenditure.way_of_payment,
+        // Status =
       };
       return e;
     }

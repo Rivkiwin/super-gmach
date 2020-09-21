@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Dal1;
+
 
 namespace SGmach.Entity
 {
@@ -10,7 +10,7 @@ namespace SGmach.Entity
     {
       using (var dbSG = new  SuperGmachEntities())
       {
-        dbSG.Add(new Status {description="בוטל",name ="cancle"});
+        // dbSG.Add(new Status {description="בוטל",name ="cancle"});
         // dbSG.Add(new Exception {Data= " 2/03/2020" ,name ="cancle"});
       }
 

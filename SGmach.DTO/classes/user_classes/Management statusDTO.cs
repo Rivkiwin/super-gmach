@@ -13,22 +13,19 @@ namespace DTO.classes.user_classes
     public static List<Management_statusDTO> List_status=new List<Management_statusDTO>();
     static int cnt = 0;
     [DataMember]
-    public int Id { get; set; }
-    [DataMember]
+    // public stri Id { get; set; }
     public string Name { get; set; }
     [DataMember]
+    public string  Description { get; set; }
     public string Color { get; set; }
-    public Management_statusDTO(string name, string color)
+    public Management_statusDTO()
     {
-      Name = name;
-      Color = color;
-      cnt++;
-      List_status.Add(this);
+      // Name = name;
+      // Color = color;
+      // cnt++;
+      // List_status.Add(this);
     }
-    public override string ToString()
-    {
-      return "Management_status: " + Name;
-    }
+  
     
   }
 }

@@ -21,9 +21,9 @@ namespace SGmach.API.Controllers
 
     [HttpPost]
     [Route("GetManagement_statusById")]
-    public Management_statusDTO GetManagement_statusById(int id)
+    public Management_statusDTO GetManagement_statusById(string name)
     {
-      return Management_statusBL.GetById(id);
+      return Management_statusBL.GetById(name);
     }
 
     [HttpGet]

@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;
 
-    public   class withdrawing
+    public class withdrawing
     {
-        public int UserID { get; set; }
-        public int FundID { get; set; }
+       public int Id { get; set; }
         public int Amount { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> sStatus { get; set; }
-        public int Id { get; set; }
+        public DateTime Date { get; set; }
 
-        public virtual Status Status1 { get; set; }
+
+        public int  user_In_FundId{ get; set; }
+        public User_in_fund  user_In_Fund { get; set; }
+        public String FundId { get; set; }
+        public Fund Fund { get; set; }
+        public string NameStatus  { get; set; }
+        public  Status Status { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dal1;
 using SGmach.Entity;
+using SGmach.Entity.Models;
 
 namespace BL.BLclasses
 {
@@ -27,13 +27,13 @@ namespace BL.BLclasses
     }
 
 
-    public static Management_statusDTO GetById(int id)
+    public static Management_statusDTO GetById(string name)
     {
       SuperGmachEntities db = new SuperGmachEntities();
       {
         foreach (Management_status status in db.ManagementStatuses)
         {
-          if ((int)status.Id == id)
+          if (status.NameManagement_status == name)
           {
             return Mangagment_status_convert.DALtoDTO(status);
           }
@@ -50,7 +50,7 @@ namespace BL.BLclasses
         {
 
        Management_status  s=Mangagment_status_convert.DTOtoDAL(status);
-          Console.WriteLine(s.name+" "+s.Color);
+          // Console.WriteLine(s.name+" "+s.Color);
           db.ManagementStatuses.Add(s);
 
           db.SaveChanges();

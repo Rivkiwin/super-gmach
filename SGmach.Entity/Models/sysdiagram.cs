@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;

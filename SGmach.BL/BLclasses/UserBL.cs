@@ -1,12 +1,12 @@
 using DTO.classes.user_classes;
 using System;
-using Dal1;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BL.convertions;
 using SGmach.Entity;
+using SGmach.Entity.Models;
 
 namespace BL.BLclasses
 {
@@ -51,8 +51,8 @@ namespace BL.BLclasses
       using (SuperGmachEntities db = new SuperGmachEntities())
       {
         var res = from uf in db.UserInFunds
-                  join u in db.Users on uf.userID equals u.id
-                  where uf.fundID == fundID
+                  join u in db.Users on uf.UserId equals u.UserId
+                  where uf.FundId == fundID
                   select new { uf, u };
 
          foreach (var item in res)

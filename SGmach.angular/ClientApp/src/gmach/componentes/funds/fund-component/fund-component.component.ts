@@ -15,7 +15,7 @@ import {FundServiceService} from "src/gmach/services/fund-service.service";
 export class FundComponentComponent implements OnInit {
 public fund_list:FundClass[]=[];
   constructor(private fundServis:FundServiceService,public router:Router,private activeRouter:ActivatedRoute) {
-    this.fund_list=this.fundServis.get_all();
+   this.fundServis.get_all().subscribe(f=> this.fund_list=<FundClass[]>f);
   //   $("a").click(function(){$(this).addClass("active")})
    }
 

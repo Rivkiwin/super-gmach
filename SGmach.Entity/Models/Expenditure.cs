@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;
@@ -15,14 +15,15 @@ namespace Dal1
     public class Expenditure
     {
       
-        public Nullable<System.DateTime> date { get; set; }
-        public int id { get; set; }
-        public int amount { get; set; }
-        public string purpose { get; set; }
-        public string way_of_payment { get; set; }
+        public DateTime Date { get; set; }
+        public int Id { get; set; }
+        public int Amount { get; set; }
+        public string Purpose { get; set; }
+        public string Way_of_payment { get; set; }
         public string Receives { get; set; }
-        public Nullable<int> status { get; set; }
-
-        public virtual Status Status1 { get; set; }
+        public string NameStatus { get; set; }
+        public Status Status { get; set; }
+          
+    
     }
 }

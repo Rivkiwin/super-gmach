@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum Status_userE { Marreid, [DataMember] Unmarreid }
+// public enum Status_userE { Marreid, [DataMember] Unmarreid }
 namespace DTO.classes.user_classes
 {
     public class UserDTO
@@ -31,7 +31,7 @@ namespace DTO.classes.user_classes
         [DataMember]
         //  public string Token_cardit { get; set; }
       //  [DataMember]
-        public Status_userE Status_user { get; set; }
+        public string Status_user { get; set; }
         [DataMember]
         public Management_statusDTO Management_status { get; set; }
         [DataMember]
@@ -50,29 +50,29 @@ namespace DTO.classes.user_classes
 
 
     public UserDTO() { }
-        public UserDTO(string first_name,string lName,int manager, bool vip,int id_user, Status_userE status_user, Management_statusDTO management_status,string Status_reason,
-            Communication communication_ways, Bank_details bank_Details,bool friend,string father_name)
-        {
-            Friend = friend;   
-            //Id = cnt;
-            First_name = first_name;
-            Last_name = lName;
-            _Manager = manager;
-            Vip = vip;
-            Id_user = id_user;
-            Status_user = status_user;
-            Management_status = management_status;
-            Communication_ways = communication_ways;
-            Bank_Details= bank_Details;
-         //   FindEquals(this);
-            Joining_date = DateTime.Now;
-           Father_name = father_name;
+        // public UserDTO(string first_name,string lName,int manager, bool vip,int id_user, Status_userE status_user, Management_statusDTO management_status,string Status_reason,
+        //     Communication communication_ways, Bank_details bank_Details,bool friend,string father_name)
+        // {
+        //     Friend = friend;   
+        //     //Id = cnt;
+        //     First_name = first_name;
+        //     Last_name = lName;
+        //     _Manager = manager;
+        //     Vip = vip;
+        //     Id_user = id_user;
+        //     Status_user = status_user;
+        //     Management_status = management_status;
+        //     Communication_ways = communication_ways;
+        //     Bank_Details= bank_Details;
+        //  //   FindEquals(this);
+        //     Joining_date = DateTime.Now;
+        //    Father_name = father_name;
              
-        }
-        public UserDTO(string first_name, string lName, int manager, Boolean vip, int id_user, Status_userE status_user, Management_statusDTO management_status, Communication communication_ways, Bank_details bank_Details, string remarks,bool friend,string father_name, string Status_reason) :this(first_name, lName, manager, vip, id_user, status_user, management_status,Status_reason, communication_ways, bank_Details, friend,father_name)
-        {
-            Remarks = remarks;
-        }
+        // }
+        // public UserDTO(string first_name, string lName, int manager, Boolean vip, int id_user, Status_userE status_user, Management_statusDTO management_status, Communication communication_ways, Bank_details bank_Details, string remarks,bool friend,string father_name, string Status_reason) :this(first_name, lName, manager, vip, id_user, status_user, management_status,Status_reason, communication_ways, bank_Details, friend,father_name)
+        // {
+        //     Remarks = remarks;
+        // }
 
 
         //public void FindEquals(User u)

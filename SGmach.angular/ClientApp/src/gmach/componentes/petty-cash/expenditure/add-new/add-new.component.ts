@@ -15,6 +15,7 @@ import {ExpenditureService} from "src/gmach/services/expenditure.service";
 })
 export class AddNewComponent implements OnInit {
   status:status[]=[];
+  message = { title: '', body: '', href: '', buttonText: "הוסף הפקדה", click: "this.Add()" };
   public FormAddExpense: FormGroup;
   public EPayment_FormE = Payment_FormE;
   public Contemporary_expenditure: boolean = false;
@@ -23,7 +24,11 @@ export class AddNewComponent implements OnInit {
     return keys.slice(keys.length / 2);
   }
   constructor(private serviceExpense: ExpenditureService, public router: Router,private statusServic:StatusService) { }
-  Add() {
+  Add(event) {
+    if(event.target.id!="Add-B")
+    {
+      return
+    }
     let expenditure:Expenditure=new Expenditure();
     // expenditure.date=this.FormAddExpense.get('date').value;
     if(this.FormAddExpense.get('Contemporary').value)
@@ -58,7 +63,21 @@ export class AddNewComponent implements OnInit {
     expenditure.amount=this.FormAddExpense.get('Expense_amount').value;
     expenditure.purpose=this.FormAddExpense.get('Purpose').value;
  debugger
-  this.serviceExpense.add(expenditure);
+  this.serviceExpense.add(expenditure).subscribe(
+    {
+      next: data => {
+        debugger
+        this.message.title = "ההוצאה נוספה בהצלחה";
+        this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההוצאות לחץ אישור";
+        this.message.href = "patty_cash/deposit/List";
+      },
+      error: error =>{
+        this.message.title = "יש תקלה בהוספה";
+        this.message.body = "הפרטים לא נשמרו  לחזרה לרשימת ההוצאות לחץ אישור";
+        this.message.href = "patty_cash/deposit/List";
+      }
+    }
+  );;
   }
   public Show() {
 

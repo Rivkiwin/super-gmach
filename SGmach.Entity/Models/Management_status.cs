@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dal1
+namespace SGmach.Entity.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-    public   class Management_status
+    public class Management_status
     {
-         public Management_status()
-        {
-            this.Users = new HashSet<User>();
-        }
 
-        public int Id { get; set; }
-        public string name { get; set; }
+        [Key]
+        public string NameManagement_status { get; set; }
+        public string Description { get; set; }
         public string Color { get; set; }
 
-         public virtual ICollection<User> Users { get; set; }
+        public List<User> Users { get; }=new List<User>();
+        public List<Loan> Loans { get;}=new List<Loan>();
+
+        
     }
 }
