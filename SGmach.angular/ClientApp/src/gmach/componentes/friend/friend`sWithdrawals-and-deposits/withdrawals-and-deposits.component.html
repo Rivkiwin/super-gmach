@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-dark" data-toggle="modal"
+    data-target=".bd-example-modal-lg">משיכות והפקדות</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form class="form-inline px-2">
+                <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+            </form>
+                <ag-grid-angular 
+                    id="myGrid" class="ag-theme-alpine" 
+                    style="justify-content:
+                    center;height: 500px; width:100%;"
+                    [defaultColDef]="defaultColDef"
+                    [rowData]="rowData"
+                    (firstDataRendered)="onFirstDataRendered($event)"
+                    [columnDefs]="columnDefs"
+                    (gridReady)="onGridReady($event)"
+                    [rowSelection]="rowSelection">
+                </ag-grid-angular>
+        </div>
+    </div>
+</div>

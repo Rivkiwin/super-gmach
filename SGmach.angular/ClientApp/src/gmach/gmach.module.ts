@@ -42,6 +42,8 @@ import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/a
 import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
 import { WithdrawalsAndDepositComponent } from './componentes/withdrawals-and-deposit/withdrawals-and-deposit.component';
 import { MessageAddComponent } from './componentes/message-add/message-add.component';
+import { WithdrawalsAndDepositsComponent } from './componentes/friend/friend`sWithdrawals-and-deposits/withdrawals-and-deposits.component';
+import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -82,6 +84,8 @@ import { MessageAddComponent } from './componentes/message-add/message-add.compo
     LoansListComponent,
     WithdrawalsAndDepositComponent,
     MessageAddComponent,
+    WithdrawalsAndDepositsComponent,
+    PaymentMethodComponent
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent

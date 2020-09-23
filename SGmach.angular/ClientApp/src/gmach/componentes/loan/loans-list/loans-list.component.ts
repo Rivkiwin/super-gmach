@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanService } from 'src/gmach/services/loan.service';
 import { Loan } from 'src/gmach/classes/Loan';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-loans-list',
   templateUrl: './loans-list.component.html',

@@ -6,6 +6,7 @@ import {Expenditure} from "src/gmach/classes/expenditure";
 import {status} from "src/gmach/classes/status";
 import {StatusService} from "src/gmach/services/status.service";
 import {ExpenditureService} from "src/gmach/services/expenditure.service";
+import { numberOnly } from 'src/ts/Validation';
 
 @Component({
   selector: 'app-add-new',
@@ -15,13 +16,14 @@ import {ExpenditureService} from "src/gmach/services/expenditure.service";
 })
 export class AddNewComponent implements OnInit {
   status:status[]=[];
-  message = { title: '', body: '', href: '', buttonText: "הוסף הפקדה", click: "this.Add()" };
+  message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
   public FormAddExpense: FormGroup;
   public EPayment_FormE = Payment_FormE;
   public Contemporary_expenditure: boolean = false;
   public keyPayment_Form(): Array<string> {
     var keys = Object.keys(this.EPayment_FormE);
     return keys.slice(keys.length / 2);
+    numberOnly
   }
   constructor(private serviceExpense: ExpenditureService, public router: Router,private statusServic:StatusService) { }
   Add(event) {
@@ -69,12 +71,12 @@ export class AddNewComponent implements OnInit {
         debugger
         this.message.title = "ההוצאה נוספה בהצלחה";
         this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההוצאות לחץ אישור";
-        this.message.href = "patty_cash/deposit/List";
+        this.message.href = "patty_cash/Expnditure/List";
       },
       error: error =>{
         this.message.title = "יש תקלה בהוספה";
-        this.message.body = "הפרטים לא נשמרו  לחזרה לרשימת ההוצאות לחץ אישור";
-        this.message.href = "patty_cash/deposit/List";
+        this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
+        this.message.href = "patty_cash/Expnditure/List";
       }
     }
   );;
@@ -91,10 +93,11 @@ export class AddNewComponent implements OnInit {
       s=>{this.status=<status[]>s,console.log(s)}
     )
     this.Contemporary_expenditure = true;
+    var Today=new Date();
     this.FormAddExpense = new FormGroup(
       {
         status:new FormControl(),
-        date: new FormControl(),
+        date: new FormControl(Today),
         Expense_amount:new FormControl() ,
         Purpose: new FormControl(),
         file: new FormControl(),

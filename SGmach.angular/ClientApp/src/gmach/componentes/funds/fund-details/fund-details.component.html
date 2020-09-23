@@ -1,7 +1,16 @@
-<div class="w-75 mx-5 divLIst" *ngIf="fund">
-  vvv
-<div>{{fund.Fund_name}}</div>
-<div>{{fund.balance}} היתרה </div>
-<div>{{fund.Futurbalance}}  היתרה עתידית לחודש הבא </div>
+<div class="Form-wrapper Detalis-wrapper" *ngIf="fund">
+  <h3>{{fund.Fund_name}}</h3>
+
+<div class="row">
+  <div class="col">
+<div class="details-d">{{fund.balance}} :היתרה </div>
+</div>
+<div class="col">
+<div class="details-d">{{fund.Futurbalance}} : היתרה משוערת לחודש הבא </div>
+</div>
+<div>
+  <div class="details-d">{{numFriends}} : מספר חברים  </div>
+</div>
+</div>
 </div>
   <router-outlet></router-outlet>

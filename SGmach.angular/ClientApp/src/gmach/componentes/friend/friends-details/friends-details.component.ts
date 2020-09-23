@@ -34,35 +34,37 @@ export class FriendsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouter.paramMap.subscribe(res=>(this.friendsService.GetById(res.get('id')).subscribe(
       f=>{this.friend=<Friend>f;
-        console.log(this.friend)
-      }
-      )));
+        console.log(this.friend);
+        console.log(this.friend.First_name);
         this.formFriend = new FormGroup({
-          Id_user: new FormControl(),
-          First_name: new FormControl(),
-          Last_name: new FormControl(),
-          status: new FormControl(),
-          VIP: new FormControl(false),
-          validity: new FormControl(),
-          Remarks: new FormControl(),
-          collection_date: new FormControl(),
-          father_name: new FormControl()
+          Id_user: new FormControl(this.friend.Id_user),
+          First_name: new FormControl(this.friend.First_name),
+          Last_name: new FormControl(this.friend.Last_name),
+          status: new FormControl(this.friend.Status_user),
+          VIP: new FormControl(this.friend.Vip),
+          Remarks: new FormControl(this.friend.Remarks),
+          collection_date: new FormControl('09'),
+          father_name: new FormControl(this.friend.Father_name)
         });
         this.FCommunication_ways = new FormGroup({
-          Phon2: new FormControl(),
-          Email_addres: new FormControl(),
-          City: new FormControl(),
-          Street: new FormControl(),
-          Phon1: new FormControl(),
-          Num_street: new FormControl(),
+          Phon2: new FormControl(this.friend.Communication_ways.Phon2),
+          Email_addres: new FormControl(this.friend.Communication_ways.Email_addres),
+          City: new FormControl(this.friend.Communication_ways.City),
+          Street: new FormControl(this.friend.Communication_ways.Street),
+          Phon1: new FormControl(this.friend.Communication_ways.Phon1),
+          Num_street: new FormControl(this.friend.Communication_ways.Num_street),
         })
+      
       }
+      )));
+    }
       Add() {
     
         try {
+          
           var new_friend = <Friend>this.formFriend.value;
           new_friend.Bank_Details=new BankDetails();
-          this.userId=<Number>this.formFriend.get(' Id_user').value;
+          this.userId=<Number>this.formFriend.get('Id_user').value;
           new_friend.Id_user=this.userId;
           // var Communication=<Communication>this.FCommunication_ways.value;
           // this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));

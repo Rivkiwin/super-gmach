@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
                 <label for="date">תאריך עתידי</label>
-                <input type="date" class="form-control" formControlName="date" placeholder="date">
+                <input type="date" class="form-control" formControlName="date" >
             </div>
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>
@@ -34,8 +34,10 @@
                 הוצאה עכשוית
             </label>
         </div>
-        
+        <div class="row">
+        <a (click)="Add($event)" id="BAdd" class="col">
+            <app-message-add [Message]="message | json" ></app-message-add></a>
+        </div>
      </form>
-     <a (click)="Add($event)">הוסף
-        <app-message-add [Message]="message | json" ></app-message-add></a>
+     
 </div>
