@@ -5,8 +5,9 @@
 </ul>
 
 <ul *ngIf="isAuthenticated">
-  <h3> {{gmachName| async}}: ברוכים הבאים ל </h3>
-  <h5>תתחיל לעבוד ע"י בחירת פעולה מהתפריט</h5>
-</ul>
+  <diagram *ngIf="isAuthenticated"></diagram>
+  <!-- <h3> {{gmachName| async}}: ברוכים הבאים ל </h3>
+  <h5>תתחיל לעבוד ע"י בחירת פעולה מהתפריט</h5> -->
+</ul> 
 
 

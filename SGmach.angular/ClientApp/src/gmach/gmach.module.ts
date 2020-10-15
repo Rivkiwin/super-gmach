@@ -44,6 +44,8 @@ import { WithdrawalsAndDepositComponent } from './componentes/withdrawals-and-de
 import { MessageAddComponent } from './componentes/message-add/message-add.component';
 import { WithdrawalsAndDepositsComponent } from './componentes/friend/friend`sWithdrawals-and-deposits/withdrawals-and-deposits.component';
 import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
+import { AddFreindToFundComponent } from './componentes/funds/add-freind-to-fund/add-freind-to-fund.component';
+import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -85,7 +87,9 @@ import { PaymentMethodComponent } from './componentes/select/payment-method/paym
     WithdrawalsAndDepositComponent,
     MessageAddComponent,
     WithdrawalsAndDepositsComponent,
-    PaymentMethodComponent
+    PaymentMethodComponent,
+    AddFreindToFundComponent,
+    ListComponent
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent
@@ -112,7 +116,7 @@ import { PaymentMethodComponent } from './componentes/select/payment-method/paym
   exports: [FundComponentComponent,
     FundFormComponent,
     FundListComponent,
-    
+    DiagramComponent,
     FundDetailsComponent,
     FilterStatusPipe,
     EditFundComponent,

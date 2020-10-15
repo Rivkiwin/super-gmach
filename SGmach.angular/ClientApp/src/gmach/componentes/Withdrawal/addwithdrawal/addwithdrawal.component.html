@@ -1,72 +1,32 @@
-<!-- <button type="button" class="btn btn-dark" data-toggle="modal"
-    data-target=".bd-example-modal-lg"> הוסף משיכה </button>
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="divForm Form-wrapper"></div>
-            <form [formGroup]="Fwithdrawal" class="mx-auto w-75 mt-auto">
-                <div class="row">
-                   
-                </div>
-            </form>
+<div class="Form-wrapper">
+<h2>הוסף משיכה</h2>
+<form class="needs-validation" novalidate [formGroup]="Fwithdrawal">
+    <div class="row">
+        <div class="col">
+            <label for="Date">תאריך</label>
+            <input type="date" class="form-control"
+                formControlName="Date">
         </div>
+        <div class="col">
+            <label>סכום</label>
+            <input type="number" class="form-control" formControlName="Amount"
+                [min]="1" [max]="max">
+        </div>
+    <div class="col">
+        <label>צורת משיכה</label>
+        <app-payment-method (select)=setWayw($event)></app-payment-method>
     </div>
-</div> -->
-
-
-
-
-
-<div class="modal fade" id="BankD" tabindex="-1" role="dialog"
-    aria-labelledby="BankDLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">הוסף משיכה</h5>
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="needs-validation" novalidate [formGroup]="Fwithdrawal" >
-                    <div class="form-group">
-                        <div class="col">
-                            <label for="Date">תאריך</label>
-                            <input type="date" class="form-control"
-                                formControlName="Date" >
-                        </div>
-                        <div class="col">
-                            <label>סכום</label>
-                            <input type="number" class="form-control" formControlName="Amount">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label>צורת משיכה</label>
-                            <app-payment-method (select)=setWayw($event)></app-payment-method>
-                        </div>
-                        <div class="col">
-                            <select formControlName="Status" class="form-control">
-                                <option value="performed">נמשך</option>
-                                <option value="future">עתידי</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">ביטול</button>
-                    <a (click)="Add($event)" class="col">
-                        <app-message-add [Message]="message | json" ></app-message-add></a>
-            </div>
-        </div>
+    <div class="col">
+        <label>סטטוס משיכה</label>
+        <select formControlName="Status" class="form-control">
+            <option value="performed">נמשך</option>
+            <option value="">עתידי</option>
+        </select>
     </div>
 </div>
-<div>
-    <button type="button" class="btn btn-dark" data-toggle="modal"
-        data-target="#BankD" data-whatever="@mdo">הוסף משיכה</button>
+</form>
+<div row>
+<a (click)="Add($event)" id="BAdd" class="col">
+    <app-message-add [Message]="message | json"></app-message-add></a>
+</div>
 </div>

@@ -34,13 +34,13 @@
         <div class="row">
             <div class="col">
                 <label for="id">:ת"ז</label>
-                <input formControlName="Id_user" placeholder="id" id="id" min=9 max=9 class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)" required>
+                <input formControlName="Id_user" placeholder="הכנס ת.ז -9 ספרות" id="id" minlength="9" maxlength="9" pattern="[0-9]*" class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)"  required>
             </div>
             <div class="col">
-                <label>סטטוס חבר</label>
+                <label> מצב אישי</label>
                 <select class="selectpicker form-control" data-live-search="true">
-                    <option>בחר סטטוסס</option>
-                    <option *ngFor="let status of keyStatusFriend()" [ngValue]="status">{{status}}</option>
+                    <option>נשוי</option>
+                    <option>רווק</option>
                 </select>
             </div>
         </div>
@@ -49,11 +49,11 @@
         <div class="row">
             <div class="col">
                 <label>טל 1</label>
-                <input class="form-control" placeholder="טל 1" id="p1" formControlName="Phon1" (keypress)="NumberinValid=NumberOnly($event)" required>
+                <input class="form-control" placeholder="טל 1" id="p1" formControlName="Phon1" minlength="9" maxlength="10" (keypress)="NumberinValid=NumberOnly($event)" required>
             </div>
             <div class="col">
                 <label>טל 2</label>
-                <input class="form-control" placeholder="טל 2" id="p2" formControlName="Phon2" (keypress)="NumberinValid=NumberOnly($event)">
+                <input class="form-control" placeholder="טל 2" id="p2" formControlName="Phon2" minlength="9" maxlength="10" (keypress)="NumberinValid=NumberOnly($event)">
             </div>
             <div class="col">
                 <label for="emailInput">כתובת מייל</label>
@@ -77,17 +77,17 @@
         </div>
     </form>
         <div class="dropdown-divider"></div>
-        <div class="col">
+        <!-- <div class="col">
                 <input class="form-check-input" type="checkbox" value="true" formControlName="Direct_debit" id="DirectDebitCheck" (change)="Show('bank_detalis')">
                 <label class="form-check-label" for="DirectDebitCheck">
                     Direct Debit
                 </label>
-            </div>
+            </div> -->
             <div class="col">
                 <label for="collection_date">תאריך גבייה</label>
                 <input class="form-control" formControlName="collection_date" id="collection_date" type="int" value="00">
             </div>
-     <div [hidden]="!bank_detalis">
+     <!-- <div [hidden]="!bank_detalis">
         <div class="row">
             <div class="col">
                 <label for="bankName">שם הבנק</label>
@@ -101,15 +101,15 @@
                 <label for="AccounNumber">מספר חשבון</label>
                 <input class="form-control" id="AccounNumber" formControlName="Accoun_number" (keypress)="NumberinValid=NumberOnly($event)">
             </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class="col">
                 <label for="cilingControl">תקרה</label>
                 <input class="form-control" id="cilingControl" formControlName="ciling" (keypress)="NumberinValid=NumberOnly($event)" >
             </div>
             
-        </div>
-     </div>
+        </div> -->
+     <!-- </div> -->
         <div class="dropdown-divider"></div>
         <CreditDetails ></CreditDetails>
         <div class="row">
@@ -118,6 +118,7 @@
                 <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
             </div>
         </div>
+        
         <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
     
     </form>

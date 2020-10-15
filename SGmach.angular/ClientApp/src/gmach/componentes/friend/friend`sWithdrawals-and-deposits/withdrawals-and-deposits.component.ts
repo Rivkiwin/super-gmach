@@ -7,7 +7,7 @@ import { WithdrawalsService } from 'src/gmach/services/withdrawals.service';
 import { Withdrawals } from 'src/gmach/classes/withdrawals';
 
 @Component({
-  selector: 'Friendwswithdrawals-and-deposits',
+  selector: 'withdrawals-and-deposits',
   templateUrl: './withdrawals-and-deposits.component.html',
   styleUrls: ['./withdrawals-and-deposits.component.scss'],
   providers:[DatePipe]
@@ -15,6 +15,7 @@ import { Withdrawals } from 'src/gmach/classes/withdrawals';
 export class WithdrawalsAndDepositsComponent implements OnInit {
   [x: string]: any;
   Search;
+  columnDefs;
   gridApi;
   depositList:Deposit[]=[];
   Withdrawals:Withdrawals[]=[];
@@ -28,7 +29,19 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
     
   }
   @Input() friendId;
+  @Input() fundId;
   ngOnInit(): void {
+    this.columnDefs = [
+      { headerName: 'סוג', field: 'type', width:120},
+      { headerName: 'תאריך', field: 'date',width:128},
+      { headerName: 'סטטוס', field: 'status'},
+      { headerName: 'שם חבר', field: 'nameFriend', hide: this.friendId!=undefined},
+      { headerName: 'קרן', field: 'fund' ,hide: this.fundId!=undefined},
+      { headerName: 'סכום', field: 'amount', width:130},
+    ]
+    if(this.friendId!=undefined)
+    {
+      debugger
     this.depositService.GetByUserId(this.friendId)
     .subscribe(d=>{
       debugger
@@ -38,26 +51,46 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
       this.Withdrawals=<Withdrawals[]>w;
       this.addRowData();
     })
+  }
+  else if(this.fundId!=undefined)
+  {
+    debugger
+    this.depositService.GetByFundId(this.fundId)
+    .subscribe(d=>{
+      debugger
+      console.log(d);
+      this.depositList=<Deposit[]>d;
+      this.addRowData();
+    });
+    this.WithdralsS.GetByFund(this.fundId).subscribe(w=>{
+      this.Withdrawals=<Withdrawals[]>w;
+      console.log(w);
+      this.addRowData();
+    }) 
+  }
     
   }
 
   onGridReady(params) {
     var wrapper= <HTMLElement>document.getElementsByClassName("ag-root-wrapper")[0];
-wrapper.style.width="100%";
+    wrapper.style.width="100%";
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    //diving coluom % to the tabel 
+    debugger
+    params.api.sizeColumnsToFit();
+    window.addEventListener('resize', function () {
+      setTimeout(function () {
+        params.api.sizeColumnsToFit();
+      });
+    });
   }
-  columnDefs = [
-    { headerName: 'סוג', field: 'type'},
-    { headerName: 'תאריך', field: 'date' },
-    { headerName: 'קרן', field: 'fund'},
-    { headerName: 'סכום', field: 'amount'},
-  ]
 
+ 
   addRowData()
   {
 
-    this.rowData=this.depositList.map(d=>{return{
+    this.rowData=this.depositList.map(d=>{debugger; return{
         date:this.datepipe.transform(d.date, 'dd-MM-yyyy'),
         fund:d.FundName,
         amount:d.amount,
@@ -68,12 +101,13 @@ wrapper.style.width="100%";
 
       {
         date:this.datepipe.transform(w.Date, 'dd-MM-yyyy'),
-        fund:w.Fund.Fund_name,
+        fund:w.Fund,
         amount:w.Amount,
         type:"משיכה"
       });
     });
   }
+  
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);
   }

@@ -59,7 +59,7 @@ export class FriendsFormComponent implements OnInit {
     })
   }
   Add() {
-
+   validation()
     try {
       var new_friend = <Friend>this.formFriend.value;
       new_friend.Bank_Details=new BankDetails();

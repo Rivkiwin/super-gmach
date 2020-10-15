@@ -15,7 +15,8 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { GmachModule} from 'src/gmach/gmach.module';
 import { AgGridModule } from 'ag-grid-angular';
 import { ChartsModule } from 'ng2-charts';
-
+    
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,

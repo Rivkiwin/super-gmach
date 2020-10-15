@@ -24,4 +24,18 @@ baseUrl="http://localhost:62859/api/Fund";
   {
     return this.httpc.get(`${this.baseUrl}/GetByID/${id}`);
   }
+
+  public GetUsersToAdd(fundId)
+  {
+    return this.httpc.get(`${this.baseUrl}/GetUsersToAdd/${fundId}`);
+  }
+  public AddFriends(friends,fundId)
+  {
+    debugger
+    return this.httpc.post(`${this.baseUrl}/AddFriends`,{friends,fundId});
+  }
+  public GetFriends(fundId)
+  {
+    return this.httpc.get(`${this.baseUrl}/UsersInFund/${fundId}`)
+  }
 }

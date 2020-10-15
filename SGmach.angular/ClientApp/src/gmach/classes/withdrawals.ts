@@ -4,13 +4,13 @@ import { UserInFund } from "./user-in-fund";
 
 export class Withdrawals {
     paymentMethod;
-    Fund:FundClass;
+    Fund;
     Status;
     User:UserInFund;
     Amount;
     Date;
     FundId;
-    UserId;
+    FriendId;
     Id;
 }
 

@@ -24,6 +24,9 @@ import { GmachMngMenuComponent } from "./gmach-mng-menu/gmach-mng-menu.component
 import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
 import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
 import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
+import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
+import { Withdrawals } from './classes/withdrawals';
+import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/addwithdrawal.component';
 
 
 
@@ -32,6 +35,13 @@ const routes: Routes = [
     path: "gmach",
     component: GmachMngMenuComponent, canActivate: [AuthorizeGuard],
     outlet: "gmachbar"
+  },
+  {
+  path:"Withdrawals",
+  children:[{
+    path:"add/:FundId/:FreindId/:max",
+    component:AddwithdrawalComponent
+  }]
   },
   {
     path: "loan",
@@ -83,7 +93,11 @@ const routes: Routes = [
       children: [{
         path: "add",
         component: AddComponent
-      }]
+      },
+    {
+      path:"list",
+      component:ListComponent
+    }]
 
     },
     ]

@@ -15,6 +15,7 @@ import {Observable} from "rxjs";
 })
 export class GmachHomeComponent implements OnInit{
   title = 'Super Gmach';
+  href;
   gmachName: Observable<string>;
 
   constructor(private router:Router ,private authorizeService: AuthorizeService){}
@@ -23,6 +24,10 @@ export class GmachHomeComponent implements OnInit{
 
   ngOnInit() {
     this.gmachName = this.authorizeService.getUser().pipe(map(u => u && u.gmachName));
+    this.href = this.router.url;
+    
+    console.log(this.router.url);
+
   }
 
 }

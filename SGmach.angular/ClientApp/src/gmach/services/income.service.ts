@@ -8,7 +8,7 @@ import { Income } from "../classes/Income";
 })
 export class  IncomeService {
   // baseUrl: string;
-  baseUrl="http://localhost:62859/api/Income/Add";
+  baseUrl="http://localhost:62859/api/Income";
   postId: object;
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
     // this.baseUrl=`${apiUrl}api/Expenditure`;
@@ -16,9 +16,8 @@ export class  IncomeService {
   }
   public add(income: Income) {
          debugger
-    this.http.post(`${this.baseUrl}/Add`, income).subscribe(data => {
-      this.postId = data
-    });
+   return this.http.post(`${this.baseUrl}/Add`,income);
+
 
   }
   public Get() {

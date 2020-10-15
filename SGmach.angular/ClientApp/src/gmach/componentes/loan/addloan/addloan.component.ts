@@ -14,6 +14,7 @@ import { LoanService } from 'src/gmach/services/loan.service';
   export class AddLoadComponent implements OnInit {
   
     constructor(private loanS:LoanService) { }
+    message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
     Load: FormGroup;
     idUser;
     user:Friend;
@@ -36,7 +37,12 @@ import { LoanService } from 'src/gmach/services/loan.service';
   
       })
     }
-    Add() {
+    Add(event) {
+      debugger
+      if(event.target.id!="Add-B")
+      {
+        return
+      }
       validation();
       debugger
       var NewLoan = new Loan();
@@ -49,7 +55,21 @@ import { LoanService } from 'src/gmach/services/loan.service';
       // NewLoan.management_status = this.Load.get('management_status').value;
       // NewLoan.payments = this.Load.get('payments').value;
       NewLoan.remark = this.Load.get('remark').value;
-      this.loanS.Add(NewLoan);
+      this.loanS.Add(NewLoan).subscribe(
+        {
+          next: data => {
+            debugger
+            this.message.title = "ההוצאה נוספה בהצלחה";
+            this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההוצאות לחץ אישור";
+            this.message.href = "patty_cash/Expnditure/List";
+          },
+          error: error =>{
+            this.message.title = "יש תקלה בהוספה";
+            this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
+            this.message.href = "patty_cash/Expnditure/List";
+          }
+        }
+      );;;
     }
   }
   

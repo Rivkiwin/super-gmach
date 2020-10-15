@@ -56,20 +56,22 @@ export class ListExpenditureComponent implements OnInit {
    
       this.rowData = this.Expenditures.map(ex => {
         return {
-          id: ex.id, status: ex.status.Description, purpose: ex.purpose,
+          id: ex.id, 
+          // status: ex.status.Description,
+           purpose: ex.purpose,
           amount: ex.amount, Receives: ex.Receives,
-          future_date: this.GetDate(ex)
+          future_date: ex.real_date?ex.real_date:ex.future_date
         }
       })
     // this.grid.refresh();
   }
-  GetDate(ex: Expenditure) {
-    switch (ex.status.Name) {
-      // case "future": return this.datepipe.transform(ex.future_date, 'dd-MM-yyyy');
-      // case "performed": return this.datepipe.transform(ex.real_date, 'dd-MM-yyyy');
-    }
-    return "00/00/00";
-  }
+  // GetDate(ex: Expenditure) {
+  //   switch (ex.status.Name) {
+  //     // case "future": return this.datepipe.transform(ex.future_date, 'dd-MM-yyyy');
+  //     // case "performed": return this.datepipe.transform(ex.real_date, 'dd-MM-yyyy');
+  //   }
+  //   return "00/00/00";
+  // }
   ngOnInit(): void {
     this.ExService.Get().subscribe(x => {
       this.Expenditures = <Expenditure[]>x,

@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
  import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import {AuthorizeService} from "src/api-authorization/authorize.service";
@@ -11,12 +13,15 @@ import {AuthorizeService} from "src/api-authorization/authorize.service";
 export class GmachMngMenuComponent implements OnInit {
   public isAuthenticated: Observable<boolean>;
   public gmachName: Observable<string>;
-
-  constructor(private authorizeService: AuthorizeService) { }
+  href;
+  constructor(private authorizeService: AuthorizeService,private router:Router) { }
 
 
   ngOnInit() {
     this.isAuthenticated = this.authorizeService.isAuthenticated();
     this.gmachName = this.authorizeService.getUserGmach();
+    this.href = this.router.url;
+    
+    console.log(this.router.url);
   }
 }

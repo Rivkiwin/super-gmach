@@ -1,16 +1,43 @@
 <div class="Form-wrapper Detalis-wrapper" *ngIf="fund">
   <h3>{{fund.Fund_name}}</h3>
-
+  <form [formGroup]="Details">
 <div class="row">
-  <div class="col">
-<div class="details-d">{{fund.balance}} :היתרה </div>
-</div>
 <div class="col">
-<div class="details-d">{{fund.Futurbalance}} : היתרה משוערת לחודש הבא </div>
+<label>:מספרי חודשי חובה</label>
+<input type="number" min="0" value="fund.Required_months" class="form-control" formControlName="Required_months">
 </div>
-<div>
-  <div class="details-d">{{numFriends}} : מספר חברים  </div>
+<div class="col"> 
+ <label>VIP נדרש </label>
+ <input type="checkbox" class="form-control" formControlName="Required_VIP">
 </div>
 </div>
+</form>
+  <div class="row">
+    <div class="col">
+      <label class="details-l"> : מספר חברים</label>
+      <div class="details-d">{{numFriends}} </div>
+    </div>
+    <div class="col">
+      <label class="details-l">: היתרה משוערת לחודש הבא </label>
+      <div class="details-d">{{fund.Futurbalance}} </div>
+    </div>
+    <div class="col">
+      <label class="details-l"> :היתרה</label>
+      <div class="details-d">{{fund.balance}} </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col">
+    <add-freind-to-fund [fundId]="fund.Id"></add-freind-to-fund>
+  </div>
+  <div class="col">
+    <friend-of-fund [fundId]="fund.Id"></friend-of-fund>
+  </div>
+  <div class="col">
+    <withdrawals-and-deposits  [fundId]="fund.Id"></withdrawals-and-deposits>
+     </div>
+  </div>
 </div>
-  <router-outlet></router-outlet>
+
+
+<router-outlet></router-outlet>

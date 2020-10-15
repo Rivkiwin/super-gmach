@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {FundClass, StatusE} from "src/gmach/classes/fund-class";
 import {FundServiceService} from "src/gmach/services/fund-service.service";
 import {FriendsService} from "src/gmach/services/friends.service";
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -17,11 +18,22 @@ export class FundDetailsComponent implements OnInit {
  statusE=StatusE;
   key=Object.values;
   fund:FundClass;
-  constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { }
+  numFriends=10;
+  Details:FormGroup;
+  constructor(private router:Router,private FUndService:FundServiceService,private friendService:FriendsService,private activeRouter:ActivatedRoute) { 
+    
+  }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetById(res.get('id')).subscribe(f=>{this.fund=<FundClass>f,console.log(f)}));
-
+    
+    this.activeRouter.paramMap.subscribe(res=>this.FUndService.GetById(res.get('id')).subscribe(f=>{this.fund=<FundClass>f,console.log(f);
+     debugger
+      this.Details=new FormGroup({
+        Required_months:new FormControl(this.fund.Required_months),
+        Required_VIP:new FormControl(this.fund.required_vip)
+      }) 
+    }));
+   
   }
   // getFundFriend():Friend[]
   // {

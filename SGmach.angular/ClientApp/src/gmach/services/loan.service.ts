@@ -23,7 +23,7 @@ export class LoanService {
   Add(loan:Loan)
   {
     debugger
-    return this.httpclinet.post(this.baseUrl+'Add',loan);
+    return this.httpclinet.post(`${this.baseUrl}Add`,loan);
   }
   Update(loan:Loan)
   {

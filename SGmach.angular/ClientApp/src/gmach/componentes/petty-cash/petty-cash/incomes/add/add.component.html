@@ -7,24 +7,24 @@
         <div class="row">
             <div class="col">
                 <label>:תאריך </label>
-                <input class="form-control" formControlName="dateIncome"
+                <input class="form-control" formControlName="dateIncome" id="dateIncome"
                     required="">
             </div>
             <div class="col">
                 <label>מטרה </label>
-                <input class="form-control" formControlName="purpose"
+                <input class="form-control" formControlName="purpose" id="purpose"
                     required="">
             </div>
             <div class="col">
                 <label> ממי</label>
-                <input class="form-control" formControlName="FromWho"
+                <input class="form-control" formControlName="FromWho" id="FromWho"
                     required="">
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>אופן התשלום </label>
-                <select formControlName="wayPay">
+                <select formControlName="wayPay" class="form-control">
                     <option>מזומן</option>
                     <option>אשראי</option>
                     <option>שק</option>
@@ -39,4 +39,8 @@
         </div>
     </form>
 </div>
-<button  >הוסף</button>
+<div class="row">
+    <a (click)="Add($event)" id="BAdd" class="col">
+        <app-message-add [Message]="message | json"></app-message-add></a>
+</div>
+<!-- <button   class="b-dark"(click)="Add($event)" id="BAdd">הוסף</button> -->

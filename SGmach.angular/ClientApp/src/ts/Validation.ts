@@ -5,7 +5,6 @@ export function numberOnly(event): boolean {
     return false;
   }
   return true;
-
 }
 export function letterOnly(event): boolean {
 
@@ -15,7 +14,7 @@ export function letterOnly(event): boolean {
   }
   return false
 }
-export function validation() {
+export function validation():boolean {
   var forms = document.getElementsByClassName('needs-validation');
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {
@@ -23,10 +22,14 @@ export function validation() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      
     }
     form.classList.add('was-validated');
+      return form.checkValidity();
     
   });
+  
+  return validation
 };
 
 
