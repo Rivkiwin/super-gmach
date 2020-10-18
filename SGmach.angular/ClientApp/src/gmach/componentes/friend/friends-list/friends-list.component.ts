@@ -3,6 +3,7 @@ import { Friend } from 'src/gmach/classes/friend';
 import { FriendsService } from 'src/gmach/services/friends.service';
 import { ManagmentStatusService } from 'src/gmach/services/managment-status.service';
 import { AlertsFriends } from 'src/gmach/classes/alertsFriends';
+import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class FriendsListComponent implements OnInit {
     },
   ];
 
-  constructor(private friendsService: FriendsService, public managment: ManagmentStatusService) { }
+  constructor(private friendsService: FriendsService, public managment: ManagmentStatusService,private ExcelService:ExportExcelService) { }
   public seeUsers() { }
   public seemangment() {
     this.managment.GetAll();
@@ -102,6 +103,9 @@ export class FriendsListComponent implements OnInit {
       console.log(a);
     })
   }
-
+  ExportExcel()
+  {
+    this.ExcelService.exportExcel(this.rowData,"friends")
+  }
 
 }

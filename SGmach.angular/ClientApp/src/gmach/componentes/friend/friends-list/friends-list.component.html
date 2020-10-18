@@ -8,6 +8,7 @@
         לחבר גליק מאיר יש סירוב
       </div>
 </aside>
+<button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
                  [defaultColDef]="defaultColDef"
                  [rowData]="rowData"

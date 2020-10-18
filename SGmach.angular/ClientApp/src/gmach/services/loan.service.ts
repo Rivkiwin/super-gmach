@@ -8,7 +8,7 @@ import { Loan } from '../classes/Loan';
 export class LoanService {
 
 
-  baseUrl: string = "https://localhost:62859/api/Loan/";
+  baseUrl: string = "http://localhost:62859/api/Loan/";
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
     // this.baseUrl=`${apiUrl}/api/User`;
  }

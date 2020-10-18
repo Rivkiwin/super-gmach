@@ -28,7 +28,7 @@ import { LoanService } from 'src/gmach/services/loan.service';
     ngOnInit(): void {
       this.Load = new FormGroup({
         remark: new FormControl(),
-        load_status: new FormControl(),
+        loan_status: new FormControl(),
         id_load: new FormControl(),
         amount: new FormControl(),
         payments: new FormControl(),
@@ -52,9 +52,15 @@ import { LoanService } from 'src/gmach/services/loan.service';
       // NewLoan.guarantee_1 = this.Load.get('guarantee_1').value;
       NewLoan.month = this.Load.get('month').value;
       NewLoan.id_user = this.idUser;
-      // NewLoan.management_status = this.Load.get('management_status').value;
-      // NewLoan.payments = this.Load.get('payments').value;
+      NewLoan.EntryDate=new Date();
+      NewLoan.score=0;
+      NewLoan.NumRepayment=this.Load.get('payments').value
+      // NewLoan.BeginningRepayment= this.Load.get('month').value;
+      NewLoan.loan_status = this.Load.get('loan_status').value;
+      NewLoan.paid = false;
+      NewLoan.UserName=null;
       NewLoan.remark = this.Load.get('remark').value;
+      console.log(NewLoan);
       this.loanS.Add(NewLoan).subscribe(
         {
           next: data => {

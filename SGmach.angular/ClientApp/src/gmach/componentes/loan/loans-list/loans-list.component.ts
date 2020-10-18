@@ -5,7 +5,8 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-loans-list',
   templateUrl: './loans-list.component.html',
-  styleUrls: ['./loans-list.component.css']
+  styleUrls: ['./loans-list.component.css'],
+  providers: [DatePipe]
 })
 export class LoansListComponent implements OnInit {
   loanList:Loan[];
@@ -52,7 +53,7 @@ export class LoansListComponent implements OnInit {
         amount:loan.amount,
         scoreing:loan.score,
         name:loan.UserName,
-        status:loan.status_load,
+        status:loan.loan_status,
         paid:loan.paid?'v':'x',
         dateStart:this.datepipe.transform(loan.BeginningRepayment, 'yyyy-MM-dd'),
         EntryDate:this.datepipe.transform(loan.EntryDate, 'yyyy-MM-dd'),

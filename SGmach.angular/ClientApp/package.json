@@ -29,12 +29,15 @@
     "chart.js": "^2.9.3",
     "chart.ts": "^1.0.0",
     "core-js": "^3.3.3",
+    "file-saver": "^2.0.2",
     "jquery": "3.4.1",
     "ng2-charts": "^2.4.0",
     "ng2-search-filter": "latest",
+    "ngx-bootstrap": "^6.1.0",
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",
+    "xlsx": "^0.16.8",
     "zone.js": "0.9.1"
   },
   "devDependencies": {

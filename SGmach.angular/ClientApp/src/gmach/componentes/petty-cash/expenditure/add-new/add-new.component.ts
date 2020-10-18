@@ -41,30 +41,31 @@ export class AddNewComponent implements OnInit {
     {
       // expenditure.date=new Date();
       expenditure.way_of_payment=this.FormAddExpense.get('PaymentForm').value;
-      this.status.forEach(s => {
-        if(s.Name=="performed")
-        {
-          expenditure.status=s;
-        }
-      });
-    }
-    else{
-      if(this.FormAddExpense.get('date').value==null)
-      {
+    //   this.status.forEach(s => {
+    //     if(s.Name=="performed")
+    //     {
+    //       expenditure.status=s;
+    //     }
+    //   });
+    // }
+    // else{
+    //   if(this.FormAddExpense.get('date').value==null)
+    //   {
         
-        alert("בהוצאות עתידות חייב להיות תאריך עתיד");
-         return;
-      }
-      this.status.forEach(s => {
-        debugger
+    //     alert("בהוצאות עתידות חייב להיות תאריך עתיד");
+    //      return;
+    //   }
+    //   this.status.forEach(s => {
+    //     debugger
        
-        if(s.Name=="future")
-        {
-          expenditure.status=s;
-        }
-      });
+    //     if(s.Name=="future")
+    //     {
+    //       expenditure.status=s;
+    //     }
+    //   });
      
-    }
+    // }\
+  }
     expenditure.Receives=this.FormAddExpense.get('Receives').value;
     expenditure.amount=this.FormAddExpense.get('Expense_amount').value;
     expenditure.purpose=this.FormAddExpense.get('Purpose').value;
@@ -75,12 +76,12 @@ export class AddNewComponent implements OnInit {
         debugger
         this.message.title = "ההוצאה נוספה בהצלחה";
         this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההוצאות לחץ אישור";
-        this.message.href = "patty_cash/Expnditure/List";
+        this.message.href = "patty_cash/Expnditure/view_Expenditure";
       },
       error: error =>{
         this.message.title = "יש תקלה בהוספה";
         this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
-        this.message.href = "patty_cash/Expnditure/List";
+        this.message.href = "patty_cash/Expnditure/view_Expenditure";
       }
     }
   );;

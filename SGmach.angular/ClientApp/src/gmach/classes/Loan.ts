@@ -5,7 +5,7 @@ export class Loan{
     payments;
     remark;
     management_status
-    ;status_load;
+    loan_status;
     date_start;
     month;
     amount;

@@ -2,6 +2,8 @@
 <form class="form-inline px-2  float-right search">
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
     [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+    <button (click)="exportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
+
 </form>
 <ag-grid-angular 
 id="myGrid "

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExpenditureService } from 'src/gmach/services/expenditure.service';
 import { Expenditure } from 'src/gmach/classes/expenditure';
 import { DatePipe } from '@angular/common';
+import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 @Component({
   selector: 'app-list-expenditure',
   templateUrl: './list-expenditure.component.html',
@@ -32,7 +33,7 @@ export class ListExpenditureComponent implements OnInit {
     ]
   
   rowData = [];
-  constructor(private ExService: ExpenditureService, 
+  constructor(private ExService: ExpenditureService,private exportService: ExportExcelService 
     // public datepipe: DatePipe
     ) { }
   onGridReady(params) {
@@ -88,5 +89,8 @@ export class ListExpenditureComponent implements OnInit {
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);
   }
-
+  exportExcel()
+  {
+    this.exportService.exportExcel(this.rowData, 'expenditure');
+  }
 }
