@@ -41,8 +41,8 @@ export class ListExpenditureComponent implements OnInit {
 
     this.Expenditures.forEach(ex =>
       this.rowData.push({
-        id: ex.id, status: ex.status.Description, purpose: ex.purpose,
-        amount: ex.amount, Receives: ex.Receives, future_date:ex.future_date_String?ex.future_date_String:"__________"
+        id: ex.Id, status: ex.Status.Description, purpose: ex.Purpose,
+        amount: ex.Amount, Receives: ex.Receives, future_date:ex.Date
       }));
       this.grid.refresh()
   }

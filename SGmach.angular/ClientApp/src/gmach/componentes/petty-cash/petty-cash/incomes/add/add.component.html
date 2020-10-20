@@ -1,8 +1,6 @@
-<div class="werpper details">
-    <div class="header">
-        <b>:הוספת הכנסה</b>
-    </div>
-    <form [formGroup]="Formedetails" id="from" class="needs-validation"
+<div class=Form-wrapper>
+        <h2>:הוספת הכנסה</h2>
+    <form [formGroup]="Formedetails" id="from" class="mx-auto w-75 mt-auto needs-validation"
         novalidate="">
         <div class="row">
             <div class="col">
@@ -38,9 +36,10 @@
             </div>
         </div>
     </form>
+    <div class="row">
+        <a (click)="Add($event)" id="BAdd" class="col">
+            <app-message-add [Message]="message | json"></app-message-add></a>
+    </div>
 </div>
-<div class="row">
-    <a (click)="Add($event)" id="BAdd" class="col">
-        <app-message-add [Message]="message | json"></app-message-add></a>
-</div>
+
 <!-- <button   class="b-dark"(click)="Add($event)" id="BAdd">הוסף</button> -->

@@ -1,31 +1,46 @@
-<div class="alert alert-success alert-dismissible fade show"  [hidden]="!SuccessMessage">
+<div class="alert alert-success alert-dismissible fade show"
+    [hidden]="!SuccessMessage">
     <strong>Success!</strong> {{message}}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
-<div class="Form-wrapper" >
-    <div class="alert alert-danger invalidPattern" role="alert" *ngIf="!LetterinValid" >
+<div class="Form-wrapper">
+    <div class="alert alert-danger invalidPattern" role="alert"
+        *ngIf="!LetterinValid">
         {{messageLetterinValid}}
     </div>
-    <div class="alert alert-danger invalidPattern" role="alert" *ngIf="!NumberinValid" >
+    <div class="alert alert-danger invalidPattern" role="alert"
+        *ngIf="!NumberinValid">
         {{messageNumberinValid}}
     </div>
-    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm needs-validation" novalidate=""> 
+    <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm
+        needs-validation" novalidate="">
         <div class="row">
             <div class="col">
                 <label for="fname">שם פרטי</label>
-                <input type="text" class="form-control" formControlName="First_name" placeholder="שם פרטי" id="fname" required  (keypress)="LetterinValid=LetterOnly($event)">
+                <input type="text" class="form-control"
+                    formControlName="First_name" placeholder="שם פרטי"
+                    id="fname" required
+                    (keypress)="LetterinValid=LetterOnly($event)">
                 <div class="invalid-feedback"> הכנס שם </div>
             </div>
             <div class="col">
                 <label for="fname">שם האב</label>
-                <input type="text" class="form-control" formControlName="father_name" placeholder="הכנס שם" id="father_name" (keypress)="LetterinValid=LetterOnly($event)" required>
+                <input type="text" class="form-control"
+                    formControlName="father_name" placeholder="הכנס שם"
+                    id="father_name"
+                    (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
             <div class="col">
                 <label for="lname">שם משפחה</label>
-                <input type="text" class="form-control" formControlName="Last_name" placeholder="שם משפחה" id="lname" (keypress)="LetterinValid=LetterOnly($event)" required>
+                <input type="text" class="form-control"
+                    formControlName="Last_name" placeholder="שם משפחה"
+                    id="lname" (keypress)="LetterinValid=LetterOnly($event)"
+                    required>
             </div>
             <div class="col">
-                <input class="form-check-input" type="checkbox" formControlName="VIP" value="true" id="vipCheck" value="true">
+                <input class="form-check-input" type="checkbox"
+                    formControlName="VIP" value="true" id="vipCheck"
+                    value="true">
                 <label class="form-check-label" for="vipCheck">
                     VIP
                 </label>
@@ -34,48 +49,64 @@
         <div class="row">
             <div class="col">
                 <label for="id">:ת"ז</label>
-                <input formControlName="Id_user" placeholder="הכנס ת.ז -9 ספרות" id="id" minlength="9" maxlength="9" pattern="[0-9]*" class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)"  required>
+                <input formControlName="Id_user" placeholder="הכנס ת.ז -9 ספרות"
+                    id="id" minlength="9" maxlength="9" pattern="[0-9]*"
+                    class="form-control" type="text"
+                    (keypress)="NumberinValid=NumberOnly($event)" required>
             </div>
             <div class="col">
                 <label> מצב אישי</label>
-                <select class="selectpicker form-control" data-live-search="true">
+                <select class="selectpicker form-control"
+                    data-live-search="true">
                     <option>נשוי</option>
                     <option>רווק</option>
                 </select>
             </div>
         </div>
         <div class="dropdown-divider"></div>
-    <form [formGroup]="FCommunication_ways" class="needs-validation" novalidate="">
-        <div class="row">
-            <div class="col">
-                <label>טל 1</label>
-                <input class="form-control" placeholder="טל 1" id="p1" formControlName="Phon1" minlength="9" maxlength="10" (keypress)="NumberinValid=NumberOnly($event)" required>
+        <form [formGroup]="FCommunication_ways" class="needs-validation"
+            novalidate="">
+            <div class="row">
+                <div class="col">
+                    <label>טל 1</label>
+                    <input class="form-control" placeholder="טל 1" id="p1"
+                        formControlName="Phon1" minlength="9" maxlength="10"
+                        (keypress)="NumberinValid=NumberOnly($event)" required>
+                </div>
+                <div class="col">
+                    <label>טל 2</label>
+                    <input class="form-control" placeholder="טל 2" id="p2"
+                        formControlName="Phon2" minlength="9" maxlength="10"
+                        (keypress)="NumberinValid=NumberOnly($event)">
+                </div>
+                <div class="col">
+                    <label for="emailInput">כתובת מייל</label>
+                    <input type="email" formControlName="Email_addres"
+                        class="form-control" id="email"
+                        placeholder="name@example.com">
+                </div>
             </div>
-            <div class="col">
-                <label>טל 2</label>
-                <input class="form-control" placeholder="טל 2" id="p2" formControlName="Phon2" minlength="9" maxlength="10" (keypress)="NumberinValid=NumberOnly($event)">
+            <div class="row">
+                <div class="col">
+                    <label for="citylb">עיר</label>
+                    <input type="text" formControlName="City"
+                        class="form-control" id="citylb" placeholder="city"
+                        (keypress)="LetterinValid=LetterOnly($event)" required>
+                </div>
+                <div class="col">
+                    <label for="street">רחוב</label>
+                    <input class="form-control" formControlName="Street"
+                        id="street" placeholder="street"
+                        (keypress)="LetterinValid=LetterOnly($event)" required>
+                </div>
+                <div class="col">
+                    <label for="buildingNumber">מספר</label>
+                    <input class="form-control" formControlName="Num_street"
+                        type="number"
+                        (keypress)="NumberinValid=NumberOnly($event)" required>
+                </div>
             </div>
-            <div class="col">
-                <label for="emailInput">כתובת מייל</label>
-                <input type="email" formControlName="Email_addres" class="form-control" id="email"
-                    placeholder="name@example.com">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="citylb">עיר</label>
-                <input type="text" formControlName="City" class="form-control" id="citylb" placeholder="city" (keypress)="LetterinValid=LetterOnly($event)" required>
-            </div>
-            <div class="col">
-                <label for="street">רחוב</label>
-                <input class="form-control" formControlName="Street" id="street" placeholder="street" (keypress)="LetterinValid=LetterOnly($event)" required>
-            </div>
-            <div class="col">
-                <label for="buildingNumber">מספר</label>
-                <input class="form-control" formControlName="Num_street" type="number" (keypress)="NumberinValid=NumberOnly($event)"required>
-            </div>
-        </div>
-    </form>
+        </form>
         <div class="dropdown-divider"></div>
         <!-- <div class="col">
                 <input class="form-check-input" type="checkbox" value="true" formControlName="Direct_debit" id="DirectDebitCheck" (change)="Show('bank_detalis')">
@@ -83,11 +114,12 @@
                     Direct Debit
                 </label>
             </div> -->
-            <div class="col">
-                <label for="collection_date">תאריך גבייה</label>
-                <input class="form-control" formControlName="collection_date" id="collection_date" type="int" value="00">
-            </div>
-     <!-- <div [hidden]="!bank_detalis">
+        <div class="col">
+            <label for="collection_date">תאריך גבייה</label>
+            <input class="form-control" formControlName="collection_date"
+                id="collection_date" type="int" value="00">
+        </div>
+        <!-- <div [hidden]="!bank_detalis">
         <div class="row">
             <div class="col">
                 <label for="bankName">שם הבנק</label>
@@ -109,17 +141,24 @@
             </div>
             
         </div> -->
-     <!-- </div> -->
+        <!-- </div> -->
         <div class="dropdown-divider"></div>
-        <CreditDetails ></CreditDetails>
+        <div class="row">
+            <div class="col">
+                <CreditDetails (CreditDetails)="setCreditDetails($event)"></CreditDetails></div>
+            <div class="col">
+                <app-bank-details (BankDetails)="setBankDetails($event)"></app-bank-details></div>
+        </div>
         <div class="row">
             <div class="col">
                 <label for="Remarkscontrol">הערות</label>
-                <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
+                <textarea class="form-control" id="Remarkscontrol" rows="1"
+                    formControlName="Remarks"></textarea>
             </div>
         </div>
-        
-        <button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">הוסף</button>
-    
+
+        <button (click)="Add()" button type="submit" class="btn btn-dark
+            fixed-bottom position-relative">הוסף</button>
+
     </form>
 </div>

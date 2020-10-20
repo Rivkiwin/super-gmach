@@ -46,6 +46,7 @@ import { WithdrawalsAndDepositsComponent } from './componentes/friend/friend`sWi
 import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 import { AddFreindToFundComponent } from './componentes/funds/add-freind-to-fund/add-freind-to-fund.component';
 import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
+import { BankDetailsComponent } from './componentes/bank-details/bank-details.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -89,7 +90,8 @@ import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/
     WithdrawalsAndDepositsComponent,
     PaymentMethodComponent,
     AddFreindToFundComponent,
-    ListComponent
+    ListComponent,
+    BankDetailsComponent
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent

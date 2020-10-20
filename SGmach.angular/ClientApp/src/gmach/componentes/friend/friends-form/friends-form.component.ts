@@ -7,6 +7,7 @@ import { validation, letterOnly, numberOnly, futureDay } from 'src/ts/Validation
 import { FriendsComponent } from '../friends/friends.component';
 import { Communication } from 'src/gmach/classes/communication';
 import { BankDetails } from 'src/gmach/classes/Bank-detalis';
+import { Credit } from 'src/gmach/classes/Credit';
 
 @Component({
   selector: 'app-friends-form',
@@ -17,9 +18,10 @@ export class FriendsFormComponent implements OnInit {
   public formFriend: FormGroup;
   public FCommunication_ways: FormGroup;
   userId:Number;
+  Credit;
   statusFrind = StatusFriendE;
   card_Detalis: boolean = false;
-  bank_detalis: boolean = false;
+  BankDetails;
   SuccessMessage: boolean = false;
   message;
   errorMessage;
@@ -34,6 +36,12 @@ export class FriendsFormComponent implements OnInit {
   public keyStatusFriend(): Array<string> {
     var keys = Object.keys(this.statusFrind);
     return keys.slice(keys.length / 2);
+  }
+  setBankDetails(event) {
+    this.BankDetails = <BankDetails> event;
+  }
+  setCreditDetails(event) {
+    this.Credit = <Credit> event;
   }
   constructor(private Roter: Router, private FriendService: FriendsService) { }
 
@@ -59,6 +67,8 @@ export class FriendsFormComponent implements OnInit {
     })
   }
   Add() {
+    debugger
+    this.BankDetails;
    validation()
     try {
       var new_friend = <Friend>this.formFriend.value;
@@ -78,7 +88,7 @@ export class FriendsFormComponent implements OnInit {
   Show(div: string): void {
     switch (div) {
       case "card_Detalis": this.card_Detalis = !this.card_Detalis; break
-      case "bank_detalis": this.bank_detalis = !this.bank_detalis;
+      // case "bank_detalis": this.bank_detalis = !this.bank_detalis;
 
         break;
 

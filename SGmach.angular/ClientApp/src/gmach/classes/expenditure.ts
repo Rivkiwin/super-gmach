@@ -1,13 +1,12 @@
 import {status} from './status'
 import { from } from 'rxjs';
 export class Expenditure {
-    status:status;
+    Status;
     Receives;
-    way_of_payment;
-    amount:number;
-    purpose;
-    id;
-    real_date;
-    future_date;
+    Way_of_payment;
+    Amount:number;
+    Purpose;
+    Id;
+  Date;
     // date;
 }

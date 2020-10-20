@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Income } from 'src/gmach/classes/Income';
+import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 import { IncomeService } from 'src/gmach/services/income.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { IncomeService } from 'src/gmach/services/income.service';
 })
 export class ListComponent implements OnInit {
   [x: string]: any;
+  exportData;
   rowSelection = 'multiple';
   search;
   incomes: Income[] = [];
@@ -34,7 +36,7 @@ export class ListComponent implements OnInit {
   
   rowData = [];
   i:Income=new Income;
-  constructor(private IncomeService: IncomeService, 
+  constructor(private IncomeService: IncomeService,private excelService:ExportExcelService,
     public datepipe: DatePipe
     ) { }
   onGridReady(params) {
@@ -54,8 +56,6 @@ export class ListComponent implements OnInit {
 
 
   addDATA() {
-
-   
       this.rowData = this.incomes.map(income => {
         return {
           remark: income.remark,
@@ -85,6 +85,18 @@ export class ListComponent implements OnInit {
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);
   }
-
+  exportExcel()
+  {
+    var exportData= this.incomes.map(income => {
+      return {
+        הערות: income.remark,
+         תאריך: this.datepipe.transform(income.Date, 'dd-MM-yyyy'),
+         סכום: income.Amount,
+         משלם: income.From,
+         קוד:income.Id
+      }
+    })
+    this.excelService.exportExcel(exportData,'הכנסות')
+  }
 
 }

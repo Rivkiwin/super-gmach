@@ -27,13 +27,12 @@ export class AddNewComponent implements OnInit {
     let expenditure:Expenditure=new Expenditure();
     if(this.FormAddExpense.get('Contemporary').value)
     {
-      expenditure.real_date=new Date();
-      expenditure.way_of_payment=this.FormAddExpense.get('PaymentForm').value;
-      expenditure.future_date=null;
+      expenditure.Date=new Date();
+      expenditure.Way_of_payment=this.FormAddExpense.get('PaymentForm').value;
       this.status.forEach(s => {
-        if(s.Name=="performed")
+        if(s.Name==="performed")
         {
-          expenditure.status=s;
+          expenditure.Status=s;
         }
       });
     }
@@ -47,14 +46,14 @@ export class AddNewComponent implements OnInit {
         debugger
         if(s.Name=="future")
         {
-          expenditure.status=s;
+          expenditure.Status=s;
         }
       });
-      expenditure.future_date=this.FormAddExpense.get('date').value;
+      expenditure.Date=this.FormAddExpense.get('date').value;
     }
     expenditure.Receives=this.FormAddExpense.get('Receives').value;
-    expenditure.amount=this.FormAddExpense.get('Expense_amount').value;
-    expenditure.purpose=this.FormAddExpense.get('Purpose').value;
+    expenditure.Amount=this.FormAddExpense.get('Expense_amount').value;
+    expenditure.Purpose=this.FormAddExpense.get('Purpose').value;
  debugger
   this.serviceExpense.add(expenditure);
   }

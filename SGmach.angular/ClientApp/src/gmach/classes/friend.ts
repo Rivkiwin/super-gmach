@@ -26,6 +26,8 @@ export class Friend {
       Scoring;
       Father_name;
      Status_reason;
+     RachelLea;
+     Loans;
     constructor()
     {}
 

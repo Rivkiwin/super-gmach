@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenditureService } from 'src/gmach/services/expenditure.service';
 import { Expenditure } from 'src/gmach/classes/expenditure';
-import { DatePipe } from '@angular/common';
+
 import { ExportExcelService } from 'src/gmach/services/export-excel.service';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-list-expenditure',
   templateUrl: './list-expenditure.component.html',
-  styleUrls: ['./list-expenditure.component.scss']
+  styleUrls: ['./list-expenditure.component.scss'],
+  providers: [DatePipe]
 })
 export class ListExpenditureComponent implements OnInit {
   [x: string]: any;
@@ -29,12 +31,12 @@ export class ListExpenditureComponent implements OnInit {
     { headerName: 'מטרה', field: 'purpose', sortable: true },
     { headerName: 'סכום', field: 'amount' },
     { headerName: 'מקבל', field: 'Receives', sortable: true },
-    { headerName: 'תאריך ביצוע', field: 'future_date', sortable: true }
+    { headerName: 'תאריך ביצוע', field: 'Date', sortable: true }
     ]
   
   rowData = [];
-  constructor(private ExService: ExpenditureService,private exportService: ExportExcelService 
-    // public datepipe: DatePipe
+  constructor(private ExService: ExpenditureService,private exportService: ExportExcelService ,
+    public datepipe: DatePipe
     ) { }
   onGridReady(params) {
     this.gridApi = params.api;
@@ -56,12 +58,13 @@ export class ListExpenditureComponent implements OnInit {
 
    
       this.rowData = this.Expenditures.map(ex => {
+      var  date=ex.Date;
         return {
-          id: ex.id, 
-          // status: ex.status.Description,
-           purpose: ex.purpose,
-          amount: ex.amount, Receives: ex.Receives,
-          future_date: ex.real_date?ex.real_date:ex.future_date
+          id: ex.Id, 
+          //  status: ex.status.description,
+           purpose: ex.Purpose,
+          amount: ex.Amount, Receives: ex.Receives,       
+          Date: this.datepipe.transform(date,'dd/mm/yyyy')
         }
       })
     // this.grid.refresh();

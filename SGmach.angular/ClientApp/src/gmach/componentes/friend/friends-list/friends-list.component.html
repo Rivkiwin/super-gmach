@@ -1,5 +1,5 @@
-<!--<a routerLink="/FundDetails/${params.data.id}" a class="link-dark"> params.data.name</a>-->
-<aside class="alert-wrapper">
+
+<aside class="alert-wrapper overflow-auto p-3 " style="max-height: 500px;">
     <h3 class="h-alert">התראות</h3>
     <div *ngFor="let alert of alerts" class="alert alert-warning" role="alert">
         <div>{{alert.Alret}}</div>
@@ -7,8 +7,15 @@
     <div class="alert alert-danger" role="alert">
         לחבר גליק מאיר יש סירוב
       </div>
+      <div class="alert alert-danger" role="alert">
+        לחבר גליק מאיר יש סירוב
+      </div>
 </aside>
+<form class="form-inline px-2  float-right search">
+    <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
 <button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
+</form>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
                  [defaultColDef]="defaultColDef"
                  [rowData]="rowData"

@@ -14,6 +14,7 @@ import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 export class FriendsListComponent implements OnInit {
   rowData = [];
   gridApi;
+  search="";
   gridColumnApi;
   Friends: Friend[];
   defaultColDef = {
@@ -85,8 +86,8 @@ export class FriendsListComponent implements OnInit {
         id: friend.Id,
         name: `${friend.Last_name} ${friend.First_name}`,
         phon: friend.Communication_ways.Phon1,
-        fund_Rachel_Leah:+300,
-        loan:-1000
+        fund_Rachel_Leah:friend.RachelLea,
+        loan:- friend.Loans
       }
     });
   };
@@ -106,6 +107,9 @@ export class FriendsListComponent implements OnInit {
   ExportExcel()
   {
     this.ExcelService.exportExcel(this.rowData,"friends")
+  }
+  onFilterTextBoxChanged() {
+    this.gridApi.setQuickFilter(this.search);
   }
 
 }

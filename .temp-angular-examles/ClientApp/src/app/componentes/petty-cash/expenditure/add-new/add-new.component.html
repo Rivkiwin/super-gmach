@@ -1,11 +1,9 @@
 <div class=" w-75 m-5">
-
-<p>add-new works!</p>
     <form  [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
             <div class="col"[hidden]="Contemporary_expenditure==false" >
                 <label for="date">תאריך עתידי</label>
-                <input type="date" class="form-control" formControlName="date" placeholder="date">
+                <input type="date" class="form-control" placeholder="date" [(ngModel)]="date | date:'yyyy-MM-dd">
             </div>
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>

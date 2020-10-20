@@ -2,9 +2,14 @@
     <h2>הוספת הוצאה</h2>
     <form [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
         <div class="row">
+            <div class="col">
+                <label>שולם</label>
+                <input type="checkbox" class="form-control"  formControlName="status">
+               
+            </div>
             <div class="col" [hidden]="Contemporary_expenditure==false">
-                <label for="date">תאריך עתידי</label>
-                <input type="text" class="form-control" formControlName="date" >
+                <label for="date">תאריך</label>
+                <input type="date" class="form-control" formControlName="date" [(ngModel)]="myDate">
             </div>
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>
@@ -31,14 +36,6 @@
                 </select>
             </div>
         </div>
-        <div class="col">
-
-            <input class="form-check-input" type="checkbox" value="true"
-                formControlName="Contemporary" id="Current"(change)="Show()">
-            <label class="form-check-label" for="Current">
-                הוצאה עכשוית
-            </label>
-        </div>
         <div class="row">
             <a (click)="Add($event)" id="BAdd" class="col">
                 <app-message-add [Message]="message | json"></app-message-add></a>
@@ -46,4 +43,3 @@
     </form>
 
 </div>
-<div> {{myDate}} </div>
