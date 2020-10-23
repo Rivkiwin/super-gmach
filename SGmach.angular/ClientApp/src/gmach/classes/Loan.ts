@@ -1,3 +1,5 @@
+import { Repayment } from "./repayment";
+
 export class Loan{
     paid;
     guaantee_2;
@@ -10,11 +12,12 @@ export class Loan{
     month;
     amount;
     id_user;
-    id_load;
+    id_loan;
     gmachId;
     UserName;
     score;
     EntryDate;
     BeginningRepayment;
     NumRepayment;
+    Repayments:Repayment[]
     }

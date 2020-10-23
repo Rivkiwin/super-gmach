@@ -2,6 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Friend, StatusFriendE } from '../classes/friend';
 import { HttpClient } from '@angular/common/http';
 import { Communication } from '../classes/communication';
+import { Credit } from '../classes/Credit';
+import { BankDetails } from '../classes/Bank-detalis';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +18,11 @@ export class FriendsService {
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
     // this.baseUrl=`${apiUrl}api/User/`;
   }
-  public add(User: Friend,Communication:Communication) {
-    debugger
-     this.httpclinet.post(`${this.baseUrl}add`,{User,Communication}).subscribe(data => {
-      this.postId= data
-  })
-  return this.postId;
+  
+  public add(User: Friend,Communication:Communication,Credit:Credit,Bank:BankDetails) {
+    var UserId;
+    // this.httpclinet.post(`${this.baseUrl}add`,{User,Communication,Bank}).subscribe(Data=>UserId=Data.);
+   return  this.httpclinet.post(`${this.baseUrl}add`,{User,Communication,Bank});
   }
 
  

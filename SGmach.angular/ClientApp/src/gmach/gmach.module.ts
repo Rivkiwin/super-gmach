@@ -47,6 +47,11 @@ import { PaymentMethodComponent } from './componentes/select/payment-method/paym
 import { AddFreindToFundComponent } from './componentes/funds/add-freind-to-fund/add-freind-to-fund.component';
 import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
 import { BankDetailsComponent } from './componentes/bank-details/bank-details.component';
+import { RepaymentsListComponent } from './componentes/loan/Repayments/repayments-list/repayments-list.component';
+import { RepaymentEditComponent } from './componentes/loan/Repayments/repayment-edit/repayment-edit.component';
+import { LoanEditComponent } from './componentes/loan/loan-edit/loan-edit.component';
+import { DepositComponent } from './componentes/deposits/deposit/deposit.component';
+import { ADDDepositComponent } from './componentes/deposits/add-deposit/add-deposit.component';
 // import { PaymentMethodComponent } from './componentes/select/payment-method/payment-method.component';
 // import { SelectStatusComponent } from './componentes/select/select-status/select-status.component';
 // import { UserComponent } from './componentes/select/user/user.component';
@@ -91,7 +96,12 @@ import { BankDetailsComponent } from './componentes/bank-details/bank-details.co
     PaymentMethodComponent,
     AddFreindToFundComponent,
     ListComponent,
-    BankDetailsComponent
+    BankDetailsComponent,
+    RepaymentsListComponent,
+    RepaymentEditComponent,
+    LoanEditComponent,
+    DepositComponent,
+    ADDDepositComponent
     // PaymentMethodComponent,
     // SelectStatusComponent,
     // UserComponent

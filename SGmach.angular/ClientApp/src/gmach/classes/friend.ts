@@ -7,6 +7,7 @@ import { Data } from '@angular/router';
 import { ManagementStatusDTO } from './management-status-dto';
 import { Communication } from './communication';
 import { BankDetails } from './Bank-detalis'
+import { Credit } from './Credit';
 
 
 export class Friend {
@@ -17,6 +18,7 @@ export class Friend {
       _Manager:Number;
       Vip:boolean;
       Friend:boolean;
+      Credit:Credit;
       Status_user:StatusFriendE;
       Management_status:ManagementStatusDTO;
       Communication_ways:Communication ;

@@ -119,33 +119,10 @@
             <input class="form-control" formControlName="collection_date"
                 id="collection_date" type="int" value="00">
         </div>
-        <!-- <div [hidden]="!bank_detalis">
-        <div class="row">
-            <div class="col">
-                <label for="bankName">שם הבנק</label>
-                <input class="form-control" id="bankName" type="text" formControlName="Bank" (keypress)="LetterinValid=LetterOnly($event)">
-            </div>
-            <div class="col">
-                <label for="Branch">סניף</label>
-                <input class="form-control" id="Branch" formControlName="Branch" >
-            </div>
-            <div class="col">
-                <label for="AccounNumber">מספר חשבון</label>
-                <input class="form-control" id="AccounNumber" formControlName="Accoun_number" (keypress)="NumberinValid=NumberOnly($event)">
-            </div>
-        </div> -->
-        <!-- <div class="row">
-            <div class="col">
-                <label for="cilingControl">תקרה</label>
-                <input class="form-control" id="cilingControl" formControlName="ciling" (keypress)="NumberinValid=NumberOnly($event)" >
-            </div>
-            
-        </div> -->
-        <!-- </div> -->
         <div class="dropdown-divider"></div>
         <div class="row">
             <div class="col">
-                <CreditDetails (CreditDetails)="setCreditDetails($event)"></CreditDetails></div>
+                <CreditDetails (carditDitails)="setCreditDetails($event)"></CreditDetails></div>
             <div class="col">
                 <app-bank-details (BankDetails)="setBankDetails($event)"></app-bank-details></div>
         </div>
@@ -156,9 +133,7 @@
                     formControlName="Remarks"></textarea>
             </div>
         </div>
-
-        <button (click)="Add()" button type="submit" class="btn btn-dark
-            fixed-bottom position-relative">הוסף</button>
-
+            <a (click)="Add($event)" id="BAdd" class="col">
+                <app-message-add [Message]="message | json" ></app-message-add></a>
     </form>
 </div>

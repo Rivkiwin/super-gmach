@@ -1,5 +1,5 @@
 export class BankDetails{
-    Collection_date;
+    // Collection_date;
     Account_number;
     Brunch;
     Name;

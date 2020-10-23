@@ -17,13 +17,13 @@ import { Credit } from 'src/gmach/classes/Credit';
 export class FriendsFormComponent implements OnInit {
   public formFriend: FormGroup;
   public FCommunication_ways: FormGroup;
+  new_friend:Friend=new Friend();
+  Bank;
+  credit;
+  message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
   userId:Number;
-  Credit;
   statusFrind = StatusFriendE;
-  card_Detalis: boolean = false;
-  BankDetails;
-  SuccessMessage: boolean = false;
-  message;
+ SuccessMessage: boolean = false;
   errorMessage;
   NumberinValid = true;
   LetterinValid = true;
@@ -38,10 +38,11 @@ export class FriendsFormComponent implements OnInit {
     return keys.slice(keys.length / 2);
   }
   setBankDetails(event) {
-    this.BankDetails = <BankDetails> event;
+    this.Bank= <BankDetails> event;
   }
   setCreditDetails(event) {
-    this.Credit = <Credit> event;
+    debugger
+    this.credit = <Credit> event;
   }
   constructor(private Roter: Router, private FriendService: FriendsService) { }
 
@@ -66,35 +67,34 @@ export class FriendsFormComponent implements OnInit {
       Num_street: new FormControl(),
     })
   }
-  Add() {
-    debugger
-    this.BankDetails;
+
+  Add(event) {
+    if(event.target.id!="Add-B")
+    {
+      return
+    }
+   
    validation()
-    try {
-      var new_friend = <Friend>this.formFriend.value;
-      new_friend.Bank_Details=new BankDetails();
-      this.userId=<Number>this.formFriend.get(' Id_user').value;
-      new_friend.Id_user=this.userId;
+       this.new_friend = <Friend>this.formFriend.value;
+      this.new_friend.Bank_Details=new BankDetails();
+      this.userId=<Number>this.formFriend.get('Id_user').value;
+      this.new_friend.Id_user=this.userId;
       var Communication=<Communication>this.FCommunication_ways.value;
-      this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
-
-    }
-    catch (error) {
-      // this.message = error;
-      // this.message.push("erro")
-    }
-    this.SuccessMessage = true;
-  }
-  Show(div: string): void {
-    switch (div) {
-      case "card_Detalis": this.card_Detalis = !this.card_Detalis; break
-      // case "bank_detalis": this.bank_detalis = !this.bank_detalis;
-
-        break;
-
-      default:
-        break;
-    }
+      debugger
+      this.FriendService.add(this.new_friend,Communication,this.credit,this.Bank).subscribe(
+        {
+          next: data => {
+            debugger
+            this.message.title = "החבר נוסף בהצלחה";
+            this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת החברים לחץ אישור";
+            this.message.href = "friends/Friendlist";
+          },
+          error: error =>{
+            this.message.title = "יש תקלה בהוספה";
+            this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
+            this.message.href = "#";
+          }
+        });
 
   }
 

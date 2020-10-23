@@ -30,7 +30,7 @@
                         </div>
                         <div class="row">
                             <label for="CVV" class="col-form-label">CVV:</label>
-                            <input class="form-control" type="text" id="CVV" formControlName="CVV" required inputmode="numeric" (keypress)="numberOnly($event)">
+                            <input class="form-control" type="text" id="CVV" formControlName="CVV" minlength="3" maxlength="4" required inputmode="numeric" (keypress)="numberOnly($event)">
                         </div>
                         <div class="row">
                             <label for="id" class="col-form-label">תז בעל הכרטיס:</label>

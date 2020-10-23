@@ -12,10 +12,10 @@ import { BankDetails } from 'src/gmach/classes/Bank-detalis';
   styleUrls: ['./friends-details.component.scss']
 })
 export class FriendsDetailsComponent implements OnInit {
-  friend:Friend;
+  friend: Friend;
   public formFriend: FormGroup;
   public FCommunication_ways: FormGroup;
-  userId:Number;
+  userId: Number;
   statusFrind = StatusFriendE;
   card_Detalis: boolean = false;
   bank_detalis: boolean = false;
@@ -29,11 +29,12 @@ export class FriendsDetailsComponent implements OnInit {
   NumberOnly = numberOnly;
   messageLetterinValid = "!הכנס תוים ואותיות בלבד";
   messageNumberinValid = "!הכנס ספרות בלבד";
-  constructor(private activeRouter:ActivatedRoute,private friendsService:FriendsService) { }
+  constructor(private activeRouter: ActivatedRoute, private friendsService: FriendsService) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe(res=>(this.friendsService.GetById(res.get('id')).subscribe(
-      f=>{this.friend=<Friend>f;
+    this.activeRouter.paramMap.subscribe(res => (this.friendsService.GetById(res.get('id')).subscribe(
+      f => {
+        this.friend = <Friend>f;
         console.log(this.friend);
         console.log(this.friend.First_name);
         this.formFriend = new FormGroup({
@@ -54,28 +55,28 @@ export class FriendsDetailsComponent implements OnInit {
           Phon1: new FormControl(this.friend.Communication_ways.Phon1),
           Num_street: new FormControl(this.friend.Communication_ways.Num_street),
         })
-      
+
       }
-      )));
+    )));
+  }
+  Add() {
+
+    try {
+
+      var new_friend = <Friend>this.formFriend.value;
+      new_friend.Bank_Details = new BankDetails();
+      this.userId = <Number>this.formFriend.get('Id_user').value;
+      new_friend.Id_user = this.userId;
+      // var Communication=<Communication>this.FCommunication_ways.value;
+      // this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
+
     }
-      Add() {
-    
-        try {
-          
-          var new_friend = <Friend>this.formFriend.value;
-          new_friend.Bank_Details=new BankDetails();
-          this.userId=<Number>this.formFriend.get('Id_user').value;
-          new_friend.Id_user=this.userId;
-          // var Communication=<Communication>this.FCommunication_ways.value;
-          // this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
-    
-        }
-        catch (error) {
-          // this.message = error;
-          // this.message.push("erro")
-        }
-        this.SuccessMessage = true;
-      }
-  
+    catch (error) {
+      // this.message = error;
+      // this.message.push("erro")
+    }
+    this.SuccessMessage = true;
+  }
+
 
 }

@@ -5,6 +5,7 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
 import { numberOnly as NumberOnly, numberOnly} from 'src/ts/Validation';
 import { letterOnly,validation } from 'src/ts/Validation';
 import { from } from 'rxjs';
+import { Credit } from 'src/gmach/classes/Credit';
 
 
 @Component({
@@ -26,8 +27,8 @@ export class CreditDetailsComponent implements OnInit {
   //   console.log(d);
   //   this.Data = JSON.parse(d);
   // }
-  @Output()
-  carditDitails: EventEmitter<object> = new EventEmitter<Object>();
+  @Output()carditDitails: EventEmitter<Credit> = new EventEmitter<Credit>();
+  
 
   ngOnInit(): void {
     this.carditForm=new FormGroup({
@@ -37,13 +38,11 @@ export class CreditDetailsComponent implements OnInit {
       cardValidity: new FormControl(null, Validators.required),
       cardNum: new FormControl(null, Validators.required)
     });
-  }
- 
-  
+  }  
   submit() {
    validation();
-    if(this.carditForm.valid==true)
-    {this.carditDitails.emit(this.carditForm.value) }
+   debugger
+    this.carditDitails.emit(this.carditForm.value); 
     
   }
 

@@ -49,7 +49,7 @@ export class LoansListComponent implements OnInit {
   {
     this.rowData=this.loanList.map(loan => {
       return{
-        numLoan:loan.id_load,
+        id:loan.id_loan,
         amount:loan.amount,
         scoreing:loan.score,
         name:loan.UserName,
@@ -64,6 +64,7 @@ export class LoansListComponent implements OnInit {
   ngOnInit(): void {
    this.loanService.GetAll().subscribe(
      x=>{this.loanList=<Loan[]>x;
+      console.log(x);
      this.AddData(); 
     }
    )

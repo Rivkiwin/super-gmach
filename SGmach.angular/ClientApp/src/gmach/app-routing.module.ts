@@ -27,6 +27,9 @@ import { LoansListComponent } from './componentes/loan/loans-list/loans-list.com
 import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
 import { Withdrawals } from './classes/withdrawals';
 import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/addwithdrawal.component';
+import { LoanEditComponent } from './componentes/loan/loan-edit/loan-edit.component';
+import { DepositComponent } from './componentes/deposits/deposit/deposit.component';
+import { ADDDepositComponent } from './componentes/deposits/add-deposit/add-deposit.component';
 
 
 
@@ -52,6 +55,9 @@ const routes: Routes = [
     {
       path:"list",
       component:LoansListComponent
+    },{
+      path:"detalis/:id",
+      component:LoanEditComponent
     }
   ]
   },
@@ -119,6 +125,16 @@ const routes: Routes = [
       component: FriendsDetailsComponent
     }
     ]
+  },
+  {
+    path:"deposit",
+    children:[{
+      path:"list",
+      component:DepositComponent
+    },{
+      path:"add/:FundId/:FreindId",
+      component:ADDDepositComponent
+    }]
   }
 ]
 
