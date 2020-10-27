@@ -3,15 +3,18 @@ import { Deposit } from '../classes/Deposit';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepositService {
-  baseUrl="http://localhost:62859/api/Deposit/";
+  baseUrl;
+  // ="http://localhost:62859/api/Deposit/";
   List:Deposit[];
   postId;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, @Inject('API_URL') apiUrl: string) {
+    this.baseUrl=`${apiUrl}api/Deposit/`;}
   GetList()
   {
   return  this.http.get(`${this.baseUrl}getList`).pipe(

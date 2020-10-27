@@ -58,12 +58,13 @@ export class ListExpenditureComponent implements OnInit {
 
    
       this.rowData = this.Expenditures.map(ex => {
-      var  date=ex.Date;
+      var  date=ex.date;
         return {
-          id: ex.Id, 
+          id: ex.id, 
           //  status: ex.status.description,
-           purpose: ex.Purpose,
-          amount: ex.Amount, Receives: ex.Receives,       
+           purpose: ex.purpose,
+          amount: ex.amount, 
+          Receives: ex.receives,       
           Date: this.datepipe.transform(date,'dd/mm/yyyy')
         }
       })

@@ -27,13 +27,13 @@ namespace BL.BLclasses
     }
 
 
-    public static Management_statusDTO GetById(string name)
+    public static Management_statusDTO GetByName(string nameStatuse)
     {
       SuperGmachEntities db = new SuperGmachEntities();
       {
         foreach (Management_status status in db.ManagementStatuses)
         {
-          if (status.NameManagement_status == name)
+          if (status.NameManagement_status == nameStatuse)
           {
             return Mangagment_status_convert.DALtoDTO(status);
           }
@@ -48,11 +48,11 @@ namespace BL.BLclasses
       {
         try
         {
-
+          
        Management_status  s=Mangagment_status_convert.DTOtoDAL(status);
-          // Console.WriteLine(s.name+" "+s.Color);
+          Console.WriteLine(s.NameManagement_status+" "+s.Color);
           db.ManagementStatuses.Add(s);
-
+          
           db.SaveChanges();
 
         }

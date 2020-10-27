@@ -9,17 +9,7 @@ namespace SGmach.Entity
 {
     public class SuperGmachEntities : DbContext
     {
-        public SuperGmachEntities(
-            DbContextOptions<SuperGmachEntities> options) : base(options)
-        {
-        }
-
-        public SuperGmachEntities()
-        {
-        }
-
-
-        public DbSet<BankDetails> BankDetails { get; set; }
+                public DbSet<BankDetails> BankDetails { get; set; }
         public DbSet<Income> Incoms { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<Repayment> Repayments { get; set; }
@@ -33,6 +23,17 @@ namespace SGmach.Entity
         public DbSet<Deposit> Deposits { get; set; }
         public DbSet<Credit> Credits { get; set; }
         public DbSet<Collection> Collections { get; set; }
+
+        public SuperGmachEntities(
+            DbContextOptions<SuperGmachEntities> options) : base(options)
+        {
+        }
+
+        public SuperGmachEntities()
+        {
+        }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=gmach.db");

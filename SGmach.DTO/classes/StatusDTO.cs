@@ -8,7 +8,7 @@ namespace DTO.classes
 {
   public class StatusDTO
   {
-   
+    public int id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public StatusDTO() { }

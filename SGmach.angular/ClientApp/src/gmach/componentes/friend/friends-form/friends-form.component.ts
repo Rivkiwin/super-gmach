@@ -76,9 +76,9 @@ export class FriendsFormComponent implements OnInit {
    
    validation()
        this.new_friend = <Friend>this.formFriend.value;
-      this.new_friend.Bank_Details=new BankDetails();
+      this.new_friend.bank_Details=new BankDetails();
       this.userId=<Number>this.formFriend.get('Id_user').value;
-      this.new_friend.Id_user=this.userId;
+      this.new_friend.id_user=this.userId;
       var Communication=<Communication>this.FCommunication_ways.value;
       debugger
       this.FriendService.add(this.new_friend,Communication,this.credit,this.Bank).subscribe(

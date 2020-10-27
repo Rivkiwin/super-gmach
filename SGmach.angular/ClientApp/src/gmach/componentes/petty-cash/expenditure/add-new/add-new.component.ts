@@ -37,11 +37,11 @@ export class AddNewComponent implements OnInit {
     }
    debugger
     let expenditure: Expenditure = new Expenditure();
-    expenditure.Date= this.myDate;
-    expenditure.Receives = this.FormAddExpense.get('Receives').value;
-    expenditure.Amount = this.FormAddExpense.get('Expense_amount').value;
-    expenditure.Purpose = this.FormAddExpense.get('Purpose').value;
-    expenditure.Status = this.FormAddExpense.get('status').value?"performed":"future";
+    expenditure.date= this.myDate;
+    expenditure.receives = this.FormAddExpense.get('Receives').value;
+    expenditure.amount = this.FormAddExpense.get('Expense_amount').value;
+    expenditure.purpose = this.FormAddExpense.get('Purpose').value;
+    expenditure.status = this.FormAddExpense.get('status').value?"performed":"future";
     //debugger
     this.serviceExpense.add(expenditure).subscribe(
       {

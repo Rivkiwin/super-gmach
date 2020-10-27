@@ -1,16 +1,16 @@
-using System.Collections.Generic;
 using BI.BLclasses;
-using DTO.classes;
-using Microsoft.AspNetCore.Authorization;
+using DTO.classes.income;
 using Microsoft.AspNetCore.Cors;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
-
-namespace SGmach.API.Controllers
+using DTO.classes;
+namespace API.Controllers
 {
-  [Route("status")]
+  [Route("api/Status")]
   [EnableCors()]
-  [Authorize]
-  [ApiController]
   public class StatusController : ControllerBase
   {
       //[HttpPost]
@@ -23,13 +23,6 @@ namespace SGmach.API.Controllers
       [HttpGet]
       [Route("getStatusList")]
       public List<StatusDTO> get()
-      {
-        return StatusBL.GetList();
-      }
-
-      [HttpGet]
-      [Route("get")]
-      public List<StatusDTO> getStatus()
       {
         return StatusBL.GetList();
       }

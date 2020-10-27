@@ -19,8 +19,8 @@ namespace SGmach.Entity.Models
         public DateTime Date { get; set; }
 
 
-        public int  user_In_FundId{ get; set; }
-        public User_in_fund  user_In_Fund { get; set; }
+        public int  UserId{ get; set; }
+        public User  User { get; set; }
         public String FundId { get; set; }
         public Fund Fund { get; set; }
         public string NameStatus  { get; set; }

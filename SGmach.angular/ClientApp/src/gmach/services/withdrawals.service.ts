@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Withdrawals } from '../classes/withdrawals';
 
@@ -7,8 +7,11 @@ import { Withdrawals } from '../classes/withdrawals';
 })
 export class WithdrawalsService {
 
-  baseUrl="http://localhost:62859/api/Withdrawals";
-  constructor(private http:HttpClient) { }
+  baseUrl;
+  // ="http://localhost:62859/api/Withdrawals";
+  constructor(private http:HttpClient, @Inject('API_URL') apiUrl: string) {
+    this.baseUrl=`${apiUrl}api/Withdrawals`;
+  }
   Add(Withdrawal:Withdrawals)
   {
    return this.http.post(`${this.baseUrl}/add`,Withdrawal);

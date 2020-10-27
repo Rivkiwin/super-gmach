@@ -1,6 +1,7 @@
 import { Injectable, Inject } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Income } from "../classes/Income";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Income } from "src/gmach/classes/Income";
+import { Body } from "@angular/http/src/body";
 
 
 @Injectable({
@@ -8,14 +9,14 @@ import { Income } from "../classes/Income";
 })
 export class  IncomeService {
   // baseUrl: string;
-  baseUrl="http://localhost:62859/api/Income";
+  baseUrl;
+  // ="http://localhost:62859/api/Income";
   postId: object;
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
-    // this.baseUrl=`${apiUrl}api/Expenditure`;
+    this.baseUrl=`${apiUrl}api/Income`;
 
   }
   public add(income: Income) {
-         debugger
    return this.http.post(`${this.baseUrl}/Add`,income);
 
 

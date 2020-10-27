@@ -17,9 +17,9 @@ export class AddComponent implements OnInit {
     this.Formedetails = new FormGroup({
       dateIncome: new FormControl(),
       FromWho: new FormControl(),
-      purpose: new FormControl(),
+      remark: new FormControl(),
       amount: new FormControl(),
-      wayPay: new FormControl(),
+      Payment_method: new FormControl(),
     });
   }
    Add(event) {
@@ -27,12 +27,13 @@ export class AddComponent implements OnInit {
     {
       return
     }
-     var newIncome:Income=new Income;
-     newIncome.Amount=this.Formedetails.get('amount').value;
-     newIncome.Date=this.Formedetails.get('dateIncome').value;
-     newIncome.From=this.Formedetails.get('FromWho').value;
-     newIncome.purpose=this.Formedetails.get('purpose').value;  
-     newIncome.wayPay=this.Formedetails.get('wayPay').value;
+     var newIncome:Income=new Income();
+     newIncome.amount=this.Formedetails.get('amount').value;
+     newIncome.date=new Date();
+    //  this.Formedetails.get('dateIncome').value;
+     newIncome.from=this.Formedetails.get('FromWho').value;
+     newIncome.remark=this.Formedetails.get('remark').value;  
+     newIncome.payment_method=this.Formedetails.get('Payment_method').value;
      
     //  newIncome.
     this.incomeService.add(newIncome).subscribe(

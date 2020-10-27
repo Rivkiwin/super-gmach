@@ -22,7 +22,7 @@ import { LoanService } from 'src/gmach/services/loan.service';
     SetUser(event) {
       debugger
       this.user = <Friend> JSON.parse( event);
-      this.idUser=this.user.Id;
+      this.idUser=this.user.id;
     }
   
     ngOnInit(): void {

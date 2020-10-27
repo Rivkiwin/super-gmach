@@ -33,7 +33,7 @@ export class FriendsListComponent implements OnInit {
         return `<a href="friends/detalis/${params.data.id}">` + params.data.name + '</a>'
       }
     },
-    { headerName: 'קוד', field: 'id', width: 80 },
+    { headerName: 'תז', field: 'id' },
     {
       headerName: 'חבר', field: 'friend', width: 80,
 
@@ -42,10 +42,10 @@ export class FriendsListComponent implements OnInit {
       headerName: 'ניהול', field: 'managment',
       tooltipValueGetter: (params) => params.data.tooltip,
       valueGetter: function (params) {
-        return params.data.managment.Name;
+        // return params.data.managment.name;
       },
       cellStyle: function (params) {
-        return { backgroundColor: params.data.managment.Color };
+        // return { backgroundColor: params.data.managment.Color };
       },
     },
   ];
@@ -80,14 +80,14 @@ export class FriendsListComponent implements OnInit {
   public addrowData() {
     this.rowData = this.Friends.map(friend => {
       return {
-        managment: friend.Management_status,
+        managment: friend.management_status,
         tooltip: "friend.Status_reason",
-        friend: friend.Friend ? 'V' : 'X',
-        id: friend.Id,
-        name: `${friend.Last_name} ${friend.First_name}`,
-        phon: friend.Communication_ways.Phon1,
-        fund_Rachel_Leah:friend.RachelLea,
-        loan:- friend.Loans
+        friend: friend.friend ? 'V' : 'X',
+        id: friend.id_user,
+        name: `${friend.last_name} ${friend.first_name}`,
+        phon: friend.communication_ways.phon1,
+        fund_Rachel_Leah:friend.rachelLea,
+        loan:- friend.loans
       }
     });
   };
@@ -99,10 +99,10 @@ export class FriendsListComponent implements OnInit {
       this.Friends = <Friend[]>x; 
      this.addrowData();
     });
-    this.friendsService.Alerts().subscribe(a=>{
-      this.alerts=<AlertsFriends[]>a;
-      console.log(a);
-    })
+    // this.friendsService.Alerts().subscribe(a=>{
+    //   this.alerts=<AlertsFriends[]>a;
+    //   console.log(a);
+    // })
   }
   ExportExcel()
   {

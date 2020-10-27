@@ -13,16 +13,18 @@ export class FriendsService {
   // private friends_list: Friend[] = [new Friend(10000, 144, "moty", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324"), new Friend(10000, 144, "chim", "viner", StatusFriendE.Married, "bb", "zz", "0548497979", 4, true, 123, 122, new Date(2018, 5, 10, 18), true, "poalim", 123, "123", "05555324")];
   // private friends_list:Friend[]=[];
   postId
-  baseUrl="http://localhost:62859/api/User/";
+  baseUrl;
+  // ="http://localhost:62859/api/User/";
 
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
-    // this.baseUrl=`${apiUrl}api/User/`;
+    this.baseUrl=`${apiUrl}api/User/`;
   }
   
   public add(User: Friend,Communication:Communication,Credit:Credit,Bank:BankDetails) {
     var UserId;
     // this.httpclinet.post(`${this.baseUrl}add`,{User,Communication,Bank}).subscribe(Data=>UserId=Data.);
-   return  this.httpclinet.post(`${this.baseUrl}add`,{User,Communication,Bank});
+    User.communication_ways=Communication;
+   return  this.httpclinet.post(`${this.baseUrl}add`,User);
   }
 
  
@@ -34,7 +36,7 @@ export class FriendsService {
 
   public GetById(id) {
   
-    return this.httpclinet.get(`${this.baseUrl}/getUserById/${id}`)
+    return this.httpclinet.get(`${this.baseUrl}getUserById/${id}`)
      // http://localhost:4200/user/getUserById/${id}
    }
    public Alerts() {

@@ -8,13 +8,14 @@ import { Loan } from '../classes/Loan';
 export class LoanService {
 
 
-  baseUrl: string = "http://localhost:62859/api/Loan/";
+  baseUrl: string ;
+  // = "http://localhost:62859/api/Loan/";
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
-    // this.baseUrl=`${apiUrl}/api/User`;
+    this.baseUrl=`${apiUrl}api/loan`;
  }
   GetAll()
   {
-    return this.httpclinet.get(this.baseUrl+'Get');
+    return this.httpclinet.get(this.baseUrl+'get');
   }
   GetById( id)
   {

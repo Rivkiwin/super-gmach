@@ -21,6 +21,7 @@ namespace SGmach.Entity.Models
         public Nullable<int> required_months { get; set; }
         public Nullable<bool> required_vip { get; set; }
         public string comments { get; set; }
+         public int Balance { get; set; }
         public Nullable<System.DateTime> Date_create { get; set; }
 
 

@@ -1,10 +1,10 @@
 export class Communication {
-    Phon1;
-    Phon2;
-    Email_addres;
-    City;
-    Street;
-    Num_street;
+    phon1;
+    phon2;
+    email_addres;
+    city;
+    street;
+    num_street;
  constructor()
  {
  }

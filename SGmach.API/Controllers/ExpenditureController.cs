@@ -1,32 +1,90 @@
-using System.Collections.Generic;
 using BI.BLclasses;
-using DTO.classes;
-using Microsoft.AspNetCore.Authorization;
+using DTO.classes.income;
 using Microsoft.AspNetCore.Cors;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
+using DTO.classes;
+using System.Threading.Tasks;
 
-namespace SGmach.API.Controllers
+namespace API.Controllers
 {
-    [ApiController()]
     [Route("api/Expenditure")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     [EnableCors()]
-    [Authorize]
     public class ExpenditureController : ControllerBase
     {
       [HttpPost]
       [Route("addexpenditure")]
-      public string AddExpenditure( ExpenditureDTO expenditure)
+      public ActionResult<ExpenditureDTO> AddExpenditure([FromBody]ExpenditureDTO expenditure)
       {
-        return ExpenditureBL.AddExpenditure(expenditure);
+      try
+      {
+         ExpenditureBL.AddExpenditure(expenditure);
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.ToString());
+      }
+      return Ok(expenditure);
       }
 
       [HttpGet]
       [Route("getListGetexpenditure")]
-      public List<ExpenditureDTO> Getexpenditure()
+    public ActionResult  Getexpenditure()
       {
-        return ExpenditureBL.GetExpendituresList();
+      List<ExpenditureDTO> expenditures = new List<ExpenditureDTO>();
+      try
+      {
+        expenditures =ExpenditureBL.GetExpendituresList();
       }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok(expenditures);
 
     }
+    [HttpGet("{id}")]
+    [Route("getListGetexpenditure")]
+    public ExpenditureDTO GetexpenditureById([FromQuery] int id)
+    {
+      return ExpenditureBL.GetByID(id);
+    }
+
+    [HttpPost]
+    [Route("updateExpenditure")]
+    public  ActionResult UpdateExpenditure([FromBody]ExpenditureDTO ex)
+    {
+      try
+      {
+        ExpenditureBL.updateExpenditure(ex);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok();
+    }
+    [HttpPost("{ExpenditureId}")]
+    [Route("cancelExpenditure")]
+    public ActionResult CancelExpenditure(int ExpenditureId)
+    {
+      try
+      {
+        ExpenditureBL.cancelExpenditure(ExpenditureId);
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.ToString());
+      }
+      return Ok();
+    }
+  }
 }
 

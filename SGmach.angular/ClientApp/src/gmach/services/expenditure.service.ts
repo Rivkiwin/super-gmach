@@ -10,11 +10,11 @@ import { Expenditure } from 'src/gmach/classes/expenditure';
 })
 export class ExpenditureService {
   // baseUrl: string;
-  baseUrl="http://localhost:62859/api/Expenditure";
-  // baseUrl;
+  // baseUrl="http://localhost:62859/api/Expenditure";
+  baseUrl;
   postId: object;
   constructor(private http: HttpClient, @Inject('API_URL') apiUrl: string) {
-    // this.baseUrl=`${apiUrl}api/Expenditure`;
+    this.baseUrl=`${apiUrl}api/Expenditure`;
 
   }
    add(expenditure: Expenditure) {

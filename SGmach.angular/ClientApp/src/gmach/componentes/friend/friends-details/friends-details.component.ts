@@ -36,24 +36,24 @@ export class FriendsDetailsComponent implements OnInit {
       f => {
         this.friend = <Friend>f;
         console.log(this.friend);
-        console.log(this.friend.First_name);
+        console.log(this.friend.first_name);
         this.formFriend = new FormGroup({
-          Id_user: new FormControl(this.friend.Id_user),
-          First_name: new FormControl(this.friend.First_name),
-          Last_name: new FormControl(this.friend.Last_name),
-          status: new FormControl(this.friend.Status_user),
-          VIP: new FormControl(this.friend.Vip),
-          Remarks: new FormControl(this.friend.Remarks),
+          Id_user: new FormControl(this.friend.id_user),
+          First_name: new FormControl(this.friend.first_name),
+          Last_name: new FormControl(this.friend.last_name),
+          status: new FormControl(this.friend.status_user),
+          VIP: new FormControl(this.friend.vip),
+          Remarks: new FormControl(this.friend.remarks),
           collection_date: new FormControl('09'),
-          father_name: new FormControl(this.friend.Father_name)
+          father_name: new FormControl(this.friend.father_name)
         });
         this.FCommunication_ways = new FormGroup({
-          Phon2: new FormControl(this.friend.Communication_ways.Phon2),
-          Email_addres: new FormControl(this.friend.Communication_ways.Email_addres),
-          City: new FormControl(this.friend.Communication_ways.City),
-          Street: new FormControl(this.friend.Communication_ways.Street),
-          Phon1: new FormControl(this.friend.Communication_ways.Phon1),
-          Num_street: new FormControl(this.friend.Communication_ways.Num_street),
+          Phon2: new FormControl(this.friend.communication_ways.phon2),
+          Email_addres: new FormControl(this.friend.communication_ways.email_addres),
+          City: new FormControl(this.friend.communication_ways.city),
+          Street: new FormControl(this.friend.communication_ways.street),
+          Phon1: new FormControl(this.friend.communication_ways.phon1),
+          Num_street: new FormControl(this.friend.communication_ways.num_street),
         })
 
       }
@@ -64,9 +64,9 @@ export class FriendsDetailsComponent implements OnInit {
     try {
 
       var new_friend = <Friend>this.formFriend.value;
-      new_friend.Bank_Details = new BankDetails();
+      new_friend.bank_Details = new BankDetails();
       this.userId = <Number>this.formFriend.get('Id_user').value;
-      new_friend.Id_user = this.userId;
+      new_friend.id_user = this.userId;
       // var Communication=<Communication>this.FCommunication_ways.value;
       // this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));
 

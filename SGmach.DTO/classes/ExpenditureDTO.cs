@@ -9,15 +9,14 @@ namespace DTO.classes
   public class ExpenditureDTO
   {
     public DateTime Date { get; set; }
-    public int id { get; set; }
-    public int amount { get; set; }
-    public string purpose { get; set; }
-    public string way_of_payment { get; set; }
+    public int Id { get; set; }
+    public int Amount { get; set; }
+    public string Purpose { get; set; }
+    public string Way_of_payment { get; set; }
     public string Receives { get; set; }
-    public StatusDTO status { get; set; }
-    public string future_date_String;
+    public string Status { get; set; }
 
-   
+    public ExpenditureDTO() { }
 
   }
 }

@@ -1,4 +1,5 @@
 
+
 using DTO.classes.user_classes;
 using SGmach.Entity.Models;
 using System;
@@ -13,16 +14,13 @@ namespace BL.convertions
   {
     public static Management_statusDTO DALtoDTO(Management_status management_Status)
     {
-      Management_statusDTO status = new Management_statusDTO() 
-      {Name=management_Status.NameManagement_status,
-      Color= management_Status.Color,Description=management_Status.Description };
+      Management_statusDTO status = new Management_statusDTO(management_Status.NameManagement_status, management_Status.Color) {Name=management_Status.NameManagement_status,Color=management_Status.Color };
       return status;
     }
 
     public static Management_status DTOtoDAL(Management_statusDTO management_Status)
     {
-      Management_status status =new Management_status() 
-      {Color=management_Status.Color,NameManagement_status=management_Status.Name,Description=management_Status.Description };
+      Management_status status =new Management_status() {Color=management_Status.Color,NameManagement_status=management_Status.Name };
       return status;
     }
 

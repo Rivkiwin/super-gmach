@@ -5,24 +5,24 @@
         <div class="row">
             <div class="col">
                 <label>:תאריך </label>
-                <input class="form-control" formControlName="dateIncome" id="dateIncome"
+                <input  type="datetime"  class="form-control" formControlName="dateIncome" id="dateIncome"
                     required="">
             </div>
             <div class="col">
                 <label>מטרה </label>
-                <input class="form-control" formControlName="purpose" id="purpose"
+                <input type="text" class="form-control" formControlName="remark" id="purpose"
                     required="">
             </div>
             <div class="col">
                 <label> ממי</label>
-                <input class="form-control" formControlName="FromWho" id="FromWho"
+                <input  type="text" class="form-control" formControlName="FromWho" id="FromWho"
                     required="">
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>אופן התשלום </label>
-                <select formControlName="wayPay" class="form-control">
+                <select formControlName="Payment_method" class="form-control">
                     <option>מזומן</option>
                     <option>אשראי</option>
                     <option>שק</option>
@@ -31,7 +31,7 @@
             </div>
             <div class="col">
                 <label>סכום </label>
-                <input class="form-control" formControlName="amount"
+                <input  type="number" min="0" class="form-control" formControlName="amount"
                     required="">
             </div>
         </div>

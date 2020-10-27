@@ -11,25 +11,25 @@ import { Credit } from './Credit';
 
 
 export class Friend {
-      Id:Number;
-      Id_user:Number;
-      First_name:String;
-      Last_name:String;
+      id:Number;
+      id_user:Number;
+      first_name:String;
+      last_name:String;
       _Manager:Number;
-      Vip:boolean;
-      Friend:boolean;
-      Credit:Credit;
-      Status_user:StatusFriendE;
-      Management_status:ManagementStatusDTO;
-      Communication_ways:Communication ;
-      Bank_Details:BankDetails;
-      Remarks;
-      Joining_date;
-      Scoring;
-      Father_name;
-     Status_reason;
-     RachelLea;
-     Loans;
+      vip:boolean;
+      friend:boolean;
+      credit:Credit;
+      status_user:StatusFriendE;
+      management_status:ManagementStatusDTO;
+      communication_ways:Communication ;
+     bank_Details:BankDetails;
+      remarks;
+      joining_date;
+      scoring;
+     father_name;
+     status_reason;
+     rachelLea;
+     loans;
     constructor()
     {}
 

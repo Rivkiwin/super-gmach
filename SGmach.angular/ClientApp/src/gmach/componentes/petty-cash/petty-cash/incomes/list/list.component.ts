@@ -59,10 +59,10 @@ export class ListComponent implements OnInit {
       this.rowData = this.incomes.map(income => {
         return {
           remark: income.remark,
-           Date: this.datepipe.transform(income.Date, 'dd-MM-yyyy'),
-           amount: income.Amount,
-           from: income.From,
-           id:income.Id
+           Date: this.datepipe.transform(income.date, 'dd-MM-yyyy'),
+           amount: income.amount,
+           from: income.from,
+           id:income.id
         }
       })
     // this.grid.refresh();
@@ -90,10 +90,10 @@ export class ListComponent implements OnInit {
     var exportData= this.incomes.map(income => {
       return {
         הערות: income.remark,
-         תאריך: this.datepipe.transform(income.Date, 'dd-MM-yyyy'),
-         סכום: income.Amount,
-         משלם: income.From,
-         קוד:income.Id
+         תאריך: this.datepipe.transform(income.date, 'dd-MM-yyyy'),
+         סכום: income.amount,
+         משלם: income.from,
+         קוד:income.id
       }
     })
     this.excelService.exportExcel(exportData,'הכנסות')

@@ -58,13 +58,13 @@ export class AddFreindToFundComponent implements OnInit {
   AddData() {
     this.rowData = this.usersList.map(u => {
       return {
-        Management:u.Management_status.Name,
-        name:u.First_name+" "+u.Last_name,
-        father:u.Father_name,
-        dateJoin:this.datepipe.transform(u.Joining_date, 'dd-MM-yyyy'),
-        phone:u.Communication_ways.Phon1,
-        friend:u.Friend?'v':'x',
-        id:u.Id
+        Management:u.management_status.Name,
+        name:u.first_name+" "+u.last_name,
+        father:u.father_name,
+        dateJoin:this.datepipe.transform(u.joining_date, 'dd-MM-yyyy'),
+        phone:u.communication_ways.phon1,
+        friend:u.friend?'v':'x',
+        id:u.id
       }
     })
   }
