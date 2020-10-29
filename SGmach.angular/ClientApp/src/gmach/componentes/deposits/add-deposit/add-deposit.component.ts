@@ -19,7 +19,6 @@ export class ADDDepositComponent implements OnInit {
   AddResult;
   fundId;
   message = { title: '', body: '', href: '', buttonText: "הוסף הפקדה", click: "this.Add()" };
-  type = ["קבוע", "משתנה"];
   paymentMethod;
   deposit: Deposit;
   FormAddDeposit: FormGroup;
@@ -38,7 +37,8 @@ export class ADDDepositComponent implements OnInit {
     // document.getElementById("Add-B").addEventListener("click",this.Add);
     this.FormAddDeposit = new FormGroup({
       amount: new FormControl(),
-      type: new FormControl()
+      type: new FormControl(),
+      Payment_method:new FormControl(),
     });
   }
 
@@ -52,12 +52,13 @@ export class ADDDepositComponent implements OnInit {
     console.log("hii");
     var deposit: Deposit = new Deposit();
     deposit.amount = this.FormAddDeposit.get('amount').value;
-    deposit.user_id = this.User.Id;
-    deposit.user_name = this.User.First_name + " " + this.User.Last_name;
-    deposit.type = this.FormAddDeposit.get('type').value;
+    deposit.userId = this.User;
+    // deposit.user_name = this.User.first_name + " " + this.User.last_name;
+    deposit.Payment_method = this.FormAddDeposit.get('Payment_method').value;
     deposit.date = new Date();
-    deposit.fund_id = this.fundId;
-
+    deposit.type = this.FormAddDeposit.get('type').value;
+    deposit.fundId = this.fundId;
+    debugger
     this.depositService.Add(deposit).subscribe(
       {
         next: data => {

@@ -46,7 +46,7 @@ namespace API.Controllers
       return Ok(Alerts);
     }
 
-    [HttpGet()]
+    [HttpGet]
     [Route("getUserById/{id}")]
     public ActionResult GetUserById([FromRoute]int id)
     {

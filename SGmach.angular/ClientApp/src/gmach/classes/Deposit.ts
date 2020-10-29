@@ -3,12 +3,13 @@ import { status } from './status';
 export class Deposit {
     Id;
     user_name;
-    user_id;
+    userId;
     amount;
-    fund_id;
+    fundId;
+    type;
     FundName;
     name;
-    type;
+    Payment_method;
     status:status;
     date;
 }

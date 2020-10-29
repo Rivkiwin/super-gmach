@@ -25,7 +25,7 @@ namespace API.Controllers
    
     [HttpGet]
     [Route("GetByUser/{id}")]
-    public ActionResult GetByUser([FromQuery]int id)
+    public ActionResult GetByUser([FromRoute]int id)
     {
       List<WithdrawalsDTO> Withdrawals = WithdrawalsBL.GetByUser(id);
       return Ok(Withdrawals);
@@ -33,7 +33,7 @@ namespace API.Controllers
 
     [HttpGet]
     [Route("GetByFund/{id}")]
-    public ActionResult GetByFund([FromQuery]int id)
+    public ActionResult GetByFund([FromRoute]string id)
     {
       List<WithdrawalsDTO> Withdrawals = WithdrawalsBL.GetByFund(id);
       return Ok(Withdrawals);

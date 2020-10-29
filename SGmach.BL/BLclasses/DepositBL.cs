@@ -12,17 +12,21 @@ namespace BI.BLclasses
 {
  public class DepositBL
   {
-    public static void AddDeposit(DepositDetails deposit)
+    public static void AddDeposit(DepositDTO deposit)
     {
       DB db = new SuperGmachEntities();
       try
       {
         Deposit deposit_DAL = new Deposit();
         deposit_DAL = DepositConvert.DTOtoDAL(deposit);
+        // System.Console.WriteLine(deposit+" DAL/n "+deposit_DAL);
         db.Deposits.Add(deposit_DAL);
-        FundBL.AddBalance((int)deposit.amount, deposit.fund_id.ToString());
         User user = db.Users.FirstOrDefault();
-        user.Scoring = (int)((int)user.Scoring+deposit.amount * 0.5);
+        db.SaveChanges();
+        user.Scoring = (int)((int)user.Scoring+deposit.Amount * 0.5);
+        User_in_fund user_In_Fund=db.UserInFunds.FirstOrDefault(u=>u.UserId==deposit.UserId&&u.FundId==deposit.FundId);
+        user_In_Fund.balance+=deposit.Amount;
+        FundBL.AddBalance((int)deposit.Amount, deposit.FundId);
         db.SaveChanges();
       }
       catch (Exception e)
@@ -105,7 +109,7 @@ namespace BI.BLclasses
       try
       {
         DB db = new SuperGmachEntities();
-        List<Deposit> deposits_DAL = db.Deposits.Where(d => d.User_in_fundId == UserId).ToList();
+        List<Deposit> deposits_DAL = db.Deposits.Where(d => d.UserId == UserId).ToList();
         foreach (var deposit in deposits_DAL)
         {
           deposits.Add(DepositConvert.DALtoDepositDetails(deposit));

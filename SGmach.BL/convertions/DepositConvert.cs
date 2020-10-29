@@ -13,19 +13,20 @@ namespace BI.convertions
 {
   public class DepositConvert
   {
-    public static Deposit DTOtoDAL(DepositDetails deposit)
+    public static Deposit DTOtoDAL(DepositDTO deposit)
     {
       try
       {
         Deposit DAL_Deposit = new Deposit()
         {
 
-          Amount = deposit.amount,
-          Date = deposit.date,
-          FundId = deposit.fund_id.ToString(),
+          Amount = deposit.Amount,
+          Date = deposit.Date,
+          FundId = deposit.FundId.ToString(),
           // st = deposit.status,
-          Type = deposit.type,
-          User_in_fundId = deposit.user_id
+          Type = deposit.Type,
+          UserId = deposit.UserId,
+          Payment_method=deposit.Payment_method
         };
         return DAL_Deposit;
       }
@@ -42,13 +43,13 @@ namespace BI.convertions
       {
         DepositDTO deposit_dto = new DepositDTO()
         {
-          amount = deposit.Amount,
-          date = deposit.Date,
-          fund_id =Convert.ToInt32(deposit.FundId),
-          Id = deposit.DepositId,
+          Amount = deposit.Amount,
+          Date = deposit.Date,
+          FundId =deposit.FundId,
+          DepositId = deposit.DepositId,
           // status_id = deposit.status,
-          type = deposit.Type,
-          user_id = deposit.User_in_fundId
+          Type = deposit.Type,
+          UserId = deposit.UserId
         };
         return deposit_dto;
       }
@@ -65,12 +66,12 @@ namespace BI.convertions
       try
       {
         DB db = new SuperGmachEntities();
-        User_in_fund u_I_F=db.UserInFunds.FirstOrDefault(uf=>uf.User_in_fundId==deposit.User_in_fundId);
-        User user = db.Users.FirstOrDefault(f => f.UserId == u_I_F.UserId);
+        // User_in_fund u_I_F=db.UserInFunds.FirstOrDefault(uf=>uf.User_in_fundId==deposit.User_in_fundId);
+        User user = db.Users.FirstOrDefault(f => f.UserId == deposit.UserId);
         //Status status = db.Status.FirstOrDefault(s => s.id == deposit.status);
         Fund fund = db.Funds.FirstOrDefault(f =>f.FundId == deposit.FundId);
         depositDetails.user_name = user.lastname+" "+user.firstName;
-        depositDetails.user_id =  u_I_F.User_in_fundId;
+        depositDetails.UserId =  user.UserId;
         depositDetails.FundName = fund.fund_name;
         // depositDetails.status = deposit.status;
         depositDetails.amount =(int)deposit.Amount;

@@ -60,12 +60,12 @@ export class AddwithdrawalComponent implements OnInit {
      return
    }
      var Withdrawal:Withdrawals=new Withdrawals();
-     Withdrawal.Amount=this.Fwithdrawal.get("Amount").value;
-     Withdrawal.Date=this.Fwithdrawal.get("Date").value;
+     Withdrawal.amount=this.Fwithdrawal.get("Amount").value;
+     Withdrawal.date=this.Fwithdrawal.get("Date").value;
      Withdrawal.paymentMethod=this.Wayw;
-     Withdrawal.Status=this.Fwithdrawal.get("Status").value;
-     Withdrawal.FriendId=this.FreindId;
-     Withdrawal.FundId=this.FundId;
+     Withdrawal.status=this.Fwithdrawal.get("Status").value;
+     Withdrawal.friendId=this.FreindId;
+     Withdrawal.fundId=this.FundId;
      
      debugger;
     this.statusService.GetStatus().subscribe(
@@ -73,7 +73,7 @@ export class AddwithdrawalComponent implements OnInit {
           status.map(st => {
              if(st.id==this.Fwithdrawal.get("Status").value)
              {
-               Withdrawal.Status=st;
+               Withdrawal.status=st;
              }
           });   
       }

@@ -11,12 +11,13 @@ namespace DTO.classes.income
 {
  public class DepositDTO
   {
-    public int Id { get; set; }
-    public int user_id { get; set; }
-    public int amount { get; set; }
-    public int fund_id { get; set; }
-    public string type { get; set; }
-    public string status_id { get; set; }
-    public System.DateTime date { get; set; }
+      public int DepositId { get; set; }
+        public string GmachId { get; set; }="shavetHchim";
+        public int Amount { get; set; }
+        public string Type { get; set; }
+        public DateTime Date  { get; set; }
+        public int UserId { get; set; }
+        public string Payment_method { get; set; }
+        public string FundId { get; set; }
   }
 }

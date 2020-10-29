@@ -164,7 +164,7 @@ namespace SGmach.angular {
                     spa.UseAngularCliServer (npmScript: "start");
                 }
             });
-
+app.UseStaticFiles();
             // app.Map("/gmach", builder =>
             // {
             //     builder.UseRewriter(new RewriteOptions()

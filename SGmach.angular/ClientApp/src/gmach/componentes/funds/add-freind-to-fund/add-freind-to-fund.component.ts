@@ -57,6 +57,7 @@ export class AddFreindToFundComponent implements OnInit {
  
   AddData() {
     this.rowData = this.usersList.map(u => {
+      console.log(u);
       return {
         Management:u.management_status.Name,
         name:u.first_name+" "+u.last_name,
@@ -91,6 +92,7 @@ var sapnNoRow= <HTMLElement>document.getElementsByClassName("ag-overlay-no-rows-
     //getSelectedRowData() {
       let selectedNodes = this.gridApi.getSelectedNodes();
       let selectedData = selectedNodes.map(node => node.data.id);
+      debugger
       this.FundService.AddFriends(selectedData,this.fuundID).subscribe(e=>console.error(e));
       this.FundService.GetUsersToAdd(this.fuundID).subscribe(u => {
         this.usersList = <Friend[]>u;

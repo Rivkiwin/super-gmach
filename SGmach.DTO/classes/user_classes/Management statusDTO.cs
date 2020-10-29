@@ -13,7 +13,7 @@ namespace DTO.classes.user_classes
     public static List<Management_statusDTO> List_status=new List<Management_statusDTO>();
     static int cnt = 0;
     [DataMember]
-    public int Id { get; set; }
+    public string Id { get; set; }
     [DataMember]
     public string Name { get; set; }
     [DataMember]

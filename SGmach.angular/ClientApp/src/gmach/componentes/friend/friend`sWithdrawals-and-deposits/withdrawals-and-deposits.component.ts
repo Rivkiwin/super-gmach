@@ -62,7 +62,10 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
       this.depositList=<Deposit[]>d;
       this.addRowData();
     });
+    debugger
     this.WithdralsS.GetByFund(this.fundId).subscribe(w=>{
+      console.log(w);
+      debugger;
       this.Withdrawals=<Withdrawals[]>w;
       console.log(w);
       this.addRowData();
@@ -94,16 +97,20 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
         date:this.datepipe.transform(d.date, 'dd-MM-yyyy'),
         fund:d.FundName,
         amount:d.amount,
-        type:"הפקדה"
+        type:"הפקדה",
+        nameFriend:d.user_name,
+        status:d.type
     }});
     debugger;
     this.Withdrawals.forEach(w=>{this.rowData.push(
 
       {
-        date:this.datepipe.transform(w.Date, 'dd-MM-yyyy'),
-        fund:w.Fund,
-        amount:w.Amount,
-        type:"משיכה"
+        date:this.datepipe.transform(w.date, 'dd-MM-yyyy'),
+        fund:w.fund,
+        amount:w.amount,
+        nameFriend:w.user_name,
+        type:"משיכה",
+        status:w.status
       });
     });
   }

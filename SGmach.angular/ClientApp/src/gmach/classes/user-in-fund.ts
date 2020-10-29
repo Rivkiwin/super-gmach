@@ -1,10 +1,9 @@
 export class UserInFund {
-    Deposits;
-    Withdrawals;
-    Date_join;
+    deposits;
+    withdrawals;
+    date_join;
     balance;
-    Last_name;
-    First_name;
-    User_tz;
-    UserID;
+    last_name;
+    first_name;
+    userID;
 }

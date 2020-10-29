@@ -17,7 +17,7 @@ namespace API.Controllers
   {
     [HttpPost]
     [Route("AddDeposit")]
-    public ActionResult AddDeposit([FromBody]DepositDetails deposit)
+    public ActionResult AddDeposit([FromBody]DepositDTO deposit)
     {
       try
       {
@@ -61,9 +61,9 @@ namespace API.Controllers
       }
       return Ok();
     }
-    [HttpGet("{id}")]
-    [Route("getById")]
-    public ActionResult GetById(int id)
+    [HttpGet]
+    [Route("getById/{id}")]
+    public ActionResult GetById([FromRoute]int id)
     {
       DepositDetails deposit = new DepositDetails();
       try
@@ -77,9 +77,9 @@ namespace API.Controllers
       }
       return Ok(deposit);
     }
-    [HttpGet("{id}")]
-    [Route("getByUserId")]
-    public ActionResult GetByUserId( int id)
+    [HttpGet]
+    [Route("getByUserId/{id}")]
+    public ActionResult GetByUserId( [FromRoute]int id)
     {
       List<DepositDetails> deposits = new List<DepositDetails>();
       try
@@ -93,9 +93,9 @@ namespace API.Controllers
       }
       return Ok(deposits);
     }
-    [HttpGet("{id}")]
-    [Route("getByFundId")]
-    public ActionResult GetByFundId(string id)
+    [HttpGet]
+    [Route("getByFundId/{id}")]
+    public ActionResult GetByFundId([FromRoute]string id)
     {
       List<DepositDetails> deposits = new List<DepositDetails>();
       try

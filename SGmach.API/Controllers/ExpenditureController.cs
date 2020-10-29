@@ -48,9 +48,9 @@ namespace API.Controllers
       return Ok(expenditures);
 
     }
-    [HttpGet("{id}")]
-    [Route("getListGetexpenditure")]
-    public ExpenditureDTO GetexpenditureById([FromQuery] int id)
+    [HttpGet]
+    [Route("getListGetexpenditure/{id}")]
+    public ExpenditureDTO GetexpenditureById([FromRoute] int id)
     {
       return ExpenditureBL.GetByID(id);
     }

@@ -10,7 +10,7 @@ namespace DTO.classes.fund
 public class User_in_fundDTO
   {
     public Management_statusDTO Status { get; set; }
-    public int FoudID { get; set; }
+    public string FoudID { get; set; }
     public int UserID { get; set; }
     public int User_tz { get; set; }
     public string First_name { get; set; }

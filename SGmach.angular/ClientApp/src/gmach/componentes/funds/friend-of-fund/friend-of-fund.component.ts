@@ -67,9 +67,9 @@ export class FriendOfFundComponent implements OnInit {
     this.rowData = this.usersList.map(u => {
       return {
         balance: u.balance,
-        name: u.First_name + " " + u.Last_name,
-        dateJoin: this.datepipe.transform(u.Date_join, 'dd-MM-yyyy'),
-        id: u.UserID,
+        name: u.first_name + " " + u.last_name,
+        dateJoin: this.datepipe.transform(u.date_join, 'dd-MM-yyyy'),
+        id: u.userID,
         fund: this.fuundID
 
       }

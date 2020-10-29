@@ -22,7 +22,7 @@ namespace BL.BLclasses
           UserDTO user =Userconvert.DALtoDTO(u);
           Loan loan = db.Loans.FirstOrDefault(l => l.UserId == u.UserId&& l.NameManagement_status!="performed");
           user.Loans = loan!=null ? LoanBL.Balance(loan.LoanId) : 0;
-          User_in_fund rachelLea = db.UserInFunds.FirstOrDefault(uf => u.UserId == uf.UserId&&uf.FundId==2);
+          User_in_fund rachelLea = db.UserInFunds.FirstOrDefault(uf => u.UserId == uf.UserId && uf.FundId=="rachelLea");
           user.RachelLea = rachelLea != null ? (int)rachelLea.balance : 0;
           userList.Add(user);
         }
@@ -65,7 +65,7 @@ namespace BL.BLclasses
       }
     }
 
-    public static User_in_fundDTO Get_user_byFund(int fundID,int userId)
+    public static User_in_fundDTO Get_user_byFund(string fundID,int userId)
     {
       
       using (SuperGmachEntities db = new SuperGmachEntities()) {
@@ -92,7 +92,7 @@ namespace BL.BLclasses
       }
     }
 
-    public static List<User_in_fundDTO> Get_users_byFund(int fundID)
+    public static List<User_in_fundDTO> Get_users_byFund(string fundID)
     {
       List<User_in_fundDTO> uif = new List<User_in_fundDTO>();
       using (SuperGmachEntities db = new SuperGmachEntities())
@@ -111,7 +111,7 @@ namespace BL.BLclasses
             FoudID = item.uf.FundId,
             balance = (int)item.uf.balance,
             Date_join = (DateTime)item.uf.date_join,
-            Last_name = item.u.firstName,
+            Last_name = item.u.lastname,
             First_name = item.u.firstName,
             Status = Management_statusBL.GetByName(item.u.NameManagement_status)
           });
@@ -131,7 +131,7 @@ namespace BL.BLclasses
           UserFund userFund = new UserFund();
           userFund.Balance = (int)User_in_fund.balance;
           userFund.DateJoin = (DateTime)User_in_fund.date_join;
-          userFund.FundName = (db.Funds.FirstOrDefault(fund => fund.FundId == User_in_fund.FundId.ToString())).fund_name;
+          userFund.FundName = (db.Funds.FirstOrDefault(fund => fund.FundId == User_in_fund.FundId)).fund_name;
         }
       }
       //detalis.User = GetUserById(id);

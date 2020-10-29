@@ -55,20 +55,27 @@ namespace BI.BLclasses
     {
       SetScore(loan);
       db Sgmach = new db();
-      //if its Happy
+      //if its Approved
+      Loan loanDAL = LoanConvert.DTOtoDAL(loan);
+        loanDAL = Sgmach.Loans.Add(loanDAL).Entity;
+        Sgmach.SaveChanges();
       if (loan.loan_status == "Approved")
       {
         int FutureBalance = FundBL.GetFutureBalance("1", loan.date_start);
         if (FutureBalance-2000< loan.amount)
         {
-          throw new Exception("you can loanding :balance<loan.amount");
+          loanDAL.remark+=" יתרת הגמח ביום התחלת הלווה קטנה מסכום ההלוואה";
+          loanDAL.NameManagement_status="Invalid";
         }
-        loan.paid = false;
-        Loan loanDAL = LoanConvert.DTOtoDAL(loan);
-        loanDAL = Sgmach.Loans.Add(loanDAL).Entity;
-        Sgmach.SaveChanges();
+        else{
         SetRepayment(loanDAL);
         Sgmach.SaveChanges();
+        }
+        loan.paid = false;
+        // Loan loanDAL = LoanConvert.DTOtoDAL(loan);
+        // loanDAL = Sgmach.Loans.Add(loanDAL).Entity;
+        Sgmach.SaveChanges();
+       
       }
      
     }

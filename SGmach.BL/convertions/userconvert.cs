@@ -44,7 +44,7 @@ namespace BL.convertions
       
       UserDTO newUser = new UserDTO() {
         Id_user = user.UserId,
-        // Id = user.,
+        Id = user.UserId,
         First_name = user.firstName,
         Last_name = user.lastname,
         Vip = user.VIP,

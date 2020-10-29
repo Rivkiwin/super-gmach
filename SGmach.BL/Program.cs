@@ -45,7 +45,7 @@ namespace BL
       //  Console.WriteLine( item.id);
       //}
 
-      UserBL.Get_users_byFund(2);
+      // UserBL.Get_users_byFund(2);
       Console.Read();
         }
     }

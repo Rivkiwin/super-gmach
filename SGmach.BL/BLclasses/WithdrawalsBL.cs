@@ -18,9 +18,12 @@ public class WithdrawalsBL
       withdrawing withdrawal = WithdrawalsConvert.DTOtoDAL(withdrawalDTO);
       db DB = new db();
       DB.Withdrawing.Add(withdrawal);
-      if (withdrawalDTO.Status== "Approved")
+      DB.SaveChanges();
+      if (withdrawalDTO.Status== "performed")
       {
         FundBL.Subtract_Balance(withdrawalDTO.Amount, withdrawalDTO.FundId);
+        User_in_fund user=DB.UserInFunds.FirstOrDefault(u=>u.UserId==withdrawal.UserId&&u.FundId==withdrawal.FundId) ;
+        user.balance-=withdrawal.Amount;
       }
       DB.SaveChanges();
     }
@@ -30,7 +33,7 @@ public class WithdrawalsBL
       db DB = new db();
       withdrawing withdrawal = DB.Withdrawing.FirstOrDefault(w => w.Id == withdrawalDTO.Id);
       //if it changed to Approved
-      if (withdrawal.NameStatus!= "Approved" && withdrawalDTO.Status== "Approved")
+      if (withdrawal.NameStatus!= "performed" && withdrawalDTO.Status== "performed")
       {
         FundBL.Subtract_Balance(withdrawalDTO.Amount, withdrawalDTO.FundId);
       }
@@ -61,11 +64,11 @@ public class WithdrawalsBL
       return withdrawalsDTOs;
     }
 
-    public static List<WithdrawalsDTO> GetByFund(int FundId)
+    public static List<WithdrawalsDTO> GetByFund(string FundId)
     {
       List<WithdrawalsDTO> withdrawalsDTOs = new List<WithdrawalsDTO>();
       db DB = new db();
-      List<withdrawing> withdrawals = DB.Withdrawing.Where(w=>w.FundId==FundId.ToString()).ToList();
+      List<withdrawing> withdrawals = DB.Withdrawing.Where(w=>w.FundId==FundId).ToList();
       foreach (withdrawing withdrawal in withdrawals)
       {
         WithdrawalsDTO withdrawalDTO = WithdrawalsConvert.DALtoDTO(withdrawal);

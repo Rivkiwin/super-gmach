@@ -19,7 +19,7 @@
     </div>
     <div class="col">
       <label class="details-l">: היתרה משוערת לחודש הבא </label>
-      <div class="details-d">{{fund.Futurbalance}} </div>
+      <div class="details-d">{{fund.futurbalance}} </div>
     </div>
     <div class="col">
       <label class="details-l"> :היתרה</label>
@@ -28,13 +28,13 @@
   </div>
     <div class="row">
       <div class="col">
-    <add-freind-to-fund [fundId]="fund.Id"></add-freind-to-fund>
+    <add-freind-to-fund [fundId]="fund.id"></add-freind-to-fund>
   </div>
   <div class="col">
-    <friend-of-fund [fundId]="fund.Id"></friend-of-fund>
+    <friend-of-fund [fundId]="fund.id"></friend-of-fund>
   </div>
   <div class="col">
-    <withdrawals-and-deposits  [fundId]="fund.Id"></withdrawals-and-deposits>
+    <withdrawals-and-deposits  [fundId]="fund.id"></withdrawals-and-deposits>
      </div>
   </div>
 </div>

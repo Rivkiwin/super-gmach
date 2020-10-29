@@ -8,9 +8,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-using System.Threading.Tasks;
+
 using DB = SGmach.Entity.SuperGmachEntities;
 namespace BI.BLclasses
 {
@@ -151,7 +150,7 @@ namespace BI.BLclasses
 
       var query = from u in Sgmach.Users
                   where (u.joining_date.AddMonths((int)fund.required_months)) <= Today
-                  where !(from uf in Sgmach.UserInFunds where  uf.FundId.ToString() == fund.FundId select uf.UserId).Contains(u.UserId)
+                  where !(from uf in Sgmach.UserInFunds where  uf.FundId == fund.FundId select uf.UserId).Contains(u.UserId)
                   select u;
       foreach (User user in query)
       {
@@ -159,7 +158,7 @@ namespace BI.BLclasses
       }
       return users;
     }
-    public static void AddFriends(int[] frinds, int fundID)
+    public static void AddFriends(int[] frinds, string fundID)
     {
       DateTime Today = DateTime.Now;
       DB Sgmach = new DB();

@@ -61,7 +61,7 @@ export class DepositComponent implements OnInit {
         date:this.datepipe.transform(deposit.date, 'dd-MM-yyyy'),
         user:deposit.user_name,
         amount:deposit.amount,
-        type:deposit.type,
+        type:deposit.Payment_method,
         fund:deposit.FundName
       }
     })

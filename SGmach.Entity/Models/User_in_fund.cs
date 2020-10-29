@@ -18,9 +18,7 @@ namespace SGmach.Entity.Models
         public string GmachId { get; set; }="shavet hchim";
         public DateTime date_join { get; set; }
         public int balance { get; set; }
-        public int FundId { get; set; }
-
-        public List<Deposit> Deposits { get; }=new List<Deposit>();
+        public string FundId { get; set; }
         public List<withdrawing> Withdrawings { get; }=new List<withdrawing>();
 
         public  Fund Fund { get; set; }

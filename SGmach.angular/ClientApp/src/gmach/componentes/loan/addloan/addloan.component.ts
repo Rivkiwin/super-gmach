@@ -34,8 +34,8 @@ import { LoanService } from 'src/gmach/services/loan.service';
         payments: new FormControl(),
         date_start: new FormControl(),
         month: new FormControl(),
-  
-      })
+      });
+      this.loanS.getFutureBalances().subscribe(x=>console.log(x));
     }
     Add(event) {
       debugger

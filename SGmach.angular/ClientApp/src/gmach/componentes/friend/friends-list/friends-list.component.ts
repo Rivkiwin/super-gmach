@@ -42,10 +42,10 @@ export class FriendsListComponent implements OnInit {
       headerName: 'ניהול', field: 'managment',
       tooltipValueGetter: (params) => params.data.tooltip,
       valueGetter: function (params) {
-        // return params.data.managment.name;
+        return params.data.managment.name;
       },
       cellStyle: function (params) {
-        // return { backgroundColor: params.data.managment.Color };
+        return { backgroundColor: params.data.managment.color };
       },
     },
   ];
