@@ -160,5 +160,26 @@ namespace BL.BLclasses
         return alertsUsers;
     }
 
+    public static int Edite(UserDTO user)
+    {
+      SuperGmachEntities db = new SuperGmachEntities();
+      User userDal=db.Users.FirstOrDefault(u=>u.UserId==user.Id_user);
+      userDal.father_name=user.Father_name;
+      userDal.lastname=user.Last_name;
+      userDal.VIP=user.Vip;
+      userDal.frirnd=user.Friend;
+      userDal.email_addres=user.Communication_ways.Email_addres;
+      userDal.phon1=user.Communication_ways.Phon1;
+      userDal.phon2=user.Communication_ways.Phon2;
+      userDal.city=user.Communication_ways.City;
+      userDal.num_street=user.Communication_ways.Num_street;
+      userDal.street=user.Communication_ways.Street;
+      userDal.remarks=user.Remarks;
+      userDal.MaritalStatus=user.MaritalStatus;
+      userDal.NameManagement_status=user.NameManagement_status;
+      db.SaveChanges();
+      return userDal.UserId;
+    }
+
   }
 }

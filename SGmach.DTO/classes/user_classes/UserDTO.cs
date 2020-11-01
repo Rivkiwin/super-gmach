@@ -16,6 +16,7 @@ namespace DTO.classes.user_classes
     //   public static int cnt = 0;
 
     public int Id { get; set; }
+    public string MaritalStatus { get; set; }
 
     public int Id_user { get; set; }
 
@@ -34,6 +35,7 @@ namespace DTO.classes.user_classes
     public Status_userE Status_user { get; set; }
 
     public Management_statusDTO Management_status { get; set; }
+    public string NameManagement_status { get; set; }
 
     public Communication  Communication_ways { get; set; }
 

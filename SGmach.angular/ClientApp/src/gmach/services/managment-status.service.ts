@@ -22,12 +22,12 @@ export class ManagmentStatusService {
         this.GetAll().subscribe(x=>{
            this.Status=<ManagementStatusDTO[]>x,
           this.Status.forEach(status => {
-            if(status.Name==name)
+            if(status.name==name)
             return status;
         })
         });
         this.Status.forEach(status => {
-          if(status.Name==name)
+          if(status.name==name)
           return status;
       })
         return null

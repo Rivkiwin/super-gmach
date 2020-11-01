@@ -26,7 +26,7 @@
             <div class="col">
                 <label for="fname">שם האב</label>
                 <input type="text" class="form-control"
-                    formControlName="father_name" placeholder="הכנס שם"
+                formControlName="father_name" placeholder="הכנס שם"
                     id="father_name"
                     (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
@@ -38,12 +38,12 @@
                     required>
             </div>
             <div class="col">
-                <input class="form-check-input" type="checkbox"
-                    formControlName="VIP" value="true" id="vipCheck"
-                    value="true">
-                <label class="form-check-label" for="vipCheck">
-                    VIP
+                <label class="form-check-label" for="vipCheck" >
+                    חבר
                 </label>
+                <input class="form-check-input" type="checkbox"
+                    formControlName="friend" value="true" id="vipCheck"
+                    value="true">
             </div>
         </div>
         <div class="row">
@@ -56,11 +56,32 @@
             </div>
             <div class="col">
                 <label> מצב אישי</label>
-                <select class="selectpicker form-control"
+                <select class="selectpicker form-control" formControlName="MaritalStatus"
                     data-live-search="true">
                     <option>נשוי</option>
                     <option>רווק</option>
                 </select>
+            </div>
+            <div class="col">
+                <label>סטטוס חבר</label>
+                <select class="selectpicker form-control" formControlName="NameManagement_status" data-live-search="true" >
+                    <option value="Proper">תקין</option>
+                    <option value="Invalid">לא תקין</option>
+                    <option value="Unauthorized">לא מאושר</option>
+                    <option value="Approved">מאושר</option>
+                </select>
+                <div *ngIf="BadStatuse()">
+                <label>סיבת הסטטוס</label>
+                <input class="form-control" type="text" formControlName="Status_reason">
+                </div>
+            </div>
+            <div class="col">
+                <label class="form-check-label" for="vipCheck">
+                    VIP
+                </label>
+                <input class="form-check-input" type="checkbox"
+                    formControlName="VIP" value="true" id="vipCheck"
+                    value="true">
             </div>
         </div>
         <div class="dropdown-divider"></div>
@@ -69,13 +90,13 @@
             <div class="row">
                 <div class="col">
                     <label>טל 1</label>
-                    <input class="form-control" placeholder="טל 1" id="p1"
+                    <input  type="tel" class="form-control" placeholder="טל 1" id="p1"
                         formControlName="Phon1" minlength="9" maxlength="10"
                         (keypress)="NumberinValid=NumberOnly($event)" required>
                 </div>
                 <div class="col">
                     <label>טל 2</label>
-                    <input class="form-control" placeholder="טל 2" id="p2"
+                    <input  type="tel" class="form-control" placeholder="טל 2" id="p2"
                         formControlName="Phon2" minlength="9" maxlength="10"
                         (keypress)="NumberinValid=NumberOnly($event)">
                 </div>
@@ -114,18 +135,18 @@
                     Direct Debit
                 </label>
             </div> -->
-        <div class="col">
+        <!-- <div class="col">
             <label for="collection_date">תאריך גבייה</label>
             <input class="form-control" formControlName="collection_date"
                 id="collection_date" type="int" value="00">
-        </div>
-        <div class="dropdown-divider"></div>
+        </div> -->
+        <!-- <div class="dropdown-divider"></div>
         <div class="row">
             <div class="col">
                 <CreditDetails (carditDitails)="setCreditDetails($event)"></CreditDetails></div>
             <div class="col">
                 <app-bank-details (BankDetails)="setBankDetails($event)"></app-bank-details></div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col">
                 <label for="Remarkscontrol">הערות</label>

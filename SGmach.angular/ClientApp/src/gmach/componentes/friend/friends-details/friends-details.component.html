@@ -4,7 +4,7 @@
   <div class="row">
       <div class="col">
           <label for="fname">שם פרטי</label>
-          <input type="text" class="form-control" formControlName="First_name"  id="fname" required  (keypress)="LetterinValid=LetterOnly($event)">
+          <input type="text" class="form-control" formControlName="First_name"  id="fname" required  (keypress)="LetterinValid=LetterOnly($event)" >
           <div class="invalid-feedback"> הכנס שם </div>
       </div>
       <div class="col">
@@ -22,6 +22,14 @@
               VIP
           </label>
       </div>
+      <div class="col">
+        <input class="form-check-input" type="checkbox"
+            formControlName="friend"  id="vipCheck"
+            value="true">
+        <label class="form-check-label" for="vipCheck" data-toggle="tooltip" data-placement="left" title="משלם כל חודש 50 שקלים">
+            חבר
+        </label>
+    </div>
   </div>
   <div class="row">
       <div class="col">
@@ -29,12 +37,27 @@
           <input formControlName="Id_user"  id="id" min=9 max=9 class="form-control" type="text" (keypress)="NumberinValid=NumberOnly($event)" required>
       </div>
       <div class="col">
+        <label> מצב אישי</label>
+        <select class="selectpicker form-control" formControlName="MaritalStatus"
+            data-live-search="true">
+            <option>נשוי</option>
+            <option>רווק</option>
+        </select>
+    </div>
+      <div class="col">
           <label>סטטוס חבר</label>
-          <select class="selectpicker form-control" data-live-search="true">
-              <option>בחר סטטוסס</option>
-              <!-- <option *ngFor="let status of keyStatusFriend()" [ngValue]="status">{{status}}</option> -->
+          <select class="selectpicker form-control" formControlName="NameManagement_status" data-live-search="true" >
+              <option value="Proper">תקין</option>
+              <option value="Invalid">לא תקין</option>
+              <option value="Unauthorized">לא מאושר</option>
+              <option value="Approved">מאושר</option>
           </select>
+          <div *ngIf="BadStatuse()">
+            <label>סיבת הסטטוס</label>
+            <input class="form-control" type="text" formControlName="Status_reason">
+            </div>
       </div>
+      
   </div>
   <div class="dropdown-divider"></div>
 <form [formGroup]="FCommunication_ways" class="needs-validation" novalidate="">
@@ -55,7 +78,7 @@
   <div class="row">
       <div class="col">
           <label for="citylb">עיר</label>
-          <input type="text"  class="form-control" id="citylb" (keypress)="LetterinValid=LetterOnly($event)" required>
+          <input type="text"  class="form-control" id="citylb" (keypress)="LetterinValid=LetterOnly($event)" formControlName="City" required>
       </div>
       <div class="col">
           <label for="street">רחוב</label>
@@ -79,8 +102,8 @@
   <div class="col"><withdrawals-and-deposits [friendId]="friend.Id">משיכות והפקדות</withdrawals-and-deposits></div>
 </div>
 <div class="row">
-<button (click)="Add()" button type="submit" class="btn btn-dark fixed-bottom position-relative">שמור שינויים</button></div>
-</form>
+    <a (click)="Edite($event)" id="BAdd" class="col">
+        <app-message-add [Message]="message | json" ></app-message-add></a>
 </div>
 
 

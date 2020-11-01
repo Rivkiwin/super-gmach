@@ -46,17 +46,32 @@ export class FriendsFormComponent implements OnInit {
   }
   constructor(private Roter: Router, private FriendService: FriendsService) { }
 
+  BadStatuse()
+  {
+    var status=this.formFriend.get("NameManagement_status").value;
+    if(status=="Invalid" || status=="Unauthorized")
+    {
+      return true
+    }
+    else{
+      return false
+    }
+  }
   ngOnInit(): void {
     this.formFriend = new FormGroup({
       Id_user: new FormControl(),
       First_name: new FormControl(),
       Last_name: new FormControl(),
-      status: new FormControl(),
+      NameManagement_status: new FormControl("Proper"),
       VIP: new FormControl(false),
       validity: new FormControl(),
       Remarks: new FormControl(),
       collection_date: new FormControl(),
-      father_name: new FormControl()
+      father_name: new FormControl(),
+      friend:new FormControl(true),
+      MaritalStatus:new FormControl("נשוי"),
+      Status_reason:new FormControl(),
+      
     });
     this.FCommunication_ways = new FormGroup({
       Phon2: new FormControl(),
@@ -65,6 +80,7 @@ export class FriendsFormComponent implements OnInit {
       Street: new FormControl(),
       Phon1: new FormControl(),
       Num_street: new FormControl(),
+
     })
   }
 
@@ -76,9 +92,9 @@ export class FriendsFormComponent implements OnInit {
    
    validation()
        this.new_friend = <Friend>this.formFriend.value;
-      this.new_friend.bank_Details=new BankDetails();
       this.userId=<Number>this.formFriend.get('Id_user').value;
       this.new_friend.id_user=this.userId;
+      this.new_friend.father_name=this.formFriend.get('father_name').value;
       var Communication=<Communication>this.FCommunication_ways.value;
       debugger
       this.FriendService.add(this.new_friend,Communication,this.credit,this.Bank).subscribe(
@@ -87,7 +103,7 @@ export class FriendsFormComponent implements OnInit {
             debugger
             this.message.title = "החבר נוסף בהצלחה";
             this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת החברים לחץ אישור";
-            this.message.href = "friends/Friendlist";
+            this.message.href = "friends/detalis/"+data;
           },
           error: error =>{
             this.message.title = "יש תקלה בהוספה";

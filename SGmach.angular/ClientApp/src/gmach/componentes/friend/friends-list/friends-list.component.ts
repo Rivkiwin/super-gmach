@@ -40,7 +40,7 @@ export class FriendsListComponent implements OnInit {
     },
     {
       headerName: 'ניהול', field: 'managment',
-      tooltipValueGetter: (params) => params.data.tooltip,
+      // tooltipValueGetter: (params) => params.data.tooltip,
       valueGetter: function (params) {
         return params.data.managment.name;
       },
@@ -79,6 +79,7 @@ export class FriendsListComponent implements OnInit {
   }
   public addrowData() {
     this.rowData = this.Friends.map(friend => {
+      console.log(friend)
       return {
         managment: friend.management_status,
         tooltip: "friend.Status_reason",

@@ -38,11 +38,11 @@ namespace API.Controllers
     {
       return Ok(LoanBL.GetAll());
     }
-    // [HttpGet]
-    // [Route("GetById/{id}")]
-    // public LoanDTO GetById([FromQuery]int id)
-    // {
-    //   return LoanBL.GetByID(id);
-    // }
+    [HttpGet]
+    [Route("GetById/{id}")]
+    public LoanDTO GetById([FromRoute]int id)
+    {
+      return LoanBL.GetByID(id);
+    }
   }
 }

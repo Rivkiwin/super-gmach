@@ -20,14 +20,16 @@ export class Friend {
       friend:boolean;
       credit:Credit;
       status_user:StatusFriendE;
+      NameManagement_status;
       management_status:ManagementStatusDTO;
       communication_ways:Communication ;
      bank_Details:BankDetails;
       remarks;
+      status_reason;
       joining_date;
       scoring;
      father_name;
-     status_reason;
+    maritalStatus;
      rachelLea;
      loans;
     constructor()

@@ -29,6 +29,7 @@ namespace SGmach.angular {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
+            
             // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (ExpenditureController))).AddControllersAsServices ();
             // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (DepositController))).AddControllersAsServices ();
             // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (FundController))).AddControllersAsServices ();
@@ -39,10 +40,10 @@ namespace SGmach.angular {
             // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (UsersController))).AddControllersAsServices ();
             // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (WithdrawalsController))).AddControllersAsServices ();
             services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (Management_StatusController))).AddControllersAsServices ()
-            .AddNewtonsoftJson();
+                .AddNewtonsoftJson ();
 
-                // .AddJsonOptions (op => {op.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                // op.JsonSerializerOptions.});
+            // .AddJsonOptions (op => {op.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+            // op.JsonSerializerOptions.});
 
             services.AddDbContext<ApplicationDbContext> (options =>
                 options.UseSqlite (
@@ -74,6 +75,7 @@ namespace SGmach.angular {
             services.AddIdentityServer ()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext> ();
 
+
             services.AddAuthentication ()
                 .AddIdentityServerJwt ();
 
@@ -90,6 +92,15 @@ namespace SGmach.angular {
             //     })
             //     .AddEntityFrameworkStores<GmachUserDbContext>();
             //
+            // services.ConfigureApplicationCookie (options => {
+            //     options.AccessDeniedPath = new PathString ("Areas/Identity/Pages/Account/Login.cshtml");
+            //     options.Cookie.Name = "Cookie";
+            //     options.Cookie.HttpOnly = true;
+            //     options.ExpireTimeSpan = TimeSpan.FromMinutes (720);
+            //     options.LoginPath = new PathString ("/Account/Login");
+            //     options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+            //     options.SlidingExpiration = true;
+            // });
 
             services.AddControllersWithViews ();
             services.AddRazorPages ();
@@ -164,7 +175,7 @@ namespace SGmach.angular {
                     spa.UseAngularCliServer (npmScript: "start");
                 }
             });
-app.UseStaticFiles();
+            app.UseStaticFiles ();
             // app.Map("/gmach", builder =>
             // {
             //     builder.UseRewriter(new RewriteOptions()

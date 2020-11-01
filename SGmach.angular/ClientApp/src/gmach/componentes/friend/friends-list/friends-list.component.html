@@ -13,7 +13,7 @@
 </aside>
 <form class="form-inline px-2  float-right search">
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
-    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" />
 <button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
 </form>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"

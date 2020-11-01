@@ -34,6 +34,14 @@ export class FriendsService {
     // http://localhost:4200/user/GetUsersList
   }
 
+  Edite(friend:Friend)
+  {
+    debugger
+    friend.bank_Details=null;
+    friend.credit=null;
+    return this.httpclinet.post(`${this.baseUrl}Edite`,friend);
+  }
+
   public GetById(id) {
   
     return this.httpclinet.get(`${this.baseUrl}getUserById/${id}`)

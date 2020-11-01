@@ -59,7 +59,7 @@ export class AddFreindToFundComponent implements OnInit {
     this.rowData = this.usersList.map(u => {
       console.log(u);
       return {
-        Management:u.management_status.Name,
+        Management:u.management_status.name,
         name:u.first_name+" "+u.last_name,
         father:u.father_name,
         dateJoin:this.datepipe.transform(u.joining_date, 'dd-MM-yyyy'),

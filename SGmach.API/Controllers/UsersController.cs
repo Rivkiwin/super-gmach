@@ -1,3 +1,5 @@
+using System.Resources;
+using System.Net;
 using BI.BLclasses;
 using DTO.classes.income;
 using Microsoft.AspNetCore.Cors;
@@ -21,8 +23,8 @@ namespace API.Controllers
     [Route("add")]
     public int AddUser([FromBody]UserDTO user)
     {
-      //Console.WriteLine(u.ToString());
-      //Communication Communication = 
+      // Console.WriteLine(u.ToString());
+      // Communication Communication = 
       // UserDTO user=  date.User;
       //  UserDTO user= date["User"].ToObject<UserDTO>();
       // user.Communication_ways= date["Communication"]!=null?date["Communication"].ToObject<Communication>():null;
@@ -51,6 +53,13 @@ namespace API.Controllers
     public ActionResult GetUserById([FromRoute]int id)
     {
       return Ok(UserBL.GetUserById(id));
+    }
+
+    [HttpPost]
+    [Route("Edite")]
+    public int Edite([FromBody]UserDTO user)
+    {  
+     return  UserBL.Edite(user);   
     }
   }
 }
