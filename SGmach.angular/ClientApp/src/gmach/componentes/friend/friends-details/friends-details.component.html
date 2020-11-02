@@ -97,9 +97,9 @@
       </div>
   <div class="row">
     <div class="col">
-        <CreditDetails [cardit]="friend"></CreditDetails></div>
-        <div class="col"><button type="button" class="btn btn-dark">פרטי חשבון בנק</button></div> 
-  <div class="col"><withdrawals-and-deposits [friendId]="friend.Id">משיכות והפקדות</withdrawals-and-deposits></div>
+        <CreditDetails [credit]="friend.crdit" [UserID]="friend.id_user"></CreditDetails></div>
+        <div class="col">  <app-bank-details [BankDetails]="friend.bank_Details"></app-bank-details></div>
+  <div class="col"><withdrawals-and-deposits  [friendId]="friend.id_user">משיכות והפקדות</withdrawals-and-deposits></div>
 </div>
 <div class="row">
     <a (click)="Edite($event)" id="BAdd" class="col">

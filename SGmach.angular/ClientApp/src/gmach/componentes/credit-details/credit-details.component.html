@@ -14,19 +14,18 @@
                 <form class="needs-validation" novalidate [formGroup]="carditForm" >
                     <div class="form-group">
                         <div class="row">
-                            <label for="cardHolder" class="col-form-label">בעל
-                                הכרטיס:</label>
+                            <label for="cardHolder" class="col-form-label">בעל    הכרטיס:</label>
                             <input type="text" class="form-control"
                                 id="cardHolder" required formControlName="cardHolder" (keypress)="LetterOnly($event)" >
                         </div>
                         <div class="row">
                             <label for="card-validity" class="col-form-label">תוקף:</label>
-                            <input class="form-control" id="card-validity" type="date"  formControlName="cardValidity" required   >
+                            <input class="form-control" id="card-validity" type="date"  formControlName="Validity" required   >
                         </div>
                         <div class="row">
                             <label for="cardNum" class="col-form-label">מספר
                                 כרטיס:</label>
-                            <input class="form-control" formControlName="cardNum"  id="cardNum" required (keypress)="numberOnly($event)">
+                            <input class="form-control" formControlName="Number"  id="Number" required (keypress)="numberOnly($event)">
                         </div>
                         <div class="row">
                             <label for="CVV" class="col-form-label">CVV:</label>
@@ -34,7 +33,7 @@
                         </div>
                         <div class="row">
                             <label for="id" class="col-form-label">תז בעל הכרטיס:</label>
-                            <input class="form-control" id="id" formControlName="id" (keypress)="numberOnly($event)">
+                            <input class="form-control" id="id" formControlName="idOwners" (keypress)="numberOnly($event)">
                         </div>
                     </div>
                 </form>
@@ -48,6 +47,6 @@
     </div>
 </div>
 <div>
-    <button type="button" class="btn btn-dark" data-toggle="modal"
+    <button type="button" class="form-control btn btn-dark" data-toggle="modal"
         data-target="#exampleModal" data-whatever="@mdo">פרטי אשראי</button>
 </div>

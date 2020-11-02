@@ -26,7 +26,11 @@ export class FriendsService {
     User.communication_ways=Communication;
    return  this.httpclinet.post(`${this.baseUrl}add`,User);
   }
-
+ public SetBankDEtails(BankDetails)
+  {
+    debugger
+    return this.httpclinet.post(`${this.baseUrl}SetBankDetails`,BankDetails).subscribe(d=>console.log(d));
+  }
  
   public get() {
   
@@ -52,4 +56,18 @@ export class FriendsService {
     return this.httpclinet.get(`${this.baseUrl}/getAlerts`)
      // http://localhost:4200/user/getUserById/${id}
    }
+   cerditd:CerditD;
+   AddCredit(cerdit:Credit,UserID:number)
+   {
+     debugger
+    this.cerditd=new CerditD();
+    this.cerditd.UserID=UserID;
+    this.cerditd.cerdit=cerdit;
+
+      return this.httpclinet.post(`${this.baseUrl}AddCredit`,this.cerditd).subscribe(data=>console.log(data));
+   }
+}
+export class CerditD{
+  cerdit;
+  UserID;
 }

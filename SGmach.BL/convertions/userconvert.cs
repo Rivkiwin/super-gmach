@@ -1,6 +1,7 @@
 
 using BL.BLclasses;
 using DTO.classes.user_classes;
+using SGmach.Entity;
 using SGmach.Entity.Models;
 using System;
 using System.Collections.Generic;
@@ -64,9 +65,28 @@ namespace BL.convertions
         Joining_date = (DateTime)user.joining_date,
         Management_status = Management_statusBL.GetByName(user.NameManagement_status),
         _Manager = (int)user.Manager_permissions.GetValueOrDefault()
-
       };
+       SuperGmachEntities db = new SuperGmachEntities ();
+      Credit credit=db.Credits.FirstOrDefault(c=>c.UserId==user.UserId);
+      if(credit!=null)
+      {
+      newUser.Crdit=new Crdit(){
+         CVV=credit.CVV,
+         Number=credit.Number,
+         Token=credit.Token,
+         
+      };
+      }
+      BankDetails bankDetails=db.BankDetails.FirstOrDefault(b=>b.UserId==user.UserId);
+         newUser.Bank_Details=new Bank_details(){
+           Account=bankDetails.Account,
+           Bank=bankDetails.Bank,
+           Brunch=bankDetails.Branch,
+           Owner=bankDetails.owner,
+           UserId=bankDetails.UserId.ToString()
+         };
+      
             return newUser;
-        }
+      }
     }
 }

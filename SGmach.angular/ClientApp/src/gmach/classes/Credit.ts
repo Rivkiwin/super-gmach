@@ -1,9 +1,9 @@
 export class Credit{
-    Num_Credit;
-    Cvv;
-    OwnerId
-    Owner;
-    Token;
-    Expdate;
+    number;
+    cvv;
+    idOwners
+    owner;
+    token;
+    validity;
     
 }
