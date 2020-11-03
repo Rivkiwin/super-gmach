@@ -50,7 +50,7 @@ export class FriendsDetailsComponent implements OnInit {
         console.log(this.friend);
         console.log(this.friend.first_name);
         this.formFriend = new FormGroup({
-          Id_user: new FormControl(this.friend.id_user),
+          Id_user: new FormControl({value: this.friend.id_user, disabled: true}),
           First_name: new FormControl(this.friend.first_name),
           Last_name: new FormControl(this.friend.last_name),
           NameManagement_status: new FormControl(this.friend.management_status.id),
@@ -85,7 +85,7 @@ export class FriendsDetailsComponent implements OnInit {
       var new_friend = <Friend>this.formFriend.value;
       debugger
       new_friend.bank_Details = new BankDetails();
-      this.userId = <Number>this.formFriend.get('Id_user').value;
+      // this.userId = <Number>this.formFriend.get('Id_user').value;
       new_friend.id_user = this.userId;
       var Communication=<Communication>this.FCommunication_ways.value;
       new_friend.communication_ways=Communication;

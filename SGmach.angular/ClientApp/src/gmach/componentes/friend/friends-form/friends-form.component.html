@@ -3,7 +3,8 @@
     <strong>Success!</strong> {{message}}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
-<div class="Form-wrapper">
+<div class="Form-wrapper Detalis-wrapper">
+    <h3>הוספת חבר</h3>
     <div class="alert alert-danger invalidPattern" role="alert"
         *ngIf="!LetterinValid">
         {{messageLetterinValid}}
@@ -26,7 +27,7 @@
             <div class="col">
                 <label for="fname">שם האב</label>
                 <input type="text" class="form-control"
-                formControlName="father_name" placeholder="הכנס שם"
+                    formControlName="father_name" placeholder="הכנס שם"
                     id="father_name"
                     (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
@@ -36,14 +37,6 @@
                     formControlName="Last_name" placeholder="שם משפחה"
                     id="lname" (keypress)="LetterinValid=LetterOnly($event)"
                     required>
-            </div>
-            <div class="col">
-                <label class="form-check-label" for="vipCheck" >
-                    חבר
-                </label>
-                <input class="form-check-input" type="checkbox"
-                    formControlName="friend" value="true" id="vipCheck"
-                    value="true">
             </div>
         </div>
         <div class="row">
@@ -56,7 +49,8 @@
             </div>
             <div class="col">
                 <label> מצב אישי</label>
-                <select class="selectpicker form-control" formControlName="MaritalStatus"
+                <select class="selectpicker form-control"
+                    formControlName="MaritalStatus"
                     data-live-search="true">
                     <option>נשוי</option>
                     <option>רווק</option>
@@ -64,25 +58,38 @@
             </div>
             <div class="col">
                 <label>סטטוס חבר</label>
-                <select class="selectpicker form-control" formControlName="NameManagement_status" data-live-search="true" >
+                <select class="selectpicker form-control"
+                    formControlName="NameManagement_status"
+                    data-live-search="true">
                     <option value="Proper">תקין</option>
                     <option value="Invalid">לא תקין</option>
                     <option value="Unauthorized">לא מאושר</option>
                     <option value="Approved">מאושר</option>
                 </select>
                 <div *ngIf="BadStatuse()">
-                <label>סיבת הסטטוס</label>
-                <input class="form-control" type="text" formControlName="Status_reason">
+                    <label>סיבת הסטטוס</label>
+                    <input class="form-control" type="text"
+                        formControlName="Status_reason">
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col">
-                <label class="form-check-label" for="vipCheck">
+                <label class="form-check-label" for="vipCheck" >
                     VIP
                 </label>
                 <input class="form-check-input" type="checkbox"
                     formControlName="VIP" value="true" id="vipCheck"
                     value="true">
-            </div>
+                </div>
+                <div class="col">
+                    <label class="form-check-label" for="vipCheck" data-toggle="tooltip" data-placement="left" title="משלם הוק 50 שקלים">
+                        חבר
+                    </label>
+                    <input class="form-check-input" type="checkbox"
+                        formControlName="friend" value="true" id="vipCheck"
+                        value="true">
+                </div>
         </div>
         <div class="dropdown-divider"></div>
         <form [formGroup]="FCommunication_ways" class="needs-validation"
@@ -90,13 +97,15 @@
             <div class="row">
                 <div class="col">
                     <label>טל 1</label>
-                    <input  type="tel" class="form-control" placeholder="טל 1" id="p1"
+                    <input type="tel" class="form-control" placeholder="טל 1"
+                        id="p1"
                         formControlName="Phon1" minlength="9" maxlength="10"
                         (keypress)="NumberinValid=NumberOnly($event)" required>
                 </div>
                 <div class="col">
                     <label>טל 2</label>
-                    <input  type="tel" class="form-control" placeholder="טל 2" id="p2"
+                    <input type="tel" class="form-control" placeholder="טל 2"
+                        id="p2"
                         formControlName="Phon2" minlength="9" maxlength="10"
                         (keypress)="NumberinValid=NumberOnly($event)">
                 </div>
@@ -154,7 +163,11 @@
                     formControlName="Remarks"></textarea>
             </div>
         </div>
-            <a (click)="Add($event)" id="BAdd" class="col">
-                <app-message-add [Message]="message | json" ></app-message-add></a>
+        <div class="row">
+            <div class="col">
+                <a (click)="Add($event)" id="BAdd" class="col">
+                    <app-message-add [Message]="message | json"></app-message-add></a>
+            </div>
+        </div>
     </form>
 </div>

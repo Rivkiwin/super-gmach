@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
 namespace API.Controllers {
+
   [Route ("api/User")]
   [EnableCors ()]
   public class UsersController : ControllerBase {
@@ -30,7 +31,6 @@ namespace API.Controllers {
       return UserBL.AddnewUser (user);
 
     }
-
     [HttpGet]
     [Route ("get")]
     public ActionResult GetUsers () {

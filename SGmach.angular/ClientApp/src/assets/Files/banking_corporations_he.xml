@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BANKS xmlns:ns0="BOI_banking_corporations_he">
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>13</Bank_Code>
+  <Bank_Name>13001-בנק אגוד לישראל בע&quot;מ</Bank_Name>
+  <Internet_Address>www.unionbank.co.il</Internet_Address>
+  <Swift_Code>UNBKILITXXX</Swift_Code>
+  <Address>אחוזת בית 6-8, ת&quot;ד 2428, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6102401</Zip_Code>
+  <Telephone>03-5191111</Telephone>
+  <Fax>03-5191274</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>11</Bank_Code>
+  <Bank_Name>בנק דיסקונט לישראל בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.discountbank.co.il</Internet_Address>
+  <Swift_Code>IDBLILITXXX</Swift_Code>
+  <Address>מגדל דיסקונט, יהודה הלוי 23, ת&quot;ד 456, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6513601</Zip_Code>
+  <Telephone>03-5145555</Telephone>
+  <Fax>03-5153263</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>31</Bank_Code>
+  <Bank_Name>בנק הבינלאומי הראשון לישראל בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.fibi.co.il</Internet_Address>
+  <Swift_Code>FIRBILITXXX</Swift_Code>
+  <Address>שד&apos; רוטשילד 42, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6688310</Zip_Code>
+  <Telephone>03-5196111</Telephone>
+  <Fax>03-5100316</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>12</Bank_Code>
+  <Bank_Name>בנק הפועלים בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.bankhapoalim.co.il</Internet_Address>
+  <Swift_Code>POALILITXXX</Swift_Code>
+  <Address>שד&apos; רוטשילד 50, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6688314</Zip_Code>
+  <Telephone>03-5673333</Telephone>
+  <Fax>03-5607028</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>4</Bank_Code>
+  <Bank_Name>בנק יהב לעובדי המדינה בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.bank-yahav.co.il</Internet_Address>
+  <Swift_Code>BYAHILI1XXX</Swift_Code>
+  <Address>ירמיהו 80, ת&quot;ד 36333, ירושלים</Address>
+  <City>ירושלים</City>
+  <Zip_Code>9446759</Zip_Code>
+  <Telephone>02-5009911</Telephone>
+  <Fax>02-5010091</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>54</Bank_Code>
+  <Bank_Name>בנק ירושלים בע&quot;מ</Bank_Name>
+  <Internet_Address>www.bankjerusalem.co.il</Internet_Address>
+  <Swift_Code>JERSILITXXX</Swift_Code>
+  <Address>הנגב 2 קרית תעופה</Address>
+  <City>אזור רמלה של&quot;ש</City>
+  <Zip_Code>7019900</Zip_Code>
+  <Telephone>076-8096001</Telephone>
+  <Fax>076-8096008</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>10</Bank_Code>
+  <Bank_Name>בנק לאומי לישראל בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.bankleumi.co.il</Internet_Address>
+  <Swift_Code>LUMIILITXXX</Swift_Code>
+  <Address>יהודה הלוי 24-32, ת&quot;ד 2, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6100001</Zip_Code>
+  <Telephone>076-8858111</Telephone>
+  <Fax>076-8858360</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>20</Bank_Code>
+  <Bank_Name>בנק מזרחי טפחות בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.mizrahi-tefahot</Internet_Address>
+  <Swift_Code>MIZBILITXXX</Swift_Code>
+  <Address>ז&apos;בוטינסקי 7, רמת גן</Address>
+  <City>רמת גן</City>
+  <Zip_Code>5252007</Zip_Code>
+  <Telephone>03-7559000</Telephone>
+  <Fax>03-7559913</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>46</Bank_Code>
+  <Bank_Name>בנק מסד בע&quot;מ</Bank_Name>
+  <Internet_Address>http://www.bankmassad.co.il</Internet_Address>
+  <Swift_Code>MASBILITXXX</Swift_Code>
+  <Address>אבא הילל 12 רמת גן</Address>
+  <City>רמת גן</City>
+  <Zip_Code>5250606</Zip_Code>
+  <Telephone>03-5641333</Telephone>
+  <Fax>03-5602384</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>17</Bank_Code>
+  <Bank_Name>בנק מרכנתיל דיסקונט בע&quot;מ</Bank_Name>
+  <Internet_Address>www.mercantile.co.il</Internet_Address>
+  <Swift_Code>BARTILTXXX</Swift_Code>
+  <Address>Menachem Begin</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6701201</Zip_Code>
+  <Telephone>076-8044530</Telephone>
+  <Fax>076-8044985</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקים רגילים</Category>
+  <Bank_Code>18</Bank_Code>
+  <Bank_Name>הבנק הדיגיטלי הראשון (בהקמה) בע&quot;מ</Bank_Name>
+  <Internet_Address/>
+  <Swift_Code/>
+  <Address/>
+  <City>תל אביב -יפו</City>
+  <Zip_Code/>
+  <Telephone/>
+  <Fax/>
+ </BANK>
+ <BANK>
+  <Category>חברות שרותים משותפות</Category>
+  <Bank_Code>50</Bank_Code>
+  <Bank_Name>מרכז סליקה בנקאי בע&quot;מ</Bank_Name>
+  <Internet_Address/>
+  <Swift_Code/>
+  <Address/>
+  <City>חולון</City>
+  <Zip_Code>58858</Zip_Code>
+  <Telephone>03-5111555</Telephone>
+  <Fax>03-5101760</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקי חוץ</Category>
+  <Bank_Code>27</Bank_Code>
+  <Bank_Name>Barclays Bank PLC</Bank_Name>
+  <Internet_Address/>
+  <Swift_Code>BARCGB22</Swift_Code>
+  <Address>רחוב הארבעה 21 בנין פלטינום, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>64739</Zip_Code>
+  <Telephone>03-6238600</Telephone>
+  <Fax>03-6238666</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקי חוץ</Category>
+  <Bank_Code>22</Bank_Code>
+  <Bank_Name>Citibank N.A</Bank_Name>
+  <Internet_Address>www.citibank.com</Internet_Address>
+  <Swift_Code>CITIILITXXX</Swift_Code>
+  <Address>דרך מנחם בגין 121, מגדל עזריאלי שרונה, תל אביב</Address>
+  <City>תל אביב -יפו</City>
+  <Zip_Code>6701203</Zip_Code>
+  <Telephone>03-6842424</Telephone>
+  <Fax>03-6842401</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקי חוץ</Category>
+  <Bank_Code>39</Bank_Code>
+  <Bank_Name>SBI State Bank of India</Bank_Name>
+  <Internet_Address/>
+  <Swift_Code>SBINILITXXX</Swift_Code>
+  <Address>זבוטינסקי 3 ר&quot;ג בורסת היהלומים בנין שמשון</Address>
+  <City>רמת גן</City>
+  <Zip_Code>52520</Zip_Code>
+  <Telephone>03-7565404</Telephone>
+  <Fax>03-6005377</Fax>
+ </BANK>
+ <BANK>
+  <Category>בנקי חוץ</Category>
+  <Bank_Code>23</Bank_Code>
+  <Bank_Name>אייצ&apos; אס בי סי בנק</Bank_Name>
+  <Internet_Address>http://home.global.hsbc/</Internet_Address>
+  <Swift_Code>hsbcilit</Swift_Code>
+  <Address>בית אמות אטריום</Address>
+  <City>רמת גן</City>
+  <Zip_Code>52505</Zip_Code>
+  <Telephone>03-7101100</Telephone>
+  <Fax>03-7101130</Fax>
+ </BANK>
+</BANKS>
+
+
