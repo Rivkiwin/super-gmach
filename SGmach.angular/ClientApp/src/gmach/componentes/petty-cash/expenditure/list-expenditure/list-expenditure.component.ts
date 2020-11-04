@@ -18,20 +18,19 @@ export class ListExpenditureComponent implements OnInit {
   defaultColDef = {
     resizable: true,
     sortable: true,
-    editable: true,
   };
 
     columnDefs= [{
-      headerName: 'מזהה', field: 'id', maxWidth: "80", minWidth: "80", sortable: true,
+      headerName: 'מזהה', field: 'id', maxWidth: "80", minWidth: "80",
       cellRenderer: function (params) {
-        return `<a href='/patty_cash/details/${params.data.id}'> ${params.data.id}</a>`
+        return `<a href='/patty_cash/Expenditure/${params.data.id}'> ${params.data.id}</a>`
       }
     },
-    { headerName: 'סטטוס', field: 'status', maxWidth: "90", minWidth: "90", sortable: true},
-    { headerName: 'מטרה', field: 'purpose', sortable: true },
+    { headerName: 'סטטוס', field: 'status', maxWidth: "90", minWidth: "90"},
+    { headerName: 'מטרה', field: 'purpose' },
     { headerName: 'סכום', field: 'amount' },
-    { headerName: 'מקבל', field: 'Receives', sortable: true },
-    { headerName: 'תאריך ביצוע', field: 'Date', sortable: true }
+    { headerName: 'מקבל', field: 'Receives' },
+    { headerName: 'תאריך ביצוע', field: 'Date' }
     ]
   
   rowData = [];
@@ -61,11 +60,11 @@ export class ListExpenditureComponent implements OnInit {
       var  date=ex.date;
         return {
           id: ex.id, 
-          //  status: ex.status.description,
+           status:ex.status?ex.status.description:null,
            purpose: ex.purpose,
           amount: ex.amount, 
           Receives: ex.receives,       
-          Date: this.datepipe.transform(date,'dd/mm/yyyy')
+          Date: this.datepipe.transform(date,'dd/MM/yyyy')
         }
       })
     // this.grid.refresh();

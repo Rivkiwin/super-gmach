@@ -13,11 +13,11 @@ public class StatusConvert
   {
     static public StatusDTO DALtoDTO(Status status)
     {
-      return new StatusDTO() {Name=status.NameStatus,Description=status.Description};
+      return new StatusDTO() {NameStatus=status.NameStatus,Description=status.Description};
     }
     static public Status DTOtoDaL(StatusDTO status)
     {
-      return new Status() {NameStatus=status.Name,Description=status.Description};
+      return new Status() {NameStatus=status.NameStatus,Description=status.Description};
     }
   }
 }

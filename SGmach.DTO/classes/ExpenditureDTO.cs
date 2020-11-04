@@ -14,7 +14,9 @@ namespace DTO.classes
     public string Purpose { get; set; }
     public string Way_of_payment { get; set; }
     public string Receives { get; set; }
-    public string Status { get; set; }
+    public string NameStatus { get; set; }
+    
+    public StatusDTO  Status { get; set; }
 
     public ExpenditureDTO() { }
 

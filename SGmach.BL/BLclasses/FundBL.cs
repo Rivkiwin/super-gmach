@@ -106,13 +106,13 @@ namespace BI.BLclasses
       var Today = DateTime.Today;
       if (idFund == "1")
       {
-        expenditures = Sgmach.Expenditure.Where(e => e.Date < FutureDate && e.Date > Today && e.NameStatus!="canceled").ToList();
+        expenditures = Sgmach.Expenditure.Where(e => e.Date < FutureDate  && e.NameStatus=="future" ).ToList();
         incomes = Sgmach.Incoms.Where(i => i.Date < FutureDate && i.Date > Today).ToList();
         // loans = Sgmach.Loans.Where(l => (FutureDate > l. && l.date_start > Today)).ToList();
-        repayments = Sgmach.Repayments.Where(r => FutureDate > r.Date && r.Date > Today).ToList();
+        repayments = Sgmach.Repayments.Where(r => FutureDate > r.Date && r.Date > Today && r.NameStatus!="performed").ToList();
       }
       withdrawings = Sgmach.Withdrawing.Where(w => w.FundId == idFund
-      && 0 > DateTime.Compare(FutureDate, (DateTime)w.Date)).ToList();
+      && w.Date< FutureDate && w.NameStatus!="performed").ToList();
       foreach (Income income in incomes)
       {
         FuturIncomes += income.Amount;

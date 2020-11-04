@@ -8,15 +8,8 @@ namespace DTO.classes
 {
   public class StatusDTO
   {
-    public int id { get; set; }
-    public string Name { get; set; }
+    public string NameStatus { get; set; }
     public string Description { get; set; }
     public StatusDTO() { }
-
-    public StatusDTO(string name, string description)
-    {
-      Name = name;
-      Description = description;
-    }
   }    
 }

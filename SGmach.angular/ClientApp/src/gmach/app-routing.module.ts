@@ -83,7 +83,7 @@ const routes: Routes = [
     path: "patty_cash",
     component: PettyCashComponent,
     children: [{
-      path: "Expenditure",
+      path: "Expenditure/:id",
       component: ExpenditureComponent
     },
     {

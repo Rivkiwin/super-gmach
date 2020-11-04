@@ -1,4 +1,5 @@
 
+using BI.BLclasses;
 using DTO.classes;
 using SGmach.Entity.Models;
 using System;
@@ -20,9 +21,11 @@ namespace BI.convertions
         Date = (DateTime)expenditure.Date,
         Purpose = expenditure.Purpose,
         Receives = expenditure.Receives,
+        NameStatus=expenditure.NameStatus,
         Way_of_payment = expenditure.Way_of_payment,
-        Status=expenditure.NameStatus
-      };
+       Status=expenditure.NameStatus!=null?StatusBL.GetByName(expenditure.NameStatus):null
+               };
+     
       return expenditureNew;
     }
     public static Expenditure TDOtoDAL(ExpenditureDTO expenditure)
@@ -33,7 +36,7 @@ namespace BI.convertions
         Date = expenditure.Date,
         Receives = expenditure.Receives,
         Way_of_payment = expenditure.Way_of_payment,
-        NameStatus = expenditure.Status
+        NameStatus = expenditure.NameStatus
       };
     }
   }

@@ -37,7 +37,7 @@ namespace BI.BLclasses
           Expenditure e = ExpenditureConvert.TDOtoDAL(Expenditure);
           db.Expenditure.Add(e);
           //fundId 1 is for the main fund
-          if (Expenditure.Status == "performed")
+          if (Expenditure.NameStatus == "performed")
           {
             FundBL.Subtract_Balance(Expenditure.Amount, "1");
           }
@@ -78,25 +78,26 @@ namespace BI.BLclasses
           if (update_expenditure != null)
           {
             update_expenditure.Amount = expenditure.Amount;
+            update_expenditure.Date=expenditure.Date;
             //update_expenditure.future_date = expenditure.future_date;
             update_expenditure.Purpose = expenditure.Purpose;
             update_expenditure.Receives = expenditure.Receives;
             ///chack if its became performed
-            if (expenditure.Status != update_expenditure.NameStatus)
+            if (expenditure.NameStatus != update_expenditure.NameStatus)
             {
-              if (expenditure.Status == "performed")
+              if (expenditure.NameStatus == "performed")
               {
                 FundBL.Subtract_Balance(expenditure.Amount);
               }
               else
               {
                 ///check if it was performed and change to canceled 
-                if (expenditure.Status =="canceled" && update_expenditure.NameStatus=="performed")
+                if (expenditure.NameStatus =="canceled" && update_expenditure.NameStatus=="performed")
                 {
                   FundBL.AddBalance(expenditure.Amount);
                 }
               }
-              update_expenditure.NameStatus =expenditure.Status;
+              update_expenditure.NameStatus =expenditure.NameStatus;
             }
             db.SaveChanges();
           }

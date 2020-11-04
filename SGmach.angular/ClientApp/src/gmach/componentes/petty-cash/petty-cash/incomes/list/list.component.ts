@@ -19,7 +19,6 @@ export class ListComponent implements OnInit {
   defaultColDef = {
     resizable: true,
     sortable: true,
-    editable: true,
   };
 
     columnDefs= [{

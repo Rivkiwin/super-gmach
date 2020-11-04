@@ -51,15 +51,15 @@ namespace API.Controllers
 
     }
     [HttpGet]
-    [Route("getListGetexpenditure/{id}")]
+    [Route("GetById/{id}")]
     public ExpenditureDTO GetexpenditureById([FromRoute] int id)
     {
       return ExpenditureBL.GetByID(id);
     }
 
     [HttpPost]
-    [Route("updateExpenditure")]
-    public  ActionResult UpdateExpenditure([FromBody]ExpenditureDTO ex)
+    [Route("Edite")]
+    public  ActionResult<ExpenditureDTO> UpdateExpenditure([FromBody]ExpenditureDTO ex)
     {
       try
       {

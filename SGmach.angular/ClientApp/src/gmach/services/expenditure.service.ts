@@ -17,6 +17,11 @@ export class ExpenditureService {
     this.baseUrl=`${apiUrl}api/Expenditure`;
 
   }
+  Edite(expenditure: Expenditure)
+  {
+    return this.http.post(`${this.baseUrl}/Edite`, expenditure);
+
+  }
    add(expenditure: Expenditure) {
          debugger
    return this.http.post(`${this.baseUrl}/AddExpenditure`, expenditure);
@@ -27,6 +32,10 @@ export class ExpenditureService {
     // http://localhost:4200/user/GetUsersList
   }
 
+  public GetById(id)
+  {
+    return this.http.get(`${this.baseUrl}/GetById/${id}`);
+  }
   public getAll_Future_expenditures() {
     // return this.list_Future_expenditures;
   }

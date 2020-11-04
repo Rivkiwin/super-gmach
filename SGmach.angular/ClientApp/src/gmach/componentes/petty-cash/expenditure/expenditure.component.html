@@ -1,8 +1,46 @@
-<p>expenditure works!</p>
-<!--     
-            <div>
-                <a class="btn btn-info "  routerLink="add_new_Expenditure" role="button">add new</a>
-                <a class="btn btn-info"  href="http://localhost:4200/patty_cash/Expenditure/view_Expenditure" role="button">view Expenditure</a>
-              </div>
-             -->
-  <router-outlet></router-outlet>
+<div class=Form-wrapper *ngIf="expenditure">
+  <h2> {{expenditure.id}}:פרטי הוצאה מספר </h2>
+  <form [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
+      <div class="row">
+          <div class="col">
+              <label>שולם</label>
+              <input type="checkbox" class="form-control"  formControlName="status">
+             
+          </div>
+          <div class="col" [hidden]="Contemporary_expenditure==false">
+              <label for="date">תאריך</label>
+              <input type="date" class="form-control"  formControlName="date">
+              <!-- formControlName="date" [(ngModel)]="myDate"> -->
+          </div>
+          <div class="col">
+              <label for="Expense amount">סכום הוצאה</label>
+              <input type="number" min="5" class="form-control"
+                  formControlName="Expense_amount" placeholder="הכנס סכום">
+          </div>
+          <div class="col">
+              <label for="Receives">עבור</label>
+              <input type="text" class="form-control"
+                  formControlName="Receives" placeholder="הכנס מוטב">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <label for="Purpose">מטרה</label>
+              <input type="text" class="form-control"
+                  formControlName="Purpose" placeholder="הכנס מטרה">
+          </div>
+          <div class="col" [hidden]="Contemporary_expenditure!=false">
+              <label for="exampleFormControlFile1">Payment Form</label>
+              <select class="selectpicker form-control"
+                  data-live-search="true">
+                  <option *ngFor="let p of keyPayment_Form()">{{p}}</option>
+              </select>
+          </div>
+      </div>
+      <div class="row">
+          <a (click)="Add($event)" id="BAdd" class="col">
+              <app-message-add [Message]="message | json"></app-message-add></a>
+      </div>
+  </form>
+
+</div>

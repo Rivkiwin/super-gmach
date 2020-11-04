@@ -25,13 +25,13 @@ namespace BI.BLclasses
       return list;
     }
 
-    public static StatusDTO GetById(int id)
+    public static StatusDTO GetByName(string name)
     {
       SuperGmachEntities db = new SuperGmachEntities();
       {
-        foreach (Status status in db.Statuses)
+        var status=db.Statuses.FirstOrDefault(s=>s.NameStatus==name);
         {
-          //if ((int)status.id == id)
+          if (status!=null)
           {
             return StatusConvert.DALtoDTO(status);
           }
