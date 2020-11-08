@@ -37,7 +37,7 @@ namespace BI.BLclasses
       int amount= loan.Amount /loan.Months;
       for (int i = 1; i <= loan.Num_payments; i = ++i )
       {
-        Repayment repayment = new Repayment() { };
+        Repayments repayment = new Repayments() { };
 
         repayment.Amount = amount;
         if(i== loan.Num_payments)
@@ -126,7 +126,7 @@ namespace BI.BLclasses
       db Sgmach = new db();
       Loan loan= Sgmach.Loans.FirstOrDefault(l => l.LoanId == LoanId);
       LoanDTO loanDTO= LoanConvert.DALtoDTO(loan);
-      List<Repayment> Repayments = Sgmach.Repayments.Where(r => r.LoanId == LoanId).ToList();
+      List<Repayments> Repayments = Sgmach.Repayments.Where(r => r.LoanId == LoanId).ToList();
       foreach (var Repayment in Repayments)
       {
         loanDTO.Repayments.Add(RepaymentConvert.DALtoDTO(Repayment));
@@ -149,7 +149,7 @@ namespace BI.BLclasses
       {
         return 0;
       }
-      List<Repayment> repayments = SGmach.Repayments.Where(r => r.LoanId == loanId&&r.NameStatus=="future").ToList();
+      List<Repayments> repayments = SGmach.Repayments.Where(r => r.LoanId == loanId&&r.NameStatus=="future").ToList();
       foreach (var payment in repayments)
       {
         balance += payment.Amount;

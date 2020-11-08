@@ -1,3 +1,7 @@
+// .body{
+//     display: flex;
+//     align-items: flex-end;
+// }
 .ag-row .ag-cell {
     display: flex;
     justify-content: center; /* align horizontal */
@@ -13,3 +17,30 @@
   .ag-theme-alpine .ag-header-cell{
     background-color: #e0e0e0;
 }
+
+.ag-theme-alpine{
+    width:35%;
+    // margin-right: 100vw !important;
+    margin-top: 10vh;
+    height: 90vh;
+    min-width: 600px;
+    // margin-right: none !important;
+}
+    .alert-wrapper{
+        // margin-right: 100vw !important;
+        // direction: rtl;
+        width: 12vw !important;
+        margin-left: 60vw;
+        text-align: center;
+        float: left !important;
+        align-items: center;
+        background-color: #ffffffde;
+        position: absolute;
+        border-radius: .25rem;
+        border-color: #506265;
+        border: solid;
+        z-index: 10;
+      } 
+      .btn{
+          margin-left: 2px;
+      }

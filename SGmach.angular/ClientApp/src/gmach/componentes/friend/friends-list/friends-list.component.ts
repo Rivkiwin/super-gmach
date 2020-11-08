@@ -41,8 +41,8 @@ export class FriendsListComponent implements OnInit {
     {
       headerName: 'ניהול', field: 'managment',
       // tooltipValueGetter: (params) => params.data.tooltip,
-      valueGetter: function (params) {
-        return params.data.managment.name;
+      cellRenderer: function (params) {
+        return `<div  data-toggle="tooltip" data-placement="left" title="${params.data.status_reason}">${params.data.managment.name}<div>`;
       },
       cellStyle: function (params) {
         return { backgroundColor: params.data.managment.color };
@@ -82,7 +82,7 @@ export class FriendsListComponent implements OnInit {
       console.log(friend)
       return {
         managment: friend.management_status,
-        tooltip: "friend.Status_reason",
+        status_reason: friend.status_reason,
         friend: friend.friend ? 'V' : 'X',
         id: friend.id_user,
         name: `${friend.last_name} ${friend.first_name}`,
@@ -100,10 +100,10 @@ export class FriendsListComponent implements OnInit {
       this.Friends = <Friend[]>x; 
      this.addrowData();
     });
-    // this.friendsService.Alerts().subscribe(a=>{
-    //   this.alerts=<AlertsFriends[]>a;
-    //   console.log(a);
-    // })
+    this.friendsService.Alerts().subscribe(a=>{
+      this.alerts=<AlertsFriends[]>a;
+      console.log(a);
+    })
   }
   ExportExcel()
   {

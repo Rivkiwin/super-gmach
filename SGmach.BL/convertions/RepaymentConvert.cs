@@ -11,7 +11,7 @@ namespace BI.convertions
 {
   class RepaymentConvert
   {
-    public static RepaymentsDTO DALtoDTO(Repayment repayment)
+    public static RepaymentsDTO DALtoDTO(Repayments repayment)
     {
       RepaymentsDTO repaymentDTO = new RepaymentsDTO()
       {

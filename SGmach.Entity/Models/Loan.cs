@@ -18,6 +18,6 @@ namespace SGmach.Entity.Models
         public Management_status Management_Status { get; set; }
         public  int UserId { get; set; } 
         public User User { get; set; }
-        public List<Repayment> Repayments { get; }=new List<Repayment>();
+        public List<Repayments> Repayments { get; }=new List<Repayments>();
     }
 }

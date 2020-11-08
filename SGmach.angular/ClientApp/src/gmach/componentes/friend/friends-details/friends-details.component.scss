@@ -8,3 +8,15 @@
 .ag-theme-alpine [class^='ag-']{
     width: 123% !important;
 }
+ul{
+    direction: rtl;
+}
+
+li{
+    direction: rtl;
+}
+payheader{
+    display: flex;
+    justify-content: space-between;
+    direction: rtl;
+}

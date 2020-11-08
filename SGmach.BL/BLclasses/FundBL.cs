@@ -89,13 +89,15 @@ namespace BI.BLclasses
       }
 
     }
+
+    
     public static int GetFutureBalance(string idFund, DateTime FutureDate)
     {
       List<Expenditure> expenditures = new List<Expenditure>();
       List<Income> incomes = new List<Income>();
       List<withdrawing> withdrawings = new List<withdrawing>();
       //  List<Deposit> deposits = new List<Deposit>();
-      List<Repayment> repayments = new List<Repayment>();
+      List<Repayments> repayments = new List<Repayments>();
       List<Loan> loans = new List<Loan>();
       int FutureBalance = 0;
       int FuturIncomes = 0;
@@ -125,7 +127,7 @@ namespace BI.BLclasses
       {
         FutureWithdrawals += loan.Amount;
       }
-      foreach (Repayment repayment in repayments)
+      foreach (Repayments repayment in repayments)
       {
         FuturIncomes +=(int)repayment.Amount;
       }

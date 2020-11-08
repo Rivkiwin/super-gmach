@@ -50,10 +50,11 @@ body{
 // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23aeffe1'/%3E%3Cstop offset='1' stop-color='%23aeffe1' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231df4e2'/%3E%3Cstop offset='1' stop-color='%231df4e2' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23aff5ff'/%3E%3Cstop offset='1' stop-color='%23aff5ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2311ffc4'/%3E%3Cstop offset='1' stop-color='%2311ffc4' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300eaff'/%3E%3Cstop offset='1' stop-color='%2300eaff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
 // background-attachment: fixed;
 // background-size: cover;
+// direction: rtl;
 background-attachment: fixed !important;
      background-size: cover !important;
      
-     background-image: radial-gradient(circle at top right, #40ddee42, #40ddee70, #fafff478, #57fad86b, #57fad863 70%);}
+    background-image: radial-gradient(circle at top right, #40ddee42, #40ddee70, #FFF, #57fad86b, #57fad863 70%);}
         // conic-gradient(lime 40%, yellow 0 70%, red 0);
     // radial-gradient(circle closest-side, #57fad8e8, #40ddee7d);
 // }
@@ -126,14 +127,7 @@ a{
   span{
       width: 200px;
   }
-  .alert-wrapper{
-    width: 12vw !important;
-    margin-left: 71vw;
-    text-align: center;
-    align-items: center;
-    background-color: #ffffff99;
-    position: absolute;
-  } 
+
   .h-alert{
     color: #4a5f69;
   }

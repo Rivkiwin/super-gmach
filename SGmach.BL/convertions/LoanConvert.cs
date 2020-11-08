@@ -1,4 +1,5 @@
 
+using BL.BLclasses;
 using DTO.classes;
 using SGmach.Entity;
 using SGmach.Entity.Models;
@@ -51,6 +52,7 @@ namespace BI.convertions
         //payments = loan.payments,
         remark = loan.remark,
         Score = (int)loan.Score,
+        status=Management_statusBL.GetByName(loan.NameManagement_status),
         // BeginningRepayment = loan.BeginningRepayment,
         EntryDate = loan.EnteryDate,
          id_loan=loan.LoanId,

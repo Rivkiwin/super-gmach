@@ -89,13 +89,23 @@
           <input class="form-control" formControlName="Num_street" type="number" (keypress)="NumberinValid=NumberOnly($event)"required>
       </div>
   </div>
-</form>
   <div class="dropdown-divider"></div>
-      <div class="col">
-          <label for="Remarkscontrol">הערות</label>
-          <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
-      </div>
-  <div class="row">
+  <div class="col">
+      <label for="Remarkscontrol">הערות</label>
+      <textarea class="form-control" id="Remarkscontrol" rows="1" formControlName="Remarks"></textarea>
+  </div>
+</form>
+<div class="dropdown-divider"></div>
+<div class=" float-right row ;">
+<ul>
+<li *ngFor="let pay of friend.payThisMonth" class="col">
+    <div >{{pay}}</div>
+</li>
+</ul>
+<div   class="payheader float-right ">:תשלום לחודש זה</div>
+</div>
+<div class="dropdown-divider w-100"></div>
+<div class="row">
     <div class="col">
         <CreditDetails [credit]="friend.crdit" [UserID]="friend.id_user"></CreditDetails></div>
         <div class="col">  <app-bank-details [BankDetails]="friend.bank_Details"></app-bank-details></div>

@@ -52,13 +52,13 @@ import { LoanService } from 'src/gmach/services/loan.service';
       // NewLoan.guarantee_1 = this.Load.get('guarantee_1').value;
       NewLoan.month = this.Load.get('month').value;
       NewLoan.id_user = this.idUser;
-      NewLoan.EntryDate=new Date();
+      NewLoan.entryDate=new Date();
       NewLoan.score=0;
-      NewLoan.NumRepayment=this.Load.get('payments').value
+      NewLoan.numRepayment=this.Load.get('payments').value
       // NewLoan.BeginningRepayment= this.Load.get('month').value;
       NewLoan.loan_status = this.Load.get('loan_status').value;
       NewLoan.paid = false;
-      NewLoan.UserName=null;
+      NewLoan.userName=null;
       NewLoan.remark = this.Load.get('remark').value;
       console.log(NewLoan);
       this.loanS.Add(NewLoan).subscribe(

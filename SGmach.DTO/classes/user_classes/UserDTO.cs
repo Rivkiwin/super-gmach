@@ -15,6 +15,7 @@ namespace DTO.classes.user_classes
     
     //   public static int cnt = 0;
 
+public List<string> payThisMonth { get; set; }=new List<string>();
     public int Id { get; set; }
     public string MaritalStatus { get; set; }
 

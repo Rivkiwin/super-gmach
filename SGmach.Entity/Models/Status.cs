@@ -21,7 +21,7 @@ namespace SGmach.Entity.Models
        public string Description { get; set; }
        public List<Expenditure> Expenditures { get;}=new List<Expenditure>();
        public List<Income> Incomes { get;}=new List<Income>();
-       public List<Repayment> Repayments { get; }=new List<Repayment>();
+       public List<Repayments> Repayments { get; }=new List<Repayments>();
        public List<withdrawing> Withdrawings { get;}=new List<withdrawing>();
        public List<User> Users { get;}=new List<User>();
     }

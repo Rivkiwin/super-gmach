@@ -16,6 +16,8 @@ namespace DTO.classes
     public int Score { get; set; }
     public DateTime date_start { get; set; }
     public string loan_status { get; set; }
+
+    public Management_statusDTO status { get; set; }
     //public int management_status { get; set; }
     //public Management_statusDTO management_Status { get; set; }
     public string remark { get; set; }

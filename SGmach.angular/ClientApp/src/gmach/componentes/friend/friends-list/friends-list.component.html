@@ -1,5 +1,6 @@
 
-<aside class="alert-wrapper overflow-auto p-3 " style="max-height: 500px;">
+<div class="body">
+<aside class="alert-wrapper overflow-auto p-3  collapse " style="max-height: 500px;" id="alerts">
     <h3 class="h-alert">התראות</h3>
     <div *ngFor="let alert of alerts" class="alert alert-warning" role="alert">
         <div>{{alert.Alret}}</div>
@@ -13,8 +14,11 @@
 </aside>
 <form class="form-inline px-2  float-right search">
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
-    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" />
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
 <button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
+<button class=" btn btn-dark" type="button" data-toggle="collapse" data-target="#alerts" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+התראות
+</button>
 </form>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
                  [defaultColDef]="defaultColDef"
@@ -26,3 +30,4 @@
                  style=" justify-content: center"
                  style="height: 500px;">
 </ag-grid-angular>
+</div>

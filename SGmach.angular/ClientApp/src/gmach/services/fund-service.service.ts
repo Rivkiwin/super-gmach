@@ -14,9 +14,9 @@ baseUrl;
   constructor(private httpc:HttpClient, @Inject('API_URL') apiUrl: string) {
     this.baseUrl=`${apiUrl}api/Fund`;
   }
-  public add(fund:FundClass):void
+  public add(fund:FundClass)
   {
-    // this.funnd.push(fund);
+     return this.httpc.post(`${this.baseUrl}/add`,fund);
   }
   public get_all()
   {

@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
  import {StatusE} from "src/gmach/classes/fund-class";
 import {FundServiceService} from "src/gmach/services/fund-service.service";
+import { validation } from 'src/ts/Validation';
 
 @Component({
   selector: 'app-fund-form',
@@ -12,6 +13,7 @@ import {FundServiceService} from "src/gmach/services/fund-service.service";
 })
 export class FundFormComponent implements OnInit {
   public Form_new_fund:FormGroup;
+  message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.addFund()" };
   statusE=StatusE;
   public keyStatusFund():Array<string>
   {
@@ -30,8 +32,28 @@ export class FundFormComponent implements OnInit {
     })
 
 }
- addFund():void
+ addFund(event):void
     {
-      this.fundServic.add(this.Form_new_fund.value);
+      if(event.target.id!="Add-B")
+      {
+        return
+      }
+      validation()
+
+      this.fundServic.add(this.Form_new_fund.value).subscribe(
+        {
+          next: data => {
+            debugger
+            this.message.title = "הקרן נוספה בהצלחה";
+            this.message.body = "למעבר לפרטי הקרן לחץ אישור ";
+            this.message.href = "friends/detalis/"+data;
+          },
+          error: error =>{
+            this.message.title = "יש תקלה בהוספה";
+            this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
+            this.message.href = "#";
+          }
+        });
+
     }
 }

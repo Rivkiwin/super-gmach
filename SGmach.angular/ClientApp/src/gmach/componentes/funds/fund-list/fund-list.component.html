@@ -14,21 +14,21 @@
     <thead>
       <tr >
         <th scope="col" >#</th>
-        <th scope="col">name</th>
-        <th scope="col">status</th>
-        <th scope="col">num frinds</th>
-        <th scope="col">balance</th>
-        <th scope="col"> more details</th>
+        <th scope="col">שם</th>
+        <th scope="col">סטטוס</th>
+        <th scope="col">מספר חברים</th>
+        <th scope="col">יתרה</th>
+        <th scope="col">פרטים נוספים</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let fund of fund_list |filter:name|filterStatus:status let i = index" >
         <th scope="row">{{i+1}}</th>
         <td><a class="link-dark" routerLink="/FundDetails/{{fund.id}}">{{fund.fund_name}}</a></td> 
-        <td >{{fund.status}}</td>
-        <td>{{fund.nun_friends}}</td>
+        <td >{{fund.status}}פעיל</td>
+        <td>{{fund.nun_friends}}6 </td>
         <td>{{fund.balance}}</td>
-        <td>{{fund.details}}</td>     
+        <td>{{fund.details}}גמ"ח ראשי</td>     
  <td></td>
          
       </tr>

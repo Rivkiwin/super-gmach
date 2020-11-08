@@ -47,6 +47,7 @@ export class FriendsDetailsComponent implements OnInit {
     this.activeRouter.paramMap.subscribe(res => (this.friendsService.GetById(res.get('id')).subscribe(
       f => {
         this.friend = <Friend>f;
+        // this.friend.payThisMonth=this.friend.payThisMonth.trim('@',"+ '</br>'+");
         console.log(this.friend);
         console.log(this.friend.first_name);
         this.formFriend = new FormGroup({
@@ -84,9 +85,10 @@ export class FriendsDetailsComponent implements OnInit {
 
       var new_friend = <Friend>this.formFriend.value;
       debugger
-      new_friend.bank_Details = new BankDetails();
+      // new_friend.bank_Details = new BankDetails();
       // this.userId = <Number>this.formFriend.get('Id_user').value;
-      new_friend.id_user = this.userId;
+      debugger
+      new_friend.id_user = this.friend.id_user;
       var Communication=<Communication>this.FCommunication_ways.value;
       new_friend.communication_ways=Communication;
       // this.message = JSON.stringify(this.FriendService.add(new_friend,Communication));

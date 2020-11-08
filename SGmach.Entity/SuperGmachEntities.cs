@@ -12,7 +12,7 @@ namespace SGmach.Entity
                 public DbSet<BankDetails> BankDetails { get; set; }
         public DbSet<Income> Incoms { get; set; }
         public DbSet<Loan> Loans { get; set; }
-        public DbSet<Repayment> Repayments { get; set; }
+        public DbSet<Repayments> Repayments { get; set; }
         public DbSet<Expenditure> Expenditure { get; set; }
         public DbSet<Fund> Funds { get; set; }
         public DbSet<Management_status> ManagementStatuses { get; set; }
