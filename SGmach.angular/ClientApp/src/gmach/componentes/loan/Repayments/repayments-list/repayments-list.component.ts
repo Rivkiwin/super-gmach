@@ -88,7 +88,7 @@ export class RepaymentsListComponent implements OnInit {
         סכום:repayment.amount,
         הלוואה:repayment.loanID,
         שם_לווה:repayment.userName,
-       סטטוס:repayment.status.name,
+      //  סטטוס:repayment.status.name,
         תאריך:this.datepipe.transform(repayment.date, 'yyyy-MM-dd'),
       }
       

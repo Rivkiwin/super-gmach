@@ -22,6 +22,16 @@ namespace SGmach.BL.BLclasses {
             }
             return repyments;
         }
+        public static RepaymentsDTO getRepaymentById(int id)
+        {
+            db DB=new db();
+            Repayments repyment=DB.Repayments.FirstOrDefault(r=>r.RepaymentId==id);
+             User user=DB.Users.FirstOrDefault(u=>u.UserId==repyment.UserId);
+            RepaymentsDTO repaymentDTO=RepaymentConvert.DALtoDTO(repyment);
+              repaymentDTO.UserName=user.firstName+" "+user.lastname;
+            return repaymentDTO;
+            
+        }
 
     }
 }

@@ -17,6 +17,10 @@ export class LoanService {
  {
    return this.httpclinet.get(this.baseUrl+'getRepayments');
  }
+ getRepaymentById(id)
+ {
+   return this.httpclinet.get(this.baseUrl+'getRepaymentById/'+id);
+ }
   GetAll()
   {
     return this.httpclinet.get(this.baseUrl+'get');

@@ -1,1 +1,5 @@
-<p>repayment-edit works!</p>
+<div class="Form-wrapper" *ngIf="repayment"> 
+    <div class="header"><B>{{repayment.id}} : עריכת פרעון</B></div>
+    <!-- <form [formGroup]="repaymentF" class="needs-validation" novalidate> -->
+        <div class="form-control">{{repayment.userName}}</div>
+    <!-- </form> -->

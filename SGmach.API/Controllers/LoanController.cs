@@ -46,6 +46,12 @@ namespace API.Controllers {
     public ActionResult GetRepayments () {
       return Ok(RepaymentBL.GetAll ());
     }
+     [HttpGet]
+    [Route ("getRepaymentById/{id}")]
+    public ActionResult getRepaymentById ([FromRoute]int id) {
+      
+      return Ok(RepaymentBL.getRepaymentById(id));
+    }
   }
 
 }
