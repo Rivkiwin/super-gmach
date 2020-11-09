@@ -9,6 +9,8 @@ namespace DTO.classes
   public class RepaymentsDTO
   {
     public int Id { get; set; }
+    public string UserName { get; set; }
+     public int UserId { get; set; }
     public int LoanID { get; set; }
     public double Amount { get; set; }
     public System.DateTime Date { get; set; }

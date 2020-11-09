@@ -11,7 +11,11 @@ export class LoanService {
   baseUrl: string ;
   // = "http://localhost:62859/api/Loan/";
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
-    this.baseUrl=`${apiUrl}api/loan/`;
+    this.baseUrl=`${apiUrl}api/Loan/`;
+ }
+ GetRepayments()
+ {
+   return this.httpclinet.get(this.baseUrl+'getRepayments');
  }
   GetAll()
   {

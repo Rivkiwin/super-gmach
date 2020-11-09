@@ -30,6 +30,9 @@ import { AddwithdrawalComponent } from './componentes/Withdrawal/addwithdrawal/a
 import { LoanEditComponent } from './componentes/loan/loan-edit/loan-edit.component';
 import { DepositComponent } from './componentes/deposits/deposit/deposit.component';
 import { ADDDepositComponent } from './componentes/deposits/add-deposit/add-deposit.component';
+import { Repayment } from './classes/repayment';
+import { RepaymentEditComponent } from './componentes/loan/Repayments/repayment-edit/repayment-edit.component';
+import { RepaymentsListComponent } from './componentes/loan/Repayments/repayments-list/repayments-list.component';
 
 
 
@@ -58,7 +61,15 @@ const routes: Routes = [
     },{
       path:"detalis/:id",
       component:LoanEditComponent
+    },
+    {
+      path:"repayments",
+      component:RepaymentsListComponent
+    }, {
+      path:"repayment/:id",
+      component:RepaymentEditComponent
     }
+
   ]
   },
   {

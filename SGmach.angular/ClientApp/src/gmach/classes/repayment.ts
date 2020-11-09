@@ -1,9 +1,10 @@
 export class Repayment {
-    Amount;
+    amount;
     status;
-    Remark;
-    LoanID;
-    Id;
-    Date;
+    remark;
+    loanID;
+    id;
+    date;
+    userName;
     
 }

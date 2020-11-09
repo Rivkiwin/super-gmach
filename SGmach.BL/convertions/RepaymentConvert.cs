@@ -15,6 +15,7 @@ namespace BI.convertions
     {
       RepaymentsDTO repaymentDTO = new RepaymentsDTO()
       {
+        UserId=repayment.UserId,
         Amount = repayment.Amount,
         Date = repayment.Date,
         Id = repayment.RepaymentId,
