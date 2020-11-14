@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using SGmach.BL.BLclasses;
-using SGmach.DTO.classes;
 namespace SGmach.API.Controllers {
 
     [Route ("api/View")]
@@ -54,5 +53,10 @@ namespace SGmach.API.Controllers {
         public int[] incoms { get; set; }=new int[12];
         public int[] expnditure { get; set; }=new int[12];
     }
+   public class DpositsANDwithdrawals
+   {
+        public int[] deposits { get; set; }=new int[12];
+        public int[] withdrawals { get; set; }=new int[12];
+   }
 
 }

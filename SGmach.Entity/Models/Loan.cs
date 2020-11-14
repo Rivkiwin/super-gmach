@@ -5,6 +5,7 @@ namespace SGmach.Entity.Models
     public class Loan
     {
         public int LoanId { get; set; }
+        public string NameStatus { get; set; }
         public int Amount { get; set; }
         public int Months { get; set; }
         public DateTime RepaymentStart { get; set; }

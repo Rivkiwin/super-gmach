@@ -49,7 +49,7 @@ namespace BL.BLclasses {
             Repayments repaymentThisMonth = repayments.FirstOrDefault (r => r.Date.Month == thisMonth);
             if (repaymentThisMonth != null) {
               // user.payThisMonth += " :תשלום פררעון לחודש זה" + repaymentThisMonth.Amount.ToString ();
-              userList.sumPayThisMonth += repaymentThisMonth.Amount;
+              sumPayThisMonth += repaymentThisMonth.Amount;
             }
           }
           if (loan != null) {

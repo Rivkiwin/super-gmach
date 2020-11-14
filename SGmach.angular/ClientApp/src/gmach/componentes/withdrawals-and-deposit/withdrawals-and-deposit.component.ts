@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-withdrawals-and-deposit',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithdrawalsAndDepositComponent implements OnInit {
 
-  constructor() { }
+  baseURL;
+  constructor(private httpc:HttpClient, @Inject('API_URL')  apiUrl: string) { 
+   this.baseURL=`${apiUrl}api/View`;}
+
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -15,10 +19,18 @@ export class WithdrawalsAndDepositComponent implements OnInit {
   public barChartLabels = ['01', '02', '03', '04', '05', '06', '07','08','09','10','11','12'];
   public barChartType = 'bar';
   public barChartLegend = true;
-  public barChartData = [
-    {data: [650, 1000, 800, 810, 800, 550, 400,500,670], label: 'משיכות'},
-    {data: [2800, 480, 400, 190, 860, 270, 900,1000,2000], label: 'הפקדות'}
-  ];
+  public barChartData;
+
   ngOnInit(): void {
+    var Deposits:[12];
+    var withdrawals:[12];
+    this.httpc.get(`${this.baseURL}/getDEposits&withdrawals`).subscribe(data=>{
+      Deposits=data["deposits"];
+      withdrawals=data["withdrawals"];
+      this.barChartData=[
+       {data: Deposits, label: 'הפקדות'},
+         {data: withdrawals, label: 'משיכות'}
+      ]
+    })
   }
 }

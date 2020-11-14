@@ -41,8 +41,8 @@ export class FriendsListComponent implements OnInit {
     {
       headerName: 'ניהול', field: 'managment',
       // tooltipValueGetter: (params) => params.data.tooltip,
-      cellRenderer: function (params) {
-        return `<div  data-toggle="tooltip" data-placement="left" title="${params.data.status_reason}">${params.data.managment.name}<div>`;
+      valueGetter: function (params) {
+        return params.data.managment.name;
       },
       cellStyle: function (params) {
         return { backgroundColor: params.data.managment.color };
@@ -82,13 +82,13 @@ export class FriendsListComponent implements OnInit {
       console.log(friend)
       return {
         managment: friend.management_status,
-        status_reason: friend.status_reason,
+        tooltip: "friend.Status_reason",
         friend: friend.friend ? 'V' : 'X',
         id: friend.id_user,
         name: `${friend.last_name} ${friend.first_name}`,
         phon: friend.communication_ways.phon1,
         fund_Rachel_Leah:friend.rachelLea,
-        loan:- friend.loans
+        loan:friend.loans
       }
     });
   };
@@ -97,13 +97,10 @@ export class FriendsListComponent implements OnInit {
   ngOnInit(): void {
 
     this.friendsService.get().subscribe(x => {
-      this.Friends = <Friend[]>x; 
+      this.Friends = <Friend[]>x["users"]; 
+      this.alerts=<AlertsFriends[]>x["alertsUsers"];
      this.addrowData();
     });
-    this.friendsService.Alerts().subscribe(a=>{
-      this.alerts=<AlertsFriends[]>a;
-      console.log(a);
-    })
   }
   ExportExcel()
   {
