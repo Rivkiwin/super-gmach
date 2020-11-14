@@ -1,0 +1,2 @@
+-- SQLite
+ALTER TABLE Deposits ADD FU TEXT

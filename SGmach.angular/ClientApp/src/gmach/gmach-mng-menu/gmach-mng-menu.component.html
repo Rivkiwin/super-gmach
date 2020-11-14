@@ -1,0 +1,71 @@
+<ul class="nav nav-tabs-dark-lg bg-dark content-right justify-content-end"
+  *ngIf="isAuthenticated | async">
+  <li class="nav-item dropdown bg-info">
+    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">קרנות</a>
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <a class="dropdown-item text-white" routerLink="fund/FundList">רשימת קרנות</a>
+      <!-- <a routerLink="fund/addNewFund" class="dropdown-item text-white">הוספת קרן</a> -->
+    </div>
+  </li>
+  <li class="nav-item bg-dark">
+    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">הלוואות</a>
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <a routerLink="loan/loanAdd" routerLinnkActive="active_link"
+        class="dropdown-item text-white"> הוספת הלוואה</a>
+
+      <a routerLink="loan/list" routerLinnkActive="active_link"
+        class="dropdown-item text-white">רשימת הלוואות
+      </a>
+    </div>
+  </li>
+  <li class="nav-item bg-info">
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <a routerLink="load/list" routerLinnkActive="active_link"
+        class="dropdown-item text-white"> רשימת הלוואות </a>
+      <a routerLink="friends/addNewFriend" routerLinnkActive="active_link"
+        class="dropdown-item text-white">
+      </a>
+    </div>
+  </li>
+  <li class="nav-item bg-info">
+    <a routerLink="loan/repayments" class="nav-link text-white">פרעונות</a>
+  </li>
+  <li class="nav-item bg-dark">
+    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">חברים בגמ"ח</a>
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <a
+        routerLink="/friends/Friendlist"
+        routerLinnkActive="active_link"
+        class="dropdown-item text-white"> רשימת חברים</a>
+
+      <a
+        routerLink="/friends/addNewFriend"
+        routerLinnkActive="active_link"
+        class="dropdown-item text-white">הוספת חבר
+      </a>
+    </div>
+  </li>
+
+  <li class="nav-item bg-info dropdown">
+    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown"
+      role="button" aria-haspopup="true" aria-expanded="false">קופה קטנה</a>
+    <div class="dropdown-menu dropdown-menu-right bg-dark text-white">
+      <div class="dropdown-header">הוצאות</div>
+      <a class="dropdown-item text-white"
+        routerLink="patty_cash/add_new_Expenditure">הוספת הוצאה חדשה</a>
+      <a class="dropdown-item text-white"
+        routerLink="patty_cash/view_Expenditure">רשימת הוצאות</a>
+      <div class="dropdown-header">הכנסות</div>
+      <a
+        class="dropdown-item text-white"
+        routerLink="patty_cash/income/add">הוספת הכנסה חדשה</a>
+      <a class="dropdown-item text-white"
+        routerLink="patty_cash/income/list">רשימת הכנסות</a>
+    </div>
+  </li>
+</ul>
+<aside ><img src="assets/images/logo.png" alt="logo-super gmach" class="fixed-bottom">
+</aside>

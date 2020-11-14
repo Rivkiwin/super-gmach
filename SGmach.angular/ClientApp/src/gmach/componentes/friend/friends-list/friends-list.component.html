@@ -1,0 +1,33 @@
+
+<div class="body">
+<aside class="alert-wrapper overflow-auto p-3  collapse " style="max-height: 500px;" id="alerts">
+    <h3 class="h-alert">התראות</h3>
+    <div *ngFor="let alert of alerts" class="alert alert-warning" role="alert">
+        <div>{{alert.Alret}}</div>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        לחבר גליק מאיר יש סירוב
+      </div>
+      <div class="alert alert-danger" role="alert">
+        לחבר גליק מאיר יש סירוב
+      </div>
+</aside>
+<form class="form-inline px-2  float-right search">
+    <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
+    [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
+<button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
+<button class=" btn btn-dark" type="button" data-toggle="collapse" data-target="#alerts" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+התראות
+</button>
+</form>
+<ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
+                 [defaultColDef]="defaultColDef"
+                 [rowData]="rowData"
+                 class="divLIst"
+                 class="ag-theme-alpine"
+                 class="ag-theme-alpine"
+                 id="myGrid"
+                 style=" justify-content: center"
+                 style="height: 500px;">
+</ag-grid-angular>
+</div>

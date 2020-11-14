@@ -1,0 +1,49 @@
+<div class="Form-wrapper" *ngIf="loan"> 
+    <div class="header"><B>{{loan.id_loan}} : עריכת הלוואה</B></div>
+    <form [formGroup]="Load" class="needs-validation" novalidate>
+         <div class="row"> 
+            <div class="col">
+                <label> לווה</label>
+                 <input class="form-control" value="{{loan.userName}}" disabled>
+            </div>
+            <div class="col">
+                <label for="Expense amount">סכום הלוואה</label>
+                <input type="number" class="form-control"
+                    formControlName="amount" placeholder="הכנס סכום" min="1"
+                    required/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>מספר תשלומים</label>
+                <input type="number" min=1  class="form-control" id="numRep" formControlName="payments">
+            </div>
+            <div class="col">
+                <label>מספר חודשים</label>
+                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month">
+            </div>
+            <div class="col">
+                <label>תאריך התחלה</label>
+                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start">
+            </div>
+        </div> 
+         <div class="row">
+            <div class="col">
+                <label>סטטוס הלוואה</label>
+                <select   formControlName="loan_status" class="form-control">
+                    <option value="Approved" id="status">מאושר </option>
+                    <option value="Unauthorized">ממתין לאישור</option>
+                    <option value="Invalid">לא תקין</option>
+                </select>
+            </div>
+            <div class="col">
+                <label> הערות</label>
+                <textarea  formControlName="remark" class="form-control"> </textarea>
+            </div>
+        </div> 
+     </form>
+</div> 
+ <div class="row">
+    <a (click)="Add($event)" id="BAdd" class="col">
+        <app-message-add [Message]="message | json" ></app-message-add></a>
+    </div>

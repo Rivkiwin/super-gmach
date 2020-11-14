@@ -1,0 +1,60 @@
+<div class="Form-wrapper"> 
+    <!-- <div class="header" *ngIf="massege">
+        <div class="alert alert-success" role="alert" *ngIf="AddResult">
+            <strong>ההפקדה נשמרה בהצלחה!</strong>
+            <button routerLink="patty_cash/deposit/List">חזרה לרשימת ההפקדות</button>
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="!AddResult">
+            <strong>שגיאה בשמירת הנתונים</strong>
+            בדוק שהנתנוים נכונים ונסה שנית
+            <button routerLink="patty_cash/deposit/List">חזרה לרשימת ההפקדות</button>
+        </div>
+    </div> -->
+
+    <div class="header"><B>הוספת הלוואה</B></div>
+    <form [formGroup]="Load" class="needs-validation" novalidate>
+         <div class="row"> 
+            <div class="col">
+                <label>בחר לווה</label>
+                <user-select (User)="SetUser($event)"></user-select>
+            </div>
+            <div class="col">
+                <label for="Expense amount">סכום הלוואה</label>
+                <input type="number" class="form-control"
+                    formControlName="amount" placeholder="הכנס סכום" min="1"
+                    required/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>מספר תשלומים</label>
+                <input type="number" min=1  class="form-control" id="numRep" formControlName="payments">
+            </div>
+            <div class="col">
+                <label>מספר חודשים</label>
+                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month">
+            </div>
+            <div class="col">
+                <label>תאריך התחלה</label>
+                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start">
+            </div>
+        </div> 
+         <div class="row">
+            <div class="col">
+                <label>סטטוס הלוואה</label>
+                <select   formControlName="loan_status" class="form-control">
+                    <option value="Approved" id="status">מאושר </option>
+                    <option value="Unauthorized">ממתין לאישור</option>
+                </select>
+            </div>
+            <div class="col">
+                <label> הערות</label>
+                <textarea  formControlName="remark" class="form-control"> </textarea>
+            </div>
+        </div> 
+     </form>
+</div> 
+ <div class="row">
+    <a (click)="Add($event)" id="BAdd" class="col">
+        <app-message-add [Message]="message | json" ></app-message-add></a>
+    </div>

@@ -1,0 +1,11 @@
+GET https://localhost:5001/api/Status/getStatusList
+
+###
+
+GET https://localhost:5001/patty_cash/view_Expenditure
+
+###
+
+GET https://localhost:5001/api/Expenditure/getListGetexpenditure
+
+###

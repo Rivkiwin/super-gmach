@@ -1,0 +1,32 @@
+<div class="Form-wrapper">
+<h2>הוסף משיכה</h2>
+<form class="needs-validation" novalidate [formGroup]="Fwithdrawal">
+    <div class="row">
+        <div class="col">
+            <label for="Date">תאריך</label>
+            <input type="date" class="form-control"
+                formControlName="Date">
+        </div>
+        <div class="col">
+            <label>סכום</label>
+            <input type="number" class="form-control" formControlName="Amount"
+                [min]="1" [max]="max">
+        </div>
+    <div class="col">
+        <label>צורת משיכה</label>
+        <app-payment-method (select)=setWayw($event)></app-payment-method>
+    </div>
+    <div class="col">
+        <label>סטטוס משיכה</label>
+        <select formControlName="Status" class="form-control">
+            <option value="performed">נמשך</option>
+            <option value="">עתידי</option>
+        </select>
+    </div>
+</div>
+</form>
+<div row>
+<a (click)="Add($event)" id="BAdd" class="col">
+    <app-message-add [Message]="message | json"></app-message-add></a>
+</div>
+</div>

@@ -1,0 +1,44 @@
+<div class="Form-wrapper">
+  <h2>הוסף קרן</h2>
+  <form [formGroup]="Form_new_fund" class="mx-auto w-75 mt-5  m-5 ">
+    <div class="row">
+      <div class="col">
+        <label for="name" class="float-right">:שם</label>
+        <input class="form-control" required formControlName="name" type="text" placeholder="הכנס שם">
+      </div>
+      <div class="col">
+        <label for="selectStatus">סטטוס הקרן</label>
+        <select class="form-control" id="selectStatus" formControlName="status">
+          <option>בחר אפשרות</option>
+          <option *ngFor="let status of keyStatusFund()">{{status}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="month">:מספר חודשי חובה להשתתפות בקרן </label>
+        <input type="number" class="form-control" value="0" min="0" required formControlName="month">
+      </div>
+      <div class="col">
+        <label  for="vipCheck">
+          VIP
+        </label>
+        <input class="form-check-input form-control" type="checkbox" value="true" id="vipCheck" formControlName="required_vip">
+      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      <label>:פרטים נוספים והערות</label>
+      <textarea rows="4" class="w-100 form-control" maxlength="400" formControlName="Details"></textarea>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <a (click)="addFund($event)" id="BAdd" class="col">
+              <app-message-add [Message]="message | json"></app-message-add></a>
+      </div>
+  </div>
+</form>
+</div>
+

@@ -1,0 +1,27 @@
+<!-- <p>friend-of-fund works!</p>
+<div>{{fund.name}}</div> -->
+<button type="button" class="btn btn-dark" data-toggle="modal"
+    data-target="#friendsM"><span class="badge badge-light">{{numFriends}}</span> חברים בקרן</button>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="friendsM" 
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form class="form-inline px-2">
+                <input class="form-control float-right" type="search"
+                    placeholder="חיפוש" aria-label="Search"
+                    (input)='onFilterTextBoxChanged()'
+                    [(ngModel)]='search' [ngModelOptions]="{standalone: true}">
+            </form>
+            <ag-grid-angular
+                id="myGrid" class="ag-theme-alpine"
+                style="justify-content:
+                center;height: 500px; width:100%;"
+                [defaultColDef]="defaultColDef"
+                [rowData]="rowData"
+                [columnDefs]="columnDefs"
+                (gridReady)="onGridReady($event)"
+            >
+            </ag-grid-angular>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class=Form-wrapper>
+        <h2>:הוספת הכנסה</h2>
+    <form [formGroup]="Formedetails" id="from" class="mx-auto w-75 mt-auto needs-validation"
+        novalidate="">
+        <div class="row">
+            <div class="col">
+                <label>:תאריך </label>
+                <input  type="datetime"  class="form-control" formControlName="dateIncome" id="dateIncome"
+                    required="">
+            </div>
+            <div class="col">
+                <label>מטרה </label>
+                <input type="text" class="form-control" formControlName="remark" id="purpose"
+                    required="">
+            </div>
+            <div class="col">
+                <label> ממי</label>
+                <input  type="text" class="form-control" formControlName="FromWho" id="FromWho"
+                    required="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>אופן התשלום </label>
+                <select formControlName="Payment_method" class="form-control">
+                    <option>מזומן</option>
+                    <option>אשראי</option>
+                    <option>שק</option>
+                    <option>העברה</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>סכום </label>
+                <input  type="number" min="0" class="form-control" formControlName="amount"
+                    required="">
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <a (click)="Add($event)" id="BAdd" class="col">
+            <app-message-add [Message]="message | json"></app-message-add></a>
+    </div>
+</div>
+
+<!-- <button   class="b-dark"(click)="Add($event)" id="BAdd">הוסף</button> -->

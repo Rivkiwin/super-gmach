@@ -1,0 +1,32 @@
+<div class="Form-wrapper">
+    <h2>הוסף הפקדה</h2>
+    <form  [formGroup]="FormAddDeposit" class="needs-validation" novalidate>
+        <div class="row">
+           <div class="col">
+            <label for="Expense amount">סכום הפקדה</label>
+            <input type="number" class="form-control" formControlName="amount" placeholder="הכנס סכום"  min="1" required >
+        </div>
+            <div class="col" >    
+                <label >צורת תשלום</label>
+                <select class="form-control"formControlName="Payment_method" required>
+                    <option>אשראי</option>
+                    <option>מזומן</option>
+                    <option>צ'ק</option>
+                    <option>העברה בנקאית</option>
+                </select>
+            </div>
+            <div class="col" >
+                <label >סוג הפקדה</label>
+                <select class="form-control"formControlName="type" required>
+                    <option>קבוע</option>
+                    <option>משתנה</option>
+                </select>
+                 </div>
+        </div> 
+        
+     </form>
+     <div class="row">
+        <a (click)="Add($event)" id="BAdd" class="col">
+            <app-message-add [Message]="message | json"></app-message-add></a>
+    </div>
+    <!-- <button (click)="Add($event)" button type="submit" id="B-add" class="btn btn-dark fixed-bottom position-relative">הוסף</button>  -->

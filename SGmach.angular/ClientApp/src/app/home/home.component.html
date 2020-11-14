@@ -1,0 +1,13 @@
+<ul *ngIf="!isAuthenticated">
+  <li> בבקשה  <a [routerLink]='["/authentication/login"]'> הכנס</a> כדי לקבל גישה לפרטי הגמ"ח</li>
+  <li>If you don't have an account,  <a [routerLink]='["/authentication/register"]'>register</a>  a new one and contact <a href="super.gmach@gmail.com">super.gmach</a> to get access</li>
+
+</ul>
+
+<ul *ngIf="isAuthenticated">
+  <diagram *ngIf="isAuthenticated"></diagram>
+  <!-- <h3> {{gmachName| async}}: ברוכים הבאים ל </h3>
+  <h5>תתחיל לעבוד ע"י בחירת פעולה מהתפריט</h5> -->
+</ul> 
+
+
