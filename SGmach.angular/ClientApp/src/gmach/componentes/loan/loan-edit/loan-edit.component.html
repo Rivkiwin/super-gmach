@@ -1,3 +1,4 @@
+<repayments-list  id="repaymens" class="sticky collapse" [loanId]="loan.id_loan"></repayments-list>
 <div class="Form-wrapper" *ngIf="loan"> 
     <div class="header"><B>{{loan.id_loan}} : עריכת הלוואה</B></div>
     <form [formGroup]="LoanForm" class="needs-validation" novalidate>
@@ -48,10 +49,13 @@
                 <textarea  formControlName="remark" class="form-control"> </textarea>
             </div>
         </div> 
-        <button (click)="Delete()">מחק</button>
      </form>
-</div> 
- <div class="row">
+     <div class="row">
+         <div *ngIf="disable()">
+     <button  class="btn btn-dark " (click)="Delete()">מחק</button></div>
     <a (click)="Add($event)" id="BAdd" class="col">
         <app-message-add [Message]="message | json" ></app-message-add></a>
+        <button class=" btn btn-dark " type="button" data-toggle="collapse" data-target="#repaymens" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            פרעונות</button>      
     </div>
+  

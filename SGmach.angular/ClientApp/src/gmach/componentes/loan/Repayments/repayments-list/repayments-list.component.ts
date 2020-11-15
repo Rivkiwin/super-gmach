@@ -1,17 +1,18 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Repayment } from 'src/gmach/classes/repayment';
 import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 import { LoanService } from 'src/gmach/services/loan.service';
 
 @Component({
-  selector: 'app-repayments-list',
+  selector: 'repayments-list',
   templateUrl: './repayments-list.component.html',
   styleUrls: ['./repayments-list.component.css'],
   providers:[DatePipe]
 })
 export class RepaymentsListComponent implements OnInit {
 
+  @Input() loanId;
   Repayments:Repayment[];
   search
   rowData;
@@ -53,13 +54,18 @@ export class RepaymentsListComponent implements OnInit {
 
   AddData()
   {
+    if(this.loanId!=null)
+    {
+      this.Repayments=this.Repayments.filter(repayment=>repayment.loanID==this.loanId)
+      console.log(this.loanId);
+    }
     this.rowData=this.Repayments.map(Repayment => {
       return{
         id:Repayment.id,
         amount:Repayment.amount,
         loan:Repayment.loanID,
         name:Repayment.userName,
-        // status:Repayment.status.name,
+        status:Repayment.status=="future"?"עתידי":Repayment.status=="performed"?"שולם":"",
         date:this.datepipe.transform(Repayment.date, 'yyyy-MM-dd'),
       }
       

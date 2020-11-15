@@ -1,5 +1,6 @@
-import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { DatePipe, DOCUMENT } from '@angular/common';
+import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Friend } from 'src/gmach/classes/friend';
@@ -15,10 +16,11 @@ import { futureDay, validation } from 'src/ts/Validation';
 })
 export class LoanEditComponent implements OnInit {
    loan:Loan
-  constructor(private activeRouter:ActivatedRoute,private LoanService:LoanService,private datePipe:DatePipe) { }
-  message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
+  constructor(private activeRouter:ActivatedRoute,private LoanService:LoanService,private datePipe:DatePipe,@Inject(DOCUMENT) document) { }
+  message = { title: '', body: '', href: '', buttonText: "שמור", click: "this.Add()" };
   LoanForm: FormGroup;
   idUser;
+ angular;
   user:Friend;
   futureDay = futureDay;
   SetUser(event) {
@@ -26,8 +28,12 @@ export class LoanEditComponent implements OnInit {
     this.user = <Friend> JSON.parse( event);
     this.idUser=this.user.id;
   }
-
+  disable()
+  {
+    return this.loan.nameStatus=="active"?false:true;
+  }
   ngOnInit(): void {
+    // console.log(this.deleteBTN);
     this.activeRouter.paramMap.subscribe(res => (this.LoanService.GetById(res.get('id')).subscribe(l=>{
       this.loan=<Loan>l;
       console.log(l);
@@ -51,6 +57,7 @@ export class LoanEditComponent implements OnInit {
       this.LoanForm.controls['date_start'].disable();
       this.LoanForm.controls['month'].disable();
       this.LoanForm.controls['numRepayment'].disable();
+      // (<HTMLButtonElement>  this.angular.element("#deleteBTN")).disabled = true;
     }
   })
   ));
@@ -112,6 +119,5 @@ export class LoanEditComponent implements OnInit {
     this.LoanService.Delete(this.loan.id_loan);
   }
 }
-
 
 
