@@ -28,10 +28,11 @@ export class LoansListComponent implements OnInit {
     { headerName: 'סכום', field: 'amount'  },
     { headerName: 'ניקוד', field: 'scoreing' },
     { headerName: 'שם הלווה', field: 'name' },
-    { headerName: 'סטטוס', field: 'status' },
+    { headerName: 'מצב ', field: 'status' },
+    { headerName: 'סטטוס', field: 'statusMenger'},
     { headerName: 'שולם', field: 'paid' ,width:100},
     { headerName: 'תאריך התחלה', field: 'dateStart'},
-    { headerName:'פרעון ראשון', field: 'dateStartR' },
+    // { headerName:'פרעון ראשון', field: 'dateStartR' },
     { headerName:'הגשת הבקשה', field: 'EntryDate'},
 
     ]
@@ -60,7 +61,8 @@ export class LoansListComponent implements OnInit {
         amount:loan.amount,
         scoreing:loan.score,
         name:loan.userName,
-        status:loan.status.name,
+        statusMenger:loan.status.name,
+        status:loan.nameStatus=="active"?"פעיל":loan.nameStatus=="futer"?"עתידי":"",
         paid:loan.paid?'v':'x',
         dateStart:this.datepipe.transform(loan.date_start, 'yyyy-MM-dd'),
         EntryDate:this.datepipe.transform(loan.entryDate, 'yyyy-MM-dd'),

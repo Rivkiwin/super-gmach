@@ -18,13 +18,19 @@ namespace API.Controllers {
 
   public class LoanController : ControllerBase {
     [HttpPost]
-    [Route ("Add")]
+    [Route ("Delete")]
+    public void Delete ([FromBody] int LoanId) {
+      LoanBL.Delte (LoanId);
+    }
+
+    [HttpPost]
+    [Route("Add")]
     public void AddLoan ([FromBody] LoanDTO loan) {
       LoanBL.Add (loan);
     }
 
     [HttpPost]
-    [Route ("Update")]
+    [Route("Update")]
     public void Update ([FromBody] LoanDTO loan) {
       LoanBL.Update (loan);
     }
@@ -44,13 +50,14 @@ namespace API.Controllers {
     [HttpGet]
     [Route ("getRepayments")]
     public ActionResult GetRepayments () {
-      return Ok(RepaymentBL.GetAll ());
+      return Ok (RepaymentBL.GetAll ());
     }
-     [HttpGet]
+
+    [HttpGet]
     [Route ("getRepaymentById/{id}")]
-    public ActionResult getRepaymentById ([FromRoute]int id) {
-      
-      return Ok(RepaymentBL.getRepaymentById(id));
+    public ActionResult getRepaymentById ([FromRoute] int id) {
+
+      return Ok (RepaymentBL.getRepaymentById (id));
     }
   }
 

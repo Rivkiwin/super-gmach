@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   
   ngOnInit(): void {
     this.friendService.get().subscribe(f=>{
-      this.Users=<Friend[]>f;
+      this.Users=<Friend[]>f["users"];
     })
   }
   Onselect(){

@@ -41,8 +41,9 @@ export class FriendsListComponent implements OnInit {
     {
       headerName: 'ניהול', field: 'managment',
       // tooltipValueGetter: (params) => params.data.tooltip,
-      valueGetter: function (params) {
-        return params.data.managment.name;
+      cellRenderer: function (params) {
+        console.log(params.data.tooltip);
+        return `<div data-toggle="tooltip"  title="${params.data.tooltip}">` + params.data.managment.name + '</div>'
       },
       cellStyle: function (params) {
         return { backgroundColor: params.data.managment.color };
@@ -56,13 +57,7 @@ export class FriendsListComponent implements OnInit {
     this.managment.GetAll();
   }
 
-  formatToolTip(params: any) {
-    // USE THIS FOR TOOLTIP LINE BREAKS
-    const status_reason = params.status_reason;
-    const lineBreak = true;
-    // const toolTipArray = [first, last]
-    return { status_reason }
-  }
+  
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -81,8 +76,9 @@ export class FriendsListComponent implements OnInit {
     this.rowData = this.Friends.map(friend => {
       console.log(friend)
       return {
+        friendO:friend,
         managment: friend.management_status,
-        tooltip: "friend.Status_reason",
+        tooltip:friend.status_reason,
         friend: friend.friend ? 'V' : 'X',
         id: friend.id_user,
         name: `${friend.last_name} ${friend.first_name}`,

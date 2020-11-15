@@ -74,9 +74,9 @@ namespace API.Controllers {
     public ActionResult getFutureBalances() {
       DateTime date = DateTime.Now;
       int thisMonth = date.Month;
-      int size = 13 - thisMonth;
-      int[] FutureBalances = new int[13];
-      for (int month = thisMonth; month < 13; month++) {
+      // int size =5;
+      int[] FutureBalances = new int[6];
+      for (int month = 0; month < 6; month++) {
         FutureBalances[month] = FundBL.GetFutureBalance ("1", date );
         date=date.AddMonths(1);
       }
