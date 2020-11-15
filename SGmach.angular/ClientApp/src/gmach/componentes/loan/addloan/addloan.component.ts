@@ -30,8 +30,14 @@ import { LoanService } from 'src/gmach/services/loan.service';
     
    getDate(i:number)
    {
+     i+=1
+     var dd = this.today.getDate();
+    var mm = (this.today.getMonth() + i)>12?(this.today.getMonth() + i-12):(this.today.getMonth() + i);
+    var y =mm>12?this.today.getFullYear()+1: this.today.getFullYear();
+    var someFormattedDate = dd + '/'+ mm + '/'+ y;
+    return someFormattedDate ;
      debugger
-     this.today.setMonth(this.today.getMonth() + +i);
+    //  this.today.setMonth(this.today.getMonth() + +i);
    }
     ngOnInit(): void {
       this.Load = new FormGroup({
