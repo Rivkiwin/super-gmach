@@ -13,6 +13,10 @@ export class LoanService {
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
     this.baseUrl=`${apiUrl}api/Loan/`;
  }
+ UpdateRepayment(repayment)
+ {
+   return this.httpclinet.post('https://localhost:5001/api/Repayment/Update',repayment);
+ }
  Edit(Loan:Loan)
  {
   return this.httpclinet.post(`${this.baseUrl}Update`,Loan);

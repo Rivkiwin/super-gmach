@@ -5,6 +5,7 @@ using System.Data.Common;
 using db = SGmach.Entity.SuperGmachEntities;
 using DTO.classes;
 using BI.convertions;
+using BI.BLclasses;
 using System.Linq;
 using SGmach.Entity.Models;
 
@@ -21,6 +22,19 @@ namespace SGmach.BL.BLclasses {
                 repyments.Add(r);
             }
             return repyments;
+        }
+        public static void Update(RepaymentsDTO repayment){
+            db DB = new db();
+            Repayments repaymentDal = DB.Repayments.FirstOrDefault(r=> r.RepaymentId==repayment.Id);
+            if(repayment.NameStatus=="performed" &&repaymentDal.NameStatus!="performed")
+            {
+                FundBL.AddBalance(repayment.Amount);
+            }
+            repaymentDal.Amount= repayment.Amount;
+           repaymentDal.NameStatus= repayment.NameStatus;
+            repaymentDal.Date= repayment.Date;
+            // repaymentDal.remark= repayment.Remark;
+            DB.SaveChanges();
         }
         public static RepaymentsDTO getRepaymentById(int id)
         {
