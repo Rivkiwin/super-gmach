@@ -48,7 +48,7 @@ export class LoansListComponent implements OnInit {
         scoreing:loan.score,
         name:loan.userName,
         statusMenger:loan.status.name,
-        status:loan.nameStatus=="active"?"פעיל":loan.nameStatus=="futer"?"עתידי":"",
+        status:loan.nameStatus=="active"?"פעיל":loan.nameStatus=="future"?"עתידי":"",
         paid:loan.paid?'v':'x',
         dateStart:this.datepipe.transform(loan.date_start, 'yyyy-MM-dd'),
         EntryDate:this.datepipe.transform(loan.entryDate, 'yyyy-MM-dd'),

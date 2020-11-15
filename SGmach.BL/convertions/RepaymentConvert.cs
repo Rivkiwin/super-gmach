@@ -20,6 +20,7 @@ namespace BI.convertions
         Date = repayment.Date,
         Id = repayment.RepaymentId,
         LoanID = repayment.LoanId,
+        NameStatus=repayment.NameStatus,
         // Remark = repayment.Re,
         status = repayment.NameStatus
       };

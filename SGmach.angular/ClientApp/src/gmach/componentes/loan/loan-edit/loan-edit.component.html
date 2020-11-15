@@ -1,6 +1,7 @@
+<repayments-list  id="repaymens" class="sticky collapse" [loanId]="loan.id_loan"></repayments-list>
 <div class="Form-wrapper" *ngIf="loan"> 
     <div class="header"><B>{{loan.id_loan}} : עריכת הלוואה</B></div>
-    <form [formGroup]="Load" class="needs-validation" novalidate>
+    <form [formGroup]="LoanForm" class="needs-validation" novalidate>
          <div class="row"> 
             <div class="col">
                 <label> לווה</label>
@@ -16,15 +17,15 @@
         <div class="row">
             <div class="col">
                 <label>מספר תשלומים</label>
-                <input type="number" min=1  class="form-control" id="numRep" formControlName="payments">
+                <input type="number" min=1  class="form-control" id="numRepayment" formControlName="numRepayment">
             </div>
             <div class="col">
                 <label>מספר חודשים</label>
-                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month" disabled="disableFormControl()">
+                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month" >
             </div>
             <div class="col">
                 <label>תאריך התחלה</label>
-                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start" disabled="disableFormControl()">
+                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start" >
             </div>
         </div> 
          <div class="row">
@@ -38,7 +39,7 @@
             </div>
             <div class="col">
                 <label>מצב ההלוואה</label>
-                <select  formControlName="loan_status" class="form-control" disabled="disableFormControl()">
+                <select  formControlName="loan_status" class="form-control">
                     <option value="active" id="status">פעיל</option>
                     <option value="future">עתידי</option>
                 </select>
@@ -48,10 +49,13 @@
                 <textarea  formControlName="remark" class="form-control"> </textarea>
             </div>
         </div> 
-        <button (click)="Delete()">מחק</button>
      </form>
-</div> 
- <div class="row">
+     <div class="row">
+         <div *ngIf="disable()">
+     <button  class="btn btn-dark " (click)="Delete()">מחק</button></div>
     <a (click)="Add($event)" id="BAdd" class="col">
         <app-message-add [Message]="message | json" ></app-message-add></a>
+        <button class=" btn btn-dark " type="button" data-toggle="collapse" data-target="#repaymens" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            פרעונות</button>      
     </div>
+  

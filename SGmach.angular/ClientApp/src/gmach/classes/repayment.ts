@@ -5,6 +5,7 @@ export class Repayment {
     loanID;
     id;
     date;
+    userId;
     userName;
-    
+    nameStatus;
 }

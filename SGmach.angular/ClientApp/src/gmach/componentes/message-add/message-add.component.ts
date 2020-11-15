@@ -12,7 +12,7 @@ export class MessageAddComponent implements OnInit {
   data;
    @Input() set Message(m)
    {
-     debugger
+    
      this.message=JSON.parse(m);
      console.log(this.message);
      var bodyDiv=document.getElementById('modal-body');

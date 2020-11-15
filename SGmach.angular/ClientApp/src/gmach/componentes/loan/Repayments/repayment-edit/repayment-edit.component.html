@@ -1,5 +1,50 @@
-<div class="Form-wrapper" *ngIf="repayment"> 
-    <div class="header"><B>{{repayment.id}} : עריכת פרעון</B></div>
-    <!-- <form [formGroup]="repaymentF" class="needs-validation" novalidate> -->
-        <div class="form-control">{{repayment.userName}}</div>
-    <!-- </form> -->
+<div class="Form-wrapper" *ngIf="repayment">
+    <form  [formGroup]="RepaymentF">
+        <div class="header">
+            <B>{{ repayment.id }} : עריכת פרעון</B>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>:שם</label>
+                <input type="text" class="form-control"
+                    formControlName="userName" disabled />
+            </div>
+            <div class="col">
+                <label for="amount">:סכום</label>
+                <input type="number" class="form-control" 
+                    formControlName="amount" />
+            </div>
+            <div class="col">
+                <label>:סטטוס</label>
+            <select class="form-control" formControlName="status" >
+  
+              <option value="future" id="status">עתידי </option>
+  
+              <option value="performed">שולם</option>
+  
+          </select>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>:תאריך</label>
+                <input type="date" class="form-control" formControlName="date" 
+                    />
+            </div> <div class="col">
+                <label>:הערות</label>
+                <textarea
+                    maxlength="450"
+                    type="text"
+                    class="form-control"
+                    formControlName="remark"></textarea>
+            </div>
+        </div>
+         </form>
+        <div class="row">
+            <a (click)="save($event)" id="BAdd">
+                <app-message-add [Message]="message | json"></app-message-add>
+            </a>
+        </div>
+   
+</div>
