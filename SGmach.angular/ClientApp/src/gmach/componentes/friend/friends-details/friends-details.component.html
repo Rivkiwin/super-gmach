@@ -1,3 +1,4 @@
+<loans-list   id="loans" class="sticky collapse" [UserID]="friend.id_user"></loans-list>
 <div class="Form-wrapper Detalis-wrapper" *ngIf="friend">
 <h3>פרטי חבר</h3>  
 <form [formGroup]="formFriend" class="mx-auto w-75 mt-auto divForm needs-validation" novalidate=""> 
@@ -110,10 +111,14 @@
         <CreditDetails [credit]="friend.crdit" [UserID]="friend.id_user"></CreditDetails></div>
         <div class="col">  <app-bank-details [BankDetails]="friend.bank_Details"></app-bank-details></div>
   <div class="col"><withdrawals-and-deposits  [friendId]="friend.id_user">משיכות והפקדות</withdrawals-and-deposits></div>
+  <button class=" btn btn-dark" type="button" data-toggle="collapse" data-target="#loans" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    הלוואות
+    </button>
 </div>
 <div class="row">
     <a (click)="Edite($event)" id="BAdd" class="col">
         <app-message-add [Message]="message | json" ></app-message-add></a>
 </div>
+
 
 

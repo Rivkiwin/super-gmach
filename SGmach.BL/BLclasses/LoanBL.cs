@@ -93,23 +93,23 @@ namespace BI.BLclasses {
           } 
           else {
             SetRepayment (loanDAL);
-
             loanDAL.NameManagement_status = "Approved";
           }
         }
-         else if(loan.NameStatus=="active"){
+      }
+         else if(loanDAL.NameManagement_status != "Approved" && loan.management_Status == "Approved" &&loan.NameStatus=="active"){
           loanDAL.NameManagement_status = "Approved";
           loanDAL.NameStatus = "active";
           loanDAL.RepaymentStart = DateTime.Today;
           SetRepayment (loanDAL);
         }
-      }
+      
       // if the loan become active (the friend get the money) the  fund  Balance have to Subtract
       if (loan.NameStatus == "active" && loanDAL.NameStatus != "active") {
         loanDAL.NameStatus="active";
         FundBL.Subtract_Balance (loan.amount);
       }
-
+      
       Sgmach.SaveChanges ();
     }
     public static List<LoanDTO> GetAll () {

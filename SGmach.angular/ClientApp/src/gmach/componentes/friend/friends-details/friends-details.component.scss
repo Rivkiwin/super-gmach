@@ -20,3 +20,13 @@ payheader{
     justify-content: space-between;
     direction: rtl;
 }
+.sticky{
+    // position: -webkit-sticky; /* Safari */
+    // background-color: #ffffffde;
+    position: absolute;
+    z-index: 10;
+    margin-top: 50px;
+}
+.reltive{
+    position: relative;
+}
