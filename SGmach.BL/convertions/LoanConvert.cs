@@ -21,7 +21,8 @@ namespace BI.convertions
         RepaymentStart=loan.date_start,
         Months=loan.month,
        UserId=loan.id_user,
-        NameManagement_status = loan.loan_status,
+        NameManagement_status = loan.management_Status,
+        NameStatus=loan.NameStatus,
         //management_status=loan.management_status,
         //guarantee_1=loan.guarantee1,
         //guaantee_2=loan.guarantee2,
@@ -41,11 +42,12 @@ namespace BI.convertions
     {
       LoanDTO loanDTO = new LoanDTO()
       {
+        NameStatus=loan.NameStatus,
         amount = loan.Amount,
         date_start = loan.RepaymentStart,
         month = loan.Months,
         id_user = loan.UserId,
-        loan_status = loan.NameManagement_status,
+       management_Status = loan.NameManagement_status,
         //management_status = loan.management_status,
         //guarantee1 = loan.guarantee_1,
         //guarantee2 = loan.guaantee_2,

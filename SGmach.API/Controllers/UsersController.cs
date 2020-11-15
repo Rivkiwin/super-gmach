@@ -34,7 +34,7 @@ namespace API.Controllers {
     [HttpGet]
     [Route ("get")]
     public ActionResult GetUsers () {
-      List<UserDTO> users = UserBL.GetUsersList ();
+     ListUsers users = UserBL.GetUsersList ();
       return Ok (users);
     }
 

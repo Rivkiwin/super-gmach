@@ -1,0 +1,18 @@
+#futerBalance{
+    background-color: #ffffff8c;
+    display: inline-block;
+    float: right;
+    margin-top:50px !important;
+    text-align: center;
+    padding: 13px;
+    border-radius: 6px;
+}
+.Form-wrapper{
+    position: absolute;
+    margin-top:30px !important;
+    border-radius: 6px;
+    padding-top: 4px!important ;
+}
+.mx-10{
+    margin-top: 10px;
+}

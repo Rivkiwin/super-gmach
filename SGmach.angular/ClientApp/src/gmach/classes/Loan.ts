@@ -8,7 +8,6 @@ export class Loan{
     payments;
     remark;
     management_status
-    loan_status;
     date_start;
     month;
     amount;
@@ -16,6 +15,8 @@ export class Loan{
     id_loan;
     gmachId;
     userName;
+    nameStatus;
+    management_Status;
     score;
     entryDate;
     beginningRepayment;

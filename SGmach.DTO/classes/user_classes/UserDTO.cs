@@ -48,7 +48,7 @@ public List<string> payThisMonth { get; set; }=new List<string>();
 
     public int Scoring { get; set; }
     public int RachelLea { get; set; }
-    public double Loans { get; set; }
+    public string Loans { get; set; }
     public string Father_name { get; set; }
     public string Status_reason { get; set; }
     public Crdit Crdit { get; set; }

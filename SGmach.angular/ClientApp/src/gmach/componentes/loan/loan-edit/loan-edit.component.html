@@ -20,20 +20,27 @@
             </div>
             <div class="col">
                 <label>מספר חודשים</label>
-                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month">
+                <input type="number" min=1 class="form-control" id="numMonth" formControlName="month" disabled="disableFormControl()">
             </div>
             <div class="col">
                 <label>תאריך התחלה</label>
-                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start">
+                <input type="date" (change)="futureDay($event)" class="form-control" id="DateStart" formControlName="date_start" disabled="disableFormControl()">
             </div>
         </div> 
          <div class="row">
             <div class="col">
                 <label>סטטוס הלוואה</label>
-                <select   formControlName="loan_status" class="form-control">
+                <select value="loan.management_Status"  formControlName="Management_status" class=" selectpicker form-control" >
                     <option value="Approved" id="status">מאושר </option>
                     <option value="Unauthorized">ממתין לאישור</option>
                     <option value="Invalid">לא תקין</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>מצב ההלוואה</label>
+                <select  formControlName="loan_status" class="form-control" disabled="disableFormControl()">
+                    <option value="active" id="status">פעיל</option>
+                    <option value="future">עתידי</option>
                 </select>
             </div>
             <div class="col">
@@ -41,6 +48,7 @@
                 <textarea  formControlName="remark" class="form-control"> </textarea>
             </div>
         </div> 
+        <button (click)="Delete()">מחק</button>
      </form>
 </div> 
  <div class="row">

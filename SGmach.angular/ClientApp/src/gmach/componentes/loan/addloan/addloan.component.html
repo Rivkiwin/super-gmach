@@ -42,9 +42,16 @@
          <div class="row">
             <div class="col">
                 <label>סטטוס הלוואה</label>
-                <select   formControlName="loan_status" class="form-control">
+                <select value="Unauthorized"  formControlName="Management_status" class="form-control">
                     <option value="Approved" id="status">מאושר </option>
                     <option value="Unauthorized">ממתין לאישור</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>מצב ההלוואה</label>
+                <select value="future" formControlName="loan_status" class="form-control">
+                    <option value="active" id="status">פעיל</option>
+                    <option value="future">עתידי</option>
                 </select>
             </div>
             <div class="col">
@@ -53,8 +60,15 @@
             </div>
         </div> 
      </form>
+     <div class="row">
+        <a (click)="Add($event)" id="BAdd" class="col">
+            <app-message-add [Message]="message | json" ></app-message-add></a>
+        </div>
 </div> 
- <div class="row">
-    <a (click)="Add($event)" id="BAdd" class="col">
-        <app-message-add [Message]="message | json" ></app-message-add></a>
-    </div>
+<aside id="futerBalance">
+   <h7><b> היתרה עתידית</b></h7>
+   <div class="mx-10" *ngFor="let balance of fututreBalance; index as i; first as isFirst">
+       {{getDate(i)}} : {{balance}} 
+   </div>
+</aside>
+ 
