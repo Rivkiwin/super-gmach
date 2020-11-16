@@ -18,7 +18,8 @@ namespace DTO.classes.user_classes
 public List<string> payThisMonth { get; set; }=new List<string>();
     public int Id { get; set; }
     public string MaritalStatus { get; set; }
-
+    public DateTime last_Debit_order  { get; set; }
+    
     public int Id_user { get; set; }
 
     public string First_name { get; set; }

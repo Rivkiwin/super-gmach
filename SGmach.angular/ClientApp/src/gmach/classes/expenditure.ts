@@ -7,6 +7,7 @@ export class Expenditure {
     way_of_payment;
     amount:number;
     purpose;
+    NameStatus;
     id;
   date;
     // date;

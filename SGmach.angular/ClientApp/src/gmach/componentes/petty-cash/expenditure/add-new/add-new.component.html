@@ -1,6 +1,6 @@
 <div class=Form-wrapper>
     <h2>הוספת הוצאה</h2>
-    <form [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto">
+    <form [formGroup]="FormAddExpense" class="mx-auto w-75 mt-auto needs-validation">
         <div class="row">
             <div class="col">
                 <label>שולם</label>
@@ -9,18 +9,17 @@
             </div>
             <div class="col" [hidden]="Contemporary_expenditure==false">
                 <label for="date">תאריך</label>
-                <input type="date" class="form-control" >
-                <!-- formControlName="date" [(ngModel)]="myDate"> -->
+                <input type="date" class="form-control" formControlName="date">
             </div>
             <div class="col">
                 <label for="Expense amount">סכום הוצאה</label>
-                <input type="number" min="5" class="form-control"
-                    formControlName="Expense_amount" placeholder="הכנס סכום">
+                <input type="number" step=".01" min=0 class="form-control" 
+                    formControlName="Expense_amount" placeholder="הכנס סכום"  required>
             </div>
             <div class="col">
                 <label for="Receives">עבור</label>
-                <input type="text" class="form-control"
-                    formControlName="Receives" placeholder="הכנס מוטב">
+                <input type="text" class="form-control" required
+                    formControlName="Receives" placeholder="הכנס מוטב"  required>
             </div>
         </div>
         <div class="row">
@@ -28,13 +27,6 @@
                 <label for="Purpose">מטרה</label>
                 <input type="text" class="form-control"
                     formControlName="Purpose" placeholder="הכנס מטרה">
-            </div>
-            <div class="col" [hidden]="Contemporary_expenditure!=false">
-                <label for="exampleFormControlFile1">Payment Form</label>
-                <select class="selectpicker form-control"
-                    data-live-search="true">
-                    <option *ngFor="let p of keyPayment_Form()">{{p}}</option>
-                </select>
             </div>
         </div>
         <div class="row">

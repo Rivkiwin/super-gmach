@@ -1,21 +1,25 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Income } from 'src/gmach/classes/Income';
 import { IncomeService } from 'src/gmach/services/income.service';
+import { validation } from 'src/ts/Validation';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  styleUrls: ['./add.component.scss'],
+  providers:[DatePipe]
+
 })
 export class AddComponent implements OnInit {
   Formedetails: FormGroup;
   message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
 
-  constructor(private incomeService:IncomeService) { }
+  constructor(private incomeService:IncomeService,private datePipe:DatePipe) { }
   ngOnInit(): void {
     this.Formedetails = new FormGroup({
-      dateIncome: new FormControl(),
+      dateIncome: new FormControl(this.datePipe.transform(new Date(), 'yyyy-MM-dd')),
       FromWho: new FormControl(),
       remark: new FormControl(),
       amount: new FormControl(),
@@ -27,6 +31,10 @@ export class AddComponent implements OnInit {
     {
       return
     }
+     if ( !validation())
+     {
+       return;
+     }
      var newIncome:Income=new Income();
      newIncome.amount=this.Formedetails.get('amount').value;
      newIncome.date=new Date();
@@ -42,7 +50,7 @@ export class AddComponent implements OnInit {
           debugger
           this.message.title = "ההכנסה נוספה בהצלחה";
           this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההכנסות לחץ אישור";
-          this.message.href = "patty_cash/income/List";
+          this.message.href = "patty_cash/income/list";
         },
         error: error =>{
           this.message.title = "יש תקלה בהוספה";

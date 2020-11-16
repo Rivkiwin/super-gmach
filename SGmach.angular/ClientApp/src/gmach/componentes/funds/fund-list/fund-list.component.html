@@ -3,10 +3,10 @@
     <form class="form-inline px-2">
       <input class="form-control mr-sm-1 mx-1" type="search" placeholder="חיפוש" aria-label="Search"  [(ngModel)]='name' [ngModelOptions]="{standalone: true}">
       <div class="form-group  position-relative pr-2" >
-        <select id="inputStatus" class="form-control " required name="stat" [(ngModel)]='status' >
+        <!-- <select id="inputStatus" class="form-control " required name="stat" [(ngModel)]='status' >
           <option selected>All</option>
           <option *ngFor="let status of keyStatusFund()" [value]="status">{{status}}</option>
-        </select>
+        </select> -->
       </div>
     </form>
   </nav>
@@ -25,8 +25,8 @@
       <tr *ngFor="let fund of fund_list |filter:name|filterStatus:status let i = index" >
         <th scope="row">{{i+1}}</th>
         <td><a class="link-dark" routerLink="/FundDetails/{{fund.id}}">{{fund.fund_name}}</a></td> 
-        <td >{{fund.status}}פעיל</td>
-        <td>{{fund.nun_friends}}6 </td>
+        <td >{{fund.status}}</td>
+        <td>{{fund.nun_friends}} </td>
         <td>{{fund.balance}}</td>
         <td>{{fund.details}}גמ"ח ראשי</td>     
  <td></td>

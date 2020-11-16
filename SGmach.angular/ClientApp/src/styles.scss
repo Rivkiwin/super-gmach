@@ -4,7 +4,8 @@
 @import "./gmach/css/ag-grid.scss";
 @import "./gmach/css/form.scss";
 @import  "./gmach/css/chart.scss";
-
+@import "./gmach/css/animation.scss";
+@import "./gmach/css/fount.css";
 @import  "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 /* Provide sufficient contrast against white background */
 .badge{
@@ -12,6 +13,9 @@
 }
 a {
   color: #0366d6;
+}
+.centerElement{
+  align-items: center;
 }
 
 .mt-40
@@ -96,14 +100,14 @@ h1,h2{
  width: 50%;
  margin-left: 25%;
 }
-img {
-    vertical-align: middle;
-    width: 16vw;
-    min-width: 30px;
-    border-style: none;
-    position: absolute;
-    margin-top: 52vh;
-}
+// img {
+//     vertical-align: middle;
+//     width: 16vw;
+//     min-width: 30px;
+//     border-style: none;
+//     position: absolute;
+//     margin-top: 52vh;
+// }
 a{
     color: #15967e !important
 }

@@ -15,7 +15,7 @@ namespace BL.BLclasses {
     public static ListUsers GetUsersList () {
       var sumPayThisMonth = 0;
       // List<UserDTO> userList = new List<UserDTO> ();
-      ListUsers userList = new ListUsers();
+      ListUsers userList = new ListUsers ();
       using (SuperGmachEntities db = new SuperGmachEntities ()) {
         foreach (User u in db.Users) {
           UserDTO user = Userconvert.DALtoDTO (u);
@@ -30,7 +30,7 @@ namespace BL.BLclasses {
           /// cheack if the user have active loan 
           Loan loan = db.Loans.FirstOrDefault (l => l.UserId == u.UserId && l.NameStatus != "performed");
           if (loan != null) {
-            var today=DateTime.Now;
+            var today = DateTime.Now;
             var thisMonth = DateTime.Now.Month;
             List<Repayments> repayments = db.Repayments.Where (r => r.LoanId == loan.LoanId && r.NameStatus != "performed").ToList ();
             List<Repayments> pastRepayments = repayments.Where (r => r.Date < today && r.Date != today).ToList ();
@@ -55,16 +55,16 @@ namespace BL.BLclasses {
           if (loan != null) {
             switch (loan.NameManagement_status) {
               case "Invalid":
-                user.Loans = " לא תקין "+LoanBL.Balance(loan.LoanId).ToString ();
+                user.Loans = " לא תקין " + LoanBL.Balance (loan.LoanId).ToString ();
                 break;
               case "Unauthorized":
                 user.Loans = "לא מאושר";
                 break;
               case "Proper":
-             user.Loans = loan.NameStatus=="active"?( "-" + LoanBL.Balance (loan.LoanId).ToString ()):"ממתין לאישור";
+                user.Loans = loan.NameStatus == "active" ? ("-" + LoanBL.Balance (loan.LoanId).ToString ()) : "ממתין לאישור";
                 break;
               case "Approved":
-                user.Loans = loan.NameStatus=="future"? loan.Amount.ToString()+" עתידי":loan.Amount.ToString()+"מאושר ";
+                user.Loans = loan.NameStatus == "future" ? loan.Amount.ToString () + " עתידי" : loan.Amount.ToString () + "מאושר ";
                 break;
             }
           }
@@ -104,8 +104,18 @@ namespace BL.BLclasses {
 
           }
           if (user.Friend == true) {
-            sumPayThisMonth += 50;
-            user.payThisMonth.Add (" הוראת קבע: 50 ");
+            var last_Debit_order = user.last_Debit_order;
+            var today = DateTime.Now;
+            var month = ((today.Year - last_Debit_order.Year) * 12) + today.Month - last_Debit_order.Month;
+            if (month == 0) {
+              sumPayThisMonth += 50;
+              user.payThisMonth.Add (" שולם:הוראת קבע: 50 ");
+            }
+            else{
+              var amount= 50*month;
+               sumPayThisMonth += amount;
+              user.payThisMonth.Add ("הוראת קבע: "+amount.ToString());
+            }
 
           }
           user.payThisMonth.Add ("סהכ :" + sumPayThisMonth.ToString ());
@@ -258,8 +268,8 @@ namespace BL.BLclasses {
 
   }
   public class ListUsers {
-  public  List<UserDTO> Users {set;get;}=new  List<UserDTO>();
-     public  List<AlertsUsers> alertsUsers  {set;get;}= new List<AlertsUsers> ();
+    public List<UserDTO> Users { set; get; } = new List<UserDTO> ();
+    public List<AlertsUsers> alertsUsers { set; get; } = new List<AlertsUsers> ();
 
   }
 }

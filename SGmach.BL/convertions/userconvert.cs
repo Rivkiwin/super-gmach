@@ -49,6 +49,7 @@ namespace BL.convertions
       
       UserDTO newUser = new UserDTO() {
         Id_user = user.UserId,
+        last_Debit_order=user.last_Debit_order,
         Id = user.UserId,
         First_name = user.firstName,
         Last_name = user.lastname,
