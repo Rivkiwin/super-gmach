@@ -11,6 +11,7 @@ import { Credit } from './Credit';
 
 
 export class Friend {
+    last_Debit_order;
     payThisMonth:String[]
       id:Number;
       id_user:Number;

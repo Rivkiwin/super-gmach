@@ -15,6 +15,7 @@ namespace SGmach.Entity.Models
     public class User
     {
         public int UserId { get; set; }
+        public DateTime last_Debit_order { get; set; }
         public string firstName { get; set; }
         public string lastname { get; set; }
         public string father_name { get; set; }
