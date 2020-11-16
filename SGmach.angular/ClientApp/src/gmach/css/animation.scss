@@ -14,6 +14,7 @@
   box-shadow: 0 4px 0 0 #bdfef0;
   transform-origin: 80px 82px;
 }
+.ldio-rpinwye8j0b div { box-sizing: content-box; }
 .loadingio-eclipse {
   width: 200px;
   height: 200px;
@@ -32,10 +33,32 @@
   backface-visibility: hidden;
   transform-origin: 0 0;
 }
-#logo_loading{
-  // width: 100%;
-  // position: absolute;
-  // margin-top: 13vh;
-  // margin-left: 24vw;
+#logo_login{
+  margin-top: 3vh;
+    margin-left: 18vw;
+    animation: scale-display 1s infinite;
+    animation-iteration-count: 1;
+    width: 270px;
 }
-.ldio-rpinwye8j0b div { box-sizing: content-box; }
+#loginMessage{
+  font-family: 'anka', Fallback, sans-serif;
+  font-size: 28px;
+  margin-left: 10%;
+  margin-top: 20vh;
+  animation: scale-display 1s infinite;
+  animation-iteration-count: 1;
+}
+@keyframes scale-display {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+    -webkit-transform: scale(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+    -webkit-transform: scale(1);
+	}
+}
+
