@@ -1,16 +1,22 @@
 <div >
-<form class="form-inline px-2  float-right search">
+    <div class="row form-inline px-2  float-right search">
+    <select [(ngModel)]="status" class="form-control w-10" (change)="onFilterTextBoxChanged()">
+        <option value="all">הכל</option>
+        <option>עתידי</option>
+        <option>בוצע</option>
+    </select>
+<form >
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
     [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
-    <button (click)="exportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
-
 </form>
+<button (click)="exportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
+</div>
 <ag-grid-angular 
 id="myGrid "
 class="ag-theme-alpine "
-style="height:520px ;position: relative;"
+style="height:500px ;position: relative;"
 [defaultColDef]="defaultColDef"
-[rowData]="rowData"
+[rowData]="dataFilter"
 [columnDefs]="columnDefs"
 (gridReady)="onGridReady($event)"
 >

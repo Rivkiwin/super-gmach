@@ -12,8 +12,9 @@ import { DatePipe } from '@angular/common';
 })
 export class ListExpenditureComponent implements OnInit {
   [x: string]: any;
+  dataFilter;
   rowSelection = 'multiple';
-  search;
+  status="all";
   Expenditures: Expenditure[] = [];
   defaultColDef = {
     resizable: true,
@@ -51,11 +52,10 @@ export class ListExpenditureComponent implements OnInit {
 
     params.api.sizeColumnsToFit();
   }
+ 
 
 
   addDATA() {
-
-   
       this.rowData = this.Expenditures.map(ex => {
       var  date=ex.date;
         return {
@@ -66,16 +66,9 @@ export class ListExpenditureComponent implements OnInit {
           Receives: ex.receives,       
           Date: this.datepipe.transform(date,'dd/MM/yyyy')
         }
-      })
-    // this.grid.refresh();
-  }
-  // GetDate(ex: Expenditure) {
-  //   switch (ex.status.Name) {
-  //     // case "future": return this.datepipe.transform(ex.future_date, 'dd-MM-yyyy');
-  //     // case "performed": return this.datepipe.transform(ex.real_date, 'dd-MM-yyyy');
-  //   }
-  //   return "00/00/00";
-  // }
+      });
+      this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.status?data.status==this.status:false);
+    }
   ngOnInit(): void {
     this.ExService.Get().subscribe(x => {
       this.Expenditures = <Expenditure[]>x,
@@ -90,10 +83,25 @@ export class ListExpenditureComponent implements OnInit {
     this.addDATA();
   }
   onFilterTextBoxChanged() {
+     debugger
+    this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.status?data.status==this.status:false);
     this.gridApi.setQuickFilter(this.search);
+    
   }
   exportExcel()
   {
-    this.exportService.exportExcel(this.rowData, 'expenditure');
+    
+    var exportData=this.Expenditures.map(ex => {
+      var  date=ex.date;
+        return {
+          קוד: ex.id, 
+           סטטוס:ex.status?ex.status.description:null,
+           מטרה: ex.purpose,
+          סכום: ex.amount, 
+          מוטב: ex.receives,       
+          תאריך: this.datepipe.transform(date,'dd/MM/yyyy')
+        }
+      });
+    this.exportService.exportExcel(exportData, 'הוצאות');
   }
 }

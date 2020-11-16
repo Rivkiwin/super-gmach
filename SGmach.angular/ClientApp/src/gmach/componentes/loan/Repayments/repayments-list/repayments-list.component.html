@@ -1,12 +1,19 @@
-<form *ngIf="!loanId" class="form-inline px-2  float-right search">
+<div class="row form-inline px-2  float-right search" *ngIf="!loanId">
+    <select [(ngModel)]="status" class="form-control w-10" (change)="onFilterTextBoxChanged()">
+        <option value="all">הכל</option>
+        <option>שולם</option>
+        <option>עתידי</option>
+    </select>
+<form >
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
     [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
-<button class="btn btn-dark" (click)="ExportExcel()">יצוא לאקסל</button>
 </form>
+<button (click)="exportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
+</div>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
 
                  [defaultColDef]="defaultColDef"
-                 [rowData]="rowData"
+                 [rowData]="dataFilter"
                  class="divLIst"
                  class="ag-theme-alpine"
                  class="ag-theme-alpine"

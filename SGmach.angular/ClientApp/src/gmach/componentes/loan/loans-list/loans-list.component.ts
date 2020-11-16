@@ -15,7 +15,10 @@ export class LoansListComponent implements OnInit {
   userId;
   @Input() UserID;
   rowData;
+  status="all";
+  statusMenger;
   columnDefs;
+  dataFilter
   defaultColDef = {
     resizable: true,
     width:100,
@@ -55,6 +58,7 @@ export class LoansListComponent implements OnInit {
       }
       
     });
+    this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.statusMenger?data.statusMenger==this.status:false);
   }
   ngOnInit(): void {
    this.loanService.GetAll().subscribe(
@@ -106,6 +110,7 @@ export class LoansListComponent implements OnInit {
     this.ExcelService.exportExcel(exportData,"הלוואות")
   }
   onFilterTextBoxChanged() {
+    this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.statusMenger?data.statusMenger==this.status:false);
     this.gridApi.setQuickFilter(this.search);
   }
 

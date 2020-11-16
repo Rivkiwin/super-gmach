@@ -6,7 +6,7 @@ import { Expenditure } from "src/gmach/classes/expenditure";
 import { status } from "src/gmach/classes/status";
 import { StatusService } from "src/gmach/services/status.service";
 import { ExpenditureService } from "src/gmach/services/expenditure.service";
-import { numberOnly } from 'src/ts/Validation';
+import { numberOnly, validation } from 'src/ts/Validation';
 import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-add-new',
@@ -19,29 +19,31 @@ export class AddNewComponent implements OnInit {
   myDate = new Date();
   Status: status[] = [];
   date = new Date();
-  message = { title: '', body: '', href: '', buttonText: "הוסף ", click: "this.Add()" };
+  message = { title: '', body: '', href: '', buttonText: "הוסף", click: "this.Add()" };
   public FormAddExpense: FormGroup;
   public EPayment_FormE = Payment_FormE;
   public Contemporary_expenditure: boolean = false;
-  public keyPayment_Form(): Array<string> {
-    var keys = Object.keys(this.EPayment_FormE);
-    return keys.slice(keys.length / 2);
     numberOnly
-  }
   constructor(private datePipe: DatePipe, private serviceExpense: ExpenditureService, public router: Router, private statusServic: StatusService) {
     this.date = new Date();
   }
   Add(event) {
-    if (event.target.id != "Add-B") {
+    if(event.target.id!="Add-B")
+    {
       return
     }
+     if ( !validation())
+     {
+       return;
+     }
+   
    debugger
     let expenditure: Expenditure = new Expenditure();
-    expenditure.date= this.myDate;
+    expenditure.date= this.FormAddExpense.get('date').value;
     expenditure.receives = this.FormAddExpense.get('Receives').value;
     expenditure.amount = this.FormAddExpense.get('Expense_amount').value;
     expenditure.purpose = this.FormAddExpense.get('Purpose').value;
-    expenditure.status = this.FormAddExpense.get('status').value?"performed":"future";
+    expenditure.NameStatus = this.FormAddExpense.get('status').value?"performed":"future";
     //debugger
     this.serviceExpense.add(expenditure).subscribe(
       {
@@ -49,12 +51,12 @@ export class AddNewComponent implements OnInit {
           debugger
           this.message.title = "ההוצאה נוספה בהצלחה";
           this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההוצאות לחץ אישור";
-          this.message.href = "patty_cash/Expnditure/view_Expenditure";
+          this.message.href = "patty_cash/view_Expenditure";
         },
         error: error => {
           this.message.title = "יש תקלה בהוספה";
           this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
-          this.message.href = "patty_cash/Expnditure/view_Expenditure";
+          this.message.href = "patty_cash/view_Expenditure";
         }
       }
     );;
@@ -77,7 +79,8 @@ export class AddNewComponent implements OnInit {
     var Today = new Date();
     this.FormAddExpense = new FormGroup(
       {
-        status: new FormControl(),
+        date:new FormControl(this.datePipe.transform(new Date(),'yyyy-MM-dd')),
+        status: new FormControl(true),
         Expense_amount: new FormControl(),
         Purpose: new FormControl(),
         file: new FormControl(),

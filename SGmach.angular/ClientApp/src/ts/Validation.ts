@@ -15,6 +15,7 @@ export function letterOnly(event): boolean {
   return false
 }
 export function validation():boolean {
+  debugger
   var forms = document.getElementsByClassName('needs-validation');
   // Loop over them and prevent submission
   var validation = Array.prototype.filter.call(forms, function (form) {

@@ -14,7 +14,9 @@ export class RepaymentsListComponent implements OnInit {
 
   @Input() loanId;
   Repayments:Repayment[];
-  search
+  search;
+  status="all";
+  dataFilter;
   rowData;
   defaultColDef = {
     resizable: true,
@@ -33,7 +35,6 @@ export class RepaymentsListComponent implements OnInit {
     { headerName: 'שם הלווה', field: 'name' },
     { headerName: 'סטטוס', field: 'status' },
     { headerName: 'מספר הלוואה', field: 'loan' }
-
     ]
   gridApi: any;
   gridColumnApi: any;
@@ -68,8 +69,8 @@ export class RepaymentsListComponent implements OnInit {
         status:Repayment.status=="future"?"עתידי":Repayment.status=="performed"?"שולם":"",
         date:this.datepipe.transform(Repayment.date, 'yyyy-MM-dd'),
       }
-      
     });
+    this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.status?data.status==this.status:false);
   }
   @Output() loanRepaymens:Repayment[];
   ngOnInit(): void {
@@ -103,6 +104,7 @@ export class RepaymentsListComponent implements OnInit {
     this.ExcelService.exportExcel(exportDta,"פרעונות")
   }
   onFilterTextBoxChanged() {
+    this.dataFilter=this.rowData.filter(data=>this.status=="all"?true:data.status?data.status==this.status:false);
     this.gridApi.setQuickFilter(this.search);
   }
 
