@@ -84,7 +84,7 @@ export class FundDetailsComponent implements OnInit {
 
         this.Details = new FormGroup({
 
-          Required_months: new FormControl(this.fund.Required_months),
+          Required_months: new FormControl(this.fund.required_months),
 
           Required_VIP: new FormControl(this.fund.required_vip),
 
