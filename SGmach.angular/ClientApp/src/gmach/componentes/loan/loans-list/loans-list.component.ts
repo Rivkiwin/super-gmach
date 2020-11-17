@@ -6,7 +6,7 @@ import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 @Component({
   selector: 'loans-list',
   templateUrl: './loans-list.component.html',
-  styleUrls: ['./loans-list.component.css'],
+  styleUrls: ['./loans-list.component.scss'],
   providers: [DatePipe]
 })
 export class LoansListComponent implements OnInit {

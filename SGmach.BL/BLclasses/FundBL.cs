@@ -26,6 +26,7 @@ namespace BI.BLclasses
       return list;
     }
 
+
     public static FundDTO GetById(string id)
     {
       FundDTO Fund = new FundDTO();
@@ -65,6 +66,26 @@ namespace BI.BLclasses
         throw;
       }
     }
+     public static void Save(FundDTO fund){
+
+    
+
+    DB DB = new DB();
+
+    Fund fundDal = DB.Funds.FirstOrDefault(f=> f.FundId== fund.Id);
+
+    fundDal.required_vip= fund.required_vip;
+
+     //fundDal.remark= fund.remark;
+
+    fundDal.required_months= fund.Required_months;
+
+    DB.SaveChanges();
+
+      }
+  
+
+
     public static void Subtract_Balance(int Value, string fundId = "1")
     {
       try

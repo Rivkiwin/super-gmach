@@ -37,13 +37,10 @@
   }
   .ag-root-wrapper.ag-layout-normal {
     height: 100%;
+    position: relative;
     // margin-right: 10vw;
     width: 70vw;
 }
 .ag-theme-alpine [class^='ag-'], .ag-theme-alpine [class^='ag-']:focus, .ag-theme-alpine [class^='ag-']:after, .ag-theme-alpine [class^='ag-']:before {
     text-align: center;
-}
-.ag-root-wrapper.ag-layout-normal {
-    height: 100%;
-   
 }

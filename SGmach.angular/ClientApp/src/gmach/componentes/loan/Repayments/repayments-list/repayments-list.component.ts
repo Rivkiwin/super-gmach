@@ -98,9 +98,8 @@ export class RepaymentsListComponent implements OnInit {
       //  סטטוס:repayment.status.name,
         תאריך:this.datepipe.transform(repayment.date, 'yyyy-MM-dd'),
       }
-      
     });
-
+    debugger
     this.ExcelService.exportExcel(exportDta,"פרעונות")
   }
   onFilterTextBoxChanged() {

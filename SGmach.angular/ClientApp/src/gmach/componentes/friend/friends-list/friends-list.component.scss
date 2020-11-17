@@ -11,6 +11,11 @@
       color: red($color: #000000);
       text-align: center;
   }
+  .ag-root-wrapper.ag-layout-normal {
+    height: 100%;
+    // margin-right: 10vw;
+    width: 70vw;
+}
   th{
       text-align: center;
   }

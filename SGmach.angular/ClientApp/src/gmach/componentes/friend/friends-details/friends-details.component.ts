@@ -60,6 +60,7 @@ export class FriendsDetailsComponent implements OnInit {
         // this.friend.payThisMonth=this.friend.payThisMonth.trim('@',"+ '</br>'+");
         console.log(this.friend);
         console.log(this.friend.first_name);
+        debugger;
         this.formFriend = new FormGroup({
           Id_user: new FormControl({ value: this.friend.id_user, disabled: true }),
           First_name: new FormControl(this.friend.first_name),
@@ -84,6 +85,8 @@ export class FriendsDetailsComponent implements OnInit {
         this.FindDebit_order_Amount();
       }
     )));
+    // var wrapper= <HTMLElement>document.getElementsByClassName("ag-root-wrapper")[1];
+    // wrapper.style.width="90%";
     debugger
 
     // console.log
@@ -127,6 +130,7 @@ export class FriendsDetailsComponent implements OnInit {
       {
         next:data=>{
           alert("נוסף בהצלחה");
+          window.location.reload();
         },
         error:error=>{
           alert(error)

@@ -29,7 +29,15 @@ namespace API.Controllers {
       }
       return Ok (lUsers);
     }
+   [HttpPost]
 
+    [Route ("Save")]
+
+      public void Save ([FromBody] FundDTO fund) {
+
+      FundBL.Save (fund);
+
+    }
     [HttpGet]
     [Route ("GetAll")]
     public ActionResult GetFunds () {
