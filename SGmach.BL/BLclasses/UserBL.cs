@@ -9,6 +9,7 @@ using User_in_fundDTO = DTO.classes.fund.User_in_fundDTO;
 using BI.BLclasses;
 using SGmach.Entity;
 using SGmach.Entity.Models;
+using SGmach.BL.BLclasses;
 
 namespace BL.BLclasses {
   public class UserBL {
@@ -265,11 +266,25 @@ namespace BL.BLclasses {
       db.SaveChanges ();
       return userDal.UserId;
     }
-
+     public  static void  collectDebit_order(Debit_order debit_Order)
+     {
+      SuperGmachEntities db = new SuperGmachEntities ();
+      User user=db.Users.FirstOrDefault (u => u.UserId == debit_Order.UserID);
+      user.last_Debit_order=DateTime.Now;
+      Income Debit_order=new Income(){
+        Amount=debit_Order.amount,
+        Date=DateTime.Now,
+        From=" מנוי "+debit_Order.UserID,
+      Remarks="הוראת קבע"
+      };
+      db.Incoms.Add(Debit_order);
+      db.SaveChanges();
+     }
   }
   public class ListUsers {
     public List<UserDTO> Users { set; get; } = new List<UserDTO> ();
     public List<AlertsUsers> alertsUsers { set; get; } = new List<AlertsUsers> ();
 
   }
+
 }

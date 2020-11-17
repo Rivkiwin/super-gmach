@@ -123,7 +123,18 @@ export class FriendsDetailsComponent implements OnInit {
 
   collectDebit_order()
   {
-    
+    return this.friendsService.collectDebit_order(this.friend.id_user,this.Debit_order_Amount).subscribe(
+      {
+        next:data=>{
+          alert("נוסף בהצלחה");
+        },
+        error:error=>{
+          alert(error)
+        }
+           
+        
+      }
+    );
   }
 }
 
