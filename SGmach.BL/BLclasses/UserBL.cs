@@ -88,6 +88,7 @@ namespace BL.BLclasses {
           UserDTO user = Userconvert.DALtoDTO (userDal);
           ///cheack pay thisMonth
           var sumPayThisMonth = 0;
+          var paid=0;
           Loan loan = db.Loans.FirstOrDefault (l => l.UserId == id && l.NameManagement_status != "performed");
           if (loan != null) {
             var thisMonth = DateTime.Now.Month;
@@ -99,8 +100,16 @@ namespace BL.BLclasses {
             user.payThisMonth.Add (" תשלום פרעות מחודשים קודמים שטרם שלמו :" + sumPayThisMonth.ToString ());;
             Repayments repaymentThisMonth = repayments.FirstOrDefault (r => r.Date.Month == thisMonth);
             if (repaymentThisMonth != null) {
+                sumPayThisMonth += repaymentThisMonth.Amount;
+              if (repaymentThisMonth.NameStatus!="performed")
+              {
               user.payThisMonth.Add ("תשלום פררעון לחודש זה :" + repaymentThisMonth.Amount.ToString ());
-              sumPayThisMonth += repaymentThisMonth.Amount;
+              }
+              else{
+                user.payThisMonth.Add ("תשלום פררעון לחודש זה :" + repaymentThisMonth.Amount.ToString ()+" -שולם ");
+                paid+=repaymentThisMonth.Amount;
+              }
+            
             }
 
           }
@@ -110,6 +119,7 @@ namespace BL.BLclasses {
             var month = ((today.Year - last_Debit_order.Year) * 12) + today.Month - last_Debit_order.Month;
             if (month == 0) {
               sumPayThisMonth += 50;
+              paid+=50;
               user.payThisMonth.Add (" שולם:הוראת קבע: 50 ");
             }
             else{
@@ -120,6 +130,9 @@ namespace BL.BLclasses {
 
           }
           user.payThisMonth.Add ("סהכ :" + sumPayThisMonth.ToString ());
+          user.payThisMonth.Add("שולם :"+paid.ToString());
+          var toPay=sumPayThisMonth-paid;
+             user.payThisMonth.Add("סהכ לתשלום :"+toPay.ToString());
           return user;
         }
       } catch (Exception e) {

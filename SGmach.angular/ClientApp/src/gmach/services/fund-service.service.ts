@@ -14,7 +14,11 @@ baseUrl;
   constructor(private httpc:HttpClient, @Inject('API_URL') apiUrl: string) {
     this.baseUrl=`${apiUrl}api/Fund`;
   }
-  
+  public Save(fundId) {
+
+    return this.httpc.post(`${this.baseUrl}/Save`, fundId);
+
+  }
   public add(fund:FundClass)
   {
      return this.httpc.post(`${this.baseUrl}/add`,fund);

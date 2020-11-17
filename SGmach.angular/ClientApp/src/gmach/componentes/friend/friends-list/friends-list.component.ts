@@ -100,7 +100,7 @@ export class FriendsListComponent implements OnInit {
   }
   ExportExcel()
   {
-    this.ExcelService.exportExcel(this.rowData,"friends")
+    this.ExcelService.exportExcel(this.rowData,"חברי הגמח")
   }
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);

@@ -1,8 +1,8 @@
-<loans-list *ngIf="friend" id="loans" class="sticky collapse" [UserID]="friend.id_user"></loans-list>
+<loans-list *ngIf="friend" id="loans" class="sticky collapse"
+    [UserID]="friend.id_user"></loans-list>
 <div class="Form-wrapper Detalis-wrapper" *ngIf="friend">
     <h3>פרטי חבר</h3>
-    <form [formGroup]="formFriend" *ngIf="friend" class="mx-auto w-75 mt-auto
-        divForm needs-validation" novalidate="">
+    <form [formGroup]="formFriend" *ngIf="friend" class=" needs-validation" novalidate="">
         <div class="row">
             <div class="col">
                 <label for="fname">שם פרטי</label>
@@ -67,7 +67,8 @@
             </div>
             <div class="col">
                 <label class="form-check-label" for="vipCheck"
-                    data-toggle="tooltip" data-placement="left" title="משלם כל חודש 50 שקלים">
+                    data-toggle="tooltip" data-placement="left" title="משלם כל
+                    חודש 50 שקלים">
                     חבר
                 </label>
                 <input class="form-control" type="checkbox"
@@ -79,6 +80,7 @@
                 <input class="form-control" disabled [value]="last_Debit_order">
             </div>
         </div>
+    </form>
         <div class="dropdown-divider"></div>
         <form [formGroup]="FCommunication_ways" class="needs-validation"
             novalidate="">
@@ -120,10 +122,14 @@
                 </div>
             </div>
             <div class="dropdown-divider"></div>
-            <div class="col">
-                <label for="Remarkscontrol">הערות</label>
-                <textarea class="form-control" id="Remarkscontrol" rows="1"
-                    formControlName="Remarks"></textarea>
+        </form>
+        <form [formGroup]="formFriend">
+            <div class="row">
+                <div class="col">
+                    <label for="Remarkscontrol">הערות</label>
+                    <textarea class="form-control" id="Remarkscontrol" rows="1"
+                        formControlName="Remarks"></textarea>
+                </div>
             </div>
         </form>
         <div class="dropdown-divider"></div>
@@ -142,22 +148,30 @@
                     [UserID]="friend.id_user"></CreditDetails></div>
             <div class="col"> <app-bank-details
                     [BankDetails]="friend.bank_Details"></app-bank-details></div>
-            <div class="col"><withdrawals-and-deposits
-                    [friendId]="friend.id_user">משיכות והפקדות</withdrawals-and-deposits></div>
+            <div class="col">
+                <withdrawals-and-deposits class="col"
+                    [friendId]="friend.id_user"></withdrawals-and-deposits>
+            </div>
         </div>
         <div class="row">
-            <div  *ngIf="friend.friend" class="col">
-                <button (click)="collectDebit_order()" *ngIf="Debit_order_Amount" class="btn btn-dark col">גבהה {{Debit_order_Amount}}ש"ח הוראת קבע  </button>
+            <div *ngIf="friend.friend" class="col">
+                <button (click)="collectDebit_order()"
+                    *ngIf="Debit_order_Amount" class="btn btn-dark col">גבהה
+                    {{Debit_order_Amount}}ש"ח הוראת קבע </button>
             </div>
-               <div class="col">
-            <button class="btn btn-dark col" type="button" data-toggle="collapse"
-                data-target="#loans" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                הלוואות
-            </button></div>
-            </div>
+            <div class="col">
+                <button class="btn btn-dark col" type="button"
+                    data-toggle="collapse"
+                    data-target="#loans"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    הלוואות
+                </button></div>
+        </div>
         <div class="row">
-            
+
             <a (click)="Edite($event)" id="BAdd" class="col">
                 <app-message-add [Message]="message | json"></app-message-add></a>
         </div>
+</div>
+<router-outlet></router-outlet>

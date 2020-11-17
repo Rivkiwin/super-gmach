@@ -4,16 +4,29 @@ export enum StatusE {
   inactive,
 }
 export class FundClass {
+
     [x: string]: any;
+
     static cnt:number;
+
     Fund_name:string;
+
     id:number;
+
+  //  remark:string;
+
     Nun_friends:Number=0;
+
     Required_months:Number=0;
+
     Required_vip:boolean=true;
+
     Details:string;
+
     Status:StatusE;
+
     Futurbalance;
+
     balance;
     
     constructor(name:string,status:StatusE,Required_month?:number,Required_vip?:boolean,details?:string)

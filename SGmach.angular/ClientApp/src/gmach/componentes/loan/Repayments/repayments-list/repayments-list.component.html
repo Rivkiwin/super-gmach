@@ -8,7 +8,7 @@
     <input class="form-control  float-right" type="search" placeholder="חיפוש" aria-label="Search" (input)='onFilterTextBoxChanged()' 
     [(ngModel)]='search' [ngModelOptions]="{standalone: true}" >
 </form>
-<button (click)="exportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
+<button (click)="ExportExcel()" class="btn btn-dark"> יצאו לאקסל</button>
 </div>
 <ag-grid-angular (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
 
