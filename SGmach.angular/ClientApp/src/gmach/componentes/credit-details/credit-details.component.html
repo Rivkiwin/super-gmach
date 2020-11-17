@@ -25,7 +25,7 @@
                         <div class="row">
                             <label for="cardNum" class="col-form-label">מספר
                                 כרטיס:</label>
-                            <input class="form-control" formControlName="Number"  id="Number" required (keypress)="numberOnly($event)">
+                            <input class="form-control" formControlName="Number"  id="Number" maxlength="16" minlength="16" required (keypress)="numberOnly($event)">
                         </div>
                         <div class="row">
                             <label for="CVV" class="col-form-label">CVV:</label>

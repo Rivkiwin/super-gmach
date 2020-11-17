@@ -54,15 +54,14 @@ namespace BI.BLclasses {
       loanDAL = Sgmach.Loans.Add (loanDAL).Entity;
       Sgmach.SaveChanges ();
       if (loan.management_Status == "Approved") {
-        int FutureBalance = FundBL.GetFutureBalance("1", loan.date_start);
-        if (FutureBalance<loan.amount) {
-          loanDAL.remark += " יתרת הגמח ביום התחלת הלווה קטנה מסכום ההלוואה";
+        int FutureBalance = FundBL.GetFutureBalance ("1", loan.date_start);
+        if (FutureBalance < loan.amount) {
+          loanDAL.remark += " יתרת הגמח ביום התחלת הלוואה קטנה מסכום ההלוואה";
           loanDAL.NameManagement_status = "Invalid";
         } else {
           SetRepayment (loanDAL);
-          if(loan.NameStatus=="active")
-          {
-            FundBL.Subtract_Balance(loan.amount);
+          if (loan.NameStatus == "active") {
+            FundBL.Subtract_Balance (loan.amount);
           }
           Sgmach.SaveChanges ();
         }
@@ -79,46 +78,51 @@ namespace BI.BLclasses {
       Loan loanDAL = Sgmach.Loans.FirstOrDefault (l => l.LoanId == loan.id_loan);
       loanDAL.Months = loan.month;
       loanDAL.remark = loan.remark;
-      loanDAL.NameStatus=loan.NameStatus;
+      loanDAL.NameStatus = loan.NameStatus;
       loanDAL.RepaymentStart = loan.date_start;
+      loanDAL.NameManagement_status=loan.management_Status;
       if (loanDAL == null) {
         throw new Exception ("loan not found");
       }
       //if it became Approved
-      if (loanDAL.NameManagement_status != "Approved" && loan.management_Status == "Approved" && loanDAL.NameStatus!="active") {
+      if (loanDAL.NameManagement_status != "Approved" && loan.management_Status == "Approved" && loanDAL.NameStatus != "active") {
         if (loan.NameStatus == "future") {
           int FutureBalance = FundBL.GetFutureBalance ("1", loan.date_start);
           if (FutureBalance - 2000 < loan.amount) {
             loanDAL.remark = "סכום ההלוואה גדול מיתרת הגמח";
             loanDAL.NameManagement_status = "Invalid";
-          } 
-          else {
+          } else {
             SetRepayment (loanDAL);
             loanDAL.NameManagement_status = "Approved";
           }
         }
+      } else if (loanDAL.NameManagement_status != "Approved" && loan.management_Status == "Approved" && loan.NameStatus == "active") {
+        loanDAL.NameManagement_status = "Approved";
+        loanDAL.NameStatus = "active";
+        loanDAL.RepaymentStart = DateTime.Today;
+        SetRepayment (loanDAL);
       }
-         else if(loanDAL.NameManagement_status != "Approved" && loan.management_Status == "Approved" &&loan.NameStatus=="active"){
-          loanDAL.NameManagement_status = "Approved";
-          loanDAL.NameStatus = "active";
-          loanDAL.RepaymentStart = DateTime.Today;
-          SetRepayment (loanDAL);
-        }
-      
+
       // if the loan become active (the friend get the money) the  fund  Balance have to Subtract
       if (loan.NameStatus == "active" && loanDAL.NameStatus != "active") {
-        loanDAL.NameStatus="active";
-        loan.management_Status="Proper";
+        loanDAL.NameStatus = "active";
+        loan.management_Status = "Proper";
         FundBL.Subtract_Balance (loan.amount);
       }
-      
+
       Sgmach.SaveChanges ();
     }
     public static List<LoanDTO> GetAll () {
       db Sgmach = new db ();
       List<LoanDTO> loans = new List<LoanDTO> ();
       foreach (Loan loan in Sgmach.Loans) {
-        loans.Add (LoanConvert.DALtoDTO (loan));
+        LoanDTO loanDTO = LoanConvert.DALtoDTO (loan);
+        if (loan.NameManagement_status == "Unauthorized") {
+          var Today = DateTime.Now;
+          var monthWait = ((Today.Year - loan.EnteryDate.Year) * 12) - loan.EnteryDate.Month + Today.Month;
+          loanDTO.Score=monthWait*10;
+        }
+        loans.Add (loanDTO);
       }
       return loans;
     }
@@ -142,7 +146,7 @@ namespace BI.BLclasses {
       double balance = 0;
       db SGmach = new db ();
       Loan loan = SGmach.Loans.FirstOrDefault (l => l.LoanId == loanId);
-      if (loan != null && loan.NameManagement_status != "performed") {
+      if (loan == null || loan.NameManagement_status == "performed") {
         return 0;
       }
       List<Repayments> repayments = SGmach.Repayments.Where (r => r.LoanId == loanId && r.NameStatus == "future").ToList ();

@@ -94,10 +94,11 @@ namespace BL.BLclasses {
             var thisMonth = DateTime.Now.Month;
             List<Repayments> repayments = db.Repayments.Where (r => r.LoanId == loan.LoanId && r.NameStatus != "performed").ToList ();
             List<Repayments> pastRepayments = repayments.Where (r => r.Date.Month < thisMonth && r.Date.Month != thisMonth).ToList ();
+            if(pastRepayments.ToArray().Length>0){
             foreach (var repayment in pastRepayments) {
               sumPayThisMonth += repayment.Amount;
             }
-            user.payThisMonth.Add (" תשלום פרעות מחודשים קודמים שטרם שלמו :" + sumPayThisMonth.ToString ());;
+            user.payThisMonth.Add (" תשלום פרעות מחודשים קודמים שטרם שלמו :" + sumPayThisMonth.ToString ());;}
             Repayments repaymentThisMonth = repayments.FirstOrDefault (r => r.Date.Month == thisMonth);
             if (repaymentThisMonth != null) {
                 sumPayThisMonth += repaymentThisMonth.Amount;

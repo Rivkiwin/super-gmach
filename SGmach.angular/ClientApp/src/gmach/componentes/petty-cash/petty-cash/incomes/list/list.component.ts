@@ -22,10 +22,7 @@ export class ListComponent implements OnInit {
   };
 
     columnDefs= [{
-      headerName: 'מזהה', field: 'id', maxWidth: "80", minWidth: "80", sortable: true,
-      cellRenderer: function (params) {
-        return `<a href='/patty_cash/details/${params.data.id}'> ${params.data.id}</a>`
-      }
+      headerName: 'מזהה', field: 'id', maxWidth: "80", minWidth: "80", sortable: true
     },
     { headerName: 'תאריך', field: 'Date', width: 100, sortable: true},
     { headerName: 'סכום', field: 'amount',width: 100 },
