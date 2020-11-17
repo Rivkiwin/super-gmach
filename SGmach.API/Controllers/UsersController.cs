@@ -13,6 +13,7 @@ using DTO.classes.user_classes;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using SGmach.BL.BLclasses;
 
 namespace API.Controllers {
 
@@ -74,7 +75,14 @@ namespace API.Controllers {
       UserBL.SetBankDetails(bankDetails);
       // return ok ();
     }
+        [HttpPost]
+    [Route ("collectDebit_order")]
+    public void collectDebit_order([FromBody]Debit_order debit_Order)
+    {
+      UserBL.collectDebit_order(debit_Order);
+    }
   }
+
 
   public class CerditD {
     public Crdit cerdit { get; set; }

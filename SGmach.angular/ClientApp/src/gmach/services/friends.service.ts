@@ -19,6 +19,10 @@ export class FriendsService {
   constructor(private httpclinet: HttpClient, @Inject('API_URL') apiUrl: string) {
     this.baseUrl=`${apiUrl}api/User/`;
   }
+  collectDebit_order(UserID,amount)
+  {
+    return this.httpclinet.post(`${this.baseUrl}collectDebit_order`,{UserID,amount})
+  }
   
   public add(User: Friend,Communication:Communication,Credit:Credit,Bank:BankDetails) {
     var UserId;

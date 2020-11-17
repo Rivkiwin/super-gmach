@@ -1,4 +1,4 @@
-<loans-list id="loans" class="sticky collapse" [UserID]="friend.id_user"></loans-list>
+<loans-list *ngIf="friend" id="loans" class="sticky collapse" [UserID]="friend.id_user"></loans-list>
 <div class="Form-wrapper Detalis-wrapper" *ngIf="friend">
     <h3>פרטי חבר</h3>
     <form [formGroup]="formFriend" *ngIf="friend" class="mx-auto w-75 mt-auto
@@ -147,7 +147,7 @@
         </div>
         <div class="row">
             <div  *ngIf="friend.friend" class="col">
-                <button (click)="collectDebit_order" *ngIf="Debit_order_Amount" class="btn btn-dark col">גבהה {{Debit_order_Amount}}ש"ח הוראת קבע  </button>
+                <button (click)="collectDebit_order()" *ngIf="Debit_order_Amount" class="btn btn-dark col">גבהה {{Debit_order_Amount}}ש"ח הוראת קבע  </button>
             </div>
                <div class="col">
             <button class="btn btn-dark col" type="button" data-toggle="collapse"
