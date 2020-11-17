@@ -26,21 +26,22 @@ export class FriendOfFundComponent implements OnInit {
   constructor(private FundService: FundServiceService, public datepipe: DatePipe, private friendservic: FriendsService) {
 
     this.defaultColDef = {
-      flex: 1,
+      // flex: 1,
+      // width:100,
       minWidth: 100,
       resizable: true,
       // headerCheckboxSelection:"isFirstColumn",
       //  checkboxSelection: this.isFirstColumn,
     };
     this.columnDefs = [
-      { headerName: 'תאריך הצטרפות', field: 'dateJoin' },
-      { headerName: 'ת"ז', field: 'id' },
-      { headerName: 'יתרה', field: 'balance' },
+      { headerName: 'תאריך הצטרפות', field: 'dateJoin',width:150},
+      { headerName: 'ת"ז', field: 'id',width:120 },
+      { headerName: 'יתרה', field: 'balance',width:130 },
       { headerName: 'שם', field: 'name' },
       {
-        headerName: '', field: 'withdrawal',height:100,
+        headerName: '', field: 'withdrawal',
         cellRenderer: function (params) {
-          return `<div><a href="Withdrawals/add/${params.data.fund}/${params.data.id}/${params.data.balance}" disabled="${params.data.balance}>0?true:felse">הוסף משיכה</a>
+          return `<div><a href="Withdrawals/add/${params.data.fund}/${params.data.id}/${params.data.balance}" disabled="${params.data.balance}>0?true:felse">הוסף משיכה</a> /
           <a href="deposit/add/${params.data.fund}/${params.data.id}">הוסף הפקדה</a></div>`
           // [max]=${params.data.balance} > 
           // </addwithdrawal>`

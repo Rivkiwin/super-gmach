@@ -1,49 +1,30 @@
 <div class="Form-wrapper Detalis-wrapper" *ngIf="fund">
 
-  <h3>{{ fund.Fund_name }}</h3>
+  <h3>{{ fund.fund_name }}</h3>
 
   <form [formGroup]="Details">
 
     <div class="row">
 
       <div class="col">
-
         <label>:מספרי חודשי חובה</label>
-
         <input
-
           type="number"
-
           min="0"
-
           value="fund.Required_months"
-
           class="form-control"
-
           formControlName="Required_months"
-
         />
-
       </div>
-
       <div class="col">
-
         <label>VIP נדרש </label>
-
         <input
-
           type="checkbox"
-
           class="form-control"
-
           formControlName="Required_VIP"
-
         />
-
       </div>
-
     </div>
-
     <div class="row">
 
       <!-- <div class="col">

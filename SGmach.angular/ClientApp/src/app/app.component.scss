@@ -1,12 +1,22 @@
 
-
-
-
 body,tr,div,input{
     direction: rtl;
 }
 
-.dropdown-item:hover,.nav-link:hover {
-    
-    background-color: #5dece6;
+.blog{
+    // margin: auto;
+    margin-right: 20%;
 }
+
+.dropdown-item:hover,.nav-link:hover {
+        background-color: #5dece6;
+}
+p,h1,h2,h4,h5{
+    text-align: center;
+    font-family: 'anka';
+    color: #15967e;
+}
+h5{
+    padding: 1%;
+}
+ 

@@ -64,14 +64,14 @@ export class ADDDepositComponent implements OnInit {
         next: data => {
           debugger
           this.message.title = "ההפקדה הוספה בהצלחה";
-          this.message.body = "הפרטים נשמרו בהצלחה לחזרה לרשימת ההפקדות לחץ אישור";
-          this.message.href = "deposit/list";
+          this.message.body = "הפרטים נשמרו בהצלחה לחזרה לפרטי הקרן לחץ אישור";
+          this.message.href = "FundDetails/"+this.fundId;
         },
         error: error =>  {
           debugger
           this.message.title = "תקלה בשמירת הנתונים"
           this.message.body = "הפרטים לא נשמרו אנא פנה לתמיכה";
-          this.message.href = "deposit/list";
+          this.message.href = "FundDetails/"+this.fundId;
         },
       }
     );

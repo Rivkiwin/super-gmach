@@ -50,9 +50,8 @@ export class LoanEditComponent implements OnInit {
       date_start: new FormControl(this.datePipe.transform(this.loan.date_start, "yyyy-MM-dd")),
       month: new FormControl(this.loan.month),
     });
-    if(this.loan.nameStatus=="active")
+    if(this.loan.nameStatus=="active" || this.loan.nameStatus=="performed")
     {
-      this.LoanForm.controls['loan_status'].disable();
       this.LoanForm.controls['amount'].disable();
       this.LoanForm.controls['date_start'].disable();
       this.LoanForm.controls['month'].disable();

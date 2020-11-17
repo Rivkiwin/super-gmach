@@ -32,9 +32,10 @@
             <div class="col">
                 <label>סטטוס הלוואה</label>
                 <select value="loan.management_Status"  formControlName="Management_status" class=" selectpicker form-control" >
-                    <option value="Approved" id="status">מאושר </option>
-                    <option value="Unauthorized">ממתין לאישור</option>
+                    <option value="Approved" id="status" *ngIf="loan.nameStatus=='future'">מאושר </option>
+                    <option value="Unauthorized" id="status" *ngIf="loan.nameStatus=='future'">לא מאושר </option>
                     <option value="Invalid">לא תקין</option>
+                    <option value="Proper">תקין</option>
                 </select>
             </div>
             <div class="col">
@@ -42,6 +43,7 @@
                 <select  formControlName="loan_status" class="form-control">
                     <option value="active" id="status">פעיל</option>
                     <option value="future">עתידי</option>
+                    <option value="performed">שולם</option>
                 </select>
             </div>
             <div class="col">
