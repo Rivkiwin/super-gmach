@@ -75,8 +75,12 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
   }
 
   onGridReady(params) {
-    var wrapper= <HTMLElement>document.getElementsByClassName("ag-root-wrapper")[0];
-    wrapper.style.width="100%";
+      var wrappers = document.getElementsByClassName("ag-root-wrapper");
+      var length = wrappers.length;
+      for (var i = 0; i < length; i++) {
+        var wrapper = <HTMLElement>wrappers[i];
+        wrapper.style.width = "100%";
+      }
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     //diving coluom % to the tabel 

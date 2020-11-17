@@ -27,6 +27,7 @@ export class FriendOfFundComponent implements OnInit {
 
     this.defaultColDef = {
       flex: 1,
+      width:100,
       minWidth: 100,
       resizable: true,
       // headerCheckboxSelection:"isFirstColumn",
@@ -38,9 +39,9 @@ export class FriendOfFundComponent implements OnInit {
       { headerName: 'יתרה', field: 'balance' },
       { headerName: 'שם', field: 'name' },
       {
-        headerName: '', field: 'withdrawal',height:100,
+        headerName: '', field: 'withdrawal',
         cellRenderer: function (params) {
-          return `<div><a href="Withdrawals/add/${params.data.fund}/${params.data.id}/${params.data.balance}" disabled="${params.data.balance}>0?true:felse">הוסף משיכה</a>
+          return `<div><a href="Withdrawals/add/${params.data.fund}/${params.data.id}/${params.data.balance}" disabled="${params.data.balance}>0?true:felse">הוסף משיכה</a> /
           <a href="deposit/add/${params.data.fund}/${params.data.id}">הוסף הפקדה</a></div>`
           // [max]=${params.data.balance} > 
           // </addwithdrawal>`
