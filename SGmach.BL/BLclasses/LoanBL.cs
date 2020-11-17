@@ -79,6 +79,7 @@ namespace BI.BLclasses {
       Loan loanDAL = Sgmach.Loans.FirstOrDefault (l => l.LoanId == loan.id_loan);
       loanDAL.Months = loan.month;
       loanDAL.remark = loan.remark;
+      loanDAL.NameStatus=loan.NameStatus;
       loanDAL.RepaymentStart = loan.date_start;
       if (loanDAL == null) {
         throw new Exception ("loan not found");
@@ -107,6 +108,7 @@ namespace BI.BLclasses {
       // if the loan become active (the friend get the money) the  fund  Balance have to Subtract
       if (loan.NameStatus == "active" && loanDAL.NameStatus != "active") {
         loanDAL.NameStatus="active";
+        loan.management_Status="Proper";
         FundBL.Subtract_Balance (loan.amount);
       }
       

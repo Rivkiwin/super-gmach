@@ -144,7 +144,17 @@ namespace BL.BLclasses {
       using (SuperGmachEntities db = new SuperGmachEntities ()) {
         try {
           User userDAL = Userconvert.DTOtoDAL (u);
+          var date=DateTime.Now;
+          userDAL.last_Debit_order=date.AddMonths(-1);
           userDAL = db.Users.Add (userDAL).Entity;
+          User_in_fund user_In_Fund=new User_in_fund()
+          {
+            balance=0,
+            UserId=userDAL.UserId,
+            FundId="1",
+            date_join=DateTime.Now
+          };
+          db.UserInFunds.Add(user_In_Fund);
           db.SaveChanges ();
           return userDAL.UserId;
         } catch (Exception e) {
