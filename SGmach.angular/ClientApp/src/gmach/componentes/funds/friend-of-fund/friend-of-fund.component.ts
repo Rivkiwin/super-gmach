@@ -26,17 +26,17 @@ export class FriendOfFundComponent implements OnInit {
   constructor(private FundService: FundServiceService, public datepipe: DatePipe, private friendservic: FriendsService) {
 
     this.defaultColDef = {
-      flex: 1,
-      width:100,
+      // flex: 1,
+      // width:100,
       minWidth: 100,
       resizable: true,
       // headerCheckboxSelection:"isFirstColumn",
       //  checkboxSelection: this.isFirstColumn,
     };
     this.columnDefs = [
-      { headerName: 'תאריך הצטרפות', field: 'dateJoin' },
-      { headerName: 'ת"ז', field: 'id' },
-      { headerName: 'יתרה', field: 'balance' },
+      { headerName: 'תאריך הצטרפות', field: 'dateJoin',width:150},
+      { headerName: 'ת"ז', field: 'id',width:120 },
+      { headerName: 'יתרה', field: 'balance',width:130 },
       { headerName: 'שם', field: 'name' },
       {
         headerName: '', field: 'withdrawal',
