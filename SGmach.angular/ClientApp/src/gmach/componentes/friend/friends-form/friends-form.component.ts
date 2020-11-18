@@ -95,6 +95,7 @@ export class FriendsFormComponent implements OnInit {
       this.userId=<Number>this.formFriend.get('Id_user').value;
       this.new_friend.id_user=this.userId;
       this.new_friend.father_name=this.formFriend.get('father_name').value;
+      this.new_friend.joining_date=new Date();
       var Communication=<Communication>this.FCommunication_ways.value;
       debugger
       this.FriendService.add(this.new_friend,Communication,this.credit,this.Bank).subscribe(

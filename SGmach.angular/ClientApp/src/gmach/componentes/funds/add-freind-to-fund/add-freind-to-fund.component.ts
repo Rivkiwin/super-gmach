@@ -98,7 +98,7 @@ var sapnNoRow= <HTMLElement>document.getElementsByClassName("ag-overlay-no-rows-
         this.usersList = <Friend[]>u;
         debugger
         this.AddData();
-      
+        window.location.reload();
     })
   }
 

@@ -34,9 +34,9 @@ export class FriendOfFundComponent implements OnInit {
       //  checkboxSelection: this.isFirstColumn,
     };
     this.columnDefs = [
-      { headerName: 'תאריך הצטרפות', field: 'dateJoin',width:150},
+      { headerName: 'תאריך הצטרפות', field: 'dateJoin',width:140},
       { headerName: 'ת"ז', field: 'id',width:120 },
-      { headerName: 'יתרה', field: 'balance',width:130 },
+      { headerName: 'יתרה', field: 'balance',width:120 },
       { headerName: 'שם', field: 'name' },
       {
         headerName: '', field: 'withdrawal',
