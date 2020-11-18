@@ -146,6 +146,7 @@ namespace BL.BLclasses {
         try {
           User userDAL = Userconvert.DTOtoDAL (u);
           var date=DateTime.Now;
+          userDAL.joining_date=DateTime.Now;
           userDAL.last_Debit_order=date.AddMonths(-1);
           userDAL = db.Users.Add (userDAL).Entity;
           User_in_fund user_In_Fund=new User_in_fund()
