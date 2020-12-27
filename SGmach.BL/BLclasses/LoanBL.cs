@@ -30,15 +30,17 @@ namespace BI.BLclasses {
       db Sgmach = new db ();
       // DateTime date1 = loan.BeginningRepayment;
       // DateTime date2 = date1.AddMonths(loan.month);
+    
       int c = loan.Months / loan.Num_payments;
       int amount = loan.Amount / loan.Months;
-      for (int i = 0; i <= loan.Num_payments; i = ++i) {
+      for (int i =1; i <= loan.Num_payments; i = ++i) {
         Repayments repayment = new Repayments () { };
 
         repayment.Amount = amount;
         if (i == loan.Num_payments) {
           repayment.Amount = loan.Amount - (amount * (loan.Num_payments - 1));
         }
+        repayment.UserId=loan.UserId;
         repayment.Date = loan.RepaymentStart.AddMonths (i + c);
         repayment.LoanId = loan.LoanId;
 
