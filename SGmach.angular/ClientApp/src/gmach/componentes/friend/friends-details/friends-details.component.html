@@ -4,13 +4,12 @@
     <h3>פרטי חבר</h3>
     <form [formGroup]="formFriend" *ngIf="friend" class=" needs-validation" novalidate="">
         <div class="row">
-            <div class="col">
-                <label for="fname">שם פרטי</label>
-                <input type="text" class="form-control"
-                    formControlName="First_name" id="fname" required
-                    (keypress)="LetterinValid=LetterOnly($event)">
-                <div class="invalid-feedback"> הכנס שם </div>
-            </div>
+          <div class="col">
+            <label for="fname">שם האב</label>
+            <input type="text" class="form-control"
+                formControlName="father_name" id="father_name"
+                (keypress)="LetterinValid=LetterOnly($event)" required>
+        </div>
             <div class="col">
                 <label for="lname">שם משפחה</label>
                 <input type="text" class="form-control"
@@ -18,11 +17,12 @@
                     (keypress)="LetterinValid=LetterOnly($event)" required>
             </div>
             <div class="col">
-                <label for="fname">שם האב</label>
-                <input type="text" class="form-control"
-                    formControlName="father_name" id="father_name"
-                    (keypress)="LetterinValid=LetterOnly($event)" required>
-            </div>
+              <label for="fname">שם פרטי</label>
+              <input type="text" class="form-control"
+                  formControlName="First_name" id="fname" required
+                  (keypress)="LetterinValid=LetterOnly($event)">
+              <div class="invalid-feedback"> הכנס שם </div>
+          </div>
         </div>
         <div class="row">
             <div class="col">

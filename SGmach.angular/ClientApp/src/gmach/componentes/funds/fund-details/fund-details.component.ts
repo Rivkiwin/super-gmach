@@ -58,7 +58,7 @@ export class FundDetailsComponent implements OnInit {
 
   Fund: any;
 
- 
+
 
   constructor(
 
@@ -70,7 +70,7 @@ export class FundDetailsComponent implements OnInit {
 
   ) {}
 
- 
+
 
   ngOnInit(): void {
 
@@ -87,7 +87,7 @@ export class FundDetailsComponent implements OnInit {
           Required_months: new FormControl(this.fund.required_months),
 
           Required_VIP: new FormControl(this.fund.required_vip),
-
+          Required_friend: new FormControl (this.fund.required_friend)
         });
 
       })
@@ -96,7 +96,7 @@ export class FundDetailsComponent implements OnInit {
 
   }
 
- 
+
 
   //me:)
 
@@ -117,10 +117,11 @@ export class FundDetailsComponent implements OnInit {
       this.fund.Required_months= this.Details.get("Required_months").value;
 
       this.fund.required_vip= this.Details.get("Required_VIP").value;
+      this.fund.required_friend= this.Details.get("Required_friend").value;
 
     //  this.fund.remark= this.Details.get("remark").value;
 
- 
+
 
       this.FundServiceService.Save(this.fund).subscribe({
 
@@ -148,11 +149,11 @@ export class FundDetailsComponent implements OnInit {
 
       },
 
-      
+
 
     });
 
- 
+
 
   }
 

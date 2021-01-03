@@ -13,6 +13,7 @@ namespace DTO.classes.income
     public int Id { get; set; }
     public string user_name { get; set; }
     public int UserId { get; set; }
+    public string nameD { get; set; }
     public int amount { get; set; }
     public int fund_id { get; set; }
     public string FundName { get; set; }

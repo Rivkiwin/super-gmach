@@ -63,6 +63,7 @@ namespace BI.BLclasses
         _deposit.Amount = deposit.amount;
         _deposit.Date = deposit.date;
         _deposit.FundId = deposit.fund_id.ToString();
+        _deposit.name=deposit.nameD;
         // _deposit. = deposit.status;
         _deposit.Type = deposit.type;
         db.SaveChanges();

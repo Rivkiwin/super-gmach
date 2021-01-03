@@ -22,7 +22,8 @@ namespace BI.convertions
         Required_months = (int)fund.required_months.GetValueOrDefault(),
         required_vip = (bool)fund.required_vip.GetValueOrDefault(),
         Status =fund.NameStatus,
-        balance = fund.Balance
+        balance = fund.Balance,
+        required_friend=(bool)fund.required_friend.GetValueOrDefault()
       };
       return Nfund;
     }
@@ -38,7 +39,8 @@ namespace BI.convertions
         fund_name = fund.Fund_name,
         required_months = fund.Required_months,
         required_vip = fund.required_vip,
-        Balance=fund.balance
+        Balance=fund.balance,
+        required_friend=fund.required_friend
       };
       return nFund;
     }

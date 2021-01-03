@@ -6,7 +6,7 @@
             <label for="Expense amount">סכום הפקדה</label>
             <input type="number" class="form-control" formControlName="amount" placeholder="הכנס סכום"  min="1" required >
         </div>
-            <div class="col" >    
+            <div class="col" >
                 <label >צורת תשלום</label>
                 <select class="form-control"formControlName="Payment_method" required>
                     <option>אשראי</option>
@@ -22,8 +22,12 @@
                     <option>משתנה</option>
                 </select>
                  </div>
-        </div> 
-        
+                 <div class="col">
+                   <label>שם הפקדה</label>
+                   <input class="form-control"formControlName="nameD" required>
+                 </div>
+        </div>
+
      </form>
      <div class="row">
         <a (click)="Add($event)" id="BAdd" class="col">

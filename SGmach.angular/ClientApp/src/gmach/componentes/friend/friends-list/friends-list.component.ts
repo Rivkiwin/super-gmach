@@ -14,7 +14,7 @@ import { ExportExcelService } from 'src/gmach/services/export-excel.service';
 export class FriendsListComponent implements OnInit {
   rowData = [];
   gridApi;
-  search="";
+  search = "";
   gridColumnApi;
   Friends: Friend[];
   defaultColDef = {
@@ -24,7 +24,15 @@ export class FriendsListComponent implements OnInit {
   };
 
   columnDefs = [
-    { headerName: 'הלוואות', field: 'loan' },
+    {
+      headerName: 'הלוואות', field: 'loan',
+      cellStyle: function (params) {
+        if (params.data.loan &&( params.data.loan.includes('-') || params.data.loan.includes('לא תקין'))) {
+          //mark police cells as red
+          return { color: 'red' };
+        }
+      }
+    },
     { headerName: 'קרן רחל לאה', field: 'fund_Rachel_Leah' },
     { headerName: 'טל', field: 'phon', },
     {
@@ -51,18 +59,18 @@ export class FriendsListComponent implements OnInit {
     },
   ];
 
-  constructor(private friendsService: FriendsService, public managment: ManagmentStatusService,private ExcelService:ExportExcelService) { }
+  constructor(private friendsService: FriendsService, public managment: ManagmentStatusService, private ExcelService: ExportExcelService) { }
   public seeUsers() { }
   public seemangment() {
     this.managment.GetAll();
   }
 
-  
+
 
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    //diving coluom % to the tabel 
+    //diving coluom % to the tabel
     params.api.sizeColumnsToFit();
     window.addEventListener('resize', function () {
       setTimeout(function () {
@@ -76,31 +84,30 @@ export class FriendsListComponent implements OnInit {
     this.rowData = this.Friends.map(friend => {
       console.log(friend)
       return {
-        friendO:friend,
+        friendO: friend,
         managment: friend.management_status,
-        tooltip:friend.status_reason,
+        tooltip: friend.status_reason,
         friend: friend.friend ? 'V' : 'X',
         id: friend.id_user,
         name: `${friend.last_name} ${friend.first_name}`,
         phon: friend.communication_ways.phon1,
-        fund_Rachel_Leah:friend.rachelLea,
-        loan:friend.loans
+        fund_Rachel_Leah: friend.rachelLea,
+        loan:  friend.loans
       }
     });
   };
-  alerts:AlertsFriends[];
-  
+  alerts: AlertsFriends[];
+
   ngOnInit(): void {
 
     this.friendsService.get().subscribe(x => {
-      this.Friends = <Friend[]>x["users"]; 
-      this.alerts=<AlertsFriends[]>x["alertsUsers"];
-     this.addrowData();
+      this.Friends = <Friend[]>x["users"];
+      this.alerts = <AlertsFriends[]>x["alertsUsers"];
+      this.addrowData();
     });
   }
-  ExportExcel()
-  {
-    this.ExcelService.exportExcel(this.rowData,"חברי הגמח")
+  ExportExcel() {
+    this.ExcelService.exportExcel(this.rowData, "חברי הגמח")
   }
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);

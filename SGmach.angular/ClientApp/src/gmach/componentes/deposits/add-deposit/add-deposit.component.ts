@@ -32,13 +32,14 @@ export class ADDDepositComponent implements OnInit {
     this.paymentMethod = JSON.parse(e);
     // console.log( this.paymentMethod.value)
   };
- 
+
   ngOnInit(): void {
     // document.getElementById("Add-B").addEventListener("click",this.Add);
     this.FormAddDeposit = new FormGroup({
       amount: new FormControl(),
       type: new FormControl(),
       Payment_method:new FormControl(),
+      nameD:new FormControl(),
     });
   }
 
@@ -58,6 +59,8 @@ export class ADDDepositComponent implements OnInit {
     deposit.date = new Date();
     deposit.type = this.FormAddDeposit.get('type').value;
     deposit.fundId = this.fundId;
+    debugger
+    deposit.nameD= this.FormAddDeposit.get('nameD').value;
     debugger
     this.depositService.Add(deposit).subscribe(
       {

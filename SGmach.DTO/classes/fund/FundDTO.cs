@@ -13,6 +13,7 @@ namespace DTO.classes.fund
     public string Status { get; set; }
     public int Required_months { get; set; }
     public bool required_vip { get; set; }
+    public bool required_friend { get; set; }
     public string Comments { get; set; }
     public DateTime date_create { get; set; }
     public string Id { get; set; }

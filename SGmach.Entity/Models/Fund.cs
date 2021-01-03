@@ -19,6 +19,7 @@ namespace SGmach.Entity.Models
      public string GmachId { get; set; }="shavetHchim";
         public string fund_name { get; set; }
         public Nullable<int> required_months { get; set; }
+           public Nullable<bool> required_friend { get; set; }
         public Nullable<bool> required_vip { get; set; }
         public string comments { get; set; }
          public int Balance { get; set; }

@@ -9,6 +9,7 @@ export class Deposit {
     type;
     FundName;
     name;
+    nameD;
     Payment_method;
     status:status;
     date;

@@ -11,6 +11,10 @@ namespace SGmach.Entity.Models
         public int UserId { get; set; }
         public string Payment_method { get; set; }
         public string FundId { get; set; }
+
+        public string name { get; set; }
+        
+        
         public Fund Fund { get; set; }
 
         public User User { get; set; }

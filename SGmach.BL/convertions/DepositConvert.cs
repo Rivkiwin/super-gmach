@@ -19,7 +19,7 @@ namespace BI.convertions
       {
         Deposit DAL_Deposit = new Deposit()
         {
-
+         name=deposit.nameD,
           Amount = deposit.Amount,
           Date = deposit.Date,
           FundId = deposit.FundId.ToString(),
@@ -43,6 +43,7 @@ namespace BI.convertions
       {
         DepositDTO deposit_dto = new DepositDTO()
         {
+          nameD=deposit.name,
           Amount = deposit.Amount,
           Date = deposit.Date,
           FundId =deposit.FundId,
@@ -78,6 +79,7 @@ namespace BI.convertions
         depositDetails.date = deposit.Date;
         depositDetails.type = deposit.Type;
         depositDetails.Id = deposit.DepositId;
+        depositDetails.nameD=deposit.name;
       }
       catch (Exception e)
       {

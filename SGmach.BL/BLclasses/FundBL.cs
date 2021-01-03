@@ -76,7 +76,7 @@ namespace BI.BLclasses
 
     fundDal.required_vip= fund.required_vip;
 
-     //fundDal.remark= fund.remark;
+     fundDal.required_friend=fund.required_friend;
 
     fundDal.required_months= fund.Required_months;
 
@@ -163,16 +163,14 @@ namespace BI.BLclasses
     {
 
       List<UserDTO> users = new List<UserDTO>();
-      //List<User> usersDAL = new List<User>();
 
       DB Sgmach = new DB();
       Fund fund = Sgmach.Funds.FirstOrDefault(f => f.FundId == fundId);
       DateTime Today = DateTime.Today;
-      //usersDAL = Sgmach.Users.Where(u =>u.joining_date.GetValueOrDefault().AddMonths((int)fund.required_months) <= Today
-      //&&(fund.required_vip==true&&u.VIP==true||fund.required_vip==false)).ToList();
-
       var query = from u in Sgmach.Users
                   where (u.joining_date.AddMonths((int)fund.required_months)) <= Today
+                  where (fund.required_friend==false || u.frirnd == fund.required_friend )
+                  where( fund.required_vip==false || u.VIP==fund.required_vip)
                   where !(from uf in Sgmach.UserInFunds where  uf.FundId == fund.FundId select uf.UserId).Contains(u.UserId)
                   select u;
       foreach (User user in query)

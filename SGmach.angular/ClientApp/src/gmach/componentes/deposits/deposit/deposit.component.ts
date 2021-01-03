@@ -26,6 +26,7 @@ export class DepositComponent implements OnInit {
     }},
     { headerName: 'תאריך הפקדה', field: 'date',sortable: true},
     { headerName: 'שם המפקיד', field: 'user',sortable: true},
+    { headerName: 'שם הפקדה', field: 'nameD',sortable: true},
     { headerName: 'סכום', field: 'amount',sortable: true},
     { headerName: 'סוג', field: 'type',sortable: true },
     { headerName: 'קרן', field: 'fund',sortable: true }
@@ -35,8 +36,8 @@ export class DepositComponent implements OnInit {
     onGridReady(params) {
       this.gridApi = params.api;
       this.gridColumnApi = params.columnApi;
-  
-      //diving coluom % to the tabel 
+
+      //diving coluom % to the tabel
       params.api.sizeColumnsToFit();
       window.addEventListener('resize', function () {
         setTimeout(function () {
@@ -51,7 +52,7 @@ export class DepositComponent implements OnInit {
       this.Deposits=<Deposit[]>Deposit;
       this.AddData();
     } );
-    
+
   }
   AddData()
   {
@@ -62,7 +63,8 @@ export class DepositComponent implements OnInit {
         user:deposit.user_name,
         amount:deposit.amount,
         type:deposit.Payment_method,
-        fund:deposit.FundName
+        fund:deposit.FundName,
+        nameD:deposit.nameD
       }
     })
   }

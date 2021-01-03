@@ -20,13 +20,13 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
   depositList:Deposit[]=[];
   Withdrawals:Withdrawals[]=[];
   rowData=[];
-  constructor(private WithdralsS:WithdrawalsService,private FundService:FundServiceService,private depositService:DepositService,public datepipe: DatePipe) { 
+  constructor(private WithdralsS:WithdrawalsService,private FundService:FundServiceService,private depositService:DepositService,public datepipe: DatePipe) {
     this.defaultColDef = { resizable: true };
 
   }
   onFirstDataRendered(params) {
     params.api.sizeColumnsToFit();
-    
+
   }
   @Input() friendId;
   @Input() fundId;
@@ -34,10 +34,11 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
     this.columnDefs = [
       { headerName: 'סוג', field: 'type', width:120},
       { headerName: 'תאריך', field: 'date',width:128},
-      { headerName: 'סטטוס', field: 'status'},
+      { headerName: 'סטטוס', field: 'status',width:120},
       { headerName: 'שם חבר', field: 'nameFriend', hide: this.friendId!=undefined},
+      { headerName: 'תיאור', field: 'nameD',width:120},
       { headerName: 'קרן', field: 'fund' ,hide: this.fundId!=undefined},
-      { headerName: 'סכום', field: 'amount', width:130},
+      { headerName: 'סכום', field: 'amount', width:120},
     ]
     if(this.friendId!=undefined)
     {
@@ -69,9 +70,9 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
       this.Withdrawals=<Withdrawals[]>w;
       console.log(w);
       this.addRowData();
-    }) 
+    })
   }
-    
+
   }
 
   onGridReady(params) {
@@ -83,7 +84,7 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
       }
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    //diving coluom % to the tabel 
+    //diving coluom % to the tabel
     debugger
     params.api.sizeColumnsToFit();
     window.addEventListener('resize', function () {
@@ -93,7 +94,7 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
     });
   }
 
- 
+
   addRowData()
   {
 
@@ -103,7 +104,8 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
         amount:d.amount,
         type:"הפקדה",
         nameFriend:d.user_name,
-        status:d.type
+        status:d.type,
+        nameD:d.nameD
     }});
     debugger;
     this.Withdrawals.forEach(w=>{this.rowData.push(
@@ -118,7 +120,7 @@ export class WithdrawalsAndDepositsComponent implements OnInit {
       });
     });
   }
-  
+
   onFilterTextBoxChanged() {
     this.gridApi.setQuickFilter(this.search);
   }

@@ -19,5 +19,6 @@ namespace DTO.classes.income
         public int UserId { get; set; }
         public string Payment_method { get; set; }
         public string FundId { get; set; }
+        public string nameD { get; set; }
   }
 }
