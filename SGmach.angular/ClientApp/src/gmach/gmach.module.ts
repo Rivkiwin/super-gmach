@@ -32,7 +32,7 @@ import { AddNewComponent } from './componentes/petty-cash/expenditure/add-new/ad
  import {GmachMenuComponent} from "./gmach-menu/gmach-menu.component";
 import {GmachMngMenuComponent} from "./gmach-mng-menu/gmach-mng-menu.component";
 import { CreditDetailsComponent } from './componentes/credit-details/credit-details.component';
-import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
+import { AddLoanComponent } from './componentes/loan/addloan/addloan.component';
 import { DiagramComponent } from './componentes/diagram/diagram.component'
 import { UserSelecteComponent } from './componentes/select/user-selecte/user-selecte.component';
 import { ExpenditureAndIncomeChartsComponent } from './componentes/expenditure-and-income-charts/expenditure-and-income-charts.component';
@@ -83,7 +83,7 @@ import { ADDDepositComponent } from './componentes/deposits/add-deposit/add-depo
     GmachMenuComponent,
     GmachMngMenuComponent,
     CreditDetailsComponent,
-    AddLoadComponent,
+    AddLoanComponent,
     DiagramComponent,
     UserSelecteComponent,
     ExpenditureAndIncomeChartsComponent,
@@ -116,7 +116,7 @@ import { ADDDepositComponent } from './componentes/deposits/add-deposit/add-depo
     GmachAppRoutingModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-  
+
     // MatSelectModule,
     // MatFormFieldModule,
     // NgxMatSelectSearchModule

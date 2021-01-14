@@ -30,29 +30,13 @@ namespace SGmach.angular {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
             
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (ExpenditureController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (DepositController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (FundController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (IncomeController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (LoanController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (StatusController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (TranzilaController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (UsersController))).AddControllersAsServices ();
-            // services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (WithdrawalsController))).AddControllersAsServices ();
-            services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (Management_StatusController))).AddControllersAsServices ()
+                 services.AddMvc ().AddApplicationPart (Assembly.GetAssembly (typeof (Management_StatusController))).AddControllersAsServices ()
                 .AddNewtonsoftJson ();
 
-            // .AddJsonOptions (op => {op.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-            // op.JsonSerializerOptions.});
 
             services.AddDbContext<ApplicationDbContext> (options =>
                 options.UseSqlite (
                     Configuration.GetConnectionString ("DefaultConnection")));
-
-            // services.AddDbContext<GmachUserDbContext>(options =>
-            //     options.UseSqlite(
-            //         Configuration.GetConnectionString("DefaultConnection")));
-            //
 
             services.AddDbContext<SuperGmachEntities> (options =>
                 options.UseSqlite (
@@ -79,29 +63,6 @@ namespace SGmach.angular {
             services.AddAuthentication ()
                 .AddIdentityServerJwt ();
 
-            //
-            // services.AddIdentity<GmachUser, IdentityRole>(options =>
-            //     {
-            //         options.Password.RequireNonAlphanumeric = false;
-            //         options.Password.RequiredLength = 0;
-            //         options.Password.RequireDigit = false;
-            //         options.Password.RequiredUniqueChars = 0;
-            //         options.Password.RequireUppercase = false;
-            //         options.Password.RequireLowercase = false;
-            //         options.SignIn.RequireConfirmedAccount = false;
-            //     })
-            //     .AddEntityFrameworkStores<GmachUserDbContext>();
-            //
-            // services.ConfigureApplicationCookie (options => {
-            //     options.AccessDeniedPath = new PathString ("Areas/Identity/Pages/Account/Login.cshtml");
-            //     options.Cookie.Name = "Cookie";
-            //     options.Cookie.HttpOnly = true;
-            //     options.ExpireTimeSpan = TimeSpan.FromMinutes (720);
-            //     options.LoginPath = new PathString ("/Account/Login");
-            //     options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-            //     options.SlidingExpiration = true;
-            // });
-
             services.AddControllersWithViews ();
             services.AddRazorPages ();
             // In production, the Angular files will be served from this directory
@@ -109,30 +70,7 @@ namespace SGmach.angular {
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            // services.Configure<JwtBearerOptions>(
-            //     IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
-            //     options =>
-            //     {
-            //         var onTokenValidated = options.Events.OnTokenValidated;
-            //         var onChallenge = options.Events.OnChallenge;
-            //         // options.Events.OnChallenge = async context =>
-            //         // {
-            //         //     
-            //         //     await onChallenge(context);
-            //         // };
-            //         // options.Events.OnTokenValidated = async context =>
-            //         // { 
-            //         //     await onTokenValidated(context);
-            //         // };
-            //     });
-            // services.AddAuthorization( 
-            //    
-            // );
-            // services.AddAuthorization(options =>
-            // {
-            //     options.AddPolicy("GmachMng", policy =>
-            //         policy.RequireClaim("gmach"));
-            // });
+ 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,14 +1,9 @@
-<!-- <ul *ngIf="!isAuthenticated | async">
-  <li> בבקשה  <a [routerLink]='["/authentication/login"]'> הכנס</a> כדי לקבל גישה לפרטי הגמ"ח</li>
-  <li>If you don't have an account,  <a [routerLink]='["/authentication/register"]'>register</a>  a new one and contact <a href="super.gmach@gmail.com">super.gmach</a> to get access</li>
 
-</ul> -->
 
 <div *ngIf="isAuthenticated | async ; else loggedIn">
-  <diagram *ngIf="isAuthenticated | async"></diagram>
-  <!-- <h3> {{gmachName| async}}: ברוכים הבאים ל </h3>
-  <h5>תתחיל לעבוד ע"י בחירת פעולה מהתפריט</h5> -->
-  </div> 
+  <diagram *ngIf="isAuthenticated | async">
+  </diagram>
+  </div>
 
 <ng-template #loggedIn class="centerElement">
   <div id="loginMessage"><b> בבקשה  <a [routerLink]='["/authentication/login"]'> הכנס</a> כדי לקבל גישה לפרטי הגמ"ח</b></div>

@@ -21,7 +21,7 @@ import { CommonModule } from "@angular/common";
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { GmachMenuComponent } from "./gmach-menu/gmach-menu.component";
 import { GmachMngMenuComponent } from "./gmach-mng-menu/gmach-mng-menu.component";
-import { AddLoadComponent } from './componentes/loan/addloan/addloan.component';
+import { AddLoanComponent } from './componentes/loan/addloan/addloan.component';
 import { AddComponent } from './componentes/petty-cash/petty-cash/incomes/add/add.component';
 import { LoansListComponent } from './componentes/loan/loans-list/loans-list.component';
 import { ListComponent } from './componentes/petty-cash/petty-cash/incomes/list/list.component';
@@ -53,7 +53,7 @@ const routes: Routes = [
     path: "loan",
     children: [{
       path: "loanAdd",
-      component: AddLoadComponent
+      component: AddLoanComponent
     },
     {
       path:"list",
